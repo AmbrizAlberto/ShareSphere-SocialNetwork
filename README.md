@@ -3,7 +3,7 @@
 ## Project Overview
 The Open Social Communication Platform is a web-based forum designed to foster an enriching exchange of information and perspectives within virtual communities. This digital interaction platform enables the posting and replying of messages by users within thematic threads, featuring user profiles and moderation systems to promote a constructive and inclusive participation environment. The forum's design emphasizes accessibility and interaction, ensuring a seamless user experience for all community members.
 
-This project is aligned with the [UNESCO's Sustainable Development Goals (SDGs)](https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/) :earth_americas:, focusing on:
+This project is aligned with the [UNESCO's Sustainable Development Goals (SDGs)](https://es.unesco.org/sdgs) :earth_americas:, focusing on:
 
 - Clean Water and Sanitation
 - Affordable and Clean Energy
