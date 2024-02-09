@@ -158,11 +158,11 @@ CREATE TABLE `Vote` (
 -- "COMMENT VOTE TABLE (TABLA DE VOTOS DE COMENTARIOS)" --
 
 CREATE TABLE `CommentVote` (
-  `id` VARCHAR(255) PRIMARY KEY,
+  `id` VARCHAR(255),
   `type` ENUM('UPVOTE', 'DOWNVOTE'),
   `userId` VARCHAR(255),
   `commentId` VARCHAR(255),
-  PRIMARY KEY (`userId`, `commentId`),
+  PRIMARY KEY (`userId`, `commentId`), -- Composite primary key
   FOREIGN KEY (`userId`) REFERENCES `User`(`id`),
   FOREIGN KEY (`commentId`) REFERENCES `Comment`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
