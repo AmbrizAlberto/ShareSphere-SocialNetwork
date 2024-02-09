@@ -142,15 +142,13 @@ CREATE TABLE `Comment` (
 --"VOTE TABLE (TABLA DE VOTOS)"--
 
 CREATE TABLE `Vote` (
-  `id` VARCHAR(255) PRIMARY KEY,
+  `id` VARCHAR(255),
   `type` ENUM('UPVOTE', 'DOWNVOTE'),
   `userId` VARCHAR(255),
-  `postId` VARCHAR(255),
-  `commentId` VARCHAR(255),
-/*  
- 'commentId' is used to store the comment id when the vote is for a comment.
-*/
-  PRIMARY KEY (`userId`, `postId`, `commentId`),
+  `postId` VARCHAR(255) NULL,
+  `commentId` VARCHAR(255) NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE (`userId`, `postId`, `commentId`),
   FOREIGN KEY (`userId`) REFERENCES `User`(`id`),
   FOREIGN KEY (`postId`) REFERENCES `Post`(`id`),
   FOREIGN KEY (`commentId`) REFERENCES `Comment`(`id`)
