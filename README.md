@@ -1,2 +1,2 @@
-# Foro---Red-Social-HTML
+# Foro Red-Social / HTML
 Proyecto Escolar
