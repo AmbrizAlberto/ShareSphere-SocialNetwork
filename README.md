@@ -61,4 +61,7 @@ The development and maintenance of the Open Social Communication Platform are th
 
 Our team is committed to fostering an open and collaborative environment. We welcome feedback, suggestions, and contributions to improve the platform and better serve our community's needs. For more detailed discussions, feature requests, or to report issues, please use the Issues and Discussions sections on our GitHub repository.
 
+> [!NOTE]
+> hacer el diseño de la base de datos
+
 
