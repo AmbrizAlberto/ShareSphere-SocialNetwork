@@ -133,7 +133,7 @@ CREATE TABLE `Comment` (
   `updatedAt` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `creatorId` VARCHAR(255),
   `postId` VARCHAR(255),
-  'replyToId' VARCHAR(255),
+  `replyToId` VARCHAR(255), -- Corrected from 'replyToId' to `replyToId`
   FOREIGN KEY (`creatorId`) REFERENCES `User`(`id`),
   FOREIGN KEY (`postId`) REFERENCES `Post`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
