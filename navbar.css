@@ -1,38 +1,43 @@
+
+html{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(229, 228, 228);
+}
+
+body{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(229, 228, 228);
+}
+
 .navbar {
-    width: 6%;
-    height: 100vh;
-    background-color: #817e7e4c;
     position: fixed;
+    width: 6%;
+    height: 90vh;
+    background-color: #817e7e4c;
     top: 0;
     left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 2%;
-    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.555);
+    box-shadow: 0 0px 20px #000000ac;
     transition: width 0.5s;
+    border-radius: 10px;
+    margin: 3vh;
+    z-index: 999;
 }
 
 .navbar .logo {
+    width: auto;
+    height: auto;
     font-size: 200%;
-}
-
-.navbar .logo{
-    font-size: 24px;
-}
-.logo {
-    font-size: 24px;
     margin-bottom: 5%;
 }
-
-
-.optionnv {
-    position: relative;
-    overflow: hidden;
-    color: black;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
+.navbar .logo:hover{
+    color: hsl(48, 100%, 51%);
+    text-shadow: 0 0 10px rgb(0, 0, 0);
 }
 
 .optionnv span{
@@ -40,16 +45,16 @@
 }
 
 .optionnv i {
-    margin-left: 31%; /* Ajusta el margen izquierdo del icono cuando no se pasa el ratón */
+    margin-left: 29%;
     margin-right: 2%;
     font-size: 6vh;
-    transition: margin-left 0.5s; /* Agrega una transición suave para el cambio de margen izquierdo */
+    transition: margin-left 0.5s;
 }
 
 .optionnv {
     position: relative;
     overflow: hidden;
-    color: black;
+    color: #000000;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -66,14 +71,14 @@
 
 /* HOVERS */
 button:hover{
-    cursor:alias;
+    cursor:pointer;
 }
 .navbar:hover {
-    width: 12%;
+    width: 10.5%;
 }
 
 .optionnv:hover i {
-    margin-left: 2%; /* Ajusta el margen izquierdo del icono cuando se pasa el ratón */
+    margin-left: 2%;
 }
 .optionnv:hover span {
     visibility: visible;

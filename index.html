@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RedSocial</title>
+    <title>ShareSphere</title>
 
-    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="textpost.css">
+    <link rel="stylesheet" href="photopost.css">
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -19,7 +20,7 @@
     <header>
         <div class="navbar">
             <div class="logo">
-              <button class="logo" style="font-size: 24px; background-color: transparent; border: none;" href="/"></i><span>FR</span></button>
+              <button class="logo" style="font-size: 24px; background-color: transparent; border: none;" href="/"></i><span>SS</span></button>
             </div>
 
             <div class="access">
@@ -38,17 +39,18 @@
     
     <div class="main">
         <div class="feedhead">
-          <h1>FORO</h1>
-          <i class="bi bi-plus-square"></i>
+          <h1>ShareSphere</h1>
           <i class="bi bi-app-indicator"></i>
         </div>
-  
-        <div>
-          <br /><br /><br /><br />
-        </div>
+
+        <br /><br /><br /><br /><br /><br />
+
 
         <div class="upload">
-          <h1>Subir idea</h1>
+          <form action="#" method="post">
+            <input type="text" class="uploadtext" placeholder="¿Qué estás pensando?" />
+            <button class="button">Upload</button>
+          </form>
         </div>
 
 
@@ -64,6 +66,7 @@
               </div>
               
               <div class="user">
+
                 <div class="photouser">
                   <form action="#" method="post">
                     <input
