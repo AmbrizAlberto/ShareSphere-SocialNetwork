@@ -1,3 +1,5 @@
+--Test to verify that the tables are created correctly
+
 -- BEGIN: Test User Table
 -- Verificar que la tabla "User" se crea correctamente
 SELECT * FROM `User`;

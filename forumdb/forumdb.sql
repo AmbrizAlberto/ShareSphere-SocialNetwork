@@ -24,31 +24,31 @@ The tables include:
 --"USER" TABLE (TABLA DE USUARIO)--
 
 CREATE TABLE `User` (
-    `id` VARCHAR(255) PRIMARY KEY,
-    `name` VARCHAR(255),
-    `email` VARCHAR(255) UNIQUE,
+    `id` VARCHAR(36) PRIMARY KEY,
+    `name` VARCHAR(50),
+    `email` VARCHAR(100) UNIQUE,
     `emailVerified` DATETIME,
-    `username` VARCHAR(255) UNIQUE,
+    `username` VARCHAR(20) UNIQUE,
     `passwordHash` VARCHAR(60) NOT NULL,
-    `image` VARCHAR(255)
+    `image` VARCHAR(100)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 --"ACCOUNT" TABLE (TABLA DE CUENTA)"--
 
 CREATE TABLE `Account` (
-  `id` VARCHAR(255) PRIMARY KEY,
-  `userId` VARCHAR(255),
-  `type` VARCHAR(255),
-  `provider` VARCHAR(255),
-  `providerAccountId` VARCHAR(255),
+  `id` VARCHAR(36) PRIMARY KEY,
+  `userId` VARCHAR(36),
+  `type` VARCHAR(20),
+  `provider` VARCHAR(50),
+  `providerAccountId` VARCHAR(50),
   `refresh_token` TEXT,
   `access_token` TEXT,
   `expires_at` INT,
-  `token_type` VARCHAR(255),
-  `scope` VARCHAR(255),
+  `token_type` VARCHAR(50),
+  `scope` VARCHAR(50),
   `id_token` TEXT,
-  `session_state` VARCHAR(255),
+  `session_state` VARCHAR(50),
   UNIQUE(`provider`, `providerAccountId`),
   FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -57,11 +57,11 @@ CREATE TABLE `Account` (
 --"SESSION" TABLE (TABLA DE SESIÓN )" --
 
 CREATE TABLE `Session` (
-  `id` VARCHAR(255) PRIMARY KEY,
-  `userId` VARCHAR(255),
+  `id` VARCHAR(36) PRIMARY KEY,
+  `userId` VARCHAR(36),
   `expires` DATETIME,
-  `sessionToken` VARCHAR(255),
-  `accessToken` VARCHAR(255),
+  `sessionToken` VARCHAR(50),
+  `accessToken` VARCHAR(50),
   `createdAt` DATETIME,
   `updatedAt` DATETIME,
   FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE CASCADE
@@ -73,9 +73,9 @@ CREATE TABLE `Session` (
 
 /* 
 CREATE TABLE `VerificationRequest` (
-  `id` VARCHAR(255) PRIMARY KEY,
-  `identifier` VARCHAR(255),
-  `token` VARCHAR(255),
+  `id` VARCHAR(36) PRIMARY KEY,
+  `identifier` VARCHAR(50),
+  `token` VARCHAR(50),
   `expires` DATETIME,
   `createdAt` DATETIME,
   `updatedAt` DATETIME
@@ -84,13 +84,13 @@ CREATE TABLE `VerificationRequest` (
 
 -- "SUBGROUP" TABLE (TABLA DE SUBGRUPO) --
 CREATE TABLE `Subgroup` (
-  `id` VARCHAR(255) PRIMARY KEY,
-  `name` VARCHAR(255),
+  `id` VARCHAR(36) PRIMARY KEY,
+  `name` VARCHAR(50),
   `description` TEXT,
-  `image` VARCHAR(255),
+  `image` VARCHAR(100),
   `createdAt` DATETIME DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `creatorId` VARCHAR(255),
+  `creatorId` VARCHAR(36),
   FOREIGN KEY (`creatorId`) REFERENCES `User`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -98,8 +98,8 @@ CREATE TABLE `Subgroup` (
 -- SUBSCRIPTION TABLE (TABLA DE SUBSCRIPCIÓN)--
 
 CREATE TABLE `Subscription` (
-  `userId` VARCHAR(255),
-  `SubgroupId` VARCHAR(255),
+  `userId` VARCHAR(36),
+  `SubgroupId` VARCHAR(36),
   `createdAt` DATETIME DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`userId`, `SubgroupId`),
@@ -111,14 +111,14 @@ CREATE TABLE `Subscription` (
 --"POST" TABLE (TABLA DE PUBLICACIÓN)--
 
 CREATE TABLE `Post` (
-  `id` VARCHAR(255) PRIMARY KEY,
-  `title` VARCHAR(255),
+  `id` VARCHAR(36) PRIMARY KEY,
+  `title` VARCHAR(100),
   `content` TEXT,
-  `image` VARCHAR(255),
+  `image` VARCHAR(100),
   `createdAt` DATETIME DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `creatorId` VARCHAR(255),
-  `SubgroupId` VARCHAR(255),
+  `creatorId` VARCHAR(36),
+  `SubgroupId` VARCHAR(36),
   FOREIGN KEY (`creatorId`) REFERENCES `User`(`id`),
   FOREIGN KEY (`SubgroupId`) REFERENCES `Subgroup`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci; 
@@ -127,13 +127,13 @@ CREATE TABLE `Post` (
 -- "COMMENT" TABLE (TABLA DE COMENTARIOS) --
 
 CREATE TABLE `Comment` (
-  `id` VARCHAR(255) PRIMARY KEY,
+  `id` VARCHAR(36) PRIMARY KEY,
   `content` TEXT,
   `createdAt` DATETIME DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `creatorId` VARCHAR(255),
-  `postId` VARCHAR(255),
-  `replyToId` VARCHAR(255), -- Corrected from 'replyToId' to `replyToId`
+  `creatorId` VARCHAR(36),
+  `postId` VARCHAR(36),
+  `replyToId` VARCHAR(36), -- Corrected from 'replyToId' to `replyToId`
   FOREIGN KEY (`creatorId`) REFERENCES `User`(`id`),
   FOREIGN KEY (`postId`) REFERENCES `Post`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -142,11 +142,11 @@ CREATE TABLE `Comment` (
 --"VOTE TABLE (TABLA DE VOTOS)"--
 
 CREATE TABLE `Vote` (
-  `id` VARCHAR(255),
+  `id` VARCHAR(36),
   `type` ENUM('UPVOTE', 'DOWNVOTE'),
-  `userId` VARCHAR(255),
-  `postId` VARCHAR(255) NULL,
-  `commentId` VARCHAR(255) NULL,
+  `userId` VARCHAR(36),
+  `postId` VARCHAR(36) NULL,
+  `commentId` VARCHAR(36) NULL,
   PRIMARY KEY (`id`),
   UNIQUE (`userId`, `postId`, `commentId`),
   FOREIGN KEY (`userId`) REFERENCES `User`(`id`),
@@ -158,10 +158,10 @@ CREATE TABLE `Vote` (
 -- "COMMENT VOTE TABLE (TABLA DE VOTOS DE COMENTARIOS)" --
 
 CREATE TABLE `CommentVote` (
-  `id` VARCHAR(255),
+  `id` VARCHAR(36),
   `type` ENUM('UPVOTE', 'DOWNVOTE'),
-  `userId` VARCHAR(255),
-  `commentId` VARCHAR(255),
+  `userId` VARCHAR(36),
+  `commentId` VARCHAR(36),
   PRIMARY KEY (`userId`, `commentId`), -- Composite primary key
   FOREIGN KEY (`userId`) REFERENCES `User`(`id`),
   FOREIGN KEY (`commentId`) REFERENCES `Comment`(`id`)
