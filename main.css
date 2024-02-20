@@ -59,6 +59,10 @@ body{
     align-items: center; /* Centra verticalmente los elementos */
 }
 
+.upload:hover{
+    box-shadow: 0 0px 20px rgb(200, 140, 0);
+}
+
 .upload form {
     width: 100%;
     display: flex;
@@ -78,9 +82,15 @@ body{
     border-left: 1px solid black;
     padding-left: 2vh;
     padding-right: 3.5vh;
+    padding-top: 5%;
+    padding-bottom: 5%;
+
 }
 
 .upload button:hover {
+    color: rgb(177, 59, 0);
+    background-color: rgba(255, 145, 0, 0.399);
+    box-shadow: 0 0 40px rgb(255, 157, 0);
     cursor: pointer;
 }
 
@@ -196,8 +206,19 @@ body{
 .reactions i {
     width: auto;
     font-size: 150%;
-    background-color: transparent;
-    color: #000;
+    color: black;
     cursor: pointer;
     border: none;
+    background-color: transparent;
 }
+
+.reactions i.bi.bi-star:hover{
+    color: rgb(179, 75, 137);
+    text-shadow: 0 0 12px rgb(255, 0, 0);
+}
+
+.reactions i.bi.bi-chat:hover{
+    color: rgb(42, 132, 171);
+    text-shadow: 0 0 10px rgb(0, 251, 255);
+}
+
