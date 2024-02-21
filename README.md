@@ -52,16 +52,13 @@ The project is licensed under [LICENSE], offering open-source accessibility whil
 
 The development and maintenance of the Open Social Communication Platform are the results of collaborative efforts by a dedicated team of developers and contributors. For inquiries, support, or contributions, please feel free to reach out to any of our team members via their GitHub profiles.
 
-- Ambriz Chávez José Alberto - GitHub: Profile
-- Aguilar Ávalos José David - GitHub: Profile
+- Ambriz Chávez José Alberto - GitHub: AmbrizAlberto
+- Aguilar Ávalos José David - GitHub: JDAA4
 - Casillas Sánchez Ramón Dalai - GitHub: Profile
 - García Gámez Marco Antonio - GitHub: mggmz
 - García Rea Ulises Gerardo - GitHub: Uli19
 - San Millan Ramos Alan Adolfo - GitHub: Alan-San-Millan
 
 Our team is committed to fostering an open and collaborative environment. We welcome feedback, suggestions, and contributions to improve the platform and better serve our community's needs. For more detailed discussions, feature requests, or to report issues, please use the Issues and Discussions sections on our GitHub repository.
-
-> [!NOTE]
-> hacer el diseño de la base de datos
 
 
