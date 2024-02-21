@@ -1,0 +1,49 @@
+.PerfilPage{
+    width: 80%;
+    margin-left: 5%;
+}
+
+.PerfilPage .PerfilPortada img{
+    width: 100%;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+
+}
+
+.PerfilPage .PerfilPhoto img{
+    position: absolute;
+    margin-top: -22.6vh;
+    margin-left: .7%;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 35%;
+    border: 3px solid rgb(255, 255, 255);
+}
+
+.PerfilPage .PerfilName h1{
+    position: absolute;
+    font-size: 14vh;
+    margin-top: -19vh;
+    margin-left: 24vh;
+    color: rgb(0, 0, 0);
+    text-shadow: 1px  0px 0px rgb(255, 255, 255),
+               0px  1px 0px white,
+              -1px  0px 0px white,
+               0px -1px 0px white;
+}
+
+.PerfilDescription h2{
+    color: rgba(255, 255, 255, 0.649);
+    position: absolute;
+    font-size: 2.3vh;
+    width: 25%;
+    margin-left: 60vh;
+    border-left: 1px solid rgba(255, 255, 255, 0.488);
+    padding-left: 1%;
+    margin-top: -17%;
+}
+
+.Post
+{
+    margin-left: 15vh;
+}

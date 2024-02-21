@@ -1,0 +1,85 @@
+
+html{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(229, 228, 228);
+}
+
+body{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(229, 228, 228);
+}
+
+.navbar {
+    position: fixed;
+    width: 6%;
+    height: 90vh;
+    background-color: #817e7e4c;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2%;
+    box-shadow: 0 0px 20px #000000ac;
+    transition: width 0.5s;
+    border-radius: 10px;
+    margin: 3vh;
+    z-index: 999;
+}
+
+.navbar .logo {
+    width: auto;
+    height: auto;
+    font-size: 200%;
+    margin-bottom: 5%;
+}
+.navbar .logo:hover{
+    color: hsl(48, 100%, 51%);
+    text-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+.optionnv span{
+    visibility: hidden;
+}
+
+.optionnv i {
+    margin-left: 29%;
+    margin-right: 2%;
+    font-size: 6vh;
+    transition: margin-left 0.5s;
+}
+
+.optionnv {
+    position: relative;
+    overflow: hidden;
+    color: #000000;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+}
+
+.optionnv span {
+    visibility: hidden;
+}
+
+
+
+
+/* HOVERS */
+button:hover{
+    cursor:pointer;
+}
+.navbar:hover {
+    width: 10.5%;
+}
+
+.optionnv:hover i {
+    margin-left: 2%;
+}
+.optionnv:hover span {
+    visibility: visible;
+}
