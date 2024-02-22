@@ -28,6 +28,9 @@ body{
     margin: 3vh;
     z-index: 999;
 }
+.navbar:hover{
+    box-shadow: 0 0px 20px rgb(128, 81, 0);
+}
 
 .navbar .logo {
     width: auto;
