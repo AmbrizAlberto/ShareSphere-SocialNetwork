@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="registrate.css">
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    
+
+    
+<header class="header">
+    <nav class="nav">
+        <div class="logoDiv">
+            <h1 class="logo">H&H</h1>
+        </div>
+
+        <div class="menu">
+            <a href="">Acerca de la tienda</a>
+        </div>
+    </nav>
+</header>
+
+<section class="home">
+    <div class="content">
+        <h2>Harmony And Heaven</h2>
+        <div class="photo">
+            <div class="img1"></div>
+            <div class="img2"></div>
+            <div class="img3"></div>
+        </div>
+        <pre class="pre"> Debes iniciar sesion para poder ingresar al inventario <p class="pre"> y recursos de la Tienda Web. </p>
+           
+    </div>
+
+    <div class="login">
+        
+       <h2>REGISTRATE</h2>
+
+        <br>
+        <form action="/register/user" method="post">
+        <div class="input">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="text" class="input1" placeholder="Usuario"  name="username" id="username" required>
+        </div>
+
+        <div class="input">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" class="input1" placeholder="Contraseña" name="password" id="password" required>
+        </div>
+
+        <div class="input">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" class="input1" placeholder="Clave Permisos"   name="roles" id="roles" >
+        </div>
+
+        <div class="tyc">
+                                <label>
+            <input type="checkbox" name="terms" required>
+            <a href="">Acepto los términos y condiciones</a>
+            </label>  
+        </div>
+
+
+        <span>Ya tienes una cuenta </span><a  class="aRegister"href="/">Inicia Sesión!</a>
+
+            <div class="button">
+                <button class="btn">Registrate</button>
+            </div>
+
+        </form>
+    <br><br><br><br>
+    </div>
+</section>
+
+</body>
+</html>
+
