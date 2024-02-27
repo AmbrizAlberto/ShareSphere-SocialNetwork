@@ -49,6 +49,9 @@
             <div class="PerfilDatos">
                 <div class="PerfilPortada">
                     <img src="https://i.pinimg.com/736x/b3/08/cc/b308cc852be780b03a9873ef42ce71f5.jpg" alt="#">
+                    <button type="button" class="editbtn">
+                      <i class="bi bi-pencil-fill"></i> Editar
+                    </button>
                 </div>
                 <div class="PerfilPhoto">
                     <img src="https://img.freepik.com/foto-gratis/joven-barbudo-camisa-rayas_273609-5677.jpg?w=740&t=st=1702678697~exp=1702679297~hmac=c54395be72f5a4c41e214867636a5cc62b7244b9da21862a94571399b52a2953" alt="">
@@ -96,9 +99,13 @@
                       <h1>Name</h1>
                     </div>
                     <div class="options">
-                      <button className="btn btn-light">
-                        <i className="bi bi-three-dots"></i>
+                      <button class="btn btn-light" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-three-dots-vertical"></i>
                       </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i> Editar</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-trash-fill"></i> Eliminar</a></li>
+                      </ul>
                     </div>
                   </div>
                   
@@ -157,9 +164,13 @@
                       <h1>Name</h1>
                     </div>
                     <div class="options">
-                      <button className="btn btn-light">
-                        <i className="bi bi-three-dots"></i>
+                      <button class="btn btn-light" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-three-dots-vertical"></i>
                       </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i> Editar</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-trash-fill"></i> Eliminar</a></li>
+                      </ul>
                     </div>
                   </div>
                   
