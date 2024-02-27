@@ -4,26 +4,29 @@
     position: relative;
     display: inline-block;
     border-radius: 1%;
+    transition: 500ms;
 }
 
 .photopost .description{
     margin-left: 1%;
-    width: 95%;
+    width: 120%;
+    transition: 300ms;
 }
 .photopost .description h1{
     font-size: 100%;
-    width: 100%;
+    width: 120%;
+    transition: 300ms;
 }
 
 /* RIGHTSIDE */
 .Post .rightside{
     position: absolute;
-    width: 25vh;
+    width: 33vh;
     height: 0%;
     padding-left: 1%;
     padding-right: 0%;
     padding-top: 2%;
-    margin-right: 5%;
+    margin-right: 2%;
     margin-left: 46vh;
     margin-top: 9%;
 }

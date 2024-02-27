@@ -43,6 +43,7 @@ html{
     text-align: end;
     text-decoration: none;
     color: #ffffffcc;
+    transition: 300ms;
 }
 
 
@@ -51,6 +52,7 @@ html{
     outline: none;
     color: #fed6ff;
     background: transparent;
+    transition: 300ms;
 }
 
 .header .search i {
@@ -68,10 +70,12 @@ html{
     padding-top: 1000px;
     color: var(--Fprimaria);
     font-size: 18px;
+    transition: 300ms;
 }
 ::placeholder:active
 {
     box-shadow: 0 0 50px rgba(232, 232, 232, 0.8);
+    transition: 300ms;
 }
 
 @media (max-width: 768px) {
@@ -133,6 +137,12 @@ html{
     text-align: center;
     color: #ffffff;
     text-shadow: 0px 0px 15px rgb(255, 255, 255);
+    transition: 500ms;
+}
+
+.content h2:hover{
+    text-shadow: 0px 0px 50px rgb(255, 255, 255);
+    transition: 500ms;
 }
 
 .content pre
@@ -150,9 +160,10 @@ html{
 
 .content::before {
     content: "";
-    background-image: url('https://c0.wallpaperflare.com/preview/708/98/464/explosion-art-artistic-color.jpg');
-    background-size: cover;
-    width: 60%;
+    background-image: url('https://cdn.dribbble.com/users/4835348/screenshots/16712964/media/f076cfebf1389f8b8aeee7c5b96b0780.png?resize=768x576&vertical=center');
+    background-size:cover;
+    background-position: center;
+    width: 55%;
     height: 100%;
     position: absolute;
     top: 0;
@@ -223,10 +234,12 @@ div.login
     border-bottom: 2px solid #ffffff;
     color: var(--Fprimaria);
     height: 100%;
+    transition: 500ms;
 }
 .login .input .input1:hover
 {
     box-shadow: 0 0 50px rgba(233, 183, 255, 0.8);
+    transition: 500ms;
 }
 
 ::placeholder
@@ -255,11 +268,13 @@ div.login
     justify-content: space-between;
     margin-bottom: 40px;
     color: #f7dac0;
+    transition: 500ms;
 }
 .check a:hover
 {
     text-decoration: underline;
     box-shadow: 0 0 50px rgba(232, 232, 232, 0.8);
+    transition: 500ms;
 }
 
 .login span
@@ -270,6 +285,13 @@ div.login
     font-weight: 700;
     color: #c2f7ff;
     margin-bottom: 15px;
+    transition: 300ms;
+}
+
+.aRegister:hover{
+    text-shadow: 0 0px 20px rgb(255, 255, 255);
+    font-size: 3vh;
+    transition: 300ms;
 }
 
 .login .button
@@ -291,12 +313,15 @@ button
     font-weight: 100;
     border-radius: 10px;
     color: rgb(0, 0, 0);
+    transition: 500ms;
 }
 
 .btn:hover{
     transition: 350ms;
     background-color: rgb(233, 174, 255);
     color: #000000;
-    border: 2px solid #f7dac0;
+    border: 2px solid #ffffff;
     cursor: pointer;
+    box-shadow: 0 0px 20px rgb(255, 255, 255);
+    transition: 500ms;
 }

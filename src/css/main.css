@@ -38,6 +38,14 @@ body{
     margin-left: 1%;
     margin-right: 1%;
     font-size: 4.5vh;
+    transition: 300ms;
+}
+
+.feedhead i:hover{
+    background-color: transparent;
+    color: rgb(171, 0, 0);
+    text-shadow: 0 0px 20px rgb(255, 21, 0);
+    transition: 300ms;
 }
 
 .feed {
@@ -57,10 +65,12 @@ body{
     border-radius: 10px;
     display: flex;
     align-items: center; /* Centra verticalmente los elementos */
+    transition: 300ms;
 }
 
 .upload:hover{
     box-shadow: 0 0px 20px rgb(200, 140, 0);
+    transition: 300ms;
 }
 
 .upload form {
@@ -108,7 +118,14 @@ body{
     margin-top: 4%;
     margin-bottom: 2%;
     border-radius:20px;
-    box-shadow: 0 0px 20px black;
+    box-shadow: 0 0px 15px black;
+    transition: 300ms;
+}
+
+.Post:hover{
+    box-shadow: 0 0px 30px rgb(0, 0, 0);
+    background-color: rgb(205, 205, 205);
+    transition: 300ms;
 }
 
 /* LEFTSIDE */
@@ -160,24 +177,54 @@ body{
 }
 
 /* OPTIONS */
-.user .options{
-    height: 10%;
-    width: auto;
-    padding: 1%;
-    margin-top: 2%;
-    margin-left: 60%;
-}
-.user .options button{
-    scale: 300%;
-    border: none;
-    font-size: 2.5vh;
+.options button {
+    position: absolute;
     background-color: transparent;
-    color: #000;
-    cursor: pointer;
+    border: none;
+    margin-left: 75vh;
+    margin-top: -10vh;
+    font-size: 5vh;
 }
+
+.options .dropdown-menu {
+    width: 10%;
+    height: auto;
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.147);
+    box-shadow: 0 0px 30px rgb(0, 0, 0);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    color: inherit;
+    list-style: none;
+    border: none;
+    margin-left: 75vh;
+    margin-top: -10vh;
+    padding: 2vh;
+}
+
+.options .dropdown-menu li {
+    margin-bottom: 10px; /* Agrega separación entre elementos de la lista */
+}
+.options .dropdown-menu li a {
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    color: black; /* Hereda el color del texto de su contenedor */
+}
+
+.options .dropdown-menu li a:hover {
+    text-decoration: none; /* Quita el subrayado al pasar el cursor sobre los enlaces */
+    color: white; /* Hereda el color del texto de su contenedor */
+}
+
+.options:hover .dropdown-menu {
+    display: block;
+}
+
+
 
 /* RESUMEN Y REACCIONES */
 .RLC {
+    background-color: transparent;
     display: flex;
     margin-right: 0%;
     justify-content: space-between; /* Alinea los elementos a los extremos */
@@ -185,21 +232,25 @@ body{
 }
 
 .RLC .resumen {
+    background-color: transparent;
     width: 60%;
     display: flex;
 }
 
 .RLC .resumen p {
+    background-color: transparent;
     display: flex;
     padding-right: 2%;
     font-size: 100%;
 }
 
 .RLC .reactions {
+    background-color: transparent;
     margin-left: 30vh;
     display: flex;
     width: 30%;
     margin-bottom: 1%;
+    transition: 300ms;
 }
 
 .reactions button,
@@ -210,15 +261,20 @@ body{
     cursor: pointer;
     border: none;
     background-color: transparent;
+    transition: 300ms;
 }
 
 .reactions i.bi.bi-star:hover{
+    background-color: transparent;
     color: rgb(179, 75, 137);
     text-shadow: 0 0 12px rgb(255, 0, 0);
+    transition: 300ms;
 }
 
 .reactions i.bi.bi-chat:hover{
+    background-color: transparent;
     color: rgb(42, 132, 171);
     text-shadow: 0 0 10px rgb(0, 251, 255);
+    transition: 300ms;
 }
 
