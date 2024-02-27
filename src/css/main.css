@@ -195,6 +195,7 @@ body{
 
 /* RESUMEN Y REACCIONES */
 .RLC {
+    background-color: transparent;
     display: flex;
     margin-right: 0%;
     justify-content: space-between; /* Alinea los elementos a los extremos */
@@ -202,17 +203,20 @@ body{
 }
 
 .RLC .resumen {
+    background-color: transparent;
     width: 60%;
     display: flex;
 }
 
 .RLC .resumen p {
+    background-color: transparent;
     display: flex;
     padding-right: 2%;
     font-size: 100%;
 }
 
 .RLC .reactions {
+    background-color: transparent;
     margin-left: 30vh;
     display: flex;
     width: 30%;
@@ -232,12 +236,14 @@ body{
 }
 
 .reactions i.bi.bi-star:hover{
+    background-color: transparent;
     color: rgb(179, 75, 137);
     text-shadow: 0 0 12px rgb(255, 0, 0);
     transition: 300ms;
 }
 
 .reactions i.bi.bi-chat:hover{
+    background-color: transparent;
     color: rgb(42, 132, 171);
     text-shadow: 0 0 10px rgb(0, 251, 255);
     transition: 300ms;
