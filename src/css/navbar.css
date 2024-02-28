@@ -29,10 +29,11 @@ body{
     z-index: 999;
 }
 .navbar:hover{
-    box-shadow: 0 0px 20px rgb(157, 0, 0);
+    box-shadow: 0 0px 20px rgb(0, 0, 0);
 }
 
 .navbar .logo {
+    color: #cacaca;
     width: auto;
     height: auto;
     font-size: 200%;
@@ -57,7 +58,7 @@ body{
 .optionnv {
     position: relative;
     overflow: hidden;
-    color: #000000;
+    color: #cacaca;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -81,7 +82,9 @@ button:hover{
 }
 
 .optionnv:hover i {
+    color: #fff;
     margin-left: 2%;
+    transition: 500ms;
 }
 .optionnv:hover span {
     visibility: visible;

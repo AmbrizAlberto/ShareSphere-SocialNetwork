@@ -1,0 +1,16 @@
+.filtros{
+    position:fixed;
+    width: 25%;
+    margin-left: 56%;
+    margin-top: -2%;
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.194);
+    display: flex;
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-right: 1%;
+    border-radius:20px;
+    box-shadow: 0 0px 15px black;
+    transition: 300ms;
+}
