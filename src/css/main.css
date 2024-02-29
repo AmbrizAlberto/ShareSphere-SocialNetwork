@@ -2,15 +2,17 @@ html {
     width: 100%;
     height: auto;
     background-color: rgb(37, 37, 37);
+    font-family: 'Roboto', sans-serif;
 }
 
 body{
-    background-color: rgb(37, 37, 37);
+    background-color: transparent;
+    font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
 }
 
 .main {
-    background-color: rgb(37, 37, 37);
+    background-color: transparent;
     margin-left: 13%;
     width: auto;
 }
@@ -21,6 +23,10 @@ body{
     z-index: 999;
     position: fixed;
     width: 83%;
+    max-width: 83%;
+    height: auto;
+    max-height: 12%;
+    min-height: 10%;
     margin-top: -1%;
     display: flex;
     align-items: center;
@@ -30,14 +36,20 @@ body{
 }
 
 .feedhead h1 {
+    font-size: 150%;
+    size-adjust: 150%;
+    width: 20%;
+    max-width: 20%;
+    min-width: 20%;
     text-align: center;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 3%;
+    margin-right: 10%;
+    color: hsl(48, 100%, 51%);
 }
 
 .feedhead i {
     margin-top: 0.5vh;
-    margin-left: 1%;
+    margin-left: 20%;
     margin-right: 1%;
     font-size: 4.5vh;
     transition: 300ms;
@@ -47,39 +59,56 @@ body{
     background-color: transparent;
     border: none;
     color: white;
+    margin-left: 0%;
 }
 
 .feedhead i:hover{
     background-color: transparent;
-    color: rgb(234, 136, 0);
-    text-shadow: 0 0px 20px rgb(255, 183, 0);
+    color: hsl(48, 100%, 51%);
+    text-shadow: 0 0px 30px rgb(0, 0, 0);
     cursor: pointer;
-    transition: 300ms;
+    transition: 500ms;
 }
 
 .feedhead input[type="image"] {
     width: 5vh;
+    max-height: 6vh;
+    min-height: 5vh;
     height: 5vh;
     border-radius: 50%;
     border: 1px solid black;
+    transition: 500ms;
+}
+.feedhead input[type="image"]:hover {
+    width: 6vh;
+    height: 6vh;
+    transition: 500ms;
+    text-shadow: 0 0px 30px rgb(0, 0, 0);
 }
 
 /* BUSCADOR */
 .search-nav {
     display: flex;
     align-items: center;
+    margin-right: -5%;
     width: 50%;
+    max-width: 50%;
   }
   
   .search-nav form {
     width: 100%;
+    max-width: 100%;
+    min-width: 90%;
     display: flex;
     align-items: center;
   }
   
   .search-nav input[type="text"] {
     width: 60%;
-    height: 25px;
+    max-width: 60%;
+    min-width: 50%;
+    height: 4vh;
+    max-height: 4vh;
     margin-top: 4px;
     color: white;
     background-color: #ffffff23;
@@ -110,17 +139,18 @@ body{
     background-color: #ffffff23;
     width: 50%;
     height: 10vh;
-    margin-left: 10%;
+    margin-left: 7%;
+    margin-top: -2%;
     box-shadow: 0 0px 20px black;
     border: none;
     border-radius: 10px;
     display: flex;
-    align-items: center; /* Centra verticalmente los elementos */
+    align-items: center; 
     transition: 300ms;
 }
 
 .upload:hover{
-    box-shadow: 0 0px 20px rgb(200, 140, 0);
+    box-shadow: 0 0px 20px rgb(255, 174, 0);
     transition: 300ms;
 }
 
@@ -130,15 +160,15 @@ body{
 }
 
 .upload input {
-    flex: 0 0 75%; /* Anchura del input al 60% */
-    padding: 1em; /* Ajusta el padding según sea necesario */
+    flex: 0 0 75%; 
+    padding: 1em;
     background-color: transparent;
     border: none;
 }
 
 .upload button {
     color: rgba(255, 255, 255, 0.557);
-    flex: 0 0 10%; /* Anchura del botón al 40% */
+    flex: 0 0 10%; 
     background-color: transparent;
     border: none;
     border-left: 1px solid rgba(255, 255, 255, 0.644);
@@ -172,6 +202,7 @@ body{
     margin-bottom: 2%;
     border-radius:20px;
     box-shadow: 0 0px 15px black;
+    font-size: 80%;
     transition: 300ms;
 }
 
@@ -284,16 +315,19 @@ body{
 
 /* RESUMEN Y REACCIONES */
 .RLC {
+    border-top: 1px solid rgba(255, 255, 255, 0.594);
+    margin-top: 3%;
+    padding-top: 2%;
     background-color: transparent;
     display: flex;
     margin-right: 0%;
-    justify-content: space-between; /* Alinea los elementos a los extremos */
+    justify-content: space-between;
     width: 100%;
 }
 
 .RLC .resumen {
     background-color: transparent;
-    width: 60%;
+    width: 70%;
     display: flex;
 }
 
@@ -316,7 +350,7 @@ body{
 .reactions button,
 .reactions i {
     width: auto;
-    font-size: 150%;
+    font-size: 140%;
     color: white;
     cursor: pointer;
     border: none;
@@ -336,4 +370,95 @@ body{
     color: rgb(42, 132, 171);
     text-shadow: 0 0 10px rgb(0, 251, 255);
     transition: 300ms;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    transition: 500ms;
+  }
+  
+  .modal-content {
+    background-color: #3e3e3e;
+    width: 40%;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 20px;
+    width: 80%;
+    transition: 500ms;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover {
+    color: black;
+  }
+
+   /* Estilos del formulario dentro del modal */
+   .modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content label {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.modal-content input {
+    margin-bottom: 15px;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    background-color: #00000087;
+}
+
+.modal-content textarea {
+    margin-bottom: 15px;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    background-color: #00000087;
+}
+
+.modal-content select {
+    color: #ccc;
+    margin-bottom: 15px;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    background-color: #00000087;
+}
+
+.modal-content button {
+    margin: auto 30%;
+    background-color: #eeb300;
+    color: #000000;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 400ms;
+}
+
+.modal-content button:hover {
+    background-color: #e7d28e;
+    color: rgb(0, 0, 0);
+    transition: 600ms;
 }

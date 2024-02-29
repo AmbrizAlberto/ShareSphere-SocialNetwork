@@ -1,7 +1,10 @@
 .filtros{
     position:fixed;
-    width: 25%;
-    margin-left: 56%;
+    text-align: center;
+    width: 20%;
+    height: 50%;
+    font-size: 50%;
+    margin-left: 58%;
     margin-top: -2%;
     background-color: transparent;
     color: white;

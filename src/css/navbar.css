@@ -1,14 +1,6 @@
 
 html{
-    height: 100%;
-    width: 100%;
-    background-color: rgb(229, 228, 228);
-}
-
-body{
-    height: 100%;
-    width: 100%;
-    background-color: rgb(229, 228, 228);
+    background-color: transparent;
 }
 
 .navbar {
@@ -33,15 +25,17 @@ body{
 }
 
 .navbar .logo {
-    color: #cacaca;
+    color: hsla(48, 100%, 51%, 0.439);
     width: auto;
     height: auto;
     font-size: 200%;
     margin-bottom: 5%;
+    transition: 500ms;
 }
 .navbar .logo:hover{
     color: hsl(48, 100%, 51%);
     text-shadow: 0 0 10px rgb(0, 0, 0);
+    transition: 500ms;
 }
 
 .optionnv span{

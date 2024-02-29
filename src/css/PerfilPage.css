@@ -1,6 +1,27 @@
+html{
+    font-size: inherit;
+    background-color: rgb(37, 37, 37);
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: transparent;
+}
+
 .PerfilPage{
     width: 80%;
     margin-left: 5%;
+    background-color: black;
+    border-radius: 50px;
+    border: none;
+    transition: 500ms;
+}
+
+.PerfilPage:hover{
+    box-shadow: 0 0 40px rgb(0, 0, 0);
+    border-radius: 50px;
+    border: none;
+    transition: 500ms;
 }
 
 .PerfilPage .PerfilPortada img{
@@ -13,7 +34,7 @@
 .PerfilPage .PerfilPhoto img{
     position: absolute;
     margin-top: -22.6vh;
-    margin-left: .7%;
+    margin-left: 1%;
     width: 20vh;
     height: 20vh;
     border-radius: 35%;
@@ -22,7 +43,7 @@
 
 .PerfilPage .PerfilPortada button{
     position:absolute;
-    background-color: #ffffff3e;
+    background-color: rgb(37, 37, 37);
     color: #fff;
     margin-left: -15vh;
     margin-top: 15vh;
@@ -38,9 +59,9 @@
 
 .PerfilPage .PerfilName h1{
     position: absolute;
-    font-size: 14vh;
-    margin-top: -19vh;
-    margin-left: 24vh;
+    font-size: 10vh;
+    margin-top: -18vh;
+    margin-left: 25vh;
     color: rgb(0, 0, 0);
     text-shadow: 1px  0px 0px rgb(255, 255, 255),
                0px  1px 0px white,
@@ -53,13 +74,13 @@
     position: absolute;
     font-size: 2.3vh;
     width: 25%;
-    margin-left: 62vh;
+    margin-left: 80vh;
     border-left: 1px solid rgba(255, 255, 255, 0.488);
     padding-left: 2%;
-    margin-top: -12%;
+    margin-top: -11%;
 }
 
 .Post
 {
-    margin-left: 15vh;
+    margin-left: 23vh;
 }
