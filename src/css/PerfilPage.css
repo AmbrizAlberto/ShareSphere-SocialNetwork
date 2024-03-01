@@ -72,9 +72,9 @@ body{
 .PerfilDescription h2{
     color: rgba(255, 255, 255, 0.649);
     position: absolute;
-    font-size: 2.3vh;
+    font-size: 78%;
     width: 25%;
-    margin-left: 80vh;
+    margin-left: 40%;
     border-left: 1px solid rgba(255, 255, 255, 0.488);
     padding-left: 2%;
     margin-top: -11%;

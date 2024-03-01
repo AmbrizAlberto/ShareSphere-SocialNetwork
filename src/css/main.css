@@ -138,15 +138,15 @@ body{
     color: white;
     background-color: #ffffff23;
     width: 50%;
-    height: 10vh;
+    height: 12%;
     margin-left: 7%;
-    margin-top: -2%;
     box-shadow: 0 0px 20px black;
     border: none;
     border-radius: 10px;
     display: flex;
     align-items: center; 
     transition: 300ms;
+    margin-top: 0%;
 }
 
 .upload:hover{
@@ -202,7 +202,7 @@ body{
     margin-bottom: 2%;
     border-radius:20px;
     box-shadow: 0 0px 15px black;
-    font-size: 80%;
+    font-size: 110%;
     transition: 300ms;
 }
 
@@ -266,7 +266,7 @@ body{
     position: absolute;
     background-color: transparent;
     border: none;
-    margin-left: 81vh;
+    margin-left: 40%;
     margin-top: -10vh;
     font-size: 5vh;
 }
@@ -287,7 +287,7 @@ body{
     color: inherit;
     list-style: none;
     border: none;
-    margin-left: 75vh;
+    margin-left: 40%;
     margin-top: -10vh;
     padding: 2vh;
 }
