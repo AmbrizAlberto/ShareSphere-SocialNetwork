@@ -1,11 +1,11 @@
 <?php
-    namespace modelos;
+    namespace models;
     use PDO, PDOException;
-    class conexion{
+    class connection{
         private $servername= "localhost";
         private $username= "root";
         private $password= "";
-        private $dbname= "";
+        private $dbname= "forumdb";
         protected $conn;
 
         public function __construct()
