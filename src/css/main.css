@@ -36,7 +36,8 @@ body{
 }
 
 .feedhead h1 {
-    font-size: 150%;
+    margin-top: 2%;
+    font-size: 200%;
     size-adjust: 150%;
     width: 20%;
     max-width: 20%;
