@@ -32,6 +32,21 @@ html{
     margin-bottom: 5%;
     transition: 500ms;
 }
+
+.navbar .logo img{
+    position: fixed;
+    margin-left: -2.5%;
+    margin-top: -2%;
+    width: 5%;
+    height: 8%;
+}
+
+.navbar .logo img:hover{
+    box-shadow: 0 0px 10px hsla(48, 100%, 51%, 0.593);
+    border-radius: 51%;
+}
+
+
 .navbar .logo:hover{
     color: hsl(48, 100%, 51%);
     text-shadow: 0 0 10px rgb(0, 0, 0);
@@ -52,7 +67,7 @@ html{
 .optionnv {
     position: relative;
     overflow: hidden;
-    color: #cacaca;
+    color: #cacaca76;
     text-decoration: none;
     display: flex;
     align-items: center;

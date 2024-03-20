@@ -31,15 +31,15 @@ $postList = $posts->GetPosts();
     <header>
         <div class="navbar">
             <div class="logo">
-              <button class="logo" style="font-size: 24px; background-color: transparent; border: none;" href="/"></i><span>SP</span></button>
+              <button class="logo" style="font-size: 24px; background-color: transparent; border: none;" href="/"></i><img src="../images/Logo-cut.png" alt=""></button>
             </div>
 
             <div class="access">
+            <br /><br />
                 <button class="optionnv" href="/"><i class="bi bi-rocket-takeoff"></i><span>Popular</span></button>
                 <button class="optionnv" href="/about"><i class="bi bi-controller"></i><span>Gaming</span></button>
                 <button class="optionnv" href="/about"><i class="bi bi-dribbble"></i><span>Sports</span></button>
-
-                <br /><br><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br />
                 <button class="optionnv" href="/"><i class="bi bi-gear-wide-connected"></i><span>Settings</span></button>
             </div>
             
@@ -114,7 +114,13 @@ $postList = $posts->GetPosts();
         <div class="filtros">
           <div class="containerfiltros">
             <h1>Filtro</h1>
-            <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos obcaecati magnam saepe? Nostrum tempore provident necessitatibus facere in rerum. Recusandae praesentium, vel vitae quisquam ducimus enim quidem sit voluptatem iure.</h2>
+
+            <div class="forum">
+              <button><img src="../images/6.png"></button>
+              <button><img src="../images/7.png"></button>
+              <button><img src="../images/14.jpg"></button>
+            </div>
+
           </div>
         </div>
 
