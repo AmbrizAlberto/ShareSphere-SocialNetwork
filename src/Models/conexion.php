@@ -4,7 +4,7 @@
 define('DB_HOST', 'localhost'); // El nombre del servidor
 define('DB_USER', 'root'); // El nombre de usuario
 define('DB_PASS', ''); // La contraseña
-define('DB_NAME', 'proyecto4'); // El nombre de la base de datos
+define('DB_NAME', 'forumdb'); // El nombre de la base de datos
 
 // Creamos una clase para manejar la conexión
 class Conexion {

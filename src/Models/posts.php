@@ -18,17 +18,16 @@ class posts extends connection{
         parent::__construct();
     }
 
-    public function InsertPost(string $title, string $content, string $image=null, string $created_at, string $creator_id, string $subgroup_id){
+    public function InsertPost(string $title, string $content, string $image=null, string $creator_id, string $subgroup_id){
         $this->title = $title;
         $this->content = $content;
         $this->image = $image;
-        $this->created_at = $created_at;
         $this->creator_id = $creator_id;
         $this->subgroup_id = $subgroup_id;
     
-        $sql = "INSERT INTO post (title, content, image, createdAt, creatorId, SubgroupId) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO post (title, content, image, createdAt, updatedAt, creatorId , SubgroupId) VALUES (?, ?, ?, NOW(), NULL, ?, ?)";
         $insert = $this->conn->prepare($sql);
-        $arrData = array($this->title, $this->content, $this->image, $this->created_at, $this->creator_id, $this->subgroup_id);
+        $arrData = array($this->title, $this->content, $this->image, $this->creator_id, $this->subgroup_id);
         $resInsert = $insert->execute($arrData);
         $idInsert = $this->conn->lastInsertId();
         return $idInsert;
@@ -83,10 +82,16 @@ class posts extends connection{
         }       
     }
 
-    public function GetDirImg(){
+    public function GetPathImg(){
         $sql="SELECT image FROM post WHERE image is not null";
         $execute = $this->conn->query($sql);
         $request = $execute->fetchall(PDO::FETCH_COLUMN, 0);
+        return $request;
+    }
+    public function GetUserById( string $id){
+        $sql="SELECT username FROM user WHERE id = $id";
+        $execute = $this->conn->query($sql);
+        $request = $execute->fetch(PDO::FETCH_ASSOC);
         return $request;
     }
 }
