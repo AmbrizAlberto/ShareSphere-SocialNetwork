@@ -1,5 +1,12 @@
 
 <!DOCTYPE html>
+<?php
+require_once("../../autoload.php");
+use Models\{posts};
+$posts = new posts();
+$postList = $posts->GetPosts();
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -64,9 +71,9 @@
               <form>
                 <label for="tema">Tema:</label>
                 <select id="selector" name="selector">
-                  <option value="opcion1">Opción 1</option>
-                  <option value="opcion2">Opción 2</option>
-                  <option value="opcion3">Opción 3</option>
+                  <option value="1">6 Agua Limpia y Saneamineto</option>
+                  <option value="2">7 Energia Asequible y No Contaminante</option>
+                  <option value="3">14 Vida Submarina</option>
                   <!-- Agrega más opciones según sea necesario -->
               </select>
         
@@ -108,7 +115,7 @@
           </div>
         </div>
 
-
+        <?php foreach($postList as $post){?>
         <div class="Post">
   
           <div class="leftside">
@@ -116,7 +123,7 @@
             <div class="postheader">
 
               <div class="themename">
-                <h1>Theme</h1>
+                <h1><?php echo $post['title'] ?></h1>
               </div>
               
               <div class="user">
@@ -151,7 +158,7 @@
             <div class="textpost">
               
               <div class="texto">
-                <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam, aperiam consequatur quis dolorum, vitae adipisci vel excepturi quas rerum sint molestias molestiae. Beatae minus a id. Iure harum molestias doloribus?</h1>
+                <h1><?php echo $post['content'] ?></h1>
               </div>
 
               <div class="RLC">
@@ -171,7 +178,7 @@
 
   
         </div>
-
+        <?php } ?>
 
 
 
@@ -182,7 +189,7 @@
             <div class="postheader">
 
               <div class="themename">
-                <h1>Theme</h1>
+                <h1><?php echo $post['title'] ?></h1>
               </div>
               
               <div class="user">
@@ -234,7 +241,7 @@
           <div class="rightside">
             <div class="description">
                 <h1>DESCRIPTION</h1>
-                <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam, aperiam consequatur quis dolorum, vitae adipisci vel excepturi quas rerum sint molestias molestiae. Beatae minus a id. Iure harum molestias doloribus?</h1>
+                <h1><?php echo $post['content'] ?></h1>
               </div>
           </div>
           
