@@ -55,7 +55,7 @@ $postList = $posts->GetPosts();
             <input type="text" placeholder="Buscar..." name="search">
           </form>
           </div>
-          <form action="./src/views/PerfilPage.html" method="post">
+          <form action="./PerfilPage.html" method="post">
             <input
               type="image"
               src="https://img.freepik.com/foto-gratis/joven-barbudo-camisa-rayas_273609-5677.jpg?w=740&t=st=1702678697~exp=1702679297~hmac=c54395be72f5a4c41e214867636a5cc62b7244b9da21862a94571399b52a2953"

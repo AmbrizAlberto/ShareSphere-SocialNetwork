@@ -25,7 +25,7 @@ html{
 }
 
 .navbar .logo {
-    color: hsla(48, 100%, 51%, 0.439);
+    color: hsl(175, 100%, 51%);
     width: auto;
     height: auto;
     font-size: 200%;
@@ -42,14 +42,14 @@ html{
 }
 
 .navbar .logo img:hover{
-    box-shadow: 0 0px 10px hsla(48, 100%, 51%, 0.593);
+    box-shadow: 0 0px 10px hsl(175, 100%, 51%);
     border-radius: 51%;
 }
 
 
 .navbar .logo:hover{
-    color: hsl(48, 100%, 51%);
-    text-shadow: 0 0 10px rgb(0, 0, 0);
+    color: hsl(175, 100%, 51%);
+    text-shadow: 0 0 10px hsl(175, 100%, 51%);
     transition: 500ms;
 }
 
