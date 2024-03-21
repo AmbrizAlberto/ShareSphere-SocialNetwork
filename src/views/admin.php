@@ -21,18 +21,18 @@
                 </li>
                 <li class="option">
                     <a href="./inventario/read.php" class="option_container nav-link py-3 border-bottom rounded-0 link-light bg-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="Agua Limpia y Saneamiento">
-                        <img src="../images/6.png" width="30" height="30" alt="">
+                        <img src="../images/6.png" width="30" height="30" alt="Agua Limpia y Saneamiento">
                     </a>
                 </li>
                 <li class="option">
                     <a href="./proveedores/read.php" class="option_container nav-link py-3 border-bottom rounded-0 link-light bg-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="Energía Asequible y no contaminable">
-                        <img src="../images/7.png" width="30" height="30" alt="">
+                        <img src="../images/7.png" width="30" height="30" alt="Energía Asequible y no contaminable">
                     </a>
                 </li>
                
                 <li class="option">
                     <a href="./movimientos/readProductos.php" class="option_container nav-link py-3 border-bottom rounded-0 link-light bg-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="Vida Submarina">
-                        <img src="../images/14.jpg" width="30" height="30" alt="">
+                        <img src="../images/14.jpg" width="30" height="30" alt="Vida Submarina">
                     </a>
                 </li>
             </ul>
@@ -75,13 +75,13 @@
                             <h3 class="h2 card-header">Usuarios</h3>
                             <div class="card-body">
                                 <div class="card-body d-flex justify-content-center">
-                                    <iconify-icon class="iconify" icon="ph:users-four-fill" width="100" height="100"></iconify-icon>
+                                    <iconify-icon class="iconify" icon="ph:users-four-duotone" width="100" height="100"></iconify-icon>
                                 </div>
                                 <h4 class="card-title">Usuarios</h4>
                             </div>
                         </div>
                     </a>
-                    
+                    <!--
                     <a href="" class="col text-decoration-none">
                         <div class="dashboard_options option_container">
                             <div class="dashboard_options option_container card">
@@ -95,14 +95,14 @@
                             </div>
                         </div>
                     </a>
-                    
+                    -->
                     <a href="" class="col text-decoration-none">
                         <div class="dashboard_options option_container">
                             <div class="dashboard_options option_container card">
                                 <h3 class="h2 card-header">Movimientos Tk</h3>
                                 <div class="card-body">
                                     <div class="card-body d-flex justify-content-center">
-                                    <iconify-icon class="iconify" icon="bi:arrow-left-right" width="100" height="100"></iconify-icon>
+                                    <iconify-icon class="iconify" icon="ic:twotone-generating-tokens" width="100" height="100"></iconify-icon>
                                     </div>
                                     <h4 class="card-title">Movimientos Tk</h4>
                                 </div>
