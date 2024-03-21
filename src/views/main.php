@@ -37,8 +37,8 @@ $postList = $posts->GetPosts();
 
         <div class="access">
         <br /><br />
-            <button class="optionnv" href="/"><i class="bi bi-rocket-takeoff"></i><span>Popular</span></button>
-            <button class="optionnv" href="/about"><i class="bi bi-controller"></i><span>Gaming</span></button>
+            <button class="optionnv" href="/"><i class="bi bi-house-fill"></i></i><span>Popular</span></button>
+            <button class="optionnv" href="/about"><i class="bi bi-person-circle"></i></i><span>Gaming</span></button>
             <button class="optionnv" href="/about"><i class="bi bi-dribbble"></i><span>Sports</span></button>
             <br />
             <button class="optionnv" href="/"><i class="bi bi-gear-wide-connected"></i><span>Settings</span></button>
