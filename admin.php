@@ -18,27 +18,27 @@ $users = new users();
         <!-- Here starts the navbar -->
         <nav class="navHome d-flex flex-column flex-shrink-0 bg-dark p-0 border-end" style="width: 4.5rem; position: sticky; height: 100vh; top: 0;">
             <a href="#" class="d-block bg-dark py-3 text-decoration-none mx-auto" data-bs-toggle="tooltip" data-bs-placement="right" title="ShareSphere">
-                <img src="../images/Logo-cut.png" alt="" srcset="" style="width: 45px;">
+                <img src="./src/images/Logo-cut.png" alt="" srcset="" style="width: 45px;">
             </a>
             <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
                 <li class="nav-item">
-                    <a href="./main.php" class="nav-link active py-3 border-bottom rounded-0 bg-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="Main">
+                    <a href="./src/views/main.php" class="nav-link active py-3 border-bottom rounded-0 bg-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="Main">
                         <iconify-icon icon="ic:round-home" width="40" height="40"></iconify-icon>
                     </a>
                 </li>
                 <li class="option">
-                    <a href="./main.php" class="option_container nav-link py-3 border-bottom rounded-0 link-light bg-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="Agua Limpia y Saneamiento">
+                    <a href="./src/views/main.php" class="option_container nav-link py-3 border-bottom rounded-0 link-light bg-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="Agua Limpia y Saneamiento">
                         <img src="./src/images/6.png" width="40" height="40" alt="Agua Limpia y Saneamiento">
                     </a>
                 </li>
                 <li class="option">
-                    <a href="./main.php" class="option_container nav-link py-3 border-bottom rounded-0 link-light bg-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="Energía Asequible y no contaminable">
+                    <a href="./src/views/main.php" class="option_container nav-link py-3 border-bottom rounded-0 link-light bg-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="Energía Asequible y no contaminable">
                         <img src="./src/images/7.png" width="40" height="40" alt="Energía Asequible y no contaminable">
                     </a>
                 </li>
                
                 <li class="option">
-                    <a href="./main.php" class="option_container nav-link py-3 border-bottom rounded-0 link-light bg-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="Vida Submarina">
+                    <a href="./src/views/main.php" class="option_container nav-link py-3 border-bottom rounded-0 link-light bg-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="Vida Submarina">
                         <img src="./src/images/14.jpg" width="40" height="40" alt="Vida Submarina">
                     </a>
                 </li>
