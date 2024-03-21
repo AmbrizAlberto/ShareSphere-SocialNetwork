@@ -1,3 +1,9 @@
+<?php
+require_once("./autoload.php");
+use models\users as users;
+$users = new users();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,18 +28,18 @@
                 </li>
                 <li class="option">
                     <a href="./main.php" class="option_container nav-link py-3 border-bottom rounded-0 link-light bg-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="Agua Limpia y Saneamiento">
-                        <img src="../images/6.png" width="40" height="40" alt="Agua Limpia y Saneamiento">
+                        <img src="./src/images/6.png" width="40" height="40" alt="Agua Limpia y Saneamiento">
                     </a>
                 </li>
                 <li class="option">
                     <a href="./main.php" class="option_container nav-link py-3 border-bottom rounded-0 link-light bg-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="Energía Asequible y no contaminable">
-                        <img src="../images/7.png" width="40" height="40" alt="Energía Asequible y no contaminable">
+                        <img src="./src/images/7.png" width="40" height="40" alt="Energía Asequible y no contaminable">
                     </a>
                 </li>
                
                 <li class="option">
                     <a href="./main.php" class="option_container nav-link py-3 border-bottom rounded-0 link-light bg-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="Vida Submarina">
-                        <img src="../images/14.jpg" width="40" height="40" alt="Vida Submarina">
+                        <img src="./src/images/14.jpg" width="40" height="40" alt="Vida Submarina">
                     </a>
                 </li>
             </ul>
@@ -80,7 +86,7 @@
                                 <div class="card-body d-flex justify-content-center">
                                     <iconify-icon class="iconify" icon="ph:users-four-duotone" width="100" height="100"></iconify-icon>
                                 </div>
-                                <h4 class="card-title">Usuarios</h4>
+                                <h4 class="card-title"> <?= $users->GetUsuariosIndex(); ?> Usuarios</h4>
                             </div>
                         </div>
                     </a>
