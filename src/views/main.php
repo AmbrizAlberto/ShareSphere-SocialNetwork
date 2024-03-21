@@ -97,9 +97,8 @@ $postList = $posts->GetPosts();
             <i class="bi bi-app-indicator"></i>
           </button>
 
-          <button class="logout">
-            <i class="bi bi-box-arrow-right"></i>
-          </button>
+          <a href="../../controllers/logout.php" class="logout"><i class="bi bi-box-arrow-right"></i></a>
+
         </div>
 
         <br /><br /><br /><br /><br /><br />
@@ -188,7 +187,21 @@ $postList = $posts->GetPosts();
                     </div>
                   <script src="script.js"></script>
             
-                      <li><a class="dropdown-item" href="#"><i class="bi bi-trash-fill"></i> Eliminar</a></li>
+                      <li><a class="dropdown-item" href="#" id="eliminarButton"><i class="bi bi-trash-fill"></i> Eliminar</a></li>
+                      <script>
+                        document.getElementById("eliminarButton").addEventListener("click", function(event) {
+                            event.preventDefault(); // Evita que el enlace redirija a otra página
+                            
+                            // Mostrar un mensaje de confirmación
+                            if (confirm("¿Estás seguro de que deseas eliminar este elemento?")) {
+                                // Aquí puedes colocar el código para eliminar el elemento
+                                console.log("El elemento ha sido eliminado.");
+                            } else {
+                                console.log("La eliminación ha sido cancelada.");
+                            }
+                        });
+                      </script>
+
                     </ul>
                   </div>
                 </div>
