@@ -16,6 +16,8 @@ body {
     height: 90%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    background-color: #fff;
+
 }
 
 .image-container {
@@ -41,76 +43,31 @@ body {
     max-width: 100px;
     max-height: 100px;
 }
+
 .form-container {
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 15%;
     padding: 20px;
     background-color: #fff;
 }
 
-.form-container h2{
+.form-container h2 {
     position: absolute;
-    font-size: 35px;
-    top: 25%;
+    font-size: 30px;
+    top: 22%;
 }
 
-.form-container h3{
-    left: 66%;
-    top: 61%;
-    margin-left: 0%;
-    font-size: 15px;
-    position: absolute;
-}
-
-.password{
-    top: 56%;
-    font-size: 90%;
-    position: absolute;
-    text-decoration: none;
-    color:#959595;
-}
-
-.password:hover{
-    color:#000000;
-    text-decoration: underline;
-}
-
-.Register{
-    left: 69%;
-    top: 66%;
-    font-size: 15px;
-    position: absolute;
-    text-decoration: none;
-    color:#959595;
-}
-
-.Register:hover{
-    color:#000000;
-    text-decoration: underline;
-}
-
-.visit{
-    left: 66%;
-    top: 75%;
-    font-size: 15px;
-    position: absolute;
-    text-decoration: none;
-    color:#959595;
-}
-
-.visit:hover{
-    color:#9c0000;
-    text-decoration: underline;
-}
-
-form {
+.form-container form {
     max-width: 50%;
     margin: 0 auto;
 }
 
-input[type="text"],
+input[type="name"],
+input[type="lastname"],
+input[type="name-user"],
+input[type="email"],
 input[type="password"] {
     width: 100%;
     padding: 10px;
@@ -120,17 +77,18 @@ input[type="password"] {
     transition: transform 0.3s ease;
 }
 
-input[type="text"]:hover,
+input[type="name"]:hover,
+input[type="lastname"]:hover,
+input[type="name-user"]:hover,
+input[type="email"]:hover,
 input[type="password"]:hover {
     transform: scale(1.1);
 }
 
 input[type="submit"] {
-    margin-top: 3%;
-    margin-left: 62%;
-    width: 45%;
+    margin-top: 10px;
+    width: 50%;
     padding: 10px;
-    padding-right: 20px;
     font-size: 15px;
     background-color: #007bff;
     color: #fff;
@@ -144,4 +102,22 @@ input[type="submit"]:hover {
     background-color: #0056b3;
     transform: scale(1.1);
 }
+
+.login-link {
+    position: absolute;
+    margin-top: -2%;
+    left: 73%;
+}
+
+.login-link a {
+    margin-left: 15%;
+    color: #959595;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    color:#000000;
+    text-decoration: underline;
+}
+
 

@@ -18,7 +18,7 @@
 
 <div class="container">
     <div class="image-container">
-        <h1>Comunidad global, impacto local</h1>
+        <h1>ShareSphere<br>Comunidad global, impacto local</h1>
     </div>
     <div class="form-container">
         <img src="../images/Logo.png" class="logo">
