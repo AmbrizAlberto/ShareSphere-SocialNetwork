@@ -59,11 +59,11 @@
             <main class="dashboard_main container m-5">
                 <h2 class="row h1 text-white">ShareSphere</h2>
                 <h4 class="row h2 mb-5 text-white">
-                    Bienvenido al sistema de administración, en esta sección podras ver las opciones que tienes disponibles para administrar el foro.
+                    Administración, aquí podrás administrar las publicaciones y usuarios que se encuentran en el foro.
                 </h4>
                 <section class="row">
                     <a href="" class="col text-decoration-none">
-                        <div class="dashboard_options option_container card">
+                        <div class="dashboard_options option_container card bg-secondary">
                             <h3 class="h2 card-header accordion-header" >Publicaciones</h3>
                             <div class="card-body">
                                 <div class="card-body d-flex justify-content-center">
@@ -74,7 +74,7 @@
                         </div>
                     </a>
                     <a href="" class="col  text-decoration-none">
-                        <div class="dashboard_options option_container card">
+                        <div class="dashboard_options option_container card bg-secondary">
                             <h3 class="h2 card-header">Usuarios</h3>
                             <div class="card-body">
                                 <div class="card-body d-flex justify-content-center">
@@ -101,7 +101,7 @@
                     -->
                     <a href="" class="col text-decoration-none">
                         <div class="dashboard_options option_container">
-                            <div class="dashboard_options option_container card">
+                            <div class="dashboard_options option_container card bg-secondary">
                                 <h3 class="h2 card-header">Movimientos Tk</h3>
                                 <div class="card-body">
                                     <div class="card-body d-flex justify-content-center">
