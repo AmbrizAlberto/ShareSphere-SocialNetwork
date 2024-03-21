@@ -97,9 +97,8 @@ $postList = $posts->GetPosts();
             <i class="bi bi-app-indicator"></i>
           </button>
 
-          <button class="logout">
-            <i class="bi bi-box-arrow-right"></i>
-          </button>
+          <a href="../../controllers/logout.php" class="logout"><i class="bi bi-box-arrow-right"></i></a>
+
         </div>
 
         <br /><br /><br /><br /><br /><br />
