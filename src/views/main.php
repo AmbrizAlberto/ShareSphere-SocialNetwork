@@ -69,7 +69,7 @@ $postList = $posts->GetPosts();
           <div id="myModal" class="modal">
             <div class="modal-content">
               <span class="close" id="closeBtn">&times;</span>
-              <form action="/controllers/SetPost.php" method="post" enctype="multipart/form-data">
+              <form action="/controllers/Set/SetPost.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="post_creator_id" value="1">
                 <label for="tema">Tema:</label>
                 <select id="selector" name="post_subgroup_id" required>
