@@ -45,6 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 {
                     echo "<script>alert('Los datos ingresados son incorrectos.'); window.history.back();</script>";
                 }
+            } else 
+            {
+                echo "<script>alert('El correo electrónico no está registrado.'); window.location.href = '../src/views/login.php';</script>";
             }
         } catch (PDOException $e) 
         {
