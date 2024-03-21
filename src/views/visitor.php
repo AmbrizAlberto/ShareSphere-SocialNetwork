@@ -14,7 +14,7 @@ $postList = $posts->GetPosts();
     <title>ShareSphere</title>
 
     <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/mainVisit.css">
     <link rel="stylesheet" href="../css/textpost.css">
     <link rel="stylesheet" href="../css/photopost.css">
     <link rel="stylesheet" href="../css/filtros.css">
@@ -56,7 +56,7 @@ $postList = $posts->GetPosts();
           </form>
           </div>
 
-          <a href="./login.php" class="logout"><i class="bi bi-box-arrow-in-right"></i></a>
+          <a href="./login.php" class="logout">Logout<i class="bi bi-box-arrow-in-right"></i></a>
 
         </div>
 
