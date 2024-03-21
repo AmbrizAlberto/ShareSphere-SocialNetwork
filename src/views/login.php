@@ -30,7 +30,7 @@
             <a class="password" href="">¿Contraseña Olvidada?</a>
             <h3>¿Aun no eres miembro?</h3>
             <a class="Register" href="./register.php">Registrarme</a>
-            <a class="visit" href="../views/main.php">Regresar Como Visitante</a>
+            <a class="visit" href="../views/visitor.php">Regresar Como Visitante</a>
         </form>
     </div>
 </div>

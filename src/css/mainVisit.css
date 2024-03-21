@@ -48,17 +48,28 @@ body{
     color: hsl(175, 100%, 51%);
 }
 
+.feedhead a {
+    margin-left: 5%;
+    transition: 500ms;
+}
+
+.feedhead a:hover {
+    color: aqua;
+    transition: 500ms;
+}
+
 .feedhead i {
-    margin-top: 0.5vh;
-    margin-left: 20%;
+    display: flex;
+    margin-top: 1%;
+    margin-left: 15%;
     margin-right: 1%;
-    font-size: 130%;
+    font-size: 200%;
     transition: 300ms;
 }
 
 .feedhead  i.bi.bi-box-arrow-right {
     margin-left: 35%;
-    font-size: 220%;
+    font-size: 400%;
 }
 
 .feedhead button{
