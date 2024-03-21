@@ -61,14 +61,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     if(mail($to, $subject, $message, $headers))
                     {
                         echo "<script>
-                            alert('Cuenta creada correctamente. Se ha enviado un correo de confirmación.');
+                            alert('Cuenta creada correctamente.);
                             window.location.href = '../src/views/login.php';
                         </script>";
                     }
                     else
                     {
                         echo "<script>
-                            alert('Cuenta creada correctamente. Pero no se pudo enviar el correo de confirmación.');
+                            alert('Cuenta creada correctamente.');
                             window.location.href = '../src/views/login.php';
                         </script>";
                     }

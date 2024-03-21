@@ -23,7 +23,7 @@ $users = new users();
             <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
                 <li class="nav-item">
                     <a href="./src/views/main.php" class="nav-link active py-3 border-bottom rounded-0 bg-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="Main">
-                        <iconify-icon icon="ic:round-home" width="40" height="40"></iconify-icon>
+                        <iconify-icon icon="ant-design:home-twotone" width="40" height="40"></iconify-icon>
                     </a>
                 </li>
                 <li class="option">
@@ -58,7 +58,7 @@ $users = new users();
                 </ul>
             </div>
         </nav>
-        <!-- Here ends the navbar -->
+        <!-- Here ends the navbar, couldn't find a way to remove the thin white lines -->
 
         <!-- Container with the options starts here -->
         <section class="main_container col-lg-11 bg-dark">         
@@ -108,12 +108,12 @@ $users = new users();
                     <a href="" class="col text-decoration-none">
                         <div class="dashboard_options option_container">
                             <div class="dashboard_options option_container card bg-secondary">
-                                <h3 class="h2 card-header">Movimientos Tk</h3>
+                                <h3 class="h2 card-header">Info. Token</h3>
                                 <div class="card-body">
                                     <div class="card-body d-flex justify-content-center">
                                     <iconify-icon class="iconify" icon="ic:twotone-generating-tokens" width="100" height="100"></iconify-icon>
                                     </div>
-                                    <h4 class="card-title">Movimientos Tk</h4>
+                                    <h4 class="card-title">Info. Token</h4>
                                 </div>
                             </div>
                         </div>
