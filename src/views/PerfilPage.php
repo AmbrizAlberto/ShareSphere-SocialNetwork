@@ -43,11 +43,13 @@
     <div class="main">
         <div class="feedhead">
             <h1>ShareSphere</h1>
+
             <div class="search-nav">
             <form action="#" method="get">
               <input type="text" placeholder="Buscar..." name="search">
             </form>
             </div>
+
             <form action="./PerfilPage.html" method="post">
               <input
                 type="image"
@@ -80,15 +82,13 @@
               </form>
               </div>
             </div>
-            
             <script src="script.js"></script>
             
             <button>
               <i class="bi bi-app-indicator"></i>
             </button>
-            <button class="logout">
-              <i class="bi bi-box-arrow-right"></i>
-            </button>
+
+            <a href="../../controllers/logout.php" class="logout"><i class="bi bi-box-arrow-right"></i></a>
           </div>
 
 
