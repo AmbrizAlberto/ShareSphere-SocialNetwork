@@ -58,7 +58,7 @@ class posts extends connection{
             $ext_formatos=array("image/jpeg", "image/jpg","image/png");
 
             if(!in_array($mimetype,$ext_formatos)){
-                header("location:/src/views/main.html");
+                header("location:/src/views/main.php");
                 die("Formato incorrecto");
             }
             $directorio="images_posts/";
@@ -78,7 +78,7 @@ class posts extends connection{
             return $name.$today.$extension;
 
         }else{
-            header("location:/src/views/main.html");
+            header("location:/src/views/main.php");
         }       
     }
 

@@ -126,6 +126,7 @@ $postList = $posts->GetPosts();
         </div>
 
         <?php foreach($postList as $post){?>
+        <?php $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_STRING));?>
         <div class="Post">
   
           <div class="leftside">
@@ -148,7 +149,7 @@ $postList = $posts->GetPosts();
 
                 <div class="postdatos">
                   <div class="name">
-                    <h1>Name</h1>
+                    <h1><?php echo $username['username'] ?></h1>
                   </div>
                   <div class="options">
                     <button class="btn btn-light" data-bs-toggle="dropdown" aria-expanded="false">
