@@ -1,0 +1,401 @@
+html {
+    width: 100%;
+    height: auto;
+    background-color: rgb(37, 37, 37);
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: transparent;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+.main {
+    background-color: transparent;
+    margin-left: 13%;
+    width: auto;
+}
+
+/* FEEDHEAD*/
+.feedhead {
+    color:rgba(255, 255, 255, 0.77);
+    z-index: 999;
+    position: fixed;
+    width: 83%;
+    max-width: 83%;
+    height: auto;
+    max-height: 12%;
+    min-height: 10%;
+    margin-top: -1%;
+    display: flex;
+    align-items: center;
+    background-color: rgb(37, 37, 37);
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.422);
+
+}
+
+.feedhead h1 {
+    margin-top: 2%;
+    font-size: 200%;
+    size-adjust: 150%;
+    width: 20%;
+    max-width: 20%;
+    min-width: 20%;
+    text-align: center;
+    margin-left: 3%;
+    margin-right: 10%;
+    color: hsl(175, 100%, 51%);
+}
+
+.feedhead a {
+    margin-left: 5%;
+    transition: 500ms;
+}
+
+.feedhead a:hover {
+    color: aqua;
+    transition: 500ms;
+}
+
+.feedhead i {
+    display: flex;
+    margin-top: 1%;
+    margin-left: 15%;
+    margin-right: 1%;
+    font-size: 200%;
+    transition: 300ms;
+}
+
+.feedhead  i.bi.bi-box-arrow-right {
+    margin-left: 35%;
+    font-size: 400%;
+}
+
+.feedhead button{
+    font-size: 150%;
+    background-color: transparent;
+    border: none;
+    color: white;
+    margin-left: 0%;
+}
+
+.feedhead i:hover{
+    background-color: transparent;
+    color: hsl(175, 100%, 51%);
+    text-shadow: 0 0px 30px rgb(0, 0, 0);
+    cursor: pointer;
+    transition: 500ms;
+}
+
+.feedhead input[type="image"] {
+    width: 5vh;
+    max-height: 6vh;
+    min-height: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    border: 1px solid black;
+    transition: 500ms;
+}
+.feedhead input[type="image"]:hover {
+    width: 6vh;
+    height: 6vh;
+    transition: 500ms;
+    text-shadow: 0 0px 30px rgb(0, 0, 0);
+}
+
+/* BUSCADOR */
+.search-nav {
+    display: flex;
+    align-items: center;
+    margin-right: -10%;
+    width: 50%;
+    max-width: 50%;
+  }
+  
+  .search-nav form {
+    width: 100%;
+    max-width: 100%;
+    min-width: 90%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-nav input[type="text"] {
+    width: 60%;
+    max-width: 60%;
+    min-width: 50%;
+    height: 4vh;
+    max-height: 4vh;
+    margin-top: 4px;
+    color: white;
+    background-color: #ffffff23;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border: none;
+    border-radius: 20px;
+  }
+  .search-nav input[type="text"]::placeholder{
+    color: rgba(255, 255, 255, 0.43);
+    background-color: transparent;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+
+.feed {
+    color: white;
+    width: 100%;
+    margin-right: 5%;
+    margin-left: 5%;
+    padding-left: 2%;
+}
+
+/* UPLOAD */
+.upload {
+    color: white;
+    background-color: #ffffff23;
+    width: 50%;
+    height: 12%;
+    margin-left: 7%;
+    box-shadow: 0 0px 20px black;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center; 
+    transition: 300ms;
+    margin-top: 0%;
+}
+
+.upload:hover ::placeholder{
+    color:  hsla(175, 100%, 50%, 0.484);
+}
+
+.upload:hover{
+    box-shadow: 0 0px 20px hsla(175, 100%, 51%, 0.523);
+    transition: 300ms;
+}
+
+.upload form {
+    width: 100%;
+    display: flex;
+}
+
+.upload input {
+    flex: 0 0 75%; 
+    padding: 1em;
+    background-color: transparent;
+    border: none;
+}
+
+.upload button {
+    color: rgba(255, 255, 255, 0.557);
+    flex: 0 0 10%; 
+    background-color: transparent;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.644);
+    padding-left: 2vh;
+    padding-right: 3.5vh;
+    padding-top: 4%;
+    padding-bottom: 4%;
+
+}
+
+.upload button:hover {
+    color:  hsl(175, 100%, 51%);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+
+/* HEADER-POST */
+.Post{
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.194);
+    display: flex;
+    padding-top: 3%;
+    padding-left: 5%;
+    margin-left: 2%;
+    margin-right: 4%;
+    width: 55%;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    border-radius:20px;
+    box-shadow: 0 0px 15px black;
+    font-size: 110%;
+    transition: 500ms;
+}
+
+.Post:hover{
+    box-shadow: 0 0px 30px rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.149);
+    transition: 500ms;
+}
+
+/* LEFTSIDE */
+.Post .leftside{
+    width: 90%;
+    height: auto;
+    padding-bottom: 2%;
+}
+
+.postheader{
+    margin-bottom: 2%;
+}
+
+.postheader .user{
+    margin-bottom: 2%;
+    height: 50%;
+    display: flex;
+}
+
+.postheader input[type="image"] {
+    width: 3vh;
+    height: 3vh;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+
+/* THEME NAME */
+.postheader .themename h1{
+    font-size: 3vh;
+
+}
+
+/* NAME */
+.user .name{
+    height: 50%;
+
+}
+.user .name h1{
+    font-size: 3vh;
+    margin: 0%;
+    margin-top: 1%;
+    height: 50%;
+    padding-left: 10%;
+}
+
+.user .fechapost h1{
+    font-size: 3vh;
+}
+
+/* OPTIONS */
+.options button {
+    color: rgba(255, 255, 255, 0.68);
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    margin-left: 40%;
+    margin-top: -10vh;
+    font-size: 5vh;
+    transition: 500ms;
+}
+
+/* BOTON  TRES PUNTOS */
+.options .dropdown-menu {
+    text-align: center;
+    padding-left: -10%;
+    padding-right: 20px;
+    width: 10%;
+    height: auto;
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.147);
+    box-shadow: 0 0px 30px rgb(0, 0, 0);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    color: inherit;
+    list-style: none;
+    border: none;
+    margin-left: 40%;
+    margin-top: -10vh;
+    padding: 2vh;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+.options .dropdown-menu li {
+    margin-bottom: 10px; 
+    transition: 500ms;
+}
+.options .dropdown-menu li a {
+    text-decoration: none; 
+    color: white; 
+    transition: 500ms;
+}
+
+.options .dropdown-menu li a:hover {
+    text-decoration: none; 
+    color: rgb(255, 174, 0);
+    text-shadow: 0 0px 20px rgb(255, 255, 255);
+    transition: 500ms;
+}
+
+.options:hover .dropdown-menu {
+    display: block;
+    transition: 500ms;
+}
+
+
+
+/* RESUMEN Y REACCIONES */
+.RLC {
+    border-top: 1px solid rgba(255, 255, 255, 0.594);
+    margin-top: 3%;
+    padding-top: 2%;
+    background-color: transparent;
+    display: flex;
+    margin-right: 0%;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.RLC .resumen {
+    background-color: transparent;
+    width: 70%;
+    display: flex;
+}
+
+.RLC .resumen p {
+    background-color: transparent;
+    display: flex;
+    padding-right: 2%;
+    font-size: 100%;
+}
+
+.RLC .reactions {
+    background-color: transparent;
+    margin-left: 30vh;
+    display: flex;
+    width: 30%;
+    margin-bottom: 1%;
+    transition: 300ms;
+}
+
+.reactions button,
+.reactions i {
+    width: auto;
+    font-size: 140%;
+    color: white;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    transition: 300ms;
+}
+
+.reactions i.bi.bi-star:hover{
+    background-color: transparent;
+    color: rgb(179, 75, 137);
+    text-shadow: 0 0 12px rgb(255, 0, 0);
+    transition: 300ms;
+}
+
+.reactions i.bi.bi-chat:hover{
+    background-color: transparent;
+    color: rgb(42, 132, 171);
+    text-shadow: 0 0 10px rgb(0, 251, 255);
+    transition: 300ms;
+}
