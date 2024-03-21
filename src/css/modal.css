@@ -1,6 +1,5 @@
 /* MODAL */
 .modal {
-    z-index: 9999;
     display: none;
     position: fixed;
     top: 0;
@@ -13,10 +12,14 @@
   }
   
   .modal-content {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    background-color: #3e3e3e;
+    width: 40%;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 20px;
+    width: 80%;
+    transition: 500ms;
   }
   
   .close {
@@ -71,8 +74,8 @@
 
 .modal-content button {
     margin: auto 30%;
-    background-color: #eeb300;
-    color: #000000;
+    background-color: #009bee;
+    color: white;
     padding: 10px;
     border: none;
     border-radius: 4px;
