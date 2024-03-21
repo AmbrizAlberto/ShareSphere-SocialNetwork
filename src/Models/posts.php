@@ -64,7 +64,7 @@ class posts extends connection{
             $directorio="images_posts/";
 
             if(in_array($directorio.$file_name, $name_images)){
-                header("location:/src/views/main.html");
+                header("location:/src/views/main.php");
                 die("Esta imagen a sido usada anteriormente, por lo que debe escoger otra");
             }
 
@@ -73,7 +73,7 @@ class posts extends connection{
             }
             if(in_array($directorio.$file_name, $name_images)){
             }else{
-                move_uploaded_file($file['tmp_name'],"../public/".$directorio.$name.$today.$extension);
+                move_uploaded_file($file['tmp_name'],"../../public/".$directorio.$name.$today.$extension);
             }
             return $name.$today.$extension;
 
@@ -93,6 +93,13 @@ class posts extends connection{
         $execute = $this->conn->query($sql);
         $request = $execute->fetch(PDO::FETCH_ASSOC);
         return $request;
+    }
+    public function DeletePost(string $id){
+        $sql="DELETE  FROM post WHERE id=?";
+        $arrwhere =array($id);
+        $delete= $this->conn->prepare($sql);
+        $del = $delete->execute($arrwhere);
+        return $del;
     }
 }
 ?>

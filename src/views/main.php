@@ -133,7 +133,7 @@ $postList = $posts->GetPosts();
             <div class="postheader">
 
               <div class="themename">
-                <h1><?php echo $post['title'] ?></h1>
+                <h1><?php echo $post['title'];  ?></h1>
               </div>
               
               <div class="user">
@@ -148,7 +148,7 @@ $postList = $posts->GetPosts();
 
                 <div class="postdatos">
                   <div class="name">
-                    <h1><?php echo $username['username'] ?></h1>
+                    <h1><?php echo $username['username']?></h1>
                   </div>
                   <div class="options">
                     <button class="btn btn-light" data-bs-toggle="dropdown" aria-expanded="false">
@@ -187,10 +187,8 @@ $postList = $posts->GetPosts();
                     </div>
                   <script src="script.js"></script>
             
-                      <li><a class="dropdown-item" href="#" id="eliminarButton"><i class="bi bi-trash-fill"></i> Eliminar</a></li>
-                      <script src="scriptedit.js"></script>
-
-
+                      <li><a class="dropdown-item" href="#" id="eliminarButton" data-id="<?php echo $post['id']; ?>><i class="bi bi-trash-fill></i> Eliminar</a></li>
+                      <script> var id = <?php echo $post['id'] ?>; </script>
                     </ul>
                   </div>
                 </div>
@@ -237,6 +235,6 @@ $postList = $posts->GetPosts();
         
 
       </div>
-
+      <script src="scriptedit.js"></script>
 </body>
 </html>
