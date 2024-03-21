@@ -48,10 +48,20 @@ body{
     color: hsl(175, 100%, 51%);
 }
 
+.feedhead a {
+    margin-left: 5%;
+    transition: 500ms;
+}
+
+.feedhead a:hover {
+    color: aqua;
+    transition: 500ms;
+}
+
 .feedhead i {
     display: flex;
-    margin-top: 10%;
-    margin-left: 10%;
+    margin-top: 1%;
+    margin-left: 15%;
     margin-right: 1%;
     font-size: 200%;
     transition: 300ms;
