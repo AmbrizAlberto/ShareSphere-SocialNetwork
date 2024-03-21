@@ -48,6 +48,7 @@
 }
 
 .modal-content input {
+    color: white;
     margin-bottom: 15px;
     padding: 8px;
     border: none;
@@ -56,6 +57,7 @@
 }
 
 .modal-content textarea {
+    color: white;
     margin-bottom: 15px;
     padding: 8px;
     border: none;

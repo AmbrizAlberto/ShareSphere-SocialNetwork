@@ -62,14 +62,6 @@ $postList = $posts->GetPosts();
 
         <br /><br /><br /><br /><br /><br />
 
-
-        <div class="upload">
-          <form action="#" method="post">
-            <input type="text" class="uploadtext" placeholder="¿Qué estás pensando?" />
-            <button class="button">Upload</button>
-          </form>
-        </div>
-
         <div class="filtros">
           <div class="containerfiltros">
             <h1>Filtro</h1>
@@ -146,13 +138,6 @@ $postList = $posts->GetPosts();
 
         <?php } ?>
 
-
-
-
-
-        
-
-      </div>
 
 </body>
 </html>
