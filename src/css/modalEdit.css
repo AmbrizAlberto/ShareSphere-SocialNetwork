@@ -1,0 +1,96 @@
+.modaledit {
+  color: white;
+  align-items: center;
+  text-align: center;
+  z-index: 9999;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  transition: 500ms;
+}
+
+.modal-content-edit {
+  background-color: #3e3e3e;
+  width: 40%;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 20px;
+  width: 80%;
+  transition: 500ms;
+}
+
+.close-edit {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-edit:hover,
+.close-edit:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+ /* Estilos del formulario dentro del modal */
+
+
+.modal-content-edit label {
+  text-align: center;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.modal-content-edit input {
+  color: white;
+  margin-bottom: 15px;
+  margin-top: 1%;
+  padding: 8px;
+  border: none;
+  border-radius: 20px;
+  background-color: #00000087;
+}
+
+.modal-content-edit textarea {
+  color: white;
+  margin-bottom: 15px;
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  background-color: #00000087;
+}
+
+.modal-content-edit select {
+  color: #ccc;
+  margin-bottom: 15px;
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  background-color: #00000087;
+}
+
+.modal-content-edit button {
+  color: white;
+  background-color: #009bee;
+  font-size: 150%;
+  width: 13%;
+  height: 5%;
+  border-radius: 20px;
+  padding: 1%;
+}
+
+.modal-content-edit button:hover {
+  background-color: #e7d28e;
+  color: rgb(0, 0, 0);
+  transition: 600ms;
+}

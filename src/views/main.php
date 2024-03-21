@@ -19,8 +19,7 @@ $postList = $posts->GetPosts();
     <link rel="stylesheet" href="../css/photopost.css">
     <link rel="stylesheet" href="../css/filtros.css">
     <link rel="stylesheet" href="../css/modal.css">
-
-
+    <link rel="stylesheet" href="../css/modalEdit.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -29,21 +28,23 @@ $postList = $posts->GetPosts();
 <body>
 
     <header>
-        <div class="navbar">
-            <div class="logo">
-              <button class="logo" style="font-size: 24px; background-color: transparent; border: none;" href="/"></i><img src="../images/Logo-cut.png" alt=""></button>
-            </div>
-
-            <div class="access">
-            <br /><br />
-                <button class="optionnv" href="/"><i class="bi bi-rocket-takeoff"></i><span>Popular</span></button>
-                <button class="optionnv" href="/about"><i class="bi bi-controller"></i><span>Gaming</span></button>
-                <button class="optionnv" href="/about"><i class="bi bi-dribbble"></i><span>Sports</span></button>
-                <br />
-                <button class="optionnv" href="/"><i class="bi bi-gear-wide-connected"></i><span>Settings</span></button>
-            </div>
-            
+    <div class="navbar">
+        <div class="logo">
+          <a href="./main.php">
+              <img src="../images/Logo-cut.png" alt="Logo" style="font-size: 24px; background-color: transparent; border: none;">
+          </a>
         </div>
+
+        <div class="access">
+        <br /><br />
+            <button class="optionnv" href="/"><i class="bi bi-rocket-takeoff"></i><span>Popular</span></button>
+            <button class="optionnv" href="/about"><i class="bi bi-controller"></i><span>Gaming</span></button>
+            <button class="optionnv" href="/about"><i class="bi bi-dribbble"></i><span>Sports</span></button>
+            <br />
+            <button class="optionnv" href="/"><i class="bi bi-gear-wide-connected"></i><span>Settings</span></button>
+        </div>
+        
+      </div>
     </header>
     
     <div class="main">
@@ -86,7 +87,7 @@ $postList = $posts->GetPosts();
                 <label for="foto">Foto:</label>
                 <input type="file" id="foto" name="foto" accept="image/*">
         
-                <button type="button" onclick="submitForm()">Enviar</button>
+                <button type="submit">Enviar</button>
             </form>
             </div>
           </div>
@@ -154,7 +155,38 @@ $postList = $posts->GetPosts();
                       <i class="bi bi-three-dots-vertical"></i>
                     </button>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i> Editar</a></li>
+                    <li>
+                      <a class="dropdown-item editBtn" href="#" data-post-id="<?php echo $post['id']; ?>">
+                          <i class="bi bi-pencil-fill"></i> Editar
+                      </a>
+                    </li>
+                    <div id="myModal" class="modal">
+                      <div class="modal-content">
+                        <span class="close" id="closeBtn">&times;</span>
+                        <form action="/controllers/SetPost.php" method="post" enctype="multipart/form-data">
+                          <input type="hidden" name="post_creator_id" value="1">
+                          <label for="tema">Tema:</label>
+                          <select id="selector" name="selector">
+                            <option value="1">6 Agua Limpia y Saneamineto</option>
+                            <option value="2">7 Energia Asequible y No Contaminante</option>
+                            <option value="3">14 Vida Submarina</option>
+                            <!-- Agrega más opciones según sea necesario -->
+                        </select>
+                        <label for="texto">Titulo:</label>
+                        <textarea id="texto" name="post_title" rows="1" required placeholder="Titulo..."></textarea>
+
+                        <label for="texto">Texto:</label>
+                        <textarea id="texto" name="texto" rows="4" requiredplaceholder="Descripcion..."></textarea>
+              
+                        <label for="foto">Foto:</label>
+                        <input type="file" id="foto" name="foto" accept="image/*">
+              
+                        <button type="submit">Enviar</button>
+                        </form>
+                      </div>
+                    </div>
+                  <script src="script.js"></script>
+            
                       <li><a class="dropdown-item" href="#"><i class="bi bi-trash-fill"></i> Eliminar</a></li>
                     </ul>
                   </div>

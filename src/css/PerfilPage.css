@@ -48,7 +48,7 @@ body{
     margin-left: -15vh;
     margin-top: 15vh;
     border-radius: 10px;
-    z-index: 999;
+    z-index: 1;
     transition: 500ms;
 }
 

@@ -20,6 +20,7 @@ html{
     margin: 2%;
     z-index: 999;
 }
+
 .navbar:hover{
     box-shadow: 0 0px 20px rgb(0, 0, 0);
 }
@@ -36,7 +37,7 @@ html{
 .navbar .logo img{
     position: fixed;
     margin-left: -2.5%;
-    margin-top: -2%;
+    margin-top: 0%;
     width: 5%;
     height: 8%;
 }
@@ -73,6 +74,12 @@ html{
     align-items: center;
     background-color: transparent;
     border: none;
+    transition: 500ms;
+}
+
+.optionnv:hover{
+    color:  hsl(175, 100%, 51%);
+    transition: 500ms;
 }
 
 .optionnv span {
@@ -91,7 +98,7 @@ button:hover{
 }
 
 .optionnv:hover i {
-    color: #fff;
+    color:  hsl(175, 100%, 51%);
     margin-left: 2%;
     transition: 500ms;
 }

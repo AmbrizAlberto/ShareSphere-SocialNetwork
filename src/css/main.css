@@ -150,6 +150,10 @@ body{
     margin-top: 0%;
 }
 
+.upload:hover ::placeholder{
+    color:  hsla(175, 100%, 50%, 0.484);
+}
+
 .upload:hover{
     box-shadow: 0 0px 20px hsla(175, 100%, 51%, 0.523);
     transition: 300ms;
@@ -181,7 +185,7 @@ body{
 }
 
 .upload button:hover {
-    color: rgb(255, 217, 0);
+    color:  hsl(175, 100%, 51%);
     background-color: transparent;
     cursor: pointer;
 }

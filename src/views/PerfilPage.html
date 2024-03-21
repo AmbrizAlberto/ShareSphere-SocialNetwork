@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShareSphere      </title>
+    <title>ShareSphere</title>
 
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/navbar.css">
@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/photopost.css">
     <link rel="stylesheet" href="../css/PerfilPage.css">
     <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/modalEdit.css">
 
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
@@ -20,21 +21,23 @@
 <body>
 
     <header>
-        <div class="navbar">
-            <div class="logo">
-              <button class="logo" style="font-size: 24px; background-color: transparent; border: none;" href="/"></i><span>SP</span></button>
-            </div>
-
-            <div class="access">
-                <button class="optionnv" href="/"><i class="bi bi-rocket-takeoff"></i><span>Popular</span></button>
-                <button class="optionnv" href="/about"><i class="bi bi-controller"></i><span>Gaming</span></button>
-                <button class="optionnv" href="/about"><i class="bi bi-dribbble"></i><span>Sports</span></button>
-
-                <br /><br><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-                <button class="optionnv" href="/"><i class="bi bi-gear-wide-connected"></i><span>Settings</span></button>
-            </div>
-            
+      <div class="navbar">
+        <div class="logo">
+          <a href="./main.php">
+              <img src="../images/Logo-cut.png" alt="Logo" style="font-size: 24px; background-color: transparent; border: none;">
+          </a>
         </div>
+
+        <div class="access">
+        <br /><br />
+            <button class="optionnv" href="/"><i class="bi bi-rocket-takeoff"></i><span>Popular</span></button>
+            <button class="optionnv" href="/about"><i class="bi bi-controller"></i><span>Gaming</span></button>
+            <button class="optionnv" href="/about"><i class="bi bi-dribbble"></i><span>Sports</span></button>
+            <br />
+            <button class="optionnv" href="/"><i class="bi bi-gear-wide-connected"></i><span>Settings</span></button>
+        </div>
+        
+      </div>
     </header>
     
     <div class="main">
@@ -89,15 +92,16 @@
           </div>
 
 
-        <div class="PerfilPage">
+          <div class="PerfilPage">
 
             <div class="PerfilDatos">
                 <div class="PerfilPortada">
                     <img src="https://i.pinimg.com/736x/b3/08/cc/b308cc852be780b03a9873ef42ce71f5.jpg" alt="#">
-                    <button type="button" class="editbtn">
-                      <i class="bi bi-pencil-fill"></i> Editar
+                    <button id="modalBtnEdit" type="button" class="editbtn">
+                        <i class="bi bi-pencil-fill"></i> Editar
                     </button>
                 </div>
+        
                 <div class="PerfilPhoto">
                     <img src="https://img.freepik.com/foto-gratis/joven-barbudo-camisa-rayas_273609-5677.jpg?w=740&t=st=1702678697~exp=1702679297~hmac=c54395be72f5a4c41e214867636a5cc62b7244b9da21862a94571399b52a2953" alt="">
                 </div>
@@ -108,16 +112,71 @@
                     <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, dolorum. Illo aut iure sapiente ex a eaque, vitae eum laudantium quibusdam at consequatur ab magnam soluta, sequi aliquid accusantium saepe.</h2>
                 </div>
             </div>
-
+        
         </div>
-
-
-
-
-
-
-
-
+        
+        <!-- El modal -->
+        <div id="myModalEdit" class="modaledit">
+            <!-- Contenido del modal -->
+            <div class="modal-content-edit">
+                <span class="close-edit">&times;</span>
+                <h2>Editar Perfil</h2>
+                <form id="editForm">
+                    <label for="newImage">Cargar nueva imagen:</label><br>
+                    <input type="file" id="newImage" name="newImage"><br><br>
+                    <label for="newUsername">Nombre de Usuario:</label><br>
+                    <input type="text" id="newUsername" name="newUsername"><br><br>
+                    <label for="newDescription">Descripción:</label><br>
+                    <textarea id="newDescription" name="newDescription" rows="4" cols="50"></textarea><br><br>
+                    <button class=".modal-content-edit " type="submit" value="Guardar cambios">Guardar</button> 
+                </form>
+            </div>
+        </div>
+        
+        <script>
+            // Obtener el modal
+            var modal = document.getElementById("myModalEdit");
+        
+            // Obtener el botón que abre el modal
+            var btn = document.getElementById("modalBtnEdit");
+        
+            // Obtener el elemento <span> que cierra el modal
+            var span = document.getElementsByClassName("close-edit")[0];
+        
+            // Cuando se haga clic en el botón, abrir el modal
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+        
+            // Cuando se haga clic en <span> (x), cerrar el modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+        
+            // Cuando el usuario haga clic en cualquier parte fuera del modal, cerrarlo
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        
+            // Manejar el envío del formulario de edición
+            document.getElementById("editForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Evitar que el formulario se envíe de forma tradicional
+        
+                // Obtener los valores del formulario
+                var newImage = document.getElementById("newImage").value;
+                var newUsername = document.getElementById("newUsername").value;
+                var newDescription = document.getElementById("newDescription").value;
+        
+                // Actualizar la imagen, nombre de usuario y descripción en la página (esto es un ejemplo, debes implementar la lógica de actualización real)
+                document.getElementById("profileImage").src = newImage;
+                // Aquí actualizarías el nombre de usuario y la descripción en la página
+        
+                // Cerrar el modal después de guardar los cambios
+                modal.style.display = "none";
+            });
+        </script>
 
         <div class="Post">
   
