@@ -66,6 +66,7 @@ html{
 }
 
 .optionnv {
+    top: 10%;
     position: relative;
     overflow: hidden;
     color: #cacaca76;
