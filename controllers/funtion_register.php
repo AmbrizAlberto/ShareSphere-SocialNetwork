@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         echo "<script>
             alert('Este email ya está registrado. Por favor utiliza otro');
-            window.location.href = '../controllers/register.php';
+            window.location.href = '../src/views/register.php';
         </script>";
     }
     else
@@ -61,14 +61,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     if(mail($to, $subject, $message, $headers))
                     {
                         echo "<script>
-                            alert('Cuenta creada correctamente.);
+                            alert('Cuenta creada correctamente. se mando un codigo a su correo electronico);
                             window.location.href = '../src/views/login.php';
                         </script>";
                     }
                     else
                     {
                         echo "<script>
-                            alert('Cuenta creada correctamente.');
+                            alert('Cuenta creada correctamente. No se a podido enviar el correo');
                             window.location.href = '../src/views/login.php';
                         </script>";
                     }

@@ -6,7 +6,7 @@
     <title>recuperar contraseña</title>
 </head>
 <body>
-    <form action="../../controllers/funtion_rpassword.php" method="post" id="MyForm">
+    <form action="../../controllers/funtion_code.php" method="post" id="MyForm">
         <input type="text" class="input-field" placeholder="correo" name="email" required>
         <button type="submit" class="button" value="Iniciar sesión">Continuar</button>
     </form>

@@ -27,7 +27,7 @@
             <input type="text" id="email" name="email" class="input-field" placeholder="email" required>
             <input type="password" id="password" name="password" class="input-field" placeholder="Password" required>
             <input type="submit" value="Iniciar Sesion">
-            <a class="password" href="">¿Contraseña Olvidada?</a>
+            <a class="password" href="./code.php">¿Contraseña Olvidada?</a>
             <h3>¿Aun no eres miembro?</h3>
             <a class="Register" href="./register.php">Registrarme</a>
             <a class="visit" href="../views/visitor.php">Regresar Como Visitante</a>
