@@ -1,12 +1,12 @@
 html {
     width: 100%;
     height: auto;
-    background-color: rgb(37, 37, 37);
+    background-color: #f2f2f2; /* Fondo claro */
     font-family: 'Roboto', sans-serif;
 }
 
-body{
-    background-color: transparent;
+body {
+    background-color: #f2f2f2; /* Fondo claro */
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
 }
@@ -17,9 +17,8 @@ body{
     width: auto;
 }
 
-/* FEEDHEAD*/
 .feedhead {
-    color:rgba(255, 255, 255, 0.77);
+    color: #333; /* Texto oscuro */
     z-index: 999;
     position: fixed;
     width: 83%;
@@ -30,9 +29,8 @@ body{
     margin-top: -1%;
     display: flex;
     align-items: center;
-    background-color: rgb(37, 37, 37);
-    border-bottom: 1.5px solid rgba(255, 255, 255, 0.422);
-
+    background-color: #f2f2f2; /* Fondo claro */
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.1); /* Borde claro */
 }
 
 .feedhead h1 {
@@ -45,7 +43,7 @@ body{
     text-align: center;
     margin-left: 3%;
     margin-right: 10%;
-    color: hsl(175, 100%, 51%);
+    color: #007bff; /* Color de texto azul */
 }
 
 .feedhead i {
@@ -61,18 +59,17 @@ body{
     font-size: 220%;
 }
 
-.feedhead button{
+.feedhead button {
     font-size: 150%;
     background-color: transparent;
     border: none;
-    color: white;
+    color: #333; /* Texto oscuro */
     margin-left: 0%;
 }
 
-.feedhead i:hover{
+.feedhead i:hover {
     background-color: transparent;
-    color: hsl(175, 100%, 51%);
-    text-shadow: 0 0px 30px rgb(0, 0, 0);
+    color: #007bff; /* Color de texto azul */
     cursor: pointer;
     transition: 500ms;
 }
@@ -86,63 +83,54 @@ body{
     border: 1px solid black;
     transition: 500ms;
 }
+
 .feedhead input[type="image"]:hover {
     width: 6vh;
     height: 6vh;
     transition: 500ms;
-    text-shadow: 0 0px 30px rgb(0, 0, 0);
 }
 
-/* BUSCADOR */
 .search-nav {
     display: flex;
     align-items: center;
     margin-right: -10%;
     width: 50%;
     max-width: 50%;
-  }
-  
-  .search-nav form {
+}
+
+.search-nav form {
     width: 100%;
     max-width: 100%;
     min-width: 90%;
     display: flex;
     align-items: center;
-  }
-  
-  .search-nav input[type="text"] {
+}
+
+.search-nav input[type="text"] {
     width: 60%;
     max-width: 60%;
     min-width: 50%;
     height: 4vh;
     max-height: 4vh;
     margin-top: 4px;
-    color: white;
+    color: #333; /* Texto oscuro */
     background-color: #ffffff23;
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);
     padding: 8px;
     border: 1px solid #ccc;
     border: none;
     border-radius: 20px;
-  }
-  .search-nav input[type="text"]::placeholder{
-    color: rgba(255, 255, 255, 0.43);
+}
+
+.search-nav input[type="text"]::placeholder {
+    color: rgba(0, 0, 0, 0.5); /* Texto de marcador de posición oscuro */
     background-color: transparent;
     padding: 8px;
     border-radius: 4px;
-  }
-
-
-.feed {
-    color: white;
-    width: 100%;
-    margin-right: 5%;
-    margin-left: 5%;
-    padding-left: 2%;
 }
 
-/* UPLOAD */
 .upload {
-    color: white;
+    color: #333; /* Texto oscuro */
     background-color: #ffffff23;
     width: 50%;
     height: 12%;
@@ -156,12 +144,12 @@ body{
     margin-top: 0%;
 }
 
-.upload:hover ::placeholder{
-    color:  hsla(175, 100%, 50%, 0.484);
+.upload:hover ::placeholder {
+    color: #007bff; /* Color de texto azul */
 }
 
-.upload:hover{
-    box-shadow: 0 0px 20px hsla(175, 100%, 51%, 0.523);
+.upload:hover {
+    box-shadow: 0 0px 20px rgba(0, 123, 255, 0.5); /* Sombra con color de texto azul */
     transition: 300ms;
 }
 
@@ -178,25 +166,23 @@ body{
 }
 
 .upload button {
-    color: rgba(255, 255, 255, 0.557);
+    color: #007bff; /* Color de texto azul */
     flex: 0 0 10%; 
     background-color: transparent;
     border: none;
-    border-left: 1px solid rgba(255, 255, 255, 0.644);
+    border-left: 1px solid rgba(0, 0, 0, 0.1); /* Borde claro */
     padding-left: 2vh;
     padding-right: 3.5vh;
     padding-top: 4%;
     padding-bottom: 4%;
-
 }
 
 .upload button:hover {
-    color:  hsl(175, 100%, 51%);
+    color: #0059b7; /* Color de texto azul más oscuro */
     background-color: transparent;
     cursor: pointer;
 }
 
-/* POST */
 .post-container {
     width: 50%;
     left: 16%;
@@ -204,26 +190,19 @@ body{
     position: absolute;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);  
-    background-color: rgb(37, 37, 37);
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);
+    background-color: rgba(165, 165, 165, 0.422);
     border: 1px solid rgba(255, 255, 255, 0.194);
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.post-container:hover{
-    background-color: rgb(64, 64, 64);
-}
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    border-bottom: 1px solid #eee;
+.post-container:hover {
+    background-color: rgb(183, 183, 183);
 }
 
 .user-info {
-    color: #fff;
+    color: #000000;
     display: flex;
     align-items: center;
     position: absolute;
@@ -257,21 +236,20 @@ body{
 }
 
 .post-content {
-    color: #fff;
+    color: #333; /* Texto oscuro */
     text-align: center;
     font-size: 1.2em;
 }
 
-.SubTitle{
-    color: #fff;
-
+.SubTitle {
+    color: #333; /* Texto oscuro */
     text-align: center;
     font-size: 1em;
     margin-top: -2%;
 }
 
-.description{
-    color: #fff;
+.description {
+    color: #333; /* Texto oscuro */
     text-align: start;
     margin: 15px 35px 20px;
 }
@@ -299,7 +277,7 @@ body{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #007bff;
+    background-color: #007bff; /* Color de texto azul */
     color: #fff;
     border: none;
     cursor: pointer;
@@ -308,23 +286,23 @@ body{
 }
 
 .post-actions button:hover {
-    background-color: #0059b7;
+    background-color: #0059b7; /* Color de texto azul más oscuro */
     transform: scale(1.2);
 }
-
 
 #theme-toggle-btn {
     position: absolute;
     right: 18%;
     top: 14%;
-    background-color: #ffffff; /* Color de fondo para el modo claro */
-    color: #000000; /* Color del texto para el modo claro */
+    background-color: #5f5f5f; /* Color de fondo para el modo claro */
+    color: #ffffff; /* Color del texto para el modo claro */
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-}
+}   
+
 #theme-toggle-btn:hover{
-    background-color: rgb(218, 190, 33);
+    background-color: rgb(38, 52, 142);
 }
