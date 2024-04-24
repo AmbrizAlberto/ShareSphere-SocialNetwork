@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 19-03-2024 a las 03:10:23
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Host: 127.0.0.1
+-- Generation Time: Apr 24, 2024 at 05:39 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `forumdb`
+-- Database: `forumdb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `account`
+-- Table structure for table `account`
 --
 
 CREATE TABLE `account` (
@@ -45,7 +45,7 @@ CREATE TABLE `account` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comment`
+-- Table structure for table `comment`
 --
 
 CREATE TABLE `comment` (
@@ -62,7 +62,7 @@ CREATE TABLE `comment` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `commentvote`
+-- Table structure for table `commentvote`
 --
 
 CREATE TABLE `commentvote` (
@@ -75,7 +75,7 @@ CREATE TABLE `commentvote` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `post`
+-- Table structure for table `post`
 --
 
 CREATE TABLE `post` (
@@ -90,7 +90,7 @@ CREATE TABLE `post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `post`
+-- Dumping data for table `post`
 --
 
 INSERT INTO `post` (`id`, `title`, `content`, `image`, `createdAt`, `updatedAt`, `creatorId`, `SubgroupId`) VALUES
@@ -101,7 +101,7 @@ INSERT INTO `post` (`id`, `title`, `content`, `image`, `createdAt`, `updatedAt`,
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `response`
+-- Table structure for table `response`
 --
 
 CREATE TABLE `response` (
@@ -117,7 +117,7 @@ CREATE TABLE `response` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `session`
+-- Table structure for table `session`
 --
 
 CREATE TABLE `session` (
@@ -133,7 +133,7 @@ CREATE TABLE `session` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `subgroup`
+-- Table structure for table `subgroup`
 --
 
 CREATE TABLE `subgroup` (
@@ -147,7 +147,7 @@ CREATE TABLE `subgroup` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `subgroup`
+-- Dumping data for table `subgroup`
 --
 
 INSERT INTO `subgroup` (`id`, `name`, `description`, `image`, `createdAt`, `updatedAt`, `creatorId`) VALUES
@@ -156,7 +156,7 @@ INSERT INTO `subgroup` (`id`, `name`, `description`, `image`, `createdAt`, `upda
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `subscription`
+-- Table structure for table `subscription`
 --
 
 CREATE TABLE `subscription` (
@@ -169,7 +169,7 @@ CREATE TABLE `subscription` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -183,7 +183,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `emailVerified`, `username`, `passwordHash`, `image`) VALUES
@@ -192,7 +192,32 @@ INSERT INTO `user` (`id`, `name`, `email`, `emailVerified`, `username`, `passwor
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `vote`
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `nickname` varchar(100) NOT NULL,
+  `firstname` varchar(100) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `code` int(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `nickname`, `firstname`, `lastname`, `email`, `password`, `code`) VALUES
+(3, 'Uli', 'Ulises', 'Garcia', 'alanadolfosanmillanramos@gmail.com', '$2y$10$LzcLBkyCJ6e03XD6ODuzx.upNoBU8gfm3aw12IRuLN4eBUf7k3Yuy', 0),
+(5, 'KamiKac', 'Karla Kamila', 'Vilchis Corona', 'kvilchis@ucol.mx', '$2y$10$LzcLBkyCJ6e03XD6ODuzx.upNoBU8gfm3aw12IRuLN4eBUf7k3Yuy', 0),
+(12, 'Alan', 'Alan Adolfo San', 'Millan Ramos', 'asanmillan@ucol.mx', '$2y$10$LzcLBkyCJ6e03XD6ODuzx.upNoBU8gfm3aw12IRuLN4eBUf7k3Yuy', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vote`
 --
 
 CREATE TABLE `vote` (
@@ -204,11 +229,11 @@ CREATE TABLE `vote` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `account`
+-- Indexes for table `account`
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`id`),
@@ -216,7 +241,7 @@ ALTER TABLE `account`
   ADD KEY `userId` (`userId`);
 
 --
--- Indices de la tabla `comment`
+-- Indexes for table `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`),
@@ -224,7 +249,7 @@ ALTER TABLE `comment`
   ADD KEY `postId` (`postId`);
 
 --
--- Indices de la tabla `commentvote`
+-- Indexes for table `commentvote`
 --
 ALTER TABLE `commentvote`
   ADD PRIMARY KEY (`id`),
@@ -232,7 +257,7 @@ ALTER TABLE `commentvote`
   ADD KEY `commentId` (`commentId`);
 
 --
--- Indices de la tabla `post`
+-- Indexes for table `post`
 --
 ALTER TABLE `post`
   ADD PRIMARY KEY (`id`),
@@ -240,7 +265,7 @@ ALTER TABLE `post`
   ADD KEY `SubgroupId` (`SubgroupId`);
 
 --
--- Indices de la tabla `response`
+-- Indexes for table `response`
 --
 ALTER TABLE `response`
   ADD PRIMARY KEY (`id`),
@@ -248,28 +273,28 @@ ALTER TABLE `response`
   ADD KEY `commentId` (`commentId`);
 
 --
--- Indices de la tabla `session`
+-- Indexes for table `session`
 --
 ALTER TABLE `session`
   ADD PRIMARY KEY (`id`),
   ADD KEY `userId` (`userId`);
 
 --
--- Indices de la tabla `subgroup`
+-- Indexes for table `subgroup`
 --
 ALTER TABLE `subgroup`
   ADD PRIMARY KEY (`id`),
   ADD KEY `creatorId` (`creatorId`);
 
 --
--- Indices de la tabla `subscription`
+-- Indexes for table `subscription`
 --
 ALTER TABLE `subscription`
   ADD PRIMARY KEY (`userId`,`SubgroupId`),
   ADD KEY `SubgroupId` (`SubgroupId`);
 
 --
--- Indices de la tabla `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
@@ -277,7 +302,13 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indices de la tabla `vote`
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `vote`
 --
 ALTER TABLE `vote`
   ADD PRIMARY KEY (`id`),
@@ -286,122 +317,128 @@ ALTER TABLE `vote`
   ADD KEY `commentId` (`commentId`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `account`
+-- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `comment`
+-- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `commentvote`
+-- AUTO_INCREMENT for table `commentvote`
 --
 ALTER TABLE `commentvote`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `post`
+-- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT de la tabla `response`
+-- AUTO_INCREMENT for table `response`
 --
 ALTER TABLE `response`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `session`
+-- AUTO_INCREMENT for table `session`
 --
 ALTER TABLE `session`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `subgroup`
+-- AUTO_INCREMENT for table `subgroup`
 --
 ALTER TABLE `subgroup`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `vote`
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `vote`
 --
 ALTER TABLE `vote`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `account`
+-- Constraints for table `account`
 --
 ALTER TABLE `account`
   ADD CONSTRAINT `account_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `comment`
+-- Constraints for table `comment`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`creatorId`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`postId`) REFERENCES `post` (`id`);
 
 --
--- Filtros para la tabla `commentvote`
+-- Constraints for table `commentvote`
 --
 ALTER TABLE `commentvote`
   ADD CONSTRAINT `commentvote_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `commentvote_ibfk_2` FOREIGN KEY (`commentId`) REFERENCES `comment` (`id`);
 
 --
--- Filtros para la tabla `post`
+-- Constraints for table `post`
 --
 ALTER TABLE `post`
   ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`creatorId`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `post_ibfk_2` FOREIGN KEY (`SubgroupId`) REFERENCES `subgroup` (`id`);
 
 --
--- Filtros para la tabla `response`
+-- Constraints for table `response`
 --
 ALTER TABLE `response`
   ADD CONSTRAINT `response_ibfk_1` FOREIGN KEY (`creatorId`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `response_ibfk_2` FOREIGN KEY (`commentId`) REFERENCES `comment` (`id`);
 
 --
--- Filtros para la tabla `session`
+-- Constraints for table `session`
 --
 ALTER TABLE `session`
   ADD CONSTRAINT `session_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `subgroup`
+-- Constraints for table `subgroup`
 --
 ALTER TABLE `subgroup`
   ADD CONSTRAINT `subgroup_ibfk_1` FOREIGN KEY (`creatorId`) REFERENCES `user` (`id`);
 
 --
--- Filtros para la tabla `subscription`
+-- Constraints for table `subscription`
 --
 ALTER TABLE `subscription`
   ADD CONSTRAINT `subscription_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `subscription_ibfk_2` FOREIGN KEY (`SubgroupId`) REFERENCES `subgroup` (`id`);
 
 --
--- Filtros para la tabla `vote`
+-- Constraints for table `vote`
 --
 ALTER TABLE `vote`
   ADD CONSTRAINT `vote_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`),
