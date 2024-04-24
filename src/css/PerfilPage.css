@@ -80,7 +80,117 @@ body{
     margin-top: -11%;
 }
 
-.Post
-{
-    margin-left: 23vh;
+.post-container {
+    width: 80%;
+    right: 5%;
+    margin: 20px auto;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);  
+    background-color: rgb(37, 37, 37);
+    border: 1px solid rgba(255, 255, 255, 0.194);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.post-container:hover{
+    background-color: rgb(64, 64, 64);
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.user-info {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 3%;
+    top: 2%;
+}
+
+.user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-options {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.action-btn {
+    padding: 8px 12px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.action-btn:hover {
+    background-color: #888888;
+}
+
+.post-content {
+    color: #fff;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.SubTitle{
+    color: #fff;
+
+    text-align: center;
+    font-size: 1em;
+    margin-top: -2%;
+}
+
+.description{
+    color: #fff;
+    text-align: start;
+    margin: 15px 35px 20px;
+}
+
+.image-container {
+    max-width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    display: block;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    justify-content: start;
+    align-items: center;
+    padding: 15px;
+}
+
+.post-actions button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-left: 2%;
+    transition: transform 0.3s ease;
+}
+
+.post-actions button:hover {
+    background-color: #0059b7;
+    transform: scale(1.2);
 }
