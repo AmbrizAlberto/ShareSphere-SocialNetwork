@@ -126,46 +126,50 @@ $postList = $posts->GetPosts();
         </div>
 
         <?php foreach($postList as $post){?>
-        <?php $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_STRING));?>
-
-        <div class="post-container">
-          <div class="user-info">
-            <img src="../images/Uli.png" alt="User Image">
-            <span><?php echo $username['username']?></span>
-          </div>
-          <div class="post-options">
-            <button class="action-btn"><i class="bi bi-three-dots"></i></i></button>
-          </div>
-          <h2 class="post-content"><?php echo $post['title'];  ?></h2>
-          <h3 class="SubTitle">Tema de la onu</h3>
-          <div class="description"><?php echo $post['content'] ?></div>
-          <div class="image-container">
-            <?php if($post['image'] != null){ ?>
-              <img src="/public/images_posts/<?php echo $post['image'] ?>" alt="Imagen de la publicacion">
-            <?php } ?>
-          </div>
-          <div class="post-actions">
-            <button class="action-btn"><i class="bi bi-hand-thumbs-up-fill"></i></button>
-            <button class="action-btn"><i class="bi bi-hand-thumbs-down-fill"></i></button>
-            <button class="action-btn"><i class="bi bi-chat-square-text-fill"></i></button>
-            <div>
-                <span class="likes">100 Likes</span>
-                <span class="comments">50 Comments</span>
+          <?php $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_STRING));?>
+          
+          <div class="post-container">
+            <div class="user-info">
+              <img src="../images/Uli.png" alt="User Image">
+              <span><?php echo $username['username']?></span>
             </div>
-        </div>
-        
+            <div class="post-options">
+              <button class="action-btn"><i class="bi bi-three-dots"></i></i></button>
+            </div>
+            <h2 class="post-content">
+              <?php echo $post['title'];  ?>
+            </h2>
+            <h3 class="SubTitle">
+              Tema de la onu
+            </h3>
+            <div class="description">
+              <?php echo $post['content'] ?>
+            </div>
+            <div class="image-container">
+              <?php if($post['image'] != null){ ?>
+                <img src="/public/images_posts/<?php echo $post['image'] ?>" alt="Imagen de la publicacion">
+              <?php } ?>
+            </div>
+            <div class="post-actions">
+              <button class="action-btn"><i class="bi bi-hand-thumbs-up-fill"></i></button>
+              <button class="action-btn"><i class="bi bi-hand-thumbs-down-fill"></i></button>
+              <button class="action-btn"><i class="bi bi-chat-square-text-fill"></i></button>
+            <div>
+              <span class="likes">100 Likes</span>
+              <span class="comments">50 Comments</span>
+              </div>
+            </div>
+          </div>
         <?php } ?>
-
-      </div>
-
-      <button class="toTop" id="toTop">
-        <svg viewBox="0 0 24 24">
-        <path d="m4 16 8-8 8 8"></path>
-         </svg>
-      </button>
-
-      <script src="scriptedit.js"></script>
-      <script src="toTop.js"></script>
-      <script src="light-darkMode.js"></script>
+        
+        <button class="toTop" id="toTop">
+          <svg viewBox="0 0 24 24">
+          <path d="m4 16 8-8 8 8"></path>
+          </svg>
+        </button>
+        
+        <script src="scriptedit.js"></script>
+        <script src="toTop.js"></script>
+        <script src="light-darkMode.js"></script>
 </body>
 </html>

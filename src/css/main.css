@@ -199,9 +199,9 @@ body{
 /* POST */
 .post-container {
     width: 50%;
-    left: 16%;
+    right: 18%;
     margin: 20px auto;
-    position: absolute;
+    position: relative;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);  
@@ -328,3 +328,32 @@ body{
 #theme-toggle-btn:hover{
     background-color: rgb(218, 190, 33);
 }
+
+.toTop {
+    border: none;
+    display: flex;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.3s;
+    position: fixed; right: 1rem; bottom: 1rem; z-index: 9999;
+  }
+  
+  .toTop:not(.is-visible) {
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+  
+  .toTop svg {
+    stroke-width: 3px;
+    stroke: currentColor;
+    fill: none;
+    width: 24px;
+  }
+  
+  .toTop {
+    background-color: #252525;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    color: #fff;
+  }

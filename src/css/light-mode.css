@@ -1,6 +1,4 @@
 html {
-    width: 100%;
-    height: auto;
     background-color: #f2f2f2; /* Fondo claro */
     font-family: 'Roboto', sans-serif;
 }
@@ -8,193 +6,75 @@ html {
 body {
     background-color: #f2f2f2; /* Fondo claro */
     font-family: 'Roboto', sans-serif;
-    overflow-x: hidden;
-}
-
-.main {
-    background-color: transparent;
-    margin-left: 13%;
-    width: auto;
 }
 
 .feedhead {
     color: #333; /* Texto oscuro */
-    z-index: 999;
-    position: fixed;
-    width: 83%;
-    max-width: 83%;
-    height: auto;
-    max-height: 12%;
-    min-height: 10%;
-    margin-top: -1%;
-    display: flex;
-    align-items: center;
     background-color: #f2f2f2; /* Fondo claro */
     border-bottom: 1.5px solid rgba(0, 0, 0, 0.1); /* Borde claro */
 }
 
 .feedhead h1 {
-    margin-top: 2%;
-    font-size: 200%;
-    size-adjust: 150%;
-    width: 20%;
-    max-width: 20%;
-    min-width: 20%;
-    text-align: center;
-    margin-left: 3%;
-    margin-right: 10%;
-    color: #007bff; /* Color de texto azul */
-}
-
-.feedhead i {
-    margin-top: 0.5vh;
-    margin-left: 20%;
-    margin-right: 1%;
-    font-size: 130%;
-    transition: 300ms;
-}
-
-.feedhead  i.bi.bi-box-arrow-right {
-    margin-left: 35%;
-    font-size: 220%;
+    color: #000000; /* Color de texto*/
 }
 
 .feedhead button {
-    font-size: 150%;
-    background-color: transparent;
-    border: none;
     color: #333; /* Texto oscuro */
-    margin-left: 0%;
 }
 
 .feedhead i:hover {
-    background-color: transparent;
-    color: #007bff; /* Color de texto azul */
-    cursor: pointer;
-    transition: 500ms;
+    color: #000000; /* Color de texto */
 }
 
 .feedhead input[type="image"] {
-    width: 5vh;
-    max-height: 6vh;
-    min-height: 5vh;
-    height: 5vh;
-    border-radius: 50%;
     border: 1px solid black;
-    transition: 500ms;
-}
-
-.feedhead input[type="image"]:hover {
-    width: 6vh;
-    height: 6vh;
-    transition: 500ms;
-}
-
-.search-nav {
-    display: flex;
-    align-items: center;
-    margin-right: -10%;
-    width: 50%;
-    max-width: 50%;
-}
-
-.search-nav form {
-    width: 100%;
-    max-width: 100%;
-    min-width: 90%;
-    display: flex;
-    align-items: center;
 }
 
 .search-nav input[type="text"] {
-    width: 60%;
-    max-width: 60%;
-    min-width: 50%;
-    height: 4vh;
-    max-height: 4vh;
-    margin-top: 4px;
+   
     color: #333; /* Texto oscuro */
     background-color: #ffffff23;
     box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);
-    padding: 8px;
     border: 1px solid #ccc;
-    border: none;
-    border-radius: 20px;
 }
 
 .search-nav input[type="text"]::placeholder {
     color: rgba(0, 0, 0, 0.5); /* Texto de marcador de posición oscuro */
-    background-color: transparent;
-    padding: 8px;
-    border-radius: 4px;
 }
 
 .upload {
     color: #333; /* Texto oscuro */
     background-color: #ffffff23;
-    width: 50%;
-    height: 12%;
-    margin-left: 7%;
     box-shadow: 0 0px 20px black;
-    border: none;
-    border-radius: 10px;
-    display: flex;
-    align-items: center; 
-    transition: 300ms;
-    margin-top: 0%;
+   
 }
 
 .upload:hover ::placeholder {
-    color: #007bff; /* Color de texto azul */
+    color: #070707; /* Color de texto */
 }
 
 .upload:hover {
     box-shadow: 0 0px 20px rgba(0, 123, 255, 0.5); /* Sombra con color de texto azul */
-    transition: 300ms;
-}
-
-.upload form {
-    width: 100%;
-    display: flex;
-}
-
-.upload input {
-    flex: 0 0 75%; 
-    padding: 1em;
-    background-color: transparent;
-    border: none;
 }
 
 .upload button {
-    color: #007bff; /* Color de texto azul */
-    flex: 0 0 10%; 
-    background-color: transparent;
-    border: none;
+    color: #000000; /* Color de texto */
     border-left: 1px solid rgba(0, 0, 0, 0.1); /* Borde claro */
-    padding-left: 2vh;
-    padding-right: 3.5vh;
-    padding-top: 4%;
-    padding-bottom: 4%;
 }
 
 .upload button:hover {
     color: #0059b7; /* Color de texto azul más oscuro */
-    background-color: transparent;
-    cursor: pointer;
+   
+}
+
+.containerfiltros h1{
+    color: #000000;
 }
 
 .post-container {
-    width: 50%;
-    left: 16%;
-    margin: 20px auto;
-    position: absolute;
-    border-radius: 10px;
-    overflow: hidden;
     box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);
     background-color: rgba(165, 165, 165, 0.422);
     border: 1px solid rgba(255, 255, 255, 0.194);
-    cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 .post-container:hover {
@@ -203,32 +83,11 @@ body {
 
 .user-info {
     color: #000000;
-    display: flex;
-    align-items: center;
-    position: absolute;
-    left: 3%;
-    top: 2%;
-}
-
-.user-info img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.post-options {
-    display: flex;
-    justify-content: flex-end;
+  
 }
 
 .action-btn {
-    padding: 8px 12px;
     background-color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 .action-btn:hover {
@@ -237,70 +96,28 @@ body {
 
 .post-content {
     color: #333; /* Texto oscuro */
-    text-align: center;
-    font-size: 1.2em;
 }
 
 .SubTitle {
     color: #333; /* Texto oscuro */
-    text-align: center;
-    font-size: 1em;
-    margin-top: -2%;
 }
 
 .description {
     color: #333; /* Texto oscuro */
-    text-align: start;
-    margin: 15px 35px 20px;
-}
-
-.image-container {
-    max-width: 100%;
-    height: 250px;
-    overflow: hidden;
-}
-
-.image-container img {
-    width: 100%;
-    display: block;
-}
-
-.post-actions {
-    display: flex;
-    justify-content: space-between;
-    justify-content: start;
-    align-items: center;
-    padding: 15px;
 }
 
 .post-actions button {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #007bff; /* Color de texto azul */
+    background-color: #000000; /* Color de texto */
     color: #fff;
-    border: none;
-    cursor: pointer;
-    margin-left: 2%;
-    transition: transform 0.3s ease;
 }
 
 .post-actions button:hover {
     background-color: #0059b7; /* Color de texto azul más oscuro */
-    transform: scale(1.2);
 }
 
 #theme-toggle-btn {
-    position: absolute;
-    right: 18%;
-    top: 14%;
     background-color: #5f5f5f; /* Color de fondo para el modo claro */
     color: #ffffff; /* Color del texto para el modo claro */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
 }   
 
 #theme-toggle-btn:hover{
