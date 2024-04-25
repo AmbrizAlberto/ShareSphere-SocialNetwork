@@ -130,18 +130,24 @@ $postList = $posts->GetPosts();
           
           <div class="post-container">
             <div class="user-info">
-              <img src="../images/Uli.png" alt="User Image">
+              <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
               <span><?php echo $username['username']?></span>
             </div>
             <div class="post-options">
-              <button class="action-btn"><i class="bi bi-three-dots"></i></i></button>
+              <span><i class="bi bi-caret-down-fill"></i></span>
+              <div class="option-content">
+                <a href="#"><i class="bi bi-pencil-fill"></i></a>
+                <a href="#"><i class="bi bi-trash-fill"></i></a>
+              </div>
             </div>
             <h2 class="post-content">
               <?php echo $post['title'];  ?>
             </h2>
-            <h3 class="SubTitle">
-              Tema de la onu
-            </h3>
+            <a href="#" style=text-decoration:none>
+              <h3 class="SubTitle">
+                Tema de la onu
+              </h3>
+            </a>
             <div class="description">
               <?php echo $post['content'] ?>
             </div>

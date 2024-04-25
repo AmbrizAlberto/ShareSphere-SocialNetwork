@@ -135,7 +135,11 @@
               <span>
             </div>
             <div class="post-options">
-              <button class="action-btn"><i class="bi bi-three-dots"></i></i></button>
+              <span><i class="bi bi-caret-down-fill"></i></span>
+              <div class="option-content">
+                <a href="#"><i class="bi bi-pencil-fill"></i></a>
+                <a href="#"><i class="bi bi-trash-fill"></i></a>
+              </div>
             </div>
             <h2 class="post-content">
 
