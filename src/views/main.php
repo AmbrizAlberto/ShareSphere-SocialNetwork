@@ -19,6 +19,7 @@ $postList = $posts->GetPosts();
     <link rel="stylesheet" href="../css/photopost.css">
     <link rel="stylesheet" href="../css/filtros.css">
     <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/Post.css">
     <link rel="stylesheet" href="../css/modalEdit.css">
     
     <link rel="stylesheet" href="../css/light-mode.css" id="theme-style"> 
@@ -153,7 +154,7 @@ $postList = $posts->GetPosts();
             </div>
             <div class="image-container">
               <?php if($post['image'] != null){ ?>
-                <img src="/public/images_posts/<?php echo $post['image'] ?>" alt="Imagen de la publicacion">
+                <img src="/public/images_posts/<?php echo $post['image'] ?>" alt="Imagen de la publicacion" onclick="openModal(event)">
               <?php } ?>
             </div>
             <div class="post-actions">
@@ -167,7 +168,38 @@ $postList = $posts->GetPosts();
             </div>
           </div>
         <?php } ?>
+
+        <div id="Post-complete" class="post">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <img class="content-post" id="fullImage">
+          <div id="comment">
+            <div class="box-comment">
+              <div class="user-info-post">
+                <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
+                <span><?php echo $username['username']?></span>
+              </div>
+              <div class="description-comment">
+                <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro quam, perspiciatis sit ipsum voluptatum provident accusamus dolores dolorem ex numquam et magnam fugit praesentium, sapiente nemo culpa quisquam, consectetur corporis.</h2>
+              </div>
+            </div>
+          </div>
+
+          <div id="comment">
+            <div class="box-comment">
+              <div class="user-info-post">
+                <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
+                <span><?php echo $username['username']?></span>
+              </div>
+              <div class="description-comment">
+                <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro quam, perspiciatis sit ipsum voluptatum provident accusamus dolores dolorem ex numquam et magnam fugit praesentium, sapiente nemo culpa quisquam, consectetur corporis.</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
         
+
+
         <button class="toTop" id="toTop">
           <svg viewBox="0 0 24 24">
           <path d="m4 16 8-8 8 8"></path>
@@ -177,5 +209,6 @@ $postList = $posts->GetPosts();
         <script src="scriptedit.js"></script>
         <script src="toTop.js"></script>
         <script src="light-darkMode.js"></script>
+        <script src="post.js"></script>
 </body>
 </html>

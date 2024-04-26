@@ -20,7 +20,7 @@ body{
 /* FEEDHEAD*/
 .feedhead {
     color:rgba(255, 255, 255, 0.77);
-    z-index: 999;
+    z-index: 1;
     position: fixed;
     width: 83%;
     max-width: 83%;
