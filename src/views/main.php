@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <?php
 require_once("../../autoload.php");
@@ -70,7 +69,7 @@ $postList = $posts->GetPosts();
             <div class="modal-content">
               <span class="close" id="closeBtn">&times;</span>
               <form action="/controllers/Set/SetPost.php" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="post_creator_id" value="1">
+                <input type="hidden" value="<?php  echo $_SESSION['userId'];?>" name="post_creator_id">
                 <label for="tema">Tema:</label>
                 <select id="selector" name="post_subgroup_id" required>
                   <option value="1">6 Agua Limpia y Saneamineto</option>
@@ -97,7 +96,7 @@ $postList = $posts->GetPosts();
             <i class="bi bi-app-indicator"></i>
           </button>
 
-          <a href="../../controllers/logout.php" class="logout"><i class="bi bi-box-arrow-right"></i></a>
+          <a href="/controllers/logout.php" class="logout"><i class="bi bi-box-arrow-right"></i></a>
 
         </div>
 
@@ -131,7 +130,7 @@ $postList = $posts->GetPosts();
           
           <div class="post-container">
             <div class="user-info">
-              <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
+              <a href="../views/PerfilPage.php"><img src="<?php $userimg = $posts->GetUserImgById($post['creatorId']); echo "/public/images_users/".$userimg ?> " alt="User Image"></a>
               <span><?php echo $username['username']?></span>
             </div>
             <div class="post-options">
@@ -146,7 +145,7 @@ $postList = $posts->GetPosts();
             </h2>
             <a href="#" style=text-decoration:none>
               <h3 class="SubTitle">
-                Tema de la onu
+                <?php switch ($post['SubgroupId']) { case '1': echo "Agua Limpia y Saneamineto"; break; case '2': echo "Energia Asequible y No Contaminante"; break; case '3': echo "Vida Submarina"; break; } ?>            
               </h3>
             </a>
             <div class="description">

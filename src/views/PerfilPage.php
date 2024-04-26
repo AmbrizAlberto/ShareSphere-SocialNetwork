@@ -1,3 +1,9 @@
+<?php
+require_once("../../autoload.php");
+use Models\{posts};
+$posts = new posts();
+$postList = $posts->GetPostsByIdUser($_SESSION['userId']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

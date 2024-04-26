@@ -1,4 +1,5 @@
 <?php
+session_set_cookie_params(0);
     session_start();// Iniciar la sesión
     if(isset($_SESSION['email']))
     {
@@ -25,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
         try {
             // Preparamos la consulta para obtener el usuario por su email
-            $consulta = $pdo->prepare("SELECT firstname , lastname, nickname, password FROM users WHERE email = :email");
+            $consulta = $pdo->prepare("SELECT firstname , lastname, nickname,id, password FROM users WHERE email = :email");
             $consulta->bindParam(':email', $email);
             $consulta->execute();
             $user = $consulta->fetch(PDO::FETCH_ASSOC);
@@ -36,9 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 if (password_verify($password, $user['password']))
                 {
                     $_SESSION['email'] = $email; // Almacenamos el email del usuario en la sesión
-                    $_SESSION['name'] = $user['name']; // Almacenamos el nombre del usuario en la sesión
+                    $_SESSION['firstname'] = $user['firstname']; // Almacenamos el nombre del usuario en la sesión
                     $_SESSION['lastname'] = $user['lastname'];
                     $_SESSION['nickname'] = $user['nickname'];  // Almacenamos el nickname en la sesión
+                    $_SESSION['userId'] = $user['id']; // Almacenamos el id del usuario en la sesión
                     header("Location:../src/views/main.php"); // Redireccionar al usuario a la página de inicio
                     exit();
                 } else 
