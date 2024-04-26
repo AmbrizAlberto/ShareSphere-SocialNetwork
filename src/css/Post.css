@@ -18,10 +18,10 @@
     border-radius: 3%;
   }
   
-  .close {
-    color: #721818;
+  .close-post {
+    color: #b15050;
     position: relative;
-    right: 5%;
+    left: 90%;
     top: 5%;
     font-size: 60px;
     font-weight: bold;

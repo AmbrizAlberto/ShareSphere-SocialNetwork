@@ -170,7 +170,7 @@ $postList = $posts->GetPosts();
         <?php } ?>
 
         <div id="Post-complete" class="post">
-          <span class="close" onclick="closeModal()">&times;</span>
+          <span class="close-post" onclick="closeModal()">&times;</span>
           <img class="content-post" id="fullImage">
           <div id="comment">
             <div class="box-comment">
@@ -206,9 +206,10 @@ $postList = $posts->GetPosts();
           </svg>
         </button>
         
-        <script src="scriptedit.js"></script>
-        <script src="toTop.js"></script>
-        <script src="light-darkMode.js"></script>
-        <script src="post.js"></script>
+        <script src="../js/script.js"></script>
+        <script src="../js/scriptedit.js"></script>
+        <script src="../js/toTop.js"></script>
+        <script src="../js/light-darkMode.js"></script>
+        <script src="../js/post.js"></script>
 </body>
 </html>

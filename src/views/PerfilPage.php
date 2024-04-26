@@ -169,4 +169,4 @@
           </svg>
         </button>
 
-        <script src="scriptedituser.js"></script>
+        <script src="../js/scriptedituser.js"></script>
