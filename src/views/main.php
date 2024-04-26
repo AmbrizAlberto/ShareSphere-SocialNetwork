@@ -144,7 +144,7 @@ $postList = $posts->GetPosts();
             </h2>
             <a href="#" style=text-decoration:none>
               <h3 class="SubTitle">
-                <?php switch ($post['SubgroupId']) { case '1': echo "Agua Limpia y Saneamineto"; break; case '2': echo "Energia Asequible y No Contaminante"; break; case '3': echo "Vida Submarina"; break; } ?>
+                <?php switch ($post['SubgroupId']) { case '1': echo "Agua Limpia y Saneamineto"; break; case '2': echo "Energia Asequible y No Contaminante"; break; case '3': echo "Vida Submarina"; break; } ?>            
               </h3>
             </a>
             <div class="description">
