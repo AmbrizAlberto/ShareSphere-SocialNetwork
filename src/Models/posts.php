@@ -106,7 +106,14 @@ class posts extends connection{
         $arrwhere =array($id);
         $delete= $this->conn->prepare($sql);
         $del = $delete->execute($arrwhere);
-        return $del;
+        return $del;    
+    }
+
+    public function GetPostsIndex(){
+        $sql="SELECT COUNT(*)FROM post";
+        $execute = $this->conn->query($sql);
+        $request = $execute->fetchColumn();
+        return $request;
     }
     public function GetUserImgById($id){
         $sql="SELECT image FROM user WHERE id = $id";
