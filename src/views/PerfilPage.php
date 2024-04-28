@@ -1,3 +1,9 @@
+<?php
+require_once("../../autoload.php");
+use Models\{posts};
+$posts = new posts();
+$postList = $posts->GetPostsByIdUser($_SESSION['userId']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -128,131 +134,45 @@
                 </form>
             </div>
         </div>
-        <script src="scriptedituser.js"></script>
+          
+          <div class="post-container">
+            <div class="user-info">
+              <img src="../images/Uli.png" alt="User Image">
+              <span>
+            </div>
+            <div class="post-options">
+              <span><i class="bi bi-caret-down-fill"></i></span>
+              <div class="option-content">
+                <a href="#"><i class="bi bi-pencil-fill"></i></a>
+                <a href="#"><i class="bi bi-trash-fill"></i></a>
+              </div>
+            </div>
+            <h2 class="post-content">
 
-        <div class="Post">
-  
-            <div class="leftside">
-    
-              <div class="postheader">
-  
-                <div class="themename">
-                  <h1>Theme</h1>
-                </div>
-                
-                <div class="user">
-                  <div class="photouser">
-                    <form action="#" method="post">
-                      <input
-                        type="image"
-                        src="https://img.freepik.com/foto-gratis/joven-barbudo-camisa-rayas_273609-5677.jpg?w=740&t=st=1702678697~exp=1702679297~hmac=c54395be72f5a4c41e214867636a5cc62b7244b9da21862a94571399b52a2953"
-                        alt="Texto Alternativo"/>
-                    </form>
-                  </div>
-  
-                  <div class="postdatos">
-                    <div class="name">
-                      <h1>Name</h1>
-                    </div>
-                    <div class="options">
-                      <button class="btn btn-light" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-three-dots-vertical"></i>
-                      </button>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i> Editar</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-trash-fill"></i> Eliminar</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-    
-              <div class="textpost">
-                
-                <div class="texto">
-                  <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam, aperiam consequatur quis dolorum, vitae adipisci vel excepturi quas rerum sint molestias molestiae. Beatae minus a id. Iure harum molestias doloribus?</h1>
-                </div>
-  
-                <div class="RLC">
-                  <div class="resumen">
-                    <p>10,000 Likes</p>
-                    <p>10,000 Comentarios</p>
-                  </div>
-                  <div class="reactions">
-                    <button className="btn btn-primary"><i class="bi bi-star"></i></button>
-                    <button className="btn btn-secondary"><i class="bi bi-chat"></i></button>
-                  </div>
-                </div>
-                
-              </div>
-    
+            </h2>
+            <h3 class="SubTitle">
+              Tema de la onu
+            </h3>
+            <div class="description">
             </div>
-  
-    
+            <div class="image-container">
+                <img src="/public/images_posts/backg.png" alt="Imagen de la publicacion">
+            </div>
+            <div class="post-actions">
+              <button class="action-btn"><i class="bi bi-hand-thumbs-up-fill"></i></button>
+              <button class="action-btn"><i class="bi bi-hand-thumbs-down-fill"></i></button>
+              <button class="action-btn"><i class="bi bi-chat-square-text-fill"></i></button>
+            <div>
+              <span class="likes">100 Likes</span>
+              <span class="comments">50 Comments</span>
+              </div>
+            </div>
           </div>
-  
-  
-  
-  
-          <div class="Post">
-    
-            <div class="leftside">
-    
-              <div class="postheader">
-  
-                <div class="themename">
-                  <h1>Theme</h1>
-                </div>
-                
-                <div class="user">
-                  <div class="photouser">
-                    <form action="#" method="post">
-                      <input
-                        type="image"
-                        src="https://img.freepik.com/foto-gratis/joven-barbudo-camisa-rayas_273609-5677.jpg?w=740&t=st=1702678697~exp=1702679297~hmac=c54395be72f5a4c41e214867636a5cc62b7244b9da21862a94571399b52a2953"
-                        alt="Texto Alternativo"/>
-                    </form>
-                  </div>
-  
-                  <div class="postdatos">
-                    <div class="name">
-                      <h1>Name</h1>
-                    </div>
-                    <div class="options">
-                      <button class="btn btn-light" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-three-dots-vertical"></i>
-                      </button>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-fill"></i> Editar</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-trash-fill"></i> Eliminar</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-    
-              <div class="photopost">
-                <img src="https://i.pinimg.com/originals/d1/46/c6/d146c6f891e3464d5544d15eaaff7661.jpg" alt="#" />
-                
-                <div class="RLC">
-                  <div class="resumen">
-                    <p>10,000 Likes</p>
-                    <p>10,000 Comentarios</p>
-                  </div>
-                  <div class="reactions">
-                    <button className="btn btn-primary"><i class="bi bi-star"></i></button>
-                    <button className="btn btn-secondary"><i class="bi bi-chat"></i></button>
-                  </div>
-                </div>
-                
-              </div>
-    
-            </div>
-    
-            <div class="rightside">
-              <div class="description">
-                  <h1>DESCRIPTION</h1>
-                <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates quam laboriosam repudiandae ad numquam itaque magni alias non saepe, ducimus, enim voluptas cumque a quidem est veritatis aperiam quod velit.</h1>                </div>
-            </div>
+        
+        <button class="toTop" id="toTop">
+          <svg viewBox="0 0 24 24">
+          <path d="m4 16 8-8 8 8"></path>
+          </svg>
+        </button>
+
+        <script src="../js/scriptedituser.js"></script>

@@ -46,6 +46,13 @@ class posts extends connection{
         return $request;
     }
 
+    public function GetPostsByIdUser($id){
+        $sql="SELECT * FROM post WHERE creatorId = $id ORDER BY id DESC";
+        $execute = $this->conn->query($sql);
+        $request = $execute->fetchall(PDO::FETCH_ASSOC);
+        return $request;
+    }
+
     public function InsertImg($name_images, $name){
         if(isset($_FILES['image'])){
 
@@ -106,6 +113,12 @@ class posts extends connection{
         $sql="SELECT COUNT(*)FROM post";
         $execute = $this->conn->query($sql);
         $request = $execute->fetchColumn();
+        return $request;
+    }
+    public function GetUserImgById($id){
+        $sql="SELECT image FROM user WHERE id = $id";
+        $execute = $this->conn->query($sql);
+        $request = $execute->fetch(PDO::FETCH_COLUMN, 0);
         return $request;
     }
 }

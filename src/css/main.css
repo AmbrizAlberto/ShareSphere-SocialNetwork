@@ -20,7 +20,7 @@ body{
 /* FEEDHEAD*/
 .feedhead {
     color:rgba(255, 255, 255, 0.77);
-    z-index: 999;
+    z-index: 1;
     position: fixed;
     width: 83%;
     max-width: 83%;
@@ -199,14 +199,14 @@ body{
 /* POST */
 .post-container {
     width: 50%;
-    left: 16%;
+    right: 18%;
     margin: 20px auto;
-    position: absolute;
+    position: relative;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);  
     background-color: rgb(37, 37, 37);
-    border-bottom: 1.5px solid rgba(255, 255, 255, 0.422);
+    border: 1px solid rgba(255, 255, 255, 0.194);
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -239,9 +239,43 @@ body{
 }
 
 .post-options {
+    width: 30px;
+    left: 93%;
+    top: 10px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #007bff;
+    position: relative;
     display: flex;
-    justify-content: flex-end;
-}
+    align-items: center;
+    justify-content: center;
+  }
+
+.option-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    border-radius: 5%;
+    top: 20px;    
+    z-index: 1;
+  }
+  
+.option-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    border-radius: 5%;
+    display: block;
+  }
+  
+.option-content a:hover {
+    background-color: #858585;
+    border-radius: 5%;
+  }
+  
+.post-options:hover .option-content {
+    display: block;
+  }
 
 .action-btn {
     padding: 8px 12px;
@@ -278,7 +312,6 @@ body{
 
 .image-container {
     max-width: 100%;
-    height: 250px;
     overflow: hidden;
 }
 
@@ -312,78 +345,48 @@ body{
     transform: scale(1.2);
 }
 
-.counters {
-    display: flex;
-}
 
-.likes{
-    color: #fff;
-
+#theme-toggle-btn {
     position: absolute;
-    left: 65%;
-}
-
-.comments{
-    color: #fff;
-    position: absolute;
-    left: 80%;
-}
-
-/* RESUMEN Y REACCIONES */
-.RLC {
-    border-top: 1px solid rgba(255, 255, 255, 0.594);
-    margin-top: 3%;
-    padding-top: 2%;
-    background-color: transparent;
-    display: flex;
-    margin-right: 0%;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.RLC .resumen {
-    background-color: transparent;
-    width: 70%;
-    display: flex;
-}
-
-.RLC .resumen p {
-    background-color: transparent;
-    display: flex;
-    padding-right: 2%;
-    font-size: 100%;
-}
-
-.RLC .reactions {
-    background-color: transparent;
-    margin-left: 30vh;
-    display: flex;
-    width: 30%;
-    margin-bottom: 1%;
-    transition: 300ms;
-}
-
-.reactions button,
-.reactions i {
-    width: auto;
-    font-size: 140%;
-    color: white;
-    cursor: pointer;
+    right: 18%;
+    top: 14%;
+    background-color: #ffffff; /* Color de fondo para el modo claro */
+    color: #000000; /* Color del texto para el modo claro */
     border: none;
-    background-color: transparent;
-    transition: 300ms;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+#theme-toggle-btn:hover{
+    background-color: rgb(218, 190, 33);
 }
 
-.reactions i.bi.bi-star:hover{
-    background-color: transparent;
-    color: rgb(179, 75, 137);
-    text-shadow: 0 0 12px rgb(255, 0, 0);
-    transition: 300ms;
-}
-
-.reactions i.bi.bi-chat:hover{
-    background-color: transparent;
-    color: rgb(42, 132, 171);
-    text-shadow: 0 0 10px rgb(0, 251, 255);
-    transition: 300ms;
-}
+.toTop {
+    border: none;
+    display: flex;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.3s;
+    position: fixed; right: 1rem; bottom: 1rem; z-index: 9999;
+  }
+  
+  .toTop:not(.is-visible) {
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+  
+  .toTop svg {
+    stroke-width: 3px;
+    stroke: currentColor;
+    fill: none;
+    width: 24px;
+  }
+  
+  .toTop {
+    background-color: #252525;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    color: #fff;
+  }

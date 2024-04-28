@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-03-2024 a las 03:10:23
+-- Tiempo de generación: 26-04-2024 a las 05:51:45
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -96,7 +96,11 @@ CREATE TABLE `post` (
 INSERT INTO `post` (`id`, `title`, `content`, `image`, `createdAt`, `updatedAt`, `creatorId`, `SubgroupId`) VALUES
 (5, 'conguito', 'si', 'conguito2024-03-13_16-22-36.png', '2024-03-13 09:22:36', NULL, 1, 1),
 (6, 'gh', 'hf', NULL, '2024-03-13 09:27:19', NULL, 1, 1),
-(7, 'gemelo gei', 'gemelo gei', 'gemelogei2024-03-19_03-01-28.jpeg', '2024-03-18 20:01:28', NULL, 1, 1);
+(7, 'gemelo gei', 'gemelo gei', 'gemelogei2024-03-19_03-01-28.jpeg', '2024-03-18 20:01:28', NULL, 1, 1),
+(9, 'tt', 'gg', 'tt2024-04-25_17-00-46.png', '2024-04-25 09:00:46', NULL, 1, 1),
+(10, 'klgjkg', 'glkbf', NULL, '2024-04-25 09:01:05', NULL, 1, 1),
+(11, 'jkcv', 'bnb', 'jkcv2024-04-25_17-09-39.png', '2024-04-25 09:09:39', NULL, 1, 1),
+(16, 'iljf ksdlvc', 'vxcxc', 'iljfksdlvc2024-04-26_04-30-34.png', '2024-04-25 20:30:34', NULL, 12, 1);
 
 -- --------------------------------------------------------
 
@@ -151,7 +155,9 @@ CREATE TABLE `subgroup` (
 --
 
 INSERT INTO `subgroup` (`id`, `name`, `description`, `image`, `createdAt`, `updatedAt`, `creatorId`) VALUES
-(1, 'Agua limpia y Saneamiento', 'si', 'agua.png', '2024-03-13 09:00:08', '2024-03-13 09:00:08', 1);
+(1, 'Agua limpia y Saneamiento', 'si', 'agua.png', '2024-03-13 09:00:08', '2024-03-13 09:00:08', 1),
+(3, 'Energia Asequible y No Contaminante', '7', 'nose.png', '2024-04-25 21:43:12', '2024-04-25 21:43:12', 12),
+(4, 'Vida Submarina', '14', 'vidamarina.png', '2024-04-25 21:43:12', '2024-04-25 21:43:12', 1);
 
 -- --------------------------------------------------------
 
@@ -187,7 +193,34 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `emailVerified`, `username`, `passwordHash`, `image`) VALUES
-(1, 'david', 'david@gmail.com', '2024-03-13 08:02:18', 'Zama', 'ghjofipgjblcvkopirtjlikfjn', 'conguito.png');
+(1, 'david', 'david@gmail.com', '2024-03-13 08:02:18', 'Zama', 'ghjofipgjblcvkopirtjlikfjn', 'conguito.png'),
+(12, 'Alberto', 'albertothegoat@gmail.com', '2024-03-13 08:02:19', 'Beto', 'f hduinsyhsdiu ', 'esteban.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `nickname` varchar(100) NOT NULL,
+  `firstname` varchar(100) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `code` int(8) NOT NULL,
+  `imageUser` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `nickname`, `firstname`, `lastname`, `email`, `password`, `code`, `imageUser`) VALUES
+(3, 'Uli', 'Ulises', 'Garcia', 'alanadolfosanmillanramos@gmail.com', '$2y$10$LzcLBkyCJ6e03XD6ODuzx.upNoBU8gfm3aw12IRuLN4eBUf7k3Yuy', 0, NULL),
+(5, 'KamiKac', 'Karla Kamila', 'Vilchis Corona', 'kvilchis@ucol.mx', '$2y$10$LzcLBkyCJ6e03XD6ODuzx.upNoBU8gfm3aw12IRuLN4eBUf7k3Yuy', 0, NULL),
+(12, 'Alan', 'Alan Adolfo San', 'Millan Ramos', 'asanmillan@ucol.mx', '$2y$10$LzcLBkyCJ6e03XD6ODuzx.upNoBU8gfm3aw12IRuLN4eBUf7k3Yuy', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -277,6 +310,12 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `username` (`username`);
 
 --
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `vote`
 --
 ALTER TABLE `vote`
@@ -311,7 +350,7 @@ ALTER TABLE `commentvote`
 -- AUTO_INCREMENT de la tabla `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `response`
@@ -329,13 +368,19 @@ ALTER TABLE `session`
 -- AUTO_INCREMENT de la tabla `subgroup`
 --
 ALTER TABLE `subgroup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `vote`
