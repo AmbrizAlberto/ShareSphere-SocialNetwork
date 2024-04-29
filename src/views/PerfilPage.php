@@ -124,7 +124,7 @@ $user = $posts->GetUserById($_SESSION['userId']);
                 <form id="editForm" action="/controllers/Edit/EditUser.php" method="post" enctype="multipart/form-data">
                     <input type="hidden" value="<?php  echo $_SESSION['userId'];?>" name="userId">
                     <label for="newImage">Cargar  imagen:</label><br>
-                    <img id="previewImage" src="<?php echo "/public/images_users/". $user['image']?>" alt="User Image" style="height:300 px; width:300 px;">
+                    <img id="previewImage" src="<?php echo "/public/images_users/". $user['image']?>" alt="User Image" class=".modal-content-edit">
                     <input type="file" id="newImage" name="newImage" accept="image/*"><br><br>
                     <label for="newUsername">Nombre de Usuario:</label><br>
                     <input type="text" id="newUsername" name="newUsername" value="<?php echo $user['username']?>"><br><br>
@@ -134,12 +134,8 @@ $user = $posts->GetUserById($_SESSION['userId']);
                 </form>
             </div>
         </div>
-          
+          <?php foreach($postList as $post){?>
           <div class="post-container">
-            <div class="user-info">
-              <img src="../images/Uli.png" alt="User Image">
-              <span>
-            </div>
             <div class="post-options">
               <span><i class="bi bi-caret-down-fill"></i></span>
               <div class="option-content">
@@ -147,16 +143,13 @@ $user = $posts->GetUserById($_SESSION['userId']);
                 <a href="#"><i class="bi bi-trash-fill"></i></a>
               </div>
             </div>
-            <h2 class="post-content">
-
-            </h2>
-            <h3 class="SubTitle">
-              Tema de la onu
-            </h3>
+            <h2 class="post-content"> <?php echo $post['title']?> </h2>
+            <h3 class="SubTitle"> <?php switch ($post['SubgroupId']) { case '1': echo "Agua Limpia y Saneamineto"; break; case '2': echo "Energia Asequible y No Contaminante"; break; case '3': echo "Vida Submarina"; break; }?> </h3>
             <div class="description">
+              <h3><?php echo $post['content']?></h3>
             </div>
             <div class="image-container">
-                <img src="/public/images_posts/backg.png" alt="Imagen de la publicacion">
+              <img src="<?php echo "/public/images_posts/".$post['image']?>" alt="Imagen de la publicacion">
             </div>
             <div class="post-actions">
               <button class="action-btn"><i class="bi bi-hand-thumbs-up-fill"></i></button>
@@ -168,6 +161,7 @@ $user = $posts->GetUserById($_SESSION['userId']);
               </div>
             </div>
           </div>
+        <?php } ?>
         
         <button class="toTop" id="toTop">
           <svg viewBox="0 0 24 24">

@@ -69,8 +69,8 @@ $postList = $posts->GetPosts();
                 <label for="tema">Tema:</label>
                 <select id="selector" name="post_subgroup_id" required>
                   <option value="1">6 Agua Limpia y Saneamineto</option>
-                  <option value="2">7 Energia Asequible y No Contaminante</option>
-                  <option value="3">14 Vida Submarina</option>
+                  <option value="3">7 Energia Asequible y No Contaminante</option>
+                  <option value="4">14 Vida Submarina</option>
                   <!-- Agrega más opciones según sea necesario -->
               </select>
                 <label for="texto">Titulo:</label>

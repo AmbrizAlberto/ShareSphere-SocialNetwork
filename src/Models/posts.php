@@ -125,14 +125,15 @@ class posts extends connection{
     public function UpdateUser(string $id, string $newUsername, string $newDescripcion, string $Image=null){
         if($Image == null){
             $sql="UPDATE user SET username = ?, descripcion = ? WHERE id = ?";
-            $img = null;
+            $update = $this->conn->prepare($sql);
+            $arrData = array($newUsername, $newDescripcion, $id);
         }else{
             $sql="UPDATE user SET username = ?, descripcion = ?, image = ? WHERE id = ?";
             $img = str_replace(" ", "", $Image);
             move_uploaded_file($_FILES['newImage']['tmp_name'],"../.././public/images_users/".$img);
+            $update = $this->conn->prepare($sql);
+            $arrData = array($newUsername, $newDescripcion, $img, $id);
         }
-        $update = $this->conn->prepare($sql);
-        $arrData = array($newUsername, $newDescripcion, $img, $id);
         $update->execute($arrData);
     }
 }
