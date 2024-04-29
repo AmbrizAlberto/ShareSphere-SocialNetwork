@@ -131,10 +131,12 @@ $postList = $posts->GetPosts();
             </div>
             <div class="post-options">
               <span><i class="bi bi-caret-down-fill"></i></span>
+              <?php if($post['creatorId'] == $_SESSION['userId']){ ?>
               <div class="option-content">
                 <a href="#"><i class="bi bi-pencil-fill"></i></a>
-                <a href="#"><i class="bi bi-trash-fill"></i></a>
+                <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>"><i class="bi bi-trash-fill"></i></a>
               </div>
+              <?php } ?>
             </div>
             <h2 class="post-content">
               <?php echo $post['title'];  ?>

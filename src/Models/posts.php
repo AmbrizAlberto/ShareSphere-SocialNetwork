@@ -105,8 +105,7 @@ class posts extends connection{
         $sql="DELETE  FROM post WHERE id=?";
         $arrwhere =array($id);
         $delete= $this->conn->prepare($sql);
-        $del = $delete->execute($arrwhere);
-        return $del;    
+        $delete->execute($arrwhere);    
     }
 
     public function GetPostsIndex(){

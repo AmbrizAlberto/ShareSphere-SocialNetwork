@@ -140,7 +140,7 @@ $user = $posts->GetUserById($_SESSION['userId']);
               <span><i class="bi bi-caret-down-fill"></i></span>
               <div class="option-content">
                 <a href="#"><i class="bi bi-pencil-fill"></i></a>
-                <a href="#"><i class="bi bi-trash-fill"></i></a>
+                <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>"><i class="bi bi-trash-fill"></i></a>
               </div>
             </div>
             <h2 class="post-content"> <?php echo $post['title']?> </h2>
