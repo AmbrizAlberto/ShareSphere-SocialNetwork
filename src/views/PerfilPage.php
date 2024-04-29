@@ -3,6 +3,7 @@ require_once("../../autoload.php");
 use Models\{posts};
 $posts = new posts();
 $postList = $posts->GetPostsByIdUser($_SESSION['userId']);
+$user = $posts->GetUserById($_SESSION['userId']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,10 +54,7 @@ $postList = $posts->GetPostsByIdUser($_SESSION['userId']);
             </div>
 
             <form action="./PerfilPage.php" method="post">
-              <input
-                type="image"
-                src="https://img.freepik.com/foto-gratis/joven-barbudo-camisa-rayas_273609-5677.jpg?w=740&t=st=1702678697~exp=1702679297~hmac=c54395be72f5a4c41e214867636a5cc62b7244b9da21862a94571399b52a2953"
-                alt="Texto Alternativo"/>
+              <input type="image" src="<?php echo "/public/images_users/".$user['image'] ?>" alt="Texto Alternativo"/>
             </form>
   
             <button id="modalBtn">
@@ -98,20 +96,20 @@ $postList = $posts->GetPostsByIdUser($_SESSION['userId']);
 
             <div class="PerfilDatos">
                 <div class="PerfilPortada">
-                    <img src="https://i.pinimg.com/736x/b3/08/cc/b308cc852be780b03a9873ef42ce71f5.jpg" alt="#">
+                    <img src="<?php echo "/public/fondo_users/".$user['coverImg'] ?>" alt="#" style="height: auto; wight: 300;">
                     <button id="modalBtnEdit" type="button" class="editbtn">
                         <i class="bi bi-pencil-fill"></i> Editar
                     </button>
                 </div>
         
                 <div class="PerfilPhoto">
-                    <img src="https://img.freepik.com/foto-gratis/joven-barbudo-camisa-rayas_273609-5677.jpg?w=740&t=st=1702678697~exp=1702679297~hmac=c54395be72f5a4c41e214867636a5cc62b7244b9da21862a94571399b52a2953" alt="">
+                    <img src="<?php echo "/public/images_users/".$user['image'] ?>" alt="">
                 </div>
                 <div class="PerfilName">
-                    <h1>Name</h1>
+                    <h1><?php echo $user['username'] ?></h1>
                 </div>
                 <div class="PerfilDescription">
-                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, dolorum. Illo aut iure sapiente ex a eaque, vitae eum laudantium quibusdam at consequatur ab magnam soluta, sequi aliquid accusantium saepe.</h2>
+                    <h2><?php echo $user['descripcion']?></h2>
                 </div>
             </div>
         
@@ -123,13 +121,15 @@ $postList = $posts->GetPostsByIdUser($_SESSION['userId']);
             <div class="modal-content-edit">
                 <span class="close-edit">&times;</span>
                 <h2>Editar Perfil</h2>
-                <form id="editForm">
-                    <label for="newImage">Cargar nueva imagen:</label><br>
-                    <input type="file" id="newImage" name="newImage"><br><br>
+                <form id="editForm" action="/controllers/Edit/EditUser.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" value="<?php  echo $_SESSION['userId'];?>" name="userId">
+                    <label for="newImage">Cargar  imagen:</label><br>
+                    <img id="previewImage" src="<?php echo "/public/images_users/". $user['image']?>" alt="User Image" style="height:300 px; width:300 px;">
+                    <input type="file" id="newImage" name="newImage" accept="image/*"><br><br>
                     <label for="newUsername">Nombre de Usuario:</label><br>
-                    <input type="text" id="newUsername" name="newUsername"><br><br>
+                    <input type="text" id="newUsername" name="newUsername" value="<?php echo $user['username']?>"><br><br>
                     <label for="newDescription">Descripción:</label><br>
-                    <textarea id="newDescription" name="newDescription" rows="4" cols="50"></textarea><br><br>
+                    <textarea id="newDescription" name="newDescription" rows="4" cols="50"><?php echo $user['descripcion']?></textarea><br><br>
                     <button class=".modal-content-edit " type="submit" value="Guardar cambios">Guardar</button> 
                 </form>
             </div>
