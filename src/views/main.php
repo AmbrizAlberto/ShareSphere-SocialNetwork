@@ -56,12 +56,8 @@ $postList = $posts->GetPosts();
           </form>
           </div>
           <form action="./PerfilPage.php" method="post">
-            <input
-              type="image"
-              src="https://img.freepik.com/foto-gratis/joven-barbudo-camisa-rayas_273609-5677.jpg?w=740&t=st=1702678697~exp=1702679297~hmac=c54395be72f5a4c41e214867636a5cc62b7244b9da21862a94571399b52a2953"
-              alt="Texto Alternativo"/>
+            <input type="image" src="<?php echo "/public/images_users/".$profileImg = $posts->GetUserImgById($_SESSION['userId']); ?>" alt="Texto Alternativo"/>
           </form>
-
           <button id="modalBtn">
             <i class="bi bi-plus-square"></i>
           </button>

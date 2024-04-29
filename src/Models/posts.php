@@ -96,7 +96,7 @@ class posts extends connection{
         return $request;
     }
     public function GetUserById( string $id){
-        $sql="SELECT username FROM user WHERE id = $id";
+        $sql="SELECT * FROM user WHERE id = $id";
         $execute = $this->conn->query($sql);
         $request = $execute->fetch(PDO::FETCH_ASSOC);
         return $request;
@@ -120,6 +120,20 @@ class posts extends connection{
         $execute = $this->conn->query($sql);
         $request = $execute->fetch(PDO::FETCH_COLUMN, 0);
         return $request;
+    }
+
+    public function UpdateUser(string $id, string $newUsername, string $newDescripcion, string $Image=null){
+        if($Image == null){
+            $sql="UPDATE user SET username = ?, descripcion = ? WHERE id = ?";
+            $img = null;
+        }else{
+            $sql="UPDATE user SET username = ?, descripcion = ?, image = ? WHERE id = ?";
+            $img = str_replace(" ", "", $Image);
+            move_uploaded_file($_FILES['newImage']['tmp_name'],"../.././public/images_users/".$img);
+        }
+        $update = $this->conn->prepare($sql);
+        $arrData = array($newUsername, $newDescripcion, $img, $id);
+        $update->execute($arrData);
     }
 }
 ?>
