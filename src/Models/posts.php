@@ -130,9 +130,10 @@ class posts extends connection{
         }else{
             $sql="UPDATE user SET username = ?, descripcion = ?, image = ? WHERE id = ?";
             $img = str_replace(" ", "", $Image);
-            move_uploaded_file($_FILES['newImage']['tmp_name'],"../.././public/images_users/".$img);
+            $today = date("Y-m-d_H-i-s");
+            move_uploaded_file($_FILES['newImage']['tmp_name'],"../.././public/images_users/".$today.$img);
             $update = $this->conn->prepare($sql);
-            $arrData = array($newUsername, $newDescripcion, $img, $id);
+            $arrData = array($newUsername, $newDescripcion, $today.$img, $id);
         }
         $update->execute($arrData);
     }
