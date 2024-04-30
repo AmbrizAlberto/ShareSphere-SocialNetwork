@@ -1,10 +1,7 @@
-html{
-    background-color: rgb(255, 255, 255);
-}
-body{
-    background-color: rgba(0, 0, 0, 0.264);
-}   
 
+body{
+    background-color: rgba(39, 39, 39, 0.773);
+}   
 
 /* NAVBAR */
 .navbar {
@@ -47,13 +44,15 @@ body{
     margin-left: -2.5%;
     margin-top: 0%;
     width: 5%;
-    height: 8%;
+    height: 9%;
+    transition: 500ms;
 }
 
 .navbar .logo img:hover{
     text-decoration: none;
     box-shadow: 0 0px 10px hsl(175, 100%, 51%);
     border-radius: 51%;
+    transition: 500ms;
 }
 
 
@@ -78,10 +77,11 @@ body{
 }
 
 .optionnv {
+    width: 100%;
     text-decoration: none;
     position: relative;
     overflow: hidden;
-    color: rgba(0, 0, 0, 0.22);
+    color: rgba(255, 255, 255, 0.532);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -93,7 +93,7 @@ body{
 .optionnv:hover{
     text-decoration: none;
     font-weight: bold;
-    color:  hsl(0, 0%, 0%);
+    color:  hsl(0, 0%, 100%);
     transition: 500ms;
 }
 
@@ -113,8 +113,8 @@ button:hover{
 
 .optionnv:hover i {
     text-decoration: none;
-    color:  hsl(0, 0%, 0%);
-    margin-left: 2%;
+    color:  hsl(0, 0%, 100%);
+    margin-left: 10%;
     transition: 500ms;
 }
 .optionnv:hover span {
@@ -153,6 +153,97 @@ button:hover{
 .botonimgs img:hover{
     width: 70%;
     height: 70%;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.484);
+    box-shadow: 0 0 30px rgb(0, 0, 0);
+    transition: 500ms;
+}
+
+
+
+/* MAIN */
+
+.content{
+    background-color: transparent;
+    margin-left: 15%;
+    width: 80%;
+    height: 100vh;
+}
+
+.top{
+    text-align: center;
+    margin: auto;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    border-bottom: 1px solid white;
+}
+
+.content h1{
+    margin-top: 2%;
+    font-weight: bold;
+}
+
+
+.container{
+    margin: auto;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Establece 3 columnas de igual tamaño */
+    grid-gap: 30px; /* Solo un valor para el espacio entre elementos */
+    transition: .5s;
+}
+
+.postscont{
+    text-align: center;
+    box-shadow: 1px 15px 30px rgba(0, 0, 0, .708);
+    cursor: pointer;
+    border-radius: 30px;
+    border: 1px solid hsla(0, 0%, 100%, .343);
+    background-color: rgba(55, 55, 55, .243);
+    padding: 5%;
+    transition: 1s;
+    color: hsla(0, 0%, 100%, .56);
+    font-size: 160%;
+    height: 50vh;
+}.postscont:hover{
+    background-color: rgba(255, 255, 255, 0.243);
+}
+
+
+
+.postscont .titulo{
+    font-size: 5vh;
+    color: white;
+    border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+
+.contador .iconcont{
+    width: 100%;
+    height: 100%;
+    font-size:650%;
+    color: white;   
+}
+
+.postscont .numero{
+    margin: 0;
+    font-size: 3vh;
+    color: white;
+    display: inline-block;
+}
+
+.iconcont i{
+    transition: 500ms;
+}
+.postscont:hover i{
+    color: aqua;
+    transition: 500ms;
+}
+
+.postscont:hover .bi-person-lines-fill{
+    color: rgb(255, 238, 129);
+    transition: 500ms;
+}
+
+.postscont:hover .bi-flag{
+    color: rgb(255, 0, 0);
     transition: 500ms;
 }
