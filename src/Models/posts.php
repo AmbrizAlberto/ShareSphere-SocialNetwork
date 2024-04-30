@@ -105,8 +105,7 @@ class posts extends connection{
         $sql="DELETE  FROM post WHERE id=?";
         $arrwhere =array($id);
         $delete= $this->conn->prepare($sql);
-        $del = $delete->execute($arrwhere);
-        return $del;    
+        $delete->execute($arrwhere);    
     }
 
     public function GetPostsIndex(){
@@ -122,17 +121,33 @@ class posts extends connection{
         return $request;
     }
 
+    public function GetTheme($id){
+        $sql="SELECT theme FROM user WHERE id = $id";
+        $execute = $this->conn->query($sql);
+        $request = $execute->fetch(PDO::FETCH_COLUMN, 0);
+        return $request;
+    }
+
+    public function UpdateTheme(string $id, int $theme){
+        $sql="UPDATE user SET theme = ? WHERE id = ?";
+        $update = $this->conn->prepare($sql);
+        $arrData = array($theme, $id);
+        $update->execute($arrData);
+    }
+
     public function UpdateUser(string $id, string $newUsername, string $newDescripcion, string $Image=null){
         if($Image == null){
             $sql="UPDATE user SET username = ?, descripcion = ? WHERE id = ?";
-            $img = null;
+            $update = $this->conn->prepare($sql);
+            $arrData = array($newUsername, $newDescripcion, $id);
         }else{
             $sql="UPDATE user SET username = ?, descripcion = ?, image = ? WHERE id = ?";
             $img = str_replace(" ", "", $Image);
-            move_uploaded_file($_FILES['newImage']['tmp_name'],"../.././public/images_users/".$img);
+            $today = date("Y-m-d_H-i-s");
+            move_uploaded_file($_FILES['newImage']['tmp_name'],"../.././public/images_users/".$today.$img);
+            $update = $this->conn->prepare($sql);
+            $arrData = array($newUsername, $newDescripcion, $today.$img, $id);
         }
-        $update = $this->conn->prepare($sql);
-        $arrData = array($newUsername, $newDescripcion, $img, $id);
         $update->execute($arrData);
     }
 }

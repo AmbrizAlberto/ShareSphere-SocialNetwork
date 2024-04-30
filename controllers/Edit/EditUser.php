@@ -16,9 +16,9 @@
             error_log("Se ha insertado el post con id: $idUser");
             header("location:/src/views/PerfilPage.php");
         }else{
-            $id = $post->InsertPost($title, $content, null, $creator_id, $subgroup_id);
-            error_log("Se ha insertado el post con id: $id sin imagen");
-            header("location:/src/views/main.php");
+            $post->UpdateUser($idUser, $username, $description, null);
+            error_log("Se ha insertado el post con id: $id sin cambiar la imagen");
+            header("location:/src/views/PerfilPage.php");
         }
     }
 ?>

@@ -1,5 +1,6 @@
 <?php
-
+namespace Models;
+use PDO, PDOException;
 // Definimos los datos de conexión
 define('DB_HOST', 'localhost'); // El nombre del servidor
 define('DB_USER', 'root'); // El nombre de usuario
