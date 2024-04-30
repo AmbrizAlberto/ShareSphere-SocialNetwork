@@ -17,11 +17,10 @@
             $path_img = $post->InsertImg($name_images, $title);
             $id = $post->InsertPost($title, $content, $path_img, $creator_id, $subgroup_id);
             error_log("Se ha insertado el post con id: $id");
-            header("location:/src/views/main.php");
         }else{
             $id = $post->InsertPost($title, $content, null, $creator_id, $subgroup_id);
             error_log("Se ha insertado el post con id: $id sin imagen");
-            header("location:/src/views/main.php");
         }
+        header( $_POST['currentPage'] == 0 ? "location:/src/views/main.php" : "location:/src/views/PerfilPage.php");
     }
 ?>

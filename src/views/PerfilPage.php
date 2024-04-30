@@ -13,7 +13,7 @@ $user = $posts->GetUserById($_SESSION['userId']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShareSphere</title>
 
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="<?php echo '../css/main.css'//echo $user['theme'] =='0' ?  '../css/light-mode.css':  '../css/main.css'?>">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/textpost.css">
     <link rel="stylesheet" href="../css/photopost.css">
@@ -64,26 +64,29 @@ $user = $posts->GetUserById($_SESSION['userId']);
             <div id="myModal" class="modal">
               <div class="modal-content">
                 <span class="close" id="closeBtn">&times;</span>
-                <form>
+                <form action="/controllers/Set/SetPost.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" value="<?php  echo $_SESSION['userId'];?>" name="post_creator_id">
+                <input type="hidden" value="1" name="currentPage">
                   <label for="tema">Tema:</label>
-                  <select id="selector" name="selector">
-                    <option value="opcion1">Opción 1</option>
-                    <option value="opcion2">Opción 2</option>
-                    <option value="opcion3">Opción 3</option>
+                  <select id="selector" name="post_subgroup_id" required>
+                    <option value="1">Agua Limpia y Saneamineto</option>
+                    <option value="3">Energia Asequible y No Contaminante</option>
+                    <option value="4">Vida Submarina</option>
                     <!-- Agrega más opciones según sea necesario -->
                 </select>
-          
+                  <label for="texto">Titulo:</label>
+                  <textarea id="texto" name="post_title" rows="1" required placeholder="Titulo..."></textarea>
                   <label for="texto">Texto:</label>
-                  <textarea id="texto" name="texto" rows="4" required></textarea>
+                  <textarea id="texto" name="post_content" rows="4" required></textarea>
           
                   <label for="foto">Foto:</label>
-                  <input type="file" id="foto" name="foto" accept="image/*">
+                  <input type="file" id="foto" name="image" accept="image/*">
           
-                  <button type="button" onclick="submitForm()">Enviar</button>
+                  <button type="submit">Enviar</button>
               </form>
               </div>
             </div>
-            <script src="script.js"></script>
+            <script src="../js/script.js"></script>
             
             <button>
               <i class="bi bi-app-indicator"></i>
@@ -141,7 +144,7 @@ $user = $posts->GetUserById($_SESSION['userId']);
               <span><i class="bi bi-caret-down-fill"></i></span>
               <div class="option-content">
                 <a href="#"><i class="bi bi-pencil-fill"></i></a>
-                <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>"><i class="bi bi-trash-fill"></i></a>
+                <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=1"><i class="bi bi-trash-fill"></i></a>
               </div>
             </div>
             <h2 class="post-content"> <?php echo $post['title']?> </h2><br>
@@ -171,3 +174,4 @@ $user = $posts->GetUserById($_SESSION['userId']);
         </button>
 
         <script src="../js/scriptedituser.js"></script>
+        <script src="../js/light-darkMode.js"></script>
