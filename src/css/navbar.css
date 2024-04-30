@@ -1,12 +1,8 @@
+
 html{
-    background-color: rgb(255, 255, 255);
+    background-color: transparent;
 }
-body{
-    background-color: rgba(0, 0, 0, 0.264);
-}   
 
-
-/* NAVBAR */
 .navbar {
     background-color: #ffffff23;
     position: fixed;
@@ -47,20 +43,17 @@ body{
 
 
 .navbar .logo:hover{
-    text-decoration: none;
-    color: hsl(0, 0%, 0%);
+    color: hsl(175, 100%, 51%);
     text-shadow: 0 0 10px hsl(175, 100%, 51%);
     transition: 500ms;
 }
 
 .optionnv span{
-    text-decoration: none;
-    visibility: hidden;
+    visibility: hidde   n;
 }
 
 .optionnv i {
-    text-decoration: none;
-    margin-left: 25%;
+    margin-left: 29%;
     margin-right: 2%;
     font-size: 350%;
     transition: margin-left 0.5s;
@@ -86,16 +79,17 @@ body{
 }
 
 .optionnv span {
-    text-decoration: none;
     visibility: hidden;
 }
 
+
+
+
+/* HOVERS */
 button:hover{
-    text-decoration: none;
     cursor:pointer;
 }
 .navbar:hover {
-    text-decoration: none;
     width: 10.5%;
 }
 
@@ -112,35 +106,4 @@ button:hover{
 .logout{
     text-decoration: none;
     color: white;
-}
-
-.botonimg{
-    background-color: transparent;
-    text-align: center;
-    align-items: center;
-    display: block;
-    width: 100%;
-    margin-top: 10%;
-}
-
-.botonimgs{
-    border: none;
-    background-color: transparent;
-    margin: auto;
-    width: 80%;
-    margin-bottom: 10%;
-    transition: 500ms;
-}
-
-.botonimgs img{
-    width: 60%;
-    height: 60%;
-    transition: 500ms;
-}
-
-.botonimgs img:hover{
-    width: 70%;
-    height: 70%;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.484);
-    transition: 500ms;
 }

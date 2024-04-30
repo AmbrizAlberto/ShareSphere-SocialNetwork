@@ -165,7 +165,7 @@ button:hover{
     background-color: transparent;
     margin-left: 15%;
     width: 80%;
-    height: 100vh;
+    height: 90vh;
 }
 
 .top{
@@ -244,6 +244,6 @@ button:hover{
 }
 
 .postscont:hover .bi-flag{
-    color: rgb(255, 0, 0);
+    color: rgb(250, 107, 107);
     transition: 500ms;
 }

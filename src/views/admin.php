@@ -4,6 +4,7 @@ use models\{posts, users};
 $posts = new posts();
 $users = new users();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +14,7 @@ $users = new users();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/modal_admin.css">
 </head>
 
 <body>
@@ -39,21 +41,19 @@ $users = new users();
                         <img src="../../src/images/14.jpg" alt="Vida Submarina">
                     </button>
                 </div>
-                <button class="optionnv" href="./PerfilPage.php"><i class="bi bi-box-arrow-left"></i></i><span>Salir</span></button>
+                <a class="optionnv" href="/controllers/logout.php"><i class="bi bi-box-arrow-left"></i></i><span>Salir</span></a>
                 
             </div>  
         </div>
     </header>
 
     <div class="content">
-
-       
         <div class="top">
             <h1>ADIMISTRACION</h1>
         </div>
 
         <div class="container">
-            <div class="postscont">
+            <button class="postscont" onclick="openModalForProject('usuarios')">
                 <div class="titulo">
                     Publicaciones
                 </div>
@@ -65,11 +65,9 @@ $users = new users();
                         <?= $posts->GetPostsIndex(); ?>  publicaciones
                     </div>
                 </div>
-            </div>
+            </button>
 
-            <!-- Repite el bloque anterior dos veces más para tener 3 elementos -->
-
-            <div class="postscont">
+            <button class="postscont" onclick="openModalForProject('posts')">
                 <div class="titulo">
                     Usuarios
                 </div>
@@ -81,9 +79,9 @@ $users = new users();
                         <?= $users->GetUsuariosIndex(); ?> Usuarios
                     </div>
                 </div>
-            </div>
+            </button>
 
-            <div class="postscont">
+            <button class="postscont" onclick="openModalForProject('reports')">
                 <div class="titulo">
                     Reportes
                 </div>
@@ -92,12 +90,21 @@ $users = new users();
                         <i class="bi bi-flag"></i>                    
                     </div>
                     <div class="numero">
-                        No se que mas poner aqui
+                        No se que más poner aquí
                     </div>
                 </div>
+            </button>
+        </div>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div id="modalContent"></div>
             </div>
         </div>
 
-        
+        <script src="../js/modal_admin_user.js"></script>
     </div>
 </body>
+</html>
