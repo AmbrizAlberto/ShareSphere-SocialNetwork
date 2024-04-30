@@ -68,11 +68,12 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
               <span class="close" id="closeBtn">&times;</span>
               <form action="/controllers/Set/SetPost.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" value="<?php  echo $_SESSION['userId'];?>" name="post_creator_id">
+                <input type="hidden" value="0" name="currentPage">
                 <label for="tema">Tema:</label>
                 <select id="selector" name="post_subgroup_id" required>
-                  <option value="1">6 Agua Limpia y Saneamineto</option>
-                  <option value="3">7 Energia Asequible y No Contaminante</option>
-                  <option value="4">14 Vida Submarina</option>
+                  <option value="1">Agua Limpia y Saneamineto</option>
+                  <option value="3">Energia Asequible y No Contaminante</option>
+                  <option value="4">Vida Submarina</option>
                   <!-- Agrega más opciones según sea necesario -->
               </select>
                 <label for="texto">Titulo:</label>
@@ -99,14 +100,6 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
         </div>
 
         <br /><br /><br /><br /><br /><br />
-
-
-        <div class="upload">
-          <form action="#" method="post">
-            <input type="text" class="uploadtext" placeholder="¿Qué estás pensando?" />
-            <button class="button">Upload</button>
-          </form>
-        </div>
 
         <button id="theme-toggle-btn"><i class="bi bi-lightbulb-fill"></i></button>
 
@@ -136,7 +129,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
               <?php if($post['creatorId'] == $_SESSION['userId']){ ?>
               <div class="option-content">
                 <a href="/controllers/Edit/EditPost.php?id=<?php echo $post['id'] ?>"><i class="bi bi-pencil-fill"></i></a>
-                <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>"><i class="bi bi-trash-fill"></i></a>
+                <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=0"><i class="bi bi-trash-fill"></i></a>
               </div>
               <?php } ?>
             </div>
@@ -157,13 +150,9 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
               <?php } ?>
             </div>
             <div class="post-actions">
-              <button class="action-btn"><i class="bi bi-hand-thumbs-up-fill"></i></button>
-              <button class="action-btn"><i class="bi bi-hand-thumbs-down-fill"></i></button>
+              <button class="action-btn"><i class="bi bi-hand-thumbs-up-fill"> 200</i></button>
+              <button class="action-btn"><i class="bi bi-hand-thumbs-down-fill">200</i></button>
               <button class="action-btn"><i class="bi bi-chat-square-text-fill"></i></button>
-            <div>
-              <span class="likes">100 Likes</span>
-              <span class="comments">50 Comments</span>
-              </div>
             </div>
           </div>
         <?php } ?>

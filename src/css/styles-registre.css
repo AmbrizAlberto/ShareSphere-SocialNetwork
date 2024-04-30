@@ -22,7 +22,7 @@ body {
 
 .image-container {
     flex: 1;
-    background-image: url('../images/fondo.jpg');
+    background-image: url('../images/Green_Fondo.jpg');
     background-size: cover;
     background-position: center;
 }
