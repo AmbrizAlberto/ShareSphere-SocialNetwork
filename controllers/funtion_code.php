@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $code = bin2hex(random_bytes(4));
 
     // Actualizar el código en la base de datos
-    $sql = "UPDATE users SET code = :code WHERE email = :email";
+    $sql = "UPDATE user SET code = :code WHERE email = :email";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':code', $code);
     $stmt->bindParam(':email', $email);

@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </script>";
     } else {
         // Verificar si el código coincide con el de la base de datos
-        $sql = "SELECT * FROM users WHERE code = :code";
+        $sql = "SELECT * FROM user WHERE code = :code";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':code', $code);
         $stmt->execute();
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $hashed_password = password_hash($new_password, PASSWORD_BCRYPT);
 
             // Actualizar la contraseña en la base de datos
-            $sql = "UPDATE users SET password = :new_password WHERE code = :code";
+            $sql = "UPDATE user SET password = :new_password WHERE code = :code";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':new_password', $hashed_password);
             $stmt->bindParam(':code', $code);

@@ -55,7 +55,7 @@ $user = $posts->GetUserById($_SESSION['userId']);
             </div>
 
             <form action="./PerfilPage.php" method="post">
-              <input type="image" src="<?php echo "/public/images_users/".$user['image'] ?>" alt="Texto Alternativo"/>
+              <input type="image" src="<?php echo $user['image'] ? "/public/images_users/".$user['image'] : "/public/images_users/userdefault.png" ?>" alt="Texto Alternativo">
             </form>
   
             <button id="modalBtn">
@@ -100,20 +100,20 @@ $user = $posts->GetUserById($_SESSION['userId']);
 
             <div class="PerfilDatos">
                 <div class="PerfilPortada">
-                    <img src="<?php echo "/public/fondo_users/".$user['coverImg'] ?>" alt="#" style="height: auto; wight: 300;">
+                    <img src="<?php echo $user['coverImg'] ? "/public/fondo_users/".$user['coverImg'] : "/public/fondo_users/fondodefault.png" ?>" alt="#" style="height: auto; wight: 300;">
                     <button id="modalBtnEdit" type="button" class="editbtn">
                         <i class="bi bi-pencil-fill"></i> Editar
                     </button>
                 </div>
         
                 <div class="PerfilPhoto">
-                    <img src="<?php echo "/public/images_users/".$user['image'] ?>" alt="">
+                    <img src="<?php echo $user['image'] ? "/public/images_users/".$user['image'] : "/public/images_users/userdefault.png" ?>" alt="">
                 </div>
                 <div class="PerfilName">
                     <h1><?php echo $user['username'] ?></h1>
                 </div>
                 <div class="PerfilDescription">
-                    <h2><?php echo $user['descripcion']?></h2>
+                    <h2><?php echo $user['descripcion'] ? $user['descripcion'] : "Sin descripcion"?></h2>
                 </div>
             </div>
         

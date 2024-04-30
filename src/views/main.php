@@ -58,7 +58,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
           </form>
           </div>
           <form action="./PerfilPage.php" method="post">
-            <input type="image" src="<?php echo "/public/images_users/".$profileImg = $posts->GetUserImgById($_SESSION['userId']); ?>" alt="Texto Alternativo"/>
+            <input type="image" src="<?php echo $userdata['image'] ? "/public/images_users/".$userdata['image'] : "/public/images_users/userdefault.png" ?>" alt="Texto Alternativo"/>
           </form>
           <button id="modalBtn">
             <i class="bi bi-plus-square"></i>
@@ -121,7 +121,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
           
           <div class="post-container">
             <div class="user-info">
-              <a href="../views/PerfilPage.php"><img src="<?php $userimg = $posts->GetUserImgById($post['creatorId']); echo "/public/images_users/".$userimg ?> " alt="User Image"></a>
+              <a href="../views/PerfilPage.php"><img src="<?php echo $userdata['image'] ? "/public/images_users/".$userdata['image'] : "/public/images_users/userdefault.png" ?> " alt="User Image"></a>
               <span><?php echo $username['username']?></span>
             </div>
             <div class="post-options">

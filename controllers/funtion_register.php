@@ -1,6 +1,7 @@
 <?php
 require_once('../src/Models/conexion.php');
-$conn = new conexion();
+use Models\Conexion;
+$conn = new Conexion();
 
 $pdo = $conn->getPdo();
 // Verificamos si se envió el formulario
@@ -14,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $confirm_password = $_POST['confirm_password'];
 
     // Consulta SQL para verificar si el email ya existe
-    $consulta_verificar_email = $pdo->prepare("SELECT COUNT(*) FROM users WHERE email = :email");
+    $consulta_verificar_email = $pdo->prepare("SELECT COUNT(*) FROM user WHERE email = :email");
     $consulta_verificar_email->bindParam(':email', $email);
     $consulta_verificar_email->execute();
     $email_existente = $consulta_verificar_email->fetchColumn();
@@ -37,17 +38,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 try 
                 {
                     // Preparamos la consulta de inserción
-                    $consulta = $pdo->prepare("INSERT INTO users (firstname, lastname, nickname, email, password) VALUES (:firstName, :lastName, :nickname, :email, :password)");
+                    $consulta = $pdo->prepare("INSERT INTO user (name,  username, lastname, email, passwordHash, theme) VALUES (:name,  :username, :lastname, :email, :passwordHash, :theme)");
     
                     // Bind de los parámetros
-                    $consulta->bindParam(':firstName', $name);
-                    $consulta->bindParam(':lastName', $lastname);
-                    $consulta->bindParam(':nickname', $nickname);
+                    $theme = 0;
+                    $consulta->bindParam(':name', $name);
+                    $consulta->bindParam(':username', $nickname);
+                    $consulta->bindParam(':lastname', $lastname);
                     $consulta->bindParam(':email', $email);
+                    $consulta->bindParam(':theme', $theme);
 
                     // ciframos la contraseña
                     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-                    $consulta->bindParam(':password', $hashed_password);
+                    $consulta->bindParam(':passwordHash', $hashed_password);
     
                     // Ejecutamos la consulta
                     $consulta->execute();
@@ -80,6 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     $errorMessage = addslashes($e->getMessage());
                     echo "<script>
                         alert('Error de registro: " . $errorMessage . "');
+                        console.log('Error de registro: " . $errorMessage . "');
                         window.location.href = '../src/views/register.php';
                     </script>";
                 }
