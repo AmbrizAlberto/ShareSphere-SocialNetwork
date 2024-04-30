@@ -11,15 +11,9 @@ body{
     text-decoration: none;
     background-color: rgba(0, 0, 0, 0.119);
     position: fixed;
-<<<<<<< HEAD
     width: 7%;
     height: 30%;
     top: 15%;
-=======
-    width: 8%;
-    height: 90%;
-    top: 0;
->>>>>>> 67689ea47ead05886cb39e50d50f4a62e06734d1
     left: 0;
     display: flex;
     flex-direction: column;
