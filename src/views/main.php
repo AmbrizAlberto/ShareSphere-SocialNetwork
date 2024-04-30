@@ -33,19 +33,19 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
 
     <header>
     <div class="navbar">
-        <div class="logo">
-          <a href="./main.php">
+      <div class="logo">
+        <a href="./main.php">
               <img src="../images/Logo-cut.png" alt="Logo" style="font-size: 24px; background-color: transparent; border: none;">
-          </a>
-        </div>
-
-        <div class="access">
-        <br /><br />
-            <button class="optionnv" href="#"><i class="bi bi-house-fill"></i></i><span>Home</span></button>
-            <a href="./PerfilPage.php"><button class="optionnv"><i class="bi bi-person-circle"></i></i><span>Profile</span></button></a>
-        </div>
-        
+        </a>
       </div>
+
+      <div class="access">
+        <br /><br />
+          <button class="optionnv" href="#"><i class="bi bi-house-fill"></i></i><span>Home</span></button>
+        <a href="./PerfilPage.php"><button class="optionnv"><i class="bi bi-person-circle"></i></i><span>Profile</span></button></a>
+      </div>
+        
+    </div>
     </header>
     
     <div class="main">
