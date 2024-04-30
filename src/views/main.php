@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <?php
+session_start();
 require_once("../../autoload.php");
 use Models\{posts};
 $posts = new posts();
 $postList = $posts->GetPosts();
+$userdata = $posts->GetUserById($_SESSION['userId']);
 ?>
 
 <html lang="en">
@@ -21,7 +23,7 @@ $postList = $posts->GetPosts();
     <link rel="stylesheet" href="../css/Post.css">
     <link rel="stylesheet" href="../css/modalEdit.css">
     
-    <link rel="stylesheet" href="../css/light-mode.css" id="theme-style"> 
+    <link rel="stylesheet" href="<?php echo $userdata['theme'] =='0' ?  '../css/light-mode.css':  '../css/main.css' ?>" id="theme-style"> 
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -133,7 +135,7 @@ $postList = $posts->GetPosts();
               <span><i class="bi bi-caret-down-fill"></i></span>
               <?php if($post['creatorId'] == $_SESSION['userId']){ ?>
               <div class="option-content">
-                <a href="#"><i class="bi bi-pencil-fill"></i></a>
+                <a href="/controllers/Edit/EditPost.php?id=<?php echo $post['id'] ?>"><i class="bi bi-pencil-fill"></i></a>
                 <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>"><i class="bi bi-trash-fill"></i></a>
               </div>
               <?php } ?>
@@ -143,7 +145,7 @@ $postList = $posts->GetPosts();
             </h2>
             <a href="#" style=text-decoration:none>
               <h3 class="SubTitle">
-                <?php switch ($post['SubgroupId']) { case '1': echo "Agua Limpia y Saneamineto"; break; case '2': echo "Energia Asequible y No Contaminante"; break; case '3': echo "Vida Submarina"; break; } ?>            
+                <?php switch ($post['SubgroupId']) { case '1': echo "Agua Limpia y Saneamineto"; break; case '3': echo "Energia Asequible y No Contaminante"; break; case '4': echo "Vida Submarina"; break; } ?>            
               </h3>
             </a>
             <div class="description">

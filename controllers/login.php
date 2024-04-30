@@ -1,4 +1,9 @@
 <?php
+namespace controllers;
+require_once('../autoload.php');
+use Models\{posts,conexion};
+use PDO, PDOException;
+$posts = new posts();
 session_set_cookie_params(0);
     session_start();// Iniciar la sesión
     if(isset($_SESSION['email']))
@@ -9,7 +14,6 @@ session_set_cookie_params(0);
 
 <?php
 
-require_once('../src/Models/conexion.php');
 
 $conn = new conexion();
 
@@ -41,6 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     $_SESSION['lastname'] = $user['lastname'];
                     $_SESSION['nickname'] = $user['nickname'];  // Almacenamos el nickname en la sesión
                     $_SESSION['userId'] = $user['id']; // Almacenamos el id del usuario en la sesión
+                    $_SESSION['theme'] = $posts->GetTheme($_SESSION['userId']);
                     header("Location:../src/views/main.php"); // Redireccionar al usuario a la página de inicio
                     exit();
                 } else 

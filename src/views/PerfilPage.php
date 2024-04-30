@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("../../autoload.php");
 use Models\{posts};
 $posts = new posts();
@@ -143,8 +144,8 @@ $user = $posts->GetUserById($_SESSION['userId']);
                 <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>"><i class="bi bi-trash-fill"></i></a>
               </div>
             </div>
-            <h2 class="post-content"> <?php echo $post['title']?> </h2>
-            <h3 class="SubTitle"> <?php switch ($post['SubgroupId']) { case '1': echo "Agua Limpia y Saneamineto"; break; case '2': echo "Energia Asequible y No Contaminante"; break; case '3': echo "Vida Submarina"; break; }?> </h3>
+            <h2 class="post-content"> <?php echo $post['title']?> </h2><br>
+            <h3 class="SubTitle"> <?php switch ($post['SubgroupId']) { case '1': echo "Agua Limpia y Saneamineto"; break; case '3': echo "Energia Asequible y No Contaminante"; break; case '4': echo "Vida Submarina"; break; }?> </h3>
             <div class="description">
               <h3><?php echo $post['content']?></h3>
             </div>

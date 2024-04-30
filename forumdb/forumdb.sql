@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 26-04-2024 a las 05:51:45
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Host: 127.0.0.1
+-- Generation Time: Apr 30, 2024 at 05:22 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,17 +18,17 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `forumdb`
+-- Database: `forumdb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `account`
+-- Table structure for table `account`
 --
 
-CREATE TABLE `account` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `account` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NOT NULL,
   `type` varchar(20) DEFAULT NULL,
   `provider` varchar(50) DEFAULT NULL,
@@ -39,119 +39,134 @@ CREATE TABLE `account` (
   `token_type` varchar(50) DEFAULT NULL,
   `scope` varchar(50) DEFAULT NULL,
   `id_token` text DEFAULT NULL,
-  `session_state` varchar(50) DEFAULT NULL
+  `session_state` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `provider` (`provider`,`providerAccountId`),
+  KEY `userId` (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comment`
+-- Table structure for table `comment`
 --
 
-CREATE TABLE `comment` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` text DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
   `createdAt` datetime DEFAULT current_timestamp(),
   `updatedAt` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `creatorId` int(11) NOT NULL,
   `postId` int(11) NOT NULL,
-  `replyToId` int(11) DEFAULT NULL
+  `replyToId` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `creatorId` (`creatorId`),
+  KEY `postId` (`postId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `commentvote`
+-- Table structure for table `commentvote`
 --
 
-CREATE TABLE `commentvote` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `commentvote` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` enum('UPVOTE','DOWNVOTE') DEFAULT NULL,
   `userId` int(11) NOT NULL,
-  `commentId` int(11) NOT NULL
+  `commentId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userId` (`userId`),
+  KEY `commentId` (`commentId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `post`
+-- Table structure for table `post`
 --
 
-CREATE TABLE `post` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `post` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
   `content` text DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
   `createdAt` datetime DEFAULT current_timestamp(),
   `updatedAt` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `creatorId` int(11) NOT NULL,
-  `SubgroupId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `SubgroupId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `creatorId` (`creatorId`),
+  KEY `SubgroupId` (`SubgroupId`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `post`
+-- Dumping data for table `post`
 --
 
 INSERT INTO `post` (`id`, `title`, `content`, `image`, `createdAt`, `updatedAt`, `creatorId`, `SubgroupId`) VALUES
-(5, 'conguito', 'si', 'conguito2024-03-13_16-22-36.png', '2024-03-13 09:22:36', NULL, 1, 1),
-(6, 'gh', 'hf', NULL, '2024-03-13 09:27:19', NULL, 1, 1),
-(7, 'gemelo gei', 'gemelo gei', 'gemelogei2024-03-19_03-01-28.jpeg', '2024-03-18 20:01:28', NULL, 1, 1),
-(9, 'tt', 'gg', 'tt2024-04-25_17-00-46.png', '2024-04-25 09:00:46', NULL, 1, 1),
-(10, 'klgjkg', 'glkbf', NULL, '2024-04-25 09:01:05', NULL, 1, 1),
 (11, 'jkcv', 'bnb', 'jkcv2024-04-25_17-09-39.png', '2024-04-25 09:09:39', NULL, 1, 1),
-(16, 'iljf ksdlvc', 'vxcxc', 'iljfksdlvc2024-04-26_04-30-34.png', '2024-04-25 20:30:34', NULL, 12, 1);
+(21, 'vgrn', ' hjt', 'vgrn2024-04-29_19-04-08.jpeg', '2024-04-29 11:04:08', NULL, 12, 1),
+(22, 'voluvo', 'si', 'voluvo2024-04-30_04-55-34.jpeg', '2024-04-29 20:55:34', NULL, 12, 4);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `response`
+-- Table structure for table `response`
 --
 
-CREATE TABLE `response` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `response` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` text DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
   `createdAt` datetime DEFAULT current_timestamp(),
   `updatedAt` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `creatorId` int(11) NOT NULL,
-  `commentId` int(11) NOT NULL
+  `commentId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `creatorId` (`creatorId`),
+  KEY `commentId` (`commentId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `session`
+-- Table structure for table `session`
 --
 
-CREATE TABLE `session` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `session` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NOT NULL,
   `expires` datetime DEFAULT NULL,
   `sessionToken` varchar(50) DEFAULT NULL,
   `accessToken` varchar(50) DEFAULT NULL,
   `createdAt` datetime DEFAULT NULL,
-  `updatedAt` datetime DEFAULT NULL
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userId` (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `subgroup`
+-- Table structure for table `subgroup`
 --
 
-CREATE TABLE `subgroup` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `subgroup` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `description` text DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
   `createdAt` datetime DEFAULT current_timestamp(),
   `updatedAt` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `creatorId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `creatorId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `creatorId` (`creatorId`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `subgroup`
+-- Dumping data for table `subgroup`
 --
 
 INSERT INTO `subgroup` (`id`, `name`, `description`, `image`, `createdAt`, `updatedAt`, `creatorId`) VALUES
@@ -162,59 +177,68 @@ INSERT INTO `subgroup` (`id`, `name`, `description`, `image`, `createdAt`, `upda
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `subscription`
+-- Table structure for table `subscription`
 --
 
-CREATE TABLE `subscription` (
+CREATE TABLE IF NOT EXISTS `subscription` (
   `userId` int(11) NOT NULL,
   `SubgroupId` int(11) NOT NULL,
   `createdAt` datetime DEFAULT current_timestamp(),
-  `updatedAt` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `updatedAt` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`userId`,`SubgroupId`),
+  KEY `SubgroupId` (`SubgroupId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `emailVerified` datetime DEFAULT NULL,
   `username` varchar(20) NOT NULL,
   `passwordHash` varchar(60) NOT NULL,
-  `image` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `image` varchar(100) DEFAULT NULL,
+  `descripcion` text DEFAULT NULL,
+  `coverImg` varchar(50) DEFAULT NULL,
+  `theme` int(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `emailVerified`, `username`, `passwordHash`, `image`) VALUES
-(1, 'david', 'david@gmail.com', '2024-03-13 08:02:18', 'Zama', 'ghjofipgjblcvkopirtjlikfjn', 'conguito.png'),
-(12, 'Alberto', 'albertothegoat@gmail.com', '2024-03-13 08:02:19', 'Beto', 'f hduinsyhsdiu ', 'esteban.jpg');
+INSERT INTO `user` (`id`, `name`, `email`, `emailVerified`, `username`, `passwordHash`, `image`, `descripcion`, `coverImg`, `theme`) VALUES
+(1, 'david', 'david@gmail.com', '2024-03-13 08:02:18', 'Zama', 'ghjofipgjblcvkopirtjlikfjn', 'conguito.png', 'hola a todos ', 'fondo1.png', 0),
+(12, 'Alberto', 'albertothegoat@gmail.com', '2024-03-13 08:02:19', 'Beto', 'f hduinsyhsdiu ', '2024-04-29_18-10-59buenosdias.png', 'kkkk', 'fondo2.png', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nickname` varchar(100) NOT NULL,
   `firstname` varchar(100) NOT NULL,
   `lastname` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `code` int(8) NOT NULL,
-  `imageUser` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `imageUser` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `nickname`, `firstname`, `lastname`, `email`, `password`, `code`, `imageUser`) VALUES
@@ -225,228 +249,80 @@ INSERT INTO `users` (`id`, `nickname`, `firstname`, `lastname`, `email`, `passwo
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `vote`
+-- Table structure for table `vote`
 --
 
-CREATE TABLE `vote` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `vote` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` enum('UPVOTE','DOWNVOTE') DEFAULT NULL,
   `userId` int(11) NOT NULL,
   `postId` int(11) DEFAULT NULL,
-  `commentId` int(11) DEFAULT NULL
+  `commentId` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `userId` (`userId`,`postId`,`commentId`),
+  KEY `postId` (`postId`),
+  KEY `commentId` (`commentId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Índices para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Indices de la tabla `account`
---
-ALTER TABLE `account`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `provider` (`provider`,`providerAccountId`),
-  ADD KEY `userId` (`userId`);
-
---
--- Indices de la tabla `comment`
---
-ALTER TABLE `comment`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `creatorId` (`creatorId`),
-  ADD KEY `postId` (`postId`);
-
---
--- Indices de la tabla `commentvote`
---
-ALTER TABLE `commentvote`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `userId` (`userId`),
-  ADD KEY `commentId` (`commentId`);
-
---
--- Indices de la tabla `post`
---
-ALTER TABLE `post`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `creatorId` (`creatorId`),
-  ADD KEY `SubgroupId` (`SubgroupId`);
-
---
--- Indices de la tabla `response`
---
-ALTER TABLE `response`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `creatorId` (`creatorId`),
-  ADD KEY `commentId` (`commentId`);
-
---
--- Indices de la tabla `session`
---
-ALTER TABLE `session`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `userId` (`userId`);
-
---
--- Indices de la tabla `subgroup`
---
-ALTER TABLE `subgroup`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `creatorId` (`creatorId`);
-
---
--- Indices de la tabla `subscription`
---
-ALTER TABLE `subscription`
-  ADD PRIMARY KEY (`userId`,`SubgroupId`),
-  ADD KEY `SubgroupId` (`SubgroupId`);
-
---
--- Indices de la tabla `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `username` (`username`);
-
---
--- Indices de la tabla `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `vote`
---
-ALTER TABLE `vote`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `userId` (`userId`,`postId`,`commentId`),
-  ADD KEY `postId` (`postId`),
-  ADD KEY `commentId` (`commentId`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `account`
---
-ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `comment`
---
-ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `commentvote`
---
-ALTER TABLE `commentvote`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `post`
---
-ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT de la tabla `response`
---
-ALTER TABLE `response`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `session`
---
-ALTER TABLE `session`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `subgroup`
---
-ALTER TABLE `subgroup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de la tabla `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT de la tabla `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT de la tabla `vote`
---
-ALTER TABLE `vote`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `account`
+-- Constraints for table `account`
 --
 ALTER TABLE `account`
   ADD CONSTRAINT `account_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `comment`
+-- Constraints for table `comment`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`creatorId`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`postId`) REFERENCES `post` (`id`);
 
 --
--- Filtros para la tabla `commentvote`
+-- Constraints for table `commentvote`
 --
 ALTER TABLE `commentvote`
   ADD CONSTRAINT `commentvote_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `commentvote_ibfk_2` FOREIGN KEY (`commentId`) REFERENCES `comment` (`id`);
 
 --
--- Filtros para la tabla `post`
+-- Constraints for table `post`
 --
 ALTER TABLE `post`
   ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`creatorId`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `post_ibfk_2` FOREIGN KEY (`SubgroupId`) REFERENCES `subgroup` (`id`);
 
 --
--- Filtros para la tabla `response`
+-- Constraints for table `response`
 --
 ALTER TABLE `response`
   ADD CONSTRAINT `response_ibfk_1` FOREIGN KEY (`creatorId`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `response_ibfk_2` FOREIGN KEY (`commentId`) REFERENCES `comment` (`id`);
 
 --
--- Filtros para la tabla `session`
+-- Constraints for table `session`
 --
 ALTER TABLE `session`
   ADD CONSTRAINT `session_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `subgroup`
+-- Constraints for table `subgroup`
 --
 ALTER TABLE `subgroup`
   ADD CONSTRAINT `subgroup_ibfk_1` FOREIGN KEY (`creatorId`) REFERENCES `user` (`id`);
 
 --
--- Filtros para la tabla `subscription`
+-- Constraints for table `subscription`
 --
 ALTER TABLE `subscription`
   ADD CONSTRAINT `subscription_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `subscription_ibfk_2` FOREIGN KEY (`SubgroupId`) REFERENCES `subgroup` (`id`);
 
 --
--- Filtros para la tabla `vote`
+-- Constraints for table `vote`
 --
 ALTER TABLE `vote`
   ADD CONSTRAINT `vote_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`),
