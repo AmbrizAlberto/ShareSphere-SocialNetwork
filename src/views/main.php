@@ -98,14 +98,6 @@ $postList = $posts->GetPosts();
 
         <br /><br /><br /><br /><br /><br />
 
-
-        <div class="upload">
-          <form action="#" method="post">
-            <input type="text" class="uploadtext" placeholder="¿Qué estás pensando?" />
-            <button class="button">Upload</button>
-          </form>
-        </div>
-
         <button id="theme-toggle-btn"><i class="bi bi-lightbulb-fill"></i></button>
 
         <div class="filtros">
@@ -153,13 +145,9 @@ $postList = $posts->GetPosts();
               <?php } ?>
             </div>
             <div class="post-actions">
-              <button class="action-btn"><i class="bi bi-hand-thumbs-up-fill"></i></button>
-              <button class="action-btn"><i class="bi bi-hand-thumbs-down-fill"></i></button>
+              <button class="action-btn"><i class="bi bi-hand-thumbs-up-fill"> 200</i></button>
+              <button class="action-btn"><i class="bi bi-hand-thumbs-down-fill">200</i></button>
               <button class="action-btn"><i class="bi bi-chat-square-text-fill"></i></button>
-            <div>
-              <span class="likes">100 Likes</span>
-              <span class="comments">50 Comments</span>
-              </div>
             </div>
           </div>
         <?php } ?>
