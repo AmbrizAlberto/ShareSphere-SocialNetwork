@@ -4,28 +4,23 @@ html{
 }
 
 .navbar {
+    background-color: #ffffff23;
     position: fixed;
-    width: 7%;
-    height: 30%;
+    height: 35%;
     top: 15%;
     left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 2%;
-    box-shadow: 0 0px 20px #000000ac;
-    transition: width 0.5s;
-    border-radius: 10px;
+    border-radius: 20px;
     margin: 2%;
     z-index: 1;
 }
 
-.navbar:hover{
-    box-shadow: 0 0px 20px rgb(0, 0, 0);
-}
-
 .navbar .logo {
-    color: hsl(175, 100%, 51%);
+    text-decoration: none;
+    color: #6de4bd;
     width: auto;
     height: auto;
     font-size: 200%;
@@ -37,12 +32,12 @@ html{
     position: fixed;
     margin-left: -2.5%;
     margin-top: 0%;
-    width: 5%;
-    height: 8%;
+    height: 10%;
 }
 
 .navbar .logo img:hover{
-    box-shadow: 0 0px 10px hsl(175, 100%, 51%);
+    text-decoration: none;
+    box-shadow: 0 0px 10px #6de4bd;
     border-radius: 51%;
 }
 
@@ -65,20 +60,21 @@ html{
 }
 
 .optionnv {
-    top: 10%;
     position: relative;
     overflow: hidden;
-    color: #cacaca76;
+    color: #ffffff;
     text-decoration: none;
     display: flex;
     align-items: center;
     background-color: transparent;
     border: none;
     transition: 500ms;
+    top: 40%;
 }
 
 .optionnv:hover{
-    color:  hsl(175, 100%, 51%);
+    font-weight: bold;
+    color:  #ffffff23;
     transition: 500ms;
 }
 
@@ -98,7 +94,8 @@ button:hover{
 }
 
 .optionnv:hover i {
-    color:  hsl(175, 100%, 51%);
+    text-decoration: none;
+    color: #ffffff23;;
     margin-left: 2%;
     transition: 500ms;
 }

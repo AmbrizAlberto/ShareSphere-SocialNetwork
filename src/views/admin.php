@@ -67,7 +67,7 @@ $users = new users();
                 </div>
             </button>
 
-            <button class="postscont" onclick="openModalForProject('usuarios')">
+            <button class="postscont" onclick="openModalForProject('posts')">
                 <div class="titulo">
                     Usuarios
                 </div>
@@ -81,7 +81,7 @@ $users = new users();
                 </div>
             </button>
 
-            <button class="postscont" onclick="openModalForProject('reportes')">
+            <button class="postscont" onclick="openModalForProject('reports')">
                 <div class="titulo">
                     Reportes
                 </div>

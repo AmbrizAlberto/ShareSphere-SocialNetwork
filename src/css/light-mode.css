@@ -8,9 +8,29 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.filtros{
+    background-color: #d4d4d4;
+    color: white;
+}
+.logout{
+    text-decoration: none;
+    color: #3d3d3d;
+}
+.navbar {
+    background-color: #d4d4d4;
+}
+.optionnv {
+    color: #000000;
+}
+
+.optionnv:hover{
+    color:  #ffffff23;
+    transition: 500ms;
+}
+
 .feedhead {
     color: #333; /* Texto oscuro */
-    background-color: #f2f2f2; /* Fondo claro */
+    background-color: rgb(242, 242, 242); /* Fondo */
     border-bottom: 1.5px solid rgba(0, 0, 0, 0.1); /* Borde claro */
 }
 
@@ -72,13 +92,12 @@ body {
 }
 
 .post-container {
-    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);
-    background-color: rgba(165, 165, 165, 0.422);
-    border: 1px solid rgba(255, 255, 255, 0.194);
+    
+    background-color: #d4d4d4;
 }
 
 .post-container:hover {
-    background-color: rgb(183, 183, 183);
+    background-color: #979797;
 }
 
 .user-info {
@@ -86,36 +105,16 @@ body {
   
 }
 
-.action-btn {
-    background-color: white;
-}
-
-.action-btn:hover {
-    background-color: #888888;
-}
-
 .post-content {
     color: #333; /* Texto oscuro */
 }
 
-.post-options {
-    background-color: #adadad;
-}  
 .SubTitle {
     color: #333; /* Texto oscuro */
 }
 
 .description {
     color: #333; /* Texto oscuro */
-}
-
-.post-actions button {
-    background-color: #000000; /* Color de texto */
-    color: #fff;
-}
-
-.post-actions button:hover {
-    background-color: #0059b7; /* Color de texto azul más oscuro */
 }
 
 #theme-toggle-btn {

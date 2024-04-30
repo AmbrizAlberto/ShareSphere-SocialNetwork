@@ -45,7 +45,7 @@ body{
     text-align: center;
     margin-left: 3%;
     margin-right: 10%;
-    color: hsl(175, 100%, 51%);
+    color: #ffffff;
 }
 
 .feedhead i {
@@ -71,7 +71,7 @@ body{
 
 .feedhead i:hover{
     background-color: transparent;
-    color: hsl(175, 100%, 51%);
+    color: #6de4bd;
     text-shadow: 0 0px 30px rgb(0, 0, 0);
     cursor: pointer;
     transition: 500ms;
@@ -157,11 +157,11 @@ body{
 }
 
 .upload:hover ::placeholder{
-    color:  hsla(175, 100%, 50%, 0.484);
+    color:  #21926c;
 }
 
 .upload:hover{
-    box-shadow: 0 0px 20px hsla(175, 100%, 51%, 0.523);
+    box-shadow: 0 0px 20px #21926c;
     transition: 300ms;
 }
 
@@ -191,7 +191,7 @@ body{
 }
 
 .upload button:hover {
-    color:  hsl(175, 100%, 51%);
+    color:  #21926c;
     background-color: transparent;
     cursor: pointer;
 }
@@ -204,15 +204,15 @@ body{
     position: relative;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);  
-    background-color: rgb(37, 37, 37);
-    border: 1px solid rgba(255, 255, 255, 0.194);
+    box-shadow: 0 0px 15px #0000001a;  
+    background-color: #ffffff23;
+    border: 1px solid #ffffff31;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .post-container:hover{
-    background-color: rgb(64, 64, 64);
+    background-color: #525252;
 }
 .header {
     display: flex;
@@ -244,7 +244,7 @@ body{
     top: 10px;
     height: 30px;
     border-radius: 50%;
-    background-color: #007bff;
+    background-color: #21926c;
     position: relative;
     display: flex;
     align-items: center;
@@ -316,8 +316,10 @@ body{
 }
 
 .image-container img {
-    width: 100%;
+    width: 90%;
     display: block;
+    margin: auto;
+    border-radius: 2%
 }
 
 .post-actions {
@@ -332,7 +334,7 @@ body{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #007bff;
+    background-color: #21926c;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -341,7 +343,7 @@ body{
 }
 
 .post-actions button:hover {
-    background-color: #0059b7;
+    background-color: #2cc894;
     transform: scale(1.2);
 }
 

@@ -1,22 +1,19 @@
 .filtros{
-    position:fixed;
-    text-align: center;
-    width: 10%;
-    height: 60%;
-    font-size: 50%;
-    margin-left: 60%;
-    margin-top: 5%;
-    background-color: transparent;
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.194);
-    display: flex;
-    padding-top: 1%;
-    padding-left: 2%;
-    padding-right: 2%;
-    border-radius:20px;
-    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);
-    transition: 300ms;
-    
+  position: fixed;
+  text-align: center;
+  width: 10%;
+  height: 60%;
+  font-size: 50%;
+  margin-left: 60%;
+  margin-top: 5%;
+  background-color: #ffffff23;
+  color: white;
+  display: flex;
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 20px;
+  transition: 300ms;
 }
 
 
