@@ -121,7 +121,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
           
           <div class="post-container">
             <div class="user-info">
-              <a href="../views/PerfilPage.php"><img src="<?php echo "/public/images_users/". $posts->GetUserImgById($post['creatorId']) ?>" alt="User Image"></a>
+              <a href="<?php echo "/src/views/" . ($_SESSION['userId'] == $post['creatorId'] ? "PerfilPage.php" : "userPage.php?idPerfil=".$post['creatorId']); ?>"> <img src="<?php echo "/public/images_users/". $posts->GetUserImgById($post['creatorId']) ?>" alt="User Image"></a>
               <span><?php echo $username['username']?></span>
             </div>
             <div class="post-options">
