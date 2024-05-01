@@ -121,14 +121,14 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
           
           <div class="post-container">
             <div class="user-info">
-              <a href="../views/PerfilPage.php"><img src="<?php echo $userdata['image'] ? "/public/images_users/".$userdata['image'] : "/public/images_users/userdefault.png" ?> " alt="User Image"></a>
+              <a href="../views/PerfilPage.php"><img src="<?php echo "/public/images_users/". $posts->GetUserImgById($post['creatorId']) ?>" alt="User Image"></a>
               <span><?php echo $username['username']?></span>
             </div>
             <div class="post-options">
               <span><i class="bi bi-caret-down-fill"></i></span>
               <?php if($post['creatorId'] == $_SESSION['userId']){ ?>
               <div class="option-content">
-                <a href="/controllers/Edit/EditPost.php?id=<?php echo $post['id'] ?>"><i class="bi bi-pencil-fill"></i></a>
+                <a><i class="bi bi-pencil-fill"></i></a>
                 <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=0"><i class="bi bi-trash-fill"></i></a>
               </div>
               <?php } ?>

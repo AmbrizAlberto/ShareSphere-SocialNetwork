@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 try 
                 {
                     // Preparamos la consulta de inserción
-                    $consulta = $pdo->prepare("INSERT INTO user (name,  username, lastname, email, passwordHash, theme) VALUES (:name,  :username, :lastname, :email, :passwordHash, :theme)");
+                    $consulta = $pdo->prepare("INSERT INTO user (name,  username, lastname, email, passwordHash, theme, image) VALUES (:name,  :username, :lastname, :email, :passwordHash, :theme, 'userdefault.png')");
     
                     // Bind de los parámetros
                     $theme = 0;
