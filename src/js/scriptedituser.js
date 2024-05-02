@@ -1,5 +1,5 @@
 // Obtener el modal
-var modal = document.getElementById("myModalEdit");
+var modal = document.getElementById("Modal-Profile");
         
 // Obtener el botón que abre el modal
 var btn = document.getElementById("modalBtnEdit");

@@ -119,22 +119,23 @@ $user = $posts->GetUserById($_SESSION['userId']);
         
         </div>
         
-        <!-- El modal -->
-        <div id="myModalEdit" class="modaledit">
-            <!-- Contenido del modal -->
+        <div id="Modal-Profile" class="modaledit">
             <div class="modal-content-edit">
                 <span class="close-edit">&times;</span>
                 <h2>Editar Perfil</h2>
                 <form id="editForm" action="/controllers/Edit/EditUser.php" method="post" enctype="multipart/form-data">
-                    <input type="hidden" value="<?php  echo $_SESSION['userId'];?>" name="userId">
-                    <label for="newImage">Cargar  imagen:</label><br>
-                    <img id="previewImage" src="<?php echo "/public/images_users/". $user['image']?>" alt="User Image" class=".modal-content-edit">
-                    <input type="file" id="newImage" name="newImage" accept="image/*"><br><br>
-                    <label for="newUsername">Nombre de Usuario:</label><br>
-                    <input type="text" id="newUsername" name="newUsername" value="<?php echo $user['username']?>"><br><br>
-                    <label for="newDescription">Descripción:</label><br>
-                    <textarea id="newDescription" name="newDescription" rows="4" cols="50"><?php echo $user['descripcion']?></textarea><br><br>
-                    <button class=".modal-content-edit " type="submit" value="Guardar cambios">Guardar</button> 
+                  <label for="newUsername">Nombre de Usuario:</label><br>
+                  <input type="text" id="newUsername" name="newUsername" value="<?php echo $user['username']?>"><br><br>
+
+                  <label for="newDescription">Descripción:</label><br>
+                  <textarea id="newDescription" name="newDescription" rows="4" cols="50"><?php echo $user['descripcion']?></textarea><br><br>
+                  
+                  <input type="hidden" value="<?php  echo $_SESSION['userId'];?>" name="userId">
+                  <label for="newImage">Cargar imagen:</label><br>
+                  <img id="previewImage" src="<?php echo "/public/images_users/". $user['image']?>" alt="User Image" class=".modal-content-edit">
+                  <input type="file" id="newImage" name="newImage" accept="image/*"><br><br>
+                  
+                  <button class=".modal-content-edit " type="submit" value="Guardar cambios">Guardar</button> 
                 </form>
             </div>
         </div>

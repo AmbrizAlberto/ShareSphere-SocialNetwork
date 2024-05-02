@@ -21,7 +21,6 @@
   padding: 20px;
   border: 1px solid #888;
   border-radius: 20px;
-  width: 80%;
   transition: 500ms;
 }
 
@@ -45,7 +44,9 @@
 
 
 .modal-content-edit label {
+  position: relative;
   text-align: center;
+  left: 20%;
   color: white;
   margin-top: 20px;
   margin-bottom: 10px;
@@ -53,21 +54,29 @@
 
 .modal-content-edit input {
   color: white;
+  position: relative;
+  text-align: center;
+  left: 20%;
   margin-bottom: 15px;
   margin-top: 1%;
   padding: 8px;
   border: none;
   border-radius: 20px;
-  background-color: #00000087;
+  background-color: #00000087
 }
 
 .modal-content-edit textarea {
   color: white;
+  position: relative;
+  text-align: center;
+  left: 20%;
+  width: 43%;
+  top: 8px;
   margin-bottom: 15px;
   padding: 8px;
   border: none;
   border-radius: 10px;
-  background-color: #00000087;
+  background-color: #00000087
 }
 
 .modal-content-edit select {
@@ -81,21 +90,23 @@
 
 .modal-content-edit button {
   color: white;
-  background-color: #009bee;
-  font-size: 150%;
-  width: 13%;
-  height: 5%;
+  background-color: #21926c;
+  font-size: 100%;
+  width: 50%;
   border-radius: 20px;
   padding: 1%;
 }
 
 .modal-content-edit button:hover {
-  background-color: #e7d28e;
+  background-color: #2cc894;
   color: rgb(0, 0, 0);
   transition: 600ms;
 }
 .modal-content-edit img {
-  width: 200px;
+  position: absolute;
+  max-width: 15%;
+  top: 23%;
+  left: 32%;
   height: auto;
   border-radius: 20px;
   margin-bottom: 10px;
