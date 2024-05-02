@@ -1,6 +1,15 @@
+<?php
+    session_start();// Iniciar la sesión
+    if(empty($_SESSION['email']))
+    {
+        header("Location:./login.php");
+
+    }
+    
+?>
+
 <!DOCTYPE html>
 <?php
-session_start();
 require_once("../../autoload.php");
 use Models\{posts};
 $posts = new posts();

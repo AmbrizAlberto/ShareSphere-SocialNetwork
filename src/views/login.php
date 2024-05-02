@@ -1,8 +1,7 @@
 <?php
-    session_start();// Iniciar la sesión
     if(isset($_SESSION['email']))
     {
-        header("Location:main.php");
+        header("Location:/main.php");
     }
 ?>
 
