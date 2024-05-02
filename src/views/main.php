@@ -104,7 +104,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
             <i class="bi bi-app-indicator"></i>
           </button>
 
-          <a href="/controllers/logout.php" class="logout"><i class="bi bi-box-arrow-right"></i></a>
+          <a href="../../controllers/logout.php" class="logout"><i class="bi bi-box-arrow-right"></i></a> <!-- Cerramos la sesion -->
 
         </div>
 
