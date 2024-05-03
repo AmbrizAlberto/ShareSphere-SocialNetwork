@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2024 at 12:58 AM
+-- Generation Time: May 03, 2024 at 09:15 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -99,16 +99,14 @@ CREATE TABLE IF NOT EXISTS `post` (
   PRIMARY KEY (`id`),
   KEY `creatorId` (`creatorId`),
   KEY `SubgroupId` (`SubgroupId`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `post`
 --
 
 INSERT INTO `post` (`id`, `title`, `content`, `image`, `createdAt`, `updatedAt`, `creatorId`, `SubgroupId`) VALUES
-(11, 'jkcv', 'bnb', 'jkcv2024-04-25_17-09-39.png', '2024-04-25 09:09:39', NULL, 1, 1),
-(27, 'j hgtu', 'ujnb', 'jhgtu2024-04-30_20-38-21.jpeg', '2024-04-30 12:38:21', NULL, 12, 1),
-(28, 'yngrv chyadu', 'vcxxc', 'yngrvchyadu2024-05-01_00-35-55.png', '2024-04-30 16:35:55', NULL, 13, 1);
+(29, 'hola', 'buenos dias', 'hola2024-05-02_21-24-26.jpeg', '2024-05-02 13:24:26', NULL, 13, 4);
 
 -- --------------------------------------------------------
 
@@ -161,8 +159,7 @@ CREATE TABLE IF NOT EXISTS `subgroup` (
   `createdAt` datetime DEFAULT current_timestamp(),
   `updatedAt` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `creatorId` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `creatorId` (`creatorId`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -170,9 +167,9 @@ CREATE TABLE IF NOT EXISTS `subgroup` (
 --
 
 INSERT INTO `subgroup` (`id`, `name`, `description`, `image`, `createdAt`, `updatedAt`, `creatorId`) VALUES
-(1, 'Agua limpia y Saneamiento', 'si', 'agua.png', '2024-03-13 09:00:08', '2024-03-13 09:00:08', 1),
-(3, 'Energia Asequible y No Contaminante', '7', 'nose.png', '2024-04-25 21:43:12', '2024-04-25 21:43:12', 12),
-(4, 'Vida Submarina', '14', 'vidamarina.png', '2024-04-25 21:43:12', '2024-04-25 21:43:12', 1);
+(1, 'Agua limpia y Saneamiento', 'si', 'agua.png', '2024-03-13 09:00:08', '2024-05-03 11:22:15', 16),
+(3, 'Energia Asequible y No Contaminante', '7', 'nose.png', '2024-04-25 21:43:12', '2024-05-03 11:22:20', 16),
+(4, 'Vida Submarina', '14', 'vidamarina.png', '2024-04-25 21:43:12', '2024-05-03 11:22:25', 16);
 
 -- --------------------------------------------------------
 
@@ -211,43 +208,17 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `lastname`, `email`, `emailVerified`, `username`, `passwordHash`, `image`, `descripcion`, `coverImg`, `theme`, `code`) VALUES
-(1, 'david', '', 'david@gmail.com', '2024-03-13 08:02:18', 'Zama', 'ghjofipgjblcvkopirtjlikfjn', 'conguito.png', 'hola a todos ', 'fondo1.png', 0, 0),
-(12, 'Alberto', '', 'albertothegoat@gmail.com', '2024-03-13 08:02:19', 'Beto', 'f hduinsyhsdiu ', '2024-04-29_18-10-59buenosdias.png', 'kkkk', 'fondo2.png', 1, 0),
-(13, 'alberto', 'ambriz', 'jaguilar51@ucol.mx', NULL, 'betothegoat', '$2y$10$seDgKj2yqrcwA.cNDeOtou1y0vgUTxZazB/Wf97to6ipqECvdr5zy', NULL, NULL, NULL, 1, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nickname` varchar(100) NOT NULL,
-  `firstname` varchar(100) NOT NULL,
-  `lastname` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `code` int(8) NOT NULL,
-  `imageUser` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `nickname`, `firstname`, `lastname`, `email`, `password`, `code`, `imageUser`) VALUES
-(3, 'Uli', 'Ulises', 'Garcia', 'alanadolfosanmillanramos@gmail.com', '$2y$10$LzcLBkyCJ6e03XD6ODuzx.upNoBU8gfm3aw12IRuLN4eBUf7k3Yuy', 0, NULL),
-(5, 'KamiKac', 'Karla Kamila', 'Vilchis Corona', 'kvilchis@ucol.mx', '$2y$10$LzcLBkyCJ6e03XD6ODuzx.upNoBU8gfm3aw12IRuLN4eBUf7k3Yuy', 0, NULL),
-(12, 'Alan', 'Alan Adolfo San', 'Millan Ramos', 'asanmillan@ucol.mx', '$2y$10$LzcLBkyCJ6e03XD6ODuzx.upNoBU8gfm3aw12IRuLN4eBUf7k3Yuy', 0, NULL);
+(13, 'alberto', 'ambriz', 'jaguilar51@ucol.mx', NULL, 'betothegoat', '$2y$10$seDgKj2yqrcwA.cNDeOtou1y0vgUTxZazB/Wf97to6ipqECvdr5zy', '2024-05-01_03-48-08teletubiev2.jpg', '', NULL, 1, NULL),
+(14, 'si', 'uicvx', 'asanmillan@ucol.mx', NULL, 'carlos', '$2y$10$Z5NbMp6lGSWh51QK6dJG2uDA5ox5/wDUHeXnn.Ia2VPwkhBjiP8bu', 'userdefault.png', NULL, NULL, 1, NULL),
+(15, 'ajjajaj', 'genial ', 'hola@ucol.mx', NULL, 'armando', '$2y$10$cCktAHld350lwobbYLLwBO7MrX2HyX0826DIp/AEzFZirbFWHlkP2', 'userdefault.png', NULL, NULL, 1, NULL),
+(16, 'si', 'no', 's', NULL, 'sa', 'goik', ' jlx', 'jgk', 'gfg', 0, 0);
 
 -- --------------------------------------------------------
 
