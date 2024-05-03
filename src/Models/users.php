@@ -9,7 +9,7 @@ class users extends connection{
     private $email;
 
     public function GetUsuariosIndex(){
-        $sql="SELECT COUNT(*)FROM users";
+        $sql="SELECT COUNT(*)FROM user";
         $execute = $this->conn->query($sql);
         $request = $execute->fetchColumn();
         return $request;

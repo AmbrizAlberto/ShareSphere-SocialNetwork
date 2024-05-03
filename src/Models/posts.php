@@ -75,8 +75,8 @@ class posts extends connection{
                 die("Esta imagen a sido usada anteriormente, por lo que debe escoger otra");
             }
 
-            if(!is_dir("../public/".$directorio)){
-                mkdir("../public/".$directorio,0777);
+            if(!is_dir("../../public/".$directorio)){
+                mkdir("../../public/".$directorio,0777);
             }
             if(in_array($directorio.$file_name, $name_images)){
             }else{
@@ -149,6 +149,22 @@ class posts extends connection{
             $arrData = array($newUsername, $newDescripcion, $today.$img, $id);
         }
         $update->execute($arrData);
+    }
+
+    public function GetUsers(){
+        $sql="SELECT id, username, email FROM user ORDER BY id DESC";
+        $execute = $this->conn->query($sql);
+        return $request = $execute->fetchall(PDO::FETCH_ASSOC);
+    }
+
+    public function GetPostsForJson(){
+        $sql="SELECT post.id, post.creatorId, post.title, user.username AS creator_name
+        FROM post
+        JOIN user ON post.creatorId = user.id
+        ORDER BY post.id DESC;";
+        $execute = $this->conn->query($sql);
+        $request = $execute->fetchall(PDO::FETCH_ASSOC);
+        return $request;
     }
 }
 ?>
