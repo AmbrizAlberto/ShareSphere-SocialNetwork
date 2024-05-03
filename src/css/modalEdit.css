@@ -91,6 +91,7 @@
 .modal-content-edit button {
   color: white;
   background-color: #21926c;
+  padding: 4px;
   font-size: 100%;
   width: 50%;
   border-radius: 20px;

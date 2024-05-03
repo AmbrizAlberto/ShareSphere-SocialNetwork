@@ -29,7 +29,7 @@
   
   input[type="comment"]:focus {
     outline: none;
-    border-color: #007bff; /* Color de borde cuando está enfocado */
+    border-color: #21926c;
   }
 
   .content-post {

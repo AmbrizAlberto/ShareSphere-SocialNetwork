@@ -69,7 +69,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
           <form action="./PerfilPage.php" method="post">
             <input type="image" src="<?php echo $userdata['image'] ? "/public/images_users/".$userdata['image'] : "/public/images_users/userdefault.png" ?>" alt="Texto Alternativo"/>
           </form>
-          <button id="modalBtn">
+          <button id="modalBtn" style="background-color: transparent;">
             <i class="bi bi-plus-square"></i>
           </button>
           <div id="myModal" class="modal">
@@ -100,7 +100,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
           </div>
           <script src="script.js"></script>
           
-          <button>
+          <button style="background-color: transparent;">
             <i class="bi bi-app-indicator"></i>
           </button>
 

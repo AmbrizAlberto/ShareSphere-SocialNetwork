@@ -18,12 +18,11 @@
     padding: 20px;
     border: 1px solid #888;
     border-radius: 20px;
-    width: 80%;
     transition: 500ms;
   }
   
   .close {
-    color: #aaa;
+    color: #b15050;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -75,18 +74,16 @@
 }
 
 .modal-content button {
-    margin: auto 30%;
-    background-color: #009bee;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: 400ms;
+  color: white;
+  background-color: #21926c;
+  padding: 4px;
+  font-size: 100%;
+  border-radius: 20px;
+  padding: 1%;
 }
 
 .modal-content button:hover {
-    background-color: #e7d28e;
-    color: rgb(0, 0, 0);
-    transition: 600ms;
+  background-color: #2cc894;
+  color: rgb(0, 0, 0);
+  transition: 600ms;
 }
