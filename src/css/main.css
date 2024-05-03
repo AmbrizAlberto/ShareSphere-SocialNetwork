@@ -363,6 +363,21 @@ body{
 #theme-toggle-btn:hover{
     background-color: rgb(218, 190, 33);
 }
+#theme-toggle-btn-visitor {
+    position: absolute;
+    right: 18%;
+    top: 14%;
+    background-color: #ffffff; /* Color de fondo para el modo claro */
+    color: #000000; /* Color del texto para el modo claro */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+#theme-toggle-btn-visitor:hover{
+    background-color: rgb(218, 190, 33);
+}
 
 .toTop {
     border: none;

@@ -75,8 +75,8 @@ class posts extends connection{
                 die("Esta imagen a sido usada anteriormente, por lo que debe escoger otra");
             }
 
-            if(!is_dir("../public/".$directorio)){
-                mkdir("../public/".$directorio,0777);
+            if(!is_dir("../../public/".$directorio)){
+                mkdir("../../public/".$directorio,0777);
             }
             if(in_array($directorio.$file_name, $name_images)){
             }else{
