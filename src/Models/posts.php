@@ -152,19 +152,33 @@ class posts extends connection{
     }
 
     public function GetUsers(){
-        $sql="SELECT id, username, email FROM user ORDER BY id DESC";
+        $sql="SELECT id, username, email, image FROM user ORDER BY id DESC";
         $execute = $this->conn->query($sql);
         return $request = $execute->fetchall(PDO::FETCH_ASSOC);
     }
 
     public function GetPostsForJson(){
-        $sql="SELECT post.id, post.creatorId, post.title, user.username AS creator_name
+        $sql = "SELECT post.id, post.creatorId, post.title, user.username AS creator_name, user.image AS img
         FROM post
         JOIN user ON post.creatorId = user.id
         ORDER BY post.id DESC;";
         $execute = $this->conn->query($sql);
         $request = $execute->fetchall(PDO::FETCH_ASSOC);
         return $request;
+    }
+
+    public function DeletePostsByAdmin($id){
+        $sql="DELETE  FROM post WHERE creatorId=?";
+        $arrwhere =array($id);
+        $delete= $this->conn->prepare($sql);
+        $delete->execute($arrwhere);    
+    }
+
+    public function DeleteUser($id){
+        $sql="DELETE  FROM user WHERE id=?";
+        $arrwhere =array($id);
+        $delete= $this->conn->prepare($sql);
+        $delete->execute($arrwhere);    
     }
 }
 ?>

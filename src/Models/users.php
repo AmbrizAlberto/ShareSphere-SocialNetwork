@@ -12,7 +12,7 @@ class users extends connection{
         $sql="SELECT COUNT(*)FROM user";
         $execute = $this->conn->query($sql);
         $request = $execute->fetchColumn();
-        return $request;
+        return $request-1;
     }
 } 
 ?>

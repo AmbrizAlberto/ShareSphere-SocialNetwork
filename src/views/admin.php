@@ -28,7 +28,7 @@ $users = new users();
 
             <div class="access">
                 <br /><br />
-                <button class="optionnv" href="#"><i class="bi bi-house-fill"></i></i><span>Home</span></button>
+                <button class="optionnv" href="#"><i class="bi bi-house-fill"></i><span>Home</span></button>
                 
                 <div class="botonimg">
                     <button class="botonimgs">
