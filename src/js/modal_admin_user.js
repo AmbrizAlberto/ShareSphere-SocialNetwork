@@ -12,10 +12,10 @@ function openModalForProject(projectId) {
                     html += "<ul>";
                     data.forEach(post => { 
                         html +=`<li> 
-                        <a href="/src/views/userPage.php?idPerfil=${post.creatorId}"> 
+                        <a href="/src/views/userPage.php?idPerfil=${post.creatorId}" style="text-decoration: none;"> 
                         <img src="../../public/images_users/${post.img}"  alt='si' style=" width:2%; height: auto;">
                         </a> ID: ${post.id}, Titulo: ${post.title}, Nombre del creador: ${post.creator_name} 
-                        <a href="/controllers/Delete/DeletePost.php?id=${post.id}&page=2"><i class="bi bi-trash-fill" style=" width:2%; height: auto;"></i></a>
+                        <a href="/controllers/Delete/DeletePost.php?id=${post.id}&page=2"><i class="bi bi-trash-fill" style="width: 20px; height: 20px; color: black;"></i></a>
                         </li>`
                     });
                     html += "</ul>"; 
@@ -29,19 +29,23 @@ function openModalForProject(projectId) {
                 .then(response => response.json())
                 .then(data => {
                     var html = "<h2>Lista de usuarios</h2>";
-                    html += "<ul>";
+                    html += `<table class="usertable">`;
+                    html += `<tr><th>ID</th><th>USUARIO</th><th>CORREO</th><th>ELIMINAR</th></tr>`;
                     data.forEach(user => {
                         if(user.id !== 16){
-                        html +=`<li> 
-                        <a href="/src/views/userPage.php?idPerfil=${user.id}"> 
-                        <img src="../../public/images_users/${user.image}"  alt='si' style=" width:2%; height: auto;">
-                        </a> 
-                        ID: ${user.id}, Nombre de usuario: ${user.username}, Correo: ${user.email} 
-                        <a href="/controllers/Delete/deleteUser.php?id=${user.id}&page=2"><i class="bi bi-trash-fill" style=" width:2%; height: auto;"></i></a>
-                        </li>`
+                            html += `<tr class="trusers"> 
+                                <td><a href="/src/views/userPage.php?idPerfil=${user.id}" style="color: black; text-decoration: none;"> <img src="../../public/images_users/${user.image}"  alt='' style=" width:5vh; height:5vh; border-radius: 20px;"></a>   ${user.id}</td>
+                                <td><span style="text-decoration: none;">${user.username}</span></td>
+                                <td>${user.email}</td>
+                                <td>
+                                    <a href="/controllers/Delete/deleteUser.php?id=${user.id}&page=2">
+                                        <i class="bi bi-trash-fill" style="color: white; font-size: 3vh;"></i>
+                                    </a>
+                                </td>
+                            </tr>`;
                         }
                     });
-                    html += "</ul>";
+                    html += "</table>";
                     modalContent.innerHTML = html;
                 }).catch(error => {
                 console.error('Error al obtener los datos:', error);
