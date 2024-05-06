@@ -1,10 +1,14 @@
 <?php
-    if(isset($_SESSION['email']))
-    {
-        header("Location:/main.php");
-    }
-?>
+// Inicia la sesión (si aún no está iniciada)
+session_start();
 
+// Verifica si hay una sesión activa
+if (isset($_SESSION['email'])) {
+    // Si hay una sesión iniciada, redirige al usuario a la página principal
+    header('Location: ./main.php');
+    exit; // Detiene la ejecución del script
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,3 +40,4 @@
 
 </body>
 </html>
+
