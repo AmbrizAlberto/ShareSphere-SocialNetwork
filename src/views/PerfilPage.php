@@ -58,7 +58,7 @@ $user = $posts->GetUserById($_SESSION['userId']);
               <input type="image" src="<?php echo $user['image'] ? "/public/images_users/".$user['image'] : "/public/images_users/userdefault.png" ?>" alt="Texto Alternativo">
             </form>
   
-            <button id="modalBtn">
+            <button id="modalBtn" style="background-color: transparent;">
               <i class="bi bi-plus-square"></i>
             </button>
             <div id="myModal" class="modal">
@@ -88,7 +88,7 @@ $user = $posts->GetUserById($_SESSION['userId']);
             </div>
             <script src="../js/script.js"></script>
             
-            <button>
+            <button style="background-color: transparent;">
               <i class="bi bi-app-indicator"></i>
             </button>
 
