@@ -147,9 +147,13 @@ $user = $posts->GetUserById($_SESSION['userId']);
             cols="50"><?php echo $user['descripcion'] ?></textarea><br><br>
 
           <input type="hidden" value="<?php echo $_SESSION['userId']; ?>" name="userId">
-          <label for="newImage">Cargar imagen:</label><br>
-          <img id="previewImage" src="<?php echo "/public/images_users/" . $user['image'] ?>" alt="User Image" class=".modal-content-edit">
+          <label for="newImage">Cargar imagen de perfil:</label><br>
           <input type="file" id="newImage" name="newImage" accept="image/*"><br><br>
+          <label for="newImage">Cargar imagen de portada:</label><br>
+          <input type="file" id="newImage" name="newImage" accept="image/*"><br><br>
+          <img id="previewImage" src="<?php echo "/public/images_users/" . $user['image'] ?>" alt="User Image" class=".modal-content-edit">
+
+
 
           <button class=".modal-content-edit " type="submit" value="Guardar cambios">Guardar</button>
         </form>
