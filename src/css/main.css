@@ -156,11 +156,11 @@ body{
 }
 
 .upload:hover ::placeholder{
-    color:  #21926c;
+    color:  #67a19b;
 }
 
 .upload:hover{
-    box-shadow: 0 0px 20px #21926c;
+    box-shadow: 0 0px 20px #67a19b;
     transition: 300ms;
 }
 
@@ -190,7 +190,7 @@ body{
 }
 
 .upload button:hover {
-    color:  #21926c;
+    color:  #67a19b;
     background-color: transparent;
     cursor: pointer;
 }
@@ -251,7 +251,7 @@ body{
     top: 2vh;
     height: 30px;
     border-radius: 50%;
-    background-color: #21926c;
+    background-color: #67a19b;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -343,7 +343,7 @@ body{
     width: 15%;
     height: 40px;
     border-radius: 25px;
-    background-color: #21926c;
+    background-color: #67a19b;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -354,7 +354,7 @@ body{
 }
 
 .post-actions button:hover {
-    background-color: #2cc894;
+    background-color: #67a19b;
     transform: scale(1.2);
 }
 
@@ -372,7 +372,7 @@ body{
     transition: background-color 0.3s, color 0.3s;
 }
 #theme-toggle-btn:hover{
-    background-color: rgb(218, 190, 33);
+    background-color: #67a19b;
 }
 #theme-toggle-btn-visitor {
     position: absolute;
@@ -387,7 +387,7 @@ body{
     transition: background-color 0.3s, color 0.3s;
 }
 #theme-toggle-btn-visitor:hover{
-    background-color: rgb(218, 190, 33);
+    background-color: white;
 }
 
 .toTop {
@@ -412,7 +412,7 @@ body{
   }
   
   .toTop {
-    background-color: #252525;
+    background-color: #67a19b;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     border-radius: 0.5rem;
     padding: 0.75rem;
