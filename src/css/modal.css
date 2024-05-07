@@ -75,11 +75,14 @@
 
 .modal-content button {
   color: white;
-  background-color: #21926c;
-  padding: 4px;
-  font-size: 100%;
-  border-radius: 20px;
-  padding: 1%;
+    background-color: #21926c;
+    padding: 4px;
+    font-size: 100%;
+    left: 25%;
+    position: relative;
+    width: 50%;
+    border-radius: 20px;
+    padding: 1%;
 }
 
 .modal-content button:hover {

@@ -96,21 +96,21 @@ body{
 }
 
 .post-container {
-    width: 80%;
-    right: 5%;
+    width: 50%;
+    right: 18%;
     margin: 20px auto;
     position: relative;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);  
-    background-color: rgb(37, 37, 37);
-    border: 1px solid rgba(255, 255, 255, 0.194);
+    box-shadow: 0 0px 15px #0000001a;  
+    background-color: #ffffff23;
+    border: 1px solid #ffffff31;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .post-container:hover{
-    background-color: rgb(64, 64, 64);
+    background-color: #525252;
 }
 .header {
     display: flex;
@@ -142,11 +142,37 @@ body{
     top: 10px;
     height: 30px;
     border-radius: 50%;
-    background-color: #007bff;
+    background-color: #21926c;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .option-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    border-radius: 5%;
+    top: 20px;    
+    z-index: 1;
+  }
+  
+.option-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    border-radius: 5%;
+    display: block;
+  }
+  
+.option-content a:hover {
+    background-color: #858585;
+    border-radius: 5%;
+  }
+  
+.post-options:hover .option-content {
+    display: block;
   }
 
 .action-btn {
@@ -170,7 +196,6 @@ body{
 
 .SubTitle{
     color: #fff;
-
     text-align: center;
     font-size: 1em;
     margin-top: -2%;
@@ -188,8 +213,10 @@ body{
 }
 
 .image-container img {
-    width: 100%;
+    width: 90%;
     display: block;
+    margin: auto;
+    border-radius: 2%
 }
 
 .post-actions {
@@ -201,10 +228,10 @@ body{
 }
 
 .post-actions button {
-    width: 40px;
+    width: 70px;
     height: 40px;
-    border-radius: 50%;
-    background-color: #007bff;
+    border-radius: 25px;
+    background-color: #21926c;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -213,6 +240,68 @@ body{
 }
 
 .post-actions button:hover {
-    background-color: #0059b7;
+    background-color: #2cc894;
     transform: scale(1.2);
+}
+
+
+.toTop {
+    border: none;
+    display: flex;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.3s;
+    position: fixed; right: 1rem; bottom: 1rem; z-index: 9999;
+  }
+  
+  .toTop:not(.is-visible) {
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+  
+  .toTop svg {
+    stroke-width: 3px;
+    stroke: currentColor;
+    fill: none;
+    width: 24px;
+  }
+  
+  .toTop {
+    background-color: #252525;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    color: #fff;
+  }
+
+  
+#theme-toggle-btn {
+    position: absolute;
+    font-size: x-small;
+    right: 0%;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+#theme-toggle-btn:hover{
+    background-color: rgb(218, 190, 33);
+}
+#theme-toggle-btn-visitor {
+    position: absolute;
+    font-size: x-small;
+    right: 0%;
+    background-color: #ffffff; 
+    color: #000000; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+#theme-toggle-btn-visitor:hover{
+    background-color: rgb(218, 190, 33);
 }
