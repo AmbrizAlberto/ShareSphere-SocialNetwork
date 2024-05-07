@@ -1,10 +1,15 @@
 <?php
-    session_start();// Iniciar la sesión
-    if(isset($_SESSION['email']))
-    {
-        header("Location:main.php");
-    }
+// Inicia la sesión
+session_start();
+
+// Verifica si hay una sesión activa
+if (isset($_SESSION['email'])) {
+    // Si hay una sesión iniciada, redirige al usuario a la página principal
+    header('Location: ./main.php');
+    exit; // Detiene la ejecución del script
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

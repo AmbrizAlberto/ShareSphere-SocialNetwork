@@ -1,5 +1,14 @@
+<?php //Funcion para evitar que los usuarios sin sesion iniciada puedan acceder al userPage
+    session_start();// Iniciar la sesión
+    if(empty($_SESSION['email']))
+    {
+        header("Location:./login.php");
+
+    }
+    
+?>
+
 <?php
-session_start();
 require_once("../../autoload.php");
 use Models\{posts};
 $posts = new posts();
