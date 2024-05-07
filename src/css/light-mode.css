@@ -31,7 +31,7 @@ body {
 .feedhead {
     color: #333; /* Texto oscuro */
     background-color: rgb(242, 242, 242); /* Fondo */
-    border-bottom: 1.5px solid rgba(0, 0, 0, 0.1); /* Borde claro */
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.276); /* Borde claro */
 }
 
 .feedhead h1 {
