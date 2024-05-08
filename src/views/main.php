@@ -137,17 +137,19 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
     <?php foreach ($postList as $post) { ?>
       <?php $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_STRING)); ?>
 
-      <div class="post-container">
+      <div class="post-container" onclick="openModal(event)">
         <div class="user-info">
-          <a href="<?php echo "/src/views/" . ($_SESSION['userId'] == $post['creatorId'] ? "PerfilPage.php" : "userPage.php?idPerfil=" . $post['creatorId']); ?>">
-            <img src="<?php echo "/public/images_users/" . $posts->GetUserImgById($post['creatorId']) ?>" alt="User Image"></a>
+          <a
+            href="<?php echo "/src/views/" . ($_SESSION['userId'] == $post['creatorId'] ? "PerfilPage.php" : "userPage.php?idPerfil=" . $post['creatorId']); ?>">
+            <img src="<?php echo "/public/images_users/" . $posts->GetUserImgById($post['creatorId']) ?>"
+              alt="User Image"></a>
           <span><?php echo $username['username'] ?></span>
         </div>
         <div class="post-options">
           <span><i class="bi bi-caret-down-fill"></i></span>
           <?php if ($post['creatorId'] == $_SESSION['userId']) { ?>
             <div class="option-content">
-            <a id="modalBtn-edit"><i class="bi bi-pencil-fill"></i></a>
+              <a><i class="bi bi-pencil-fill"></i></a>
               <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=0"><i
                   class="bi bi-trash-fill"></i></a>
             </div>
@@ -176,8 +178,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
         </div>
         <div class="image-container">
           <?php if ($post['image'] != null) { ?>
-            <img src="/public/images_posts/<?php echo $post['image'] ?>" alt="Imagen de la publicacion"
-              onclick="openModal(event)">
+            <img src="/public/images_posts/<?php echo $post['image'] ?>" alt="Imagen de la publicacion">
           <?php } ?>
         </div>
         <div class="post-actions">
@@ -186,12 +187,14 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
           <button class="action-btn"><i class="bi bi-chat-square-text-fill"> 200</i></button>
         </div>
       </div>
+    <?php } ?>
+
     <div id="Post-complete" class="post">
       <span class="close-post" onclick="closeModal()">&times;</span>
       <div class="content-post">
         <img id="fullImage">
       </div>
-      
+
       <div class="box-descripcion">
         <div class="user-info-post">
           <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
@@ -207,17 +210,6 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
         <div class="text-comment">
           <input type="comment" placeholder="Comenta...">
         </div>
-        
-        <div class="box-comment">
-          <div class="user-info-post">
-          <a href="<?php echo "/src/views/" . ($_SESSION['userId'] == $post['creatorId'] ? "PerfilPage.php" : "userPage.php?idPerfil=" . $post['creatorId']); ?>">
-            <img src="<?php echo "/public/images_users/" . $posts->GetUserImgById($post['creatorId']) ?>" alt="User Image"></a>
-            <span><?php echo $username['username'] ?></span>
-          </div>
-          <div class="description-comment">
-            <h2><?php echo $post['content'] ?></h2>
-          </div>
-        </div>
         <div class="box-comment">
           <div class="user-info-post">
             <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
@@ -229,37 +221,23 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
               consectetur corporis.</h2>
           </div>
         </div>
+        <div class="box-comment">
+          <div class="user-info-post">
+            <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
+            <span><?php echo $username['username'] ?></span>s
+          </div>
+          <div class="description-comment">
+            <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro quam, perspiciatis sit ipsum voluptatum
+              provident accusamus dolores dolorem ex numquam et magnam fugit praesentium, sapiente nemo culpa quisquam,
+              consectetur corporis.</h2>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div id="myModal-edit" class="modal">
-        <div class="modal-content">
-          <span class="close" id="closeBtn-edit" >&times;</span>
-          <form id="editForm" action="/controllers/Edit/EditPost.php" method="post" enctype="multipart/form-data">
-            <input type="hidden" value="<?php echo $_SESSION['userId']; ?>" name="post_creator_id">
-            <input type="hidden" value="0" name="currentPage">
-            <label for="tema">Tema:</label>
-            <select id="selector" name="post_subgroup_id" required>
-              <option value="1" <?php if($post['SubgroupId']=='1'){echo 'selected';} ?>>Agua Limpia y Saneamineto</option>
-              <option value="3" <?php if($post['SubgroupId']=='3'){echo 'selected';} ?>>Energia Asequible y No Contaminante</option>
-              <option value="4" <?php if($post['SubgroupId']=='4'){echo 'selected';} ?>>Vida Submarina</option>
-              <!-- Agrega más opciones según sea necesario -->
-            </select>
-            <label for="texto">Titulo:</label>
-            <textarea id="texto" name="post_title" rows="1" required placeholder="Titulo..."><?php echo $post['title'] ?></textarea>
 
-            <label for="texto">Texto:</label>
-            <textarea id="texto" name="post_content" rows="4" requiredplaceholder="Descripcion..."><?php echo $post['content'] ?></textarea>
-            <label for="newImage">Cargar imagen:</label><br>
-            <img id="previewImage" src="<?php echo "/public/images_posts/" . $post['image'] ?>" alt="User Image" class=".modal-content">
-            <input type="file" id="newImage" name="newImage" accept="image/*">
 
-            <button class=".modal-content" type="submit">Guardar Cambios</button>
-          </form>
-        </div>
-      </div>
-      <?php } ?>
 
   <button class="toTop" id="toTop">
     <svg viewBox="0 0 24 24">
@@ -268,10 +246,10 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   </button>
 
   <script src="../js/script.js"></script>
+  <script src="../js/scriptedit.js"></script>
   <script src="../js/toTop.js"></script>
   <script src="../js/light-darkMode.js"></script>
   <script src="../js/post.js"></script>
-  <script src="../js/editpost.js"></script>
-
 </body>
+
 </html>
