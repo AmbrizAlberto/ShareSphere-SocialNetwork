@@ -158,7 +158,7 @@ class posts extends connection{
     }
 
     public function GetPostsForJson(){
-        $sql = "SELECT post.id, post.creatorId, post.title, user.username AS creator_name, user.image AS img
+        $sql = "SELECT post.id, post.creatorId, post.title, post.image, user.username AS creator_name, user.image AS img
         FROM post
         JOIN user ON post.creatorId = user.id
         ORDER BY post.id DESC;";

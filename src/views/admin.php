@@ -15,6 +15,14 @@ $users = new users();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/modal_admin.css">
+
+   <!-- <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/textpost.css">
+    <link rel="stylesheet" href="../css/photopost.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/Post.css">
+    <link rel="stylesheet" href="../css/modalEdit.css">
+    !-->
 </head>
 
 <body>
@@ -105,6 +113,7 @@ $users = new users();
         </div>
 
         <script src="../js/modal_admin_user.js"></script>
+        
     </div>
 </body>
 </html>

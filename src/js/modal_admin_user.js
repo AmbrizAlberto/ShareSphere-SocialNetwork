@@ -13,10 +13,12 @@ function openModalForProject(projectId) {
                     data.forEach(post => { 
                         html +=`<li> 
                         <a href="/src/views/userPage.php?idPerfil=${post.creatorId}" style="text-decoration: none;"> 
-                        <img src="../../public/images_users/${post.img}"  alt='si' style=" width:2%; height: auto;">
+                            <img src="../../public/images_users/${post.img}"  alt='si' style=" width:2%; height: auto;">
                         </a> ID: ${post.id}, Titulo: ${post.title}, Nombre del creador: ${post.creator_name} 
-                        <a href="/controllers/Delete/DeletePost.php?id=${post.id}&page=2"><i class="bi bi-trash-fill" style="width: 20px; height: 20px; color: black;"></i></a>
-                        </li>`
+                        <a href="/controllers/Delete/DeletePost.php?id=${post.id}&page=2"><i class="bi bi-trash-fill" style="width: 20px; height: 20px; color: black;"></i></a> 
+                        <i class="bi bi-pencil-fill" ></i>
+                        </li>
+                        `
                     });
                     html += "</ul>"; 
                     modalContent.innerHTML = html;
@@ -28,7 +30,7 @@ function openModalForProject(projectId) {
             fetch('/controllers/Get/getUsers.php')
                 .then(response => response.json())
                 .then(data => {
-                    var html = "<h2>Lista de usuarios</h2>";
+                    var html = "<h2>Tabla de usuarios</h2>";
                     html += `<table class="usertable">`;
                     html += `<tr><th>ID</th><th>USUARIO</th><th>CORREO</th><th>ELIMINAR</th></tr>`;
                     data.forEach(user => {

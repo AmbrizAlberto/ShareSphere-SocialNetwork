@@ -4,23 +4,26 @@ html{
 }
 
 .navbar {
-    background-color: #ffffff23;
     position: fixed;
+    width: 7%;
     height: 35%;
+    background-color: #817e7e4c;
     top: 15%;
     left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 2%;
-    border-radius: 20px;
+    box-shadow: 0 0px 20px #000000ac;
+    transition: width 0.5s;
+    border-radius: 25px;
     margin: 2%;
-    z-index: 1;
+    z-index: 1  ;
 }
 
 .navbar .logo {
     text-decoration: none;
-    color: #6de4bd;
+    color: hsl(175, 100%, 51%);
     width: auto;
     height: auto;
     font-size: 200%;
@@ -29,16 +32,20 @@ html{
 }
 
 .navbar .logo img{
+    text-decoration: none;
     position: fixed;
     margin-left: -2.5%;
     margin-top: 0%;
-    height: 10%;
+    width: 5%;
+    height: 9%;
+    transition: 500ms;
 }
 
 .navbar .logo img:hover{
     text-decoration: none;
-    box-shadow: 0 0px 10px #6de4bd;
+    box-shadow: 0 0px 10px hsl(175, 100%, 51%);
     border-radius: 51%;
+    transition: 500ms;
 }
 
 

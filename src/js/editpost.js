@@ -1,11 +1,12 @@
-// Obtener el modal
-var modal = document.getElementById("Modal-Profile");
+//document.addEventListener("DOMContentLoaded", function() {
+
+var modal = document.getElementById("myModal-edit");
         
 // Obtener el botón que abre el modal
-var btn = document.getElementById("modalBtnEdit");
+var btn = document.getElementById("modalBtn-edit");
 
 // Obtener el elemento <span> que cierra el modal
-var span = document.getElementsByClassName("close-edit")[0];
+var span = document.getElementById("closeBtn-edit");
 
 // Cuando se haga clic en <span> (x), cerrar el modal
 span.onclick = function() {
@@ -105,3 +106,4 @@ window.onload = function() {
         previewCurrentImage.src = canvas.toDataURL('image/jpeg');
     };
 };
+//});
