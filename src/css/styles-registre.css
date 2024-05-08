@@ -121,6 +121,7 @@ input[type="submit"]:hover {
     text-decoration: underline;
 }
 
+<<<<<<< HEAD
 .code-opcion{
     position: relative;
     padding-top: 5%;
@@ -138,3 +139,6 @@ input[type="code"] {
     border-radius: 5px;
     transition: transform 0.3s ease;
 }
+=======
+
+>>>>>>> b1379947b9d9453f37503794f483c95318f17495
