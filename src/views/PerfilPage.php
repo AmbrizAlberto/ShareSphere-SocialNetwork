@@ -15,8 +15,7 @@ $user = $posts->GetUserById($_SESSION['userId']);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ShareSphere</title>
 
-  <link rel="stylesheet"
-    href="<?php echo '../css/main.css'//echo $user['theme'] =='0' ?  '../css/light-mode.css':  '../css/main.css' ?>">
+  <link rel="stylesheet" href="<?php echo '../css/main.css'//$user['theme'] =='0' ?  '../css/light-mode.css':  '../css/main.css' ?>" id="theme-style">
   <link rel="stylesheet" href="../css/navbar.css">
   <link rel="stylesheet" href="../css/textpost.css">
   <link rel="stylesheet" href="../css/photopost.css">
@@ -151,7 +150,7 @@ $user = $posts->GetUserById($_SESSION['userId']);
           <img id="previewImage" src="<?php echo "/public/images_users/" . $user['image'] ?>" alt="User Image" class=".modal-content-edit">
           <input type="file" id="newImage" name="newImage" accept="image/*"><br><br>
 
-          <button class=".modal-content-edit " type="submit" value="Guardar cambios">Guardar</button>
+          <button class=".modal-content-edit" type="submit" value="Guardar cambios">Guardar</button>
         </form>
       </div>
     </div>

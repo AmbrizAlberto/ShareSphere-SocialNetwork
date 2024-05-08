@@ -106,6 +106,7 @@
 .modal-content-edit img {
   position: absolute;
   max-width: 15%;
+  max-height: 15%;
   top: 23%;
   left: 32%;
   height: auto;
