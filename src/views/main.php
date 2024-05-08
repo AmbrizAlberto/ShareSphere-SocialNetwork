@@ -67,7 +67,12 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   <div class="main">
 
     <div class="feedhead">
+      <button id="theme-toggle-btn">
+        <i class="bi bi-lightbulb-fill"></i>
+      </button>
+
       <h1>ShareSphere</h1>
+      
       <div class="search-nav">
         <form action="#" method="get">
           <input type="text" placeholder="Buscar..." name="search">
@@ -115,8 +120,6 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
 
       <a href="../../controllers/logout.php" class="logout"><i class="bi bi-box-arrow-right"></i></a>
 
-      <button id="theme-toggle-btn"><i class="bi bi-lightbulb-fill"></i></button>
-
     </div>
 
     <br /><br /><br /><br /><br /><br />
@@ -137,8 +140,8 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
     <?php foreach ($postList as $post) { ?>
       <?php $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_STRING)); ?>
 
-      <div class="post-container" onclick="openModal(event)">
-        <div class="user-info">
+      <div class="post-container">
+        <div class="user-info" onclick="openModal(event)">
           <a
             href="<?php echo "/src/views/" . ($_SESSION['userId'] == $post['creatorId'] ? "PerfilPage.php" : "userPage.php?idPerfil=" . $post['creatorId']); ?>">
             <img src="<?php echo "/public/images_users/" . $posts->GetUserImgById($post['creatorId']) ?>"
@@ -155,11 +158,11 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
             </div>
           <?php } ?>
         </div>
-        <h2 class="post-content">
+        <h2 class="post-content" onclick="openModal(event)">
           <?php echo $post['title']; ?>
         </h2>
         <a href="#" style=text-decoration:none>
-          <h3 class="SubTitle">
+          <h3 class="SubTitle" onclick="openModal(event)">
             <?php switch ($post['SubgroupId']) {
               case '1':
                 echo "Agua Limpia y Saneamineto";
@@ -173,10 +176,10 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
             } ?>
           </h3>
         </a>
-        <div class="description">
+        <div class="description" onclick="openModal(event)">
           <?php echo $post['content'] ?>
         </div>
-        <div class="image-container">
+        <div class="image-container" onclick="openModal(event)">
           <?php if ($post['image'] != null) { ?>
             <img src="/public/images_posts/<?php echo $post['image'] ?>" alt="Imagen de la publicacion">
           <?php } ?>
