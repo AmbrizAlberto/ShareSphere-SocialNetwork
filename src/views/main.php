@@ -187,7 +187,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
         <div class="post-actions">
           <button class="action-btn"><i class="bi bi-hand-thumbs-up-fill"> 200</i></button>
           <button class="action-btn"><i class="bi bi-hand-thumbs-down-fill"> 200</i></button>
-          <button class="action-btn"><i class="bi bi-chat-square-text-fill"> 200</i></button>
+          <button class="action-btn" onclick="openModal(event)"><i class="bi bi-chat-square-text-fill"> 200</i></button>
         </div>
       </div>
     <?php } ?>
@@ -256,5 +256,3 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
 </body>
 
 </html>
-
-<!-- hola -->
