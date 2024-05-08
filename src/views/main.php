@@ -1,11 +1,13 @@
-<?php
-session_start();// Iniciar la sesión
-if (empty($_SESSION['email'])) {
-  header("Location:./login.php");
+<?php //Funcion para evitar que los usuarios sin sesion iniciada puedan acceder al main
+    session_start();// Iniciar la sesión
+    if(empty($_SESSION['email']))
+    {
+        header("Location:./login.php");
 
-}
-
+    }
+    
 ?>
+
 
 <!DOCTYPE html>
 <?php
