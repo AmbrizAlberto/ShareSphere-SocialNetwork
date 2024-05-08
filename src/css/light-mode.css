@@ -125,3 +125,8 @@ body {
 #theme-toggle-btn:hover{
     background-color: rgb(38, 52, 142);
 }
+
+.toTop {
+    background-color: #252525;
+    color: #ffff;
+}

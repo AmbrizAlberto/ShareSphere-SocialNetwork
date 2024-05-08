@@ -193,10 +193,23 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       <div class="content-post">
         <img id="fullImage">
       </div>
+      
+      <div class="box-descripcion">
+        <div class="user-info-post">
+          <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
+          <span><?php echo $username['username'] ?></span>
+        </div>
+        <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro quam, perspiciatis sit ipsum voluptatum
+            provident accusamus dolores dolorem ex numquam et magnam fugit praesentium, sapiente nemo culpa quisquam,
+            consectetur corporis.
+        </h2>
+      </div>
+      
       <div id="comment">
         <div class="text-comment">
           <input type="comment" placeholder="Comenta...">
         </div>
+        
         <div class="box-comment">
           <div class="user-info-post">
             <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
