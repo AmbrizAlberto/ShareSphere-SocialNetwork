@@ -25,10 +25,10 @@ if (isset($_SESSION['email'])) {
     </div>
     <div class="form-container">
         <img src="../images/Logo.png" class="logo">
-        <h2>Login</h2>
+        <h2>Iniciar Sesion</h2>
         <form action="../../controllers/login.php" method="post">
-            <input type="text" id="email" name="email" class="input-field" placeholder="email" required>
-            <input type="password" id="password" name="password" class="input-field" placeholder="Password" required>
+            <input type="text" id="email" name="email" class="input-field" placeholder="Correo electronico" required>
+            <input type="password" id="password" name="password" class="input-field" placeholder="Contraseña" required>
             <input type="submit" value="Iniciar Sesion">
             <a class="password" href="./code.php">¿Contraseña Olvidada?</a>
             <h3>¿Aun no eres miembro?</h3>
