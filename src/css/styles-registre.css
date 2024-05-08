@@ -48,7 +48,7 @@ body {
     flex: 1;
     display: flex;
     justify-content: center;
-    margin-top: 15%;
+    margin-top: 13%;
     padding: 20px;
     background-color: #fff;
 }
@@ -81,7 +81,8 @@ input[type="name"]:hover,
 input[type="lastname"]:hover,
 input[type="name-user"]:hover,
 input[type="email"]:hover,
-input[type="password"]:hover {
+input[type="password"]:hover, 
+input[type="code"]:hover{
     transform: scale(1.1);
 }
 
@@ -118,4 +119,22 @@ input[type="submit"]:hover {
 .login-link a:hover {
     color:#000000;
     text-decoration: underline;
+}
+
+.code-opcion{
+    position: relative;
+    padding-top: 5%;
+    margin-top: 0%;
+    left: 11%;
+}
+
+input[type="code"] {
+    text-align: center;
+    position: relative;
+    left: 10%;
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
 }
