@@ -35,6 +35,7 @@ input[type="comment"]:focus {
 .content-post {
   width: 60%;
   left: 3%;
+  top: 30%;
   position: relative;
   overflow: hidden;
 }
@@ -50,7 +51,7 @@ input[type="comment"]:focus {
 #comment {
   width: 98%;
   position: absolute;
-  top: 40%;
+  top: 10%;
 }
 
 .close-post {
@@ -80,8 +81,8 @@ input[type="comment"]:focus {
 
 .box-descripcion {
   top: 10%;
-  right: 62px;
-  width: 29%;
+  left: 4%;
+  width: 58%;
   margin: 20px auto;
   position: absolute;
   border-radius: 10px;
