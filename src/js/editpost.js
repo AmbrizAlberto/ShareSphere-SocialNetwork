@@ -25,13 +25,16 @@ function openmodal(postInfo) {
     // Muestra el modal
     modal.style.display = "block";
 
-    console.log(postInfo);
     // Llenar el formulario con la información del post
     document.getElementById('titulo-edit').textContent = post.title;
     document.getElementById('texto-edit').textContent = post.content;
     document.getElementById('selector-edit').value = post.SubgroupId;
     document.getElementById('idPost').value = post.id;
-    document.getElementById('previewImage-edit').src = "/public/images_posts/" + post.image;
+    if (post.image != null) {
+        document.getElementById('previewImage-edit').src = "/public/images_posts/" + post.image;
+    }else{
+        document.getElementById('previewImage-edit').removeAttribute('src');
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
