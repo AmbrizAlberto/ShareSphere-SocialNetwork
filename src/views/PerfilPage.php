@@ -178,7 +178,7 @@ $user = $posts->GetUserById($_SESSION['userId']);
         <div class="post-options">
           <span><i class="bi bi-caret-down-fill"></i></span>
           <div class="option-content">
-            <a href="#"><i class="bi bi-pencil-fill"></i></a>
+            <a id="modalBtn-edit" onclick="openmodal('<?php echo htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8');?>')"><i class="bi bi-pencil-fill"></i></a>
             <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=1"><i
                 class="bi bi-trash-fill"></i></a>
           </div>
@@ -200,9 +200,11 @@ $user = $posts->GetUserById($_SESSION['userId']);
         <div class="description">
           <h3><?php echo $post['content'] ?></h3>
         </div>
+        <?php if ($post['image'] != null) { ?>
         <div class="image-container">
           <img src="<?php echo "/public/images_posts/" . $post['image'] ?>" alt="Imagen de la publicacion">
         </div>
+        <?php } ?>
         <div class="post-actions">
           <button class="action-btn"><i class="bi bi-hand-thumbs-up-fill"> 200</i></button>
           <button class="action-btn"><i class="bi bi-hand-thumbs-down-fill"> 200</i></button>
@@ -245,6 +247,32 @@ $user = $posts->GetUserById($_SESSION['userId']);
       </div>
     </div>
 
+    <div id="myModal-edit" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeBtn-edit" >&times;</span>
+          <form id="editForm" action="/controllers/Edit/EditPost.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" id="idPost" name="id">
+            <input type="hidden" value="1" name="currentPage">
+            <label for="tema">Tema:</label>
+            <select id="selector-edit" name="post_subgroup_id" required>
+              <option value="1" >Agua Limpia y Saneamineto</option>
+              <option value="3" >Energia Asequible y No Contaminante</option>
+              <option value="4" >Vida Submarina</option>
+              <!-- Agrega más opciones según sea necesario -->
+            </select>
+            <label for="titulo-edit">Titulo:</label>
+            <textarea id="titulo-edit" name="post_title" rows="1" required placeholder="Titulo..."></textarea>
+
+            <label for="texto-edit">Texto:</label>
+            <textarea id="texto-edit" name="post_content" rows="4" requiredplaceholder="Descripcion..."></textarea>
+            <label for="newImage-edit">Cargar imagen:</label><br>
+            <img id="previewImage-edit"  alt="User Image" class=".modal-content">
+            <input type="file" id="newImage-edit" name="newImage" accept="image/*">
+            <button class=".modal-content" type="submit">Guardar Cambios</button>
+          </form>
+        </div>
+        </div>
+
     <button class="toTop" id="toTop">
       <svg viewBox="0 0 24 24">
         <path d="m4 16 8-8 8 8"></path>
@@ -255,3 +283,4 @@ $user = $posts->GetUserById($_SESSION['userId']);
     <script src="../js/toTop.js"></script>
     <script src="../js/light-darkMode.js"></script>
     <script src="../js/post.js"></script>
+    <script src="../js/editpost.js"></script>

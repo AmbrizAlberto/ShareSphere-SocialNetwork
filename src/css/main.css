@@ -258,12 +258,22 @@ body{
 }
 
 .option-content {
+  text-align: center;
+  width: 150%; 
+  height: auto;
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
-  border-radius: 5%;
-  top: 20px;    
-  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.147);
+  box-shadow: 0 0px 30px rgb(0, 0, 0);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  color: inherit;
+  list-style: none;
+  border: none;
+  cursor: pointer;
+  transition: 500ms;
+  padding-top: 10%;
+  top: 20%;
 }
 
 .option-content a {
@@ -275,7 +285,7 @@ body{
 }
 
 .option-content a:hover {
-  background-color: #858585;
+  background-color: #8585855c;
   border-radius: 5%;
 }
 

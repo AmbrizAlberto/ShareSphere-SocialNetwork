@@ -151,6 +151,22 @@ class posts extends connection{
         $update->execute($arrData);
     }
 
+    public function EditPost(string $id, string $title, string $content, string $idSubgroup, string $Image=null){
+        if($Image == null){
+            $sql="UPDATE post SET title = ?, content = ?, updatedAt = NOW(), SubgroupId = ?  WHERE id = ?";
+            $update = $this->conn->prepare($sql);
+            $arrData = array($title, $content, $idSubgroup, $id);
+        }else{
+            $sql="UPDATE  post SET title = ?, content = ?, image = ?, updatedAt = NOW(), SubgroupId = ? WHERE id = ?";
+            $img = str_replace(" ", "", $Image);
+            $today = date("Y-m-d_H-i-s");
+            move_uploaded_file($_FILES['newImage']['tmp_name'],"../.././public/images_posts/".$today.$img);
+            $update = $this->conn->prepare($sql);
+            $arrData = array($title, $content, $today.$img, $idSubgroup, $id);
+        }
+        $update->execute($arrData);
+    }
+
     public function GetUsers(){
         $sql="SELECT id, username, email, image FROM user ORDER BY id DESC";
         $execute = $this->conn->query($sql);

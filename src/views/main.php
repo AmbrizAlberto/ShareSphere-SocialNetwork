@@ -5,7 +5,6 @@
         header("Location:./login.php");
 
     }
-    
 ?>
 
 
@@ -99,8 +98,8 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
               <option value="4">Vida Submarina</option>
               <!-- Agrega más opciones según sea necesario -->
             </select>
-            <label for="texto">Titulo:</label>
-            <textarea id="texto" name="post_title" rows="1" required placeholder="Titulo..."></textarea>
+            <label for="titulo">Titulo:</label>
+            <textarea id="titulo" name="post_title" rows="1" required placeholder="Titulo..."></textarea>
 
             <label for="texto">Texto:</label>
             <textarea id="texto" name="post_content" rows="4" requiredplaceholder="Descripcion..."></textarea>
@@ -138,7 +137,8 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
     </div>
 
     <?php foreach ($postList as $post) { ?>
-      <?php $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_STRING)); ?>
+      <?php $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_STRING));
+      $editpost = $post; ?>
 
       <div class="post-container">
         <div class="user-info" onclick="openModal(event)">
@@ -152,7 +152,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
           <span><i class="bi bi-caret-down-fill"></i></span>
           <?php if ($post['creatorId'] == $_SESSION['userId']) { ?>
             <div class="option-content">
-              <a><i class="bi bi-pencil-fill"></i></a>
+            <a id="modalBtn-edit" onclick="openmodal('<?php echo htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8');?>')"><i class="bi bi-pencil-fill"></i></a>
               <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=0"><i
                   class="bi bi-trash-fill"></i></a>
             </div>
@@ -191,7 +191,6 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
         </div>
       </div>
     <?php } ?>
-
     <div id="Post-complete" class="post">
       <span class="close-post" onclick="closeModal()">&times;</span>
       <div class="content-post">
@@ -238,10 +237,33 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       </div>
     </div>
   </div>
+  <div id="myModal-edit" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeBtn-edit" >&times;</span>
+          <form id="editForm" action="/controllers/Edit/EditPost.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" id="idPost" name="id">
+            <input type="hidden" value="0" name="currentPage">
+            <label for="tema">Tema:</label>
+            <select id="selector-edit" name="post_subgroup_id" required>
+              <option value="1" >Agua Limpia y Saneamineto</option>
+              <option value="3" >Energia Asequible y No Contaminante</option>
+              <option value="4" >Vida Submarina</option>
+              <!-- Agrega más opciones según sea necesario -->
+            </select>
+            <label for="titulo-edit">Titulo:</label>
+            <textarea id="titulo-edit" name="post_title" rows="1" required placeholder="Titulo..."></textarea>
 
-
-
-
+            <label for="texto-edit">Texto:</label>
+            <textarea id="texto-edit" name="post_content" rows="4" requiredplaceholder="Descripcion..."></textarea>
+            <label for="newImage-edit">Cargar imagen:</label><br>
+            <img id="previewImage-edit"  alt="User Image" class=".modal-content">
+            <input type="file" id="newImage-edit" name="newImage" accept="image/*">
+            <button class=".modal-content" type="submit">Guardar Cambios</button>
+          </form>
+        </div>
+        </div>
+        
+      
   <button class="toTop" id="toTop">
     <svg viewBox="0 0 24 24">
       <path d="m4 16 8-8 8 8"></path>
@@ -253,6 +275,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   <script src="../js/toTop.js"></script>
   <script src="../js/light-darkMode.js"></script>
   <script src="../js/post.js"></script>
+  <script src="../js/editpost.js"></script>
 </body>
 
 </html>
