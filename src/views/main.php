@@ -66,7 +66,12 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   <div class="main">
 
     <div class="feedhead">
+      <button id="theme-toggle-btn">
+        <i class="bi bi-lightbulb-fill"></i>
+      </button>
+
       <h1>ShareSphere</h1>
+      
       <div class="search-nav">
         <form action="#" method="get">
           <input type="text" placeholder="Buscar..." name="search">
@@ -114,8 +119,6 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
 
       <a href="../../controllers/logout.php" class="logout"><i class="bi bi-box-arrow-right"></i></a>
 
-      <button id="theme-toggle-btn"><i class="bi bi-lightbulb-fill"></i></button>
-
     </div>
 
     <br /><br /><br /><br /><br /><br />
@@ -138,9 +141,11 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       $editpost = $post; ?>
 
       <div class="post-container">
-        <div class="user-info">
-          <a href="<?php echo "/src/views/" . ($_SESSION['userId'] == $post['creatorId'] ? "PerfilPage.php" : "userPage.php?idPerfil=" . $post['creatorId']); ?>">
-            <img src="<?php echo "/public/images_users/" . $posts->GetUserImgById($post['creatorId']) ?>" alt="User Image"></a>
+        <div class="user-info" onclick="openModal(event)">
+          <a
+            href="<?php echo "/src/views/" . ($_SESSION['userId'] == $post['creatorId'] ? "PerfilPage.php" : "userPage.php?idPerfil=" . $post['creatorId']); ?>">
+            <img src="<?php echo "/public/images_users/" . $posts->GetUserImgById($post['creatorId']) ?>"
+              alt="User Image"></a>
           <span><?php echo $username['username'] ?></span>
         </div>
         <div class="post-options">
@@ -153,11 +158,11 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
             </div>
           <?php } ?>
         </div>
-        <h2 class="post-content">
+        <h2 class="post-content" onclick="openModal(event)">
           <?php echo $post['title']; ?>
         </h2>
         <a href="#" style=text-decoration:none>
-          <h3 class="SubTitle">
+          <h3 class="SubTitle" onclick="openModal(event)">
             <?php switch ($post['SubgroupId']) {
               case '1':
                 echo "Agua Limpia y Saneamineto";
@@ -171,19 +176,18 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
             } ?>
           </h3>
         </a>
-        <div class="description">
+        <div class="description" onclick="openModal(event)">
           <?php echo $post['content'] ?>
         </div>
-        <div class="image-container">
+        <div class="image-container" onclick="openModal(event)">
           <?php if ($post['image'] != null) { ?>
-            <img src="/public/images_posts/<?php echo $post['image'] ?>" alt="Imagen de la publicacion"
-              onclick="openModal(event)">
+            <img src="/public/images_posts/<?php echo $post['image'] ?>" alt="Imagen de la publicacion">
           <?php } ?>
         </div>
         <div class="post-actions">
           <button class="action-btn"><i class="bi bi-hand-thumbs-up-fill"> 200</i></button>
           <button class="action-btn"><i class="bi bi-hand-thumbs-down-fill"> 200</i></button>
-          <button class="action-btn"><i class="bi bi-chat-square-text-fill"> 200</i></button>
+          <button class="action-btn" onclick="openModal(event)"><i class="bi bi-chat-square-text-fill"> 200</i></button>
         </div>
       </div>
     <?php } ?>
@@ -192,24 +196,37 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       <div class="content-post">
         <img id="fullImage">
       </div>
+
+      <div class="box-descripcion">
+        <div class="user-info-post">
+          <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
+          <span><?php echo $username['username'] ?></span>
+        </div>
+        <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro quam, perspiciatis sit ipsum voluptatum
+            provident accusamus dolores dolorem ex numquam et magnam fugit praesentium, sapiente nemo culpa quisquam,
+            consectetur corporis.
+        </h2>
+      </div>
+      
       <div id="comment">
         <div class="text-comment">
           <input type="comment" placeholder="Comenta...">
         </div>
         <div class="box-comment">
           <div class="user-info-post">
-          <a href="<?php echo "/src/views/" . ($_SESSION['userId'] == $post['creatorId'] ? "PerfilPage.php" : "userPage.php?idPerfil=" . $post['creatorId']); ?>">
-            <img src="<?php echo "/public/images_users/" . $posts->GetUserImgById($post['creatorId']) ?>" alt="User Image"></a>
+            <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
             <span><?php echo $username['username'] ?></span>
           </div>
           <div class="description-comment">
-            <h2><?php echo $post['content'] ?></h2>
+            <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro quam, perspiciatis sit ipsum voluptatum
+              provident accusamus dolores dolorem ex numquam et magnam fugit praesentium, sapiente nemo culpa quisquam,
+              consectetur corporis.</h2>
           </div>
         </div>
         <div class="box-comment">
           <div class="user-info-post">
             <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
-            <span><?php echo $username['username'] ?></span>
+            <span><?php echo $username['username'] ?></span>s
           </div>
           <div class="description-comment">
             <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro quam, perspiciatis sit ipsum voluptatum
@@ -254,10 +271,11 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   </button>
 
   <script src="../js/script.js"></script>
+  <script src="../js/scriptedit.js"></script>
   <script src="../js/toTop.js"></script>
   <script src="../js/light-darkMode.js"></script>
   <script src="../js/post.js"></script>
   <script src="../js/editpost.js"></script>
-
 </body>
+
 </html>

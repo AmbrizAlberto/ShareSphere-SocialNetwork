@@ -1,107 +1,128 @@
 .post {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.8);
-  }
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
 
-  input[type="comment"] {
-    left: 68%;
-    width: 28%;
-    height: 10%;
-    margin: 20px auto;
-    position: relative;
-    overflow: hidden;
-    background-color: rgb(37, 37, 37);
-    color: #ffff;
-    max-width: 100%;
-    transition: background-color 0.3s;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  input[type="comment"]:focus {
-    outline: none;
-    border-color: #21926c;
-  }
+input[type="comment"] {
+  left: 68%;
+  width: 28%;
+  height: 10%;
+  margin: 20px auto;
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(37, 37, 37);
+  color: #ffff;
+  max-width: 100%;
+  transition: background-color 0.3s;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
 
-  .content-post {
-    width: 60%;
-    left: 3%;
-    position: relative;
-    overflow: hidden;
-  }
+input[type="comment"]:focus {
+  outline: none;
+  border-color: #21926c;
+}
 
-  .content-post img{
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
-  }
-  
-  #comment{
-    width: 98%;
-    position: absolute;
-    top: 10%;
-  }
+.content-post {
+  width: 60%;
+  left: 3%;
+  position: relative;
+  overflow: hidden;
+}
 
-  .close-post {
-    color: #b15050;
-    position: relative;
-    left: 96%;
-    font-size: 60px;
-    font-weight: bold;
-    cursor: pointer;
-  }
+.content-post img {
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+}
 
-  .user-info-post{
-    color: #fff;
-    display: flex;
-    align-items: center;
-    position: relative;
-    margin-top: 2%;
-    left: 3%;
-  }
-  
-  .user-info-post img{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
+#comment {
+  width: 98%;
+  position: absolute;
+  top: 40%;
+}
 
-  .box-comment{
-    left: 33%;
-    width: 30%;
-    margin: 20px auto;
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: rgb(37, 37, 37);
-    border: 1px solid rgba(255, 255, 255, 0.194);
-    max-width: 100%;
-    transition: background-color 0.3s;
-  }
-  
-  .description-comment h2{
-    color: #fff;
-    font-size: 15px;
-    font-family: 'Roboto', sans-serif;
-    text-align: start;
-    margin: 15px 35px 20px;
-  }
+.close-post {
+  color: #b15050;
+  position: relative;
+  left: 96%;
+  font-size: 60px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-  .post-image {
-    width: 50%;
-    max-width: 10px;
-    cursor: pointer;
-  }
-  
+.user-info-post {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-top: 2%;
+  left: 3%;
+}
+
+.user-info-post img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.box-descripcion {
+  top: 10%;
+  right: 62px;
+  width: 29%;
+  margin: 20px auto;
+  position: absolute;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgb(68 76 68);
+  border: 1px solid rgba(255, 255, 255, 0.194);
+  max-width: 100%;
+  transition: background-color 0.3s;
+}
+
+.box-descripcion h2{
+  color: #fff;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  text-align: start;
+  margin: 15px 35px 20px;
+}
+
+.box-comment {
+  left: 33%;
+  width: 30%;
+  margin: 20px auto;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgb(37, 37, 37);
+  border: 1px solid rgba(255, 255, 255, 0.194);
+  max-width: 100%;
+  transition: background-color 0.3s;
+}
+
+.description-comment h2{
+  color: #fff;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  text-align: start;
+  margin: 15px 35px 20px;
+}
+
+.post-image {
+  width: 50%;
+  max-width: 10px;
+  cursor: pointer;
+}

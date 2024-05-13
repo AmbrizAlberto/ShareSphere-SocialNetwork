@@ -1,26 +1,36 @@
 html {
     background-color: #f2f2f2; /* Fondo claro */
     font-family: 'Roboto', sans-serif;
+    transition: 500ms;
 }
 
 body {
     background-color: #f2f2f2; /* Fondo claro */
     font-family: 'Roboto', sans-serif;
+    transition: 500ms;
 }
 
 .filtros{
+    border: 1px solid rgba(0, 0, 0, 0.084);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0);
     background-color: #d4d4d4;
     color: white;
+    transition: 500ms;
 }
 .logout{
     text-decoration: none;
     color: #3d3d3d;
+    transition: 500ms;
 }
 .navbar {
+    border: 1px solid rgba(0, 0, 0, 0.084);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0);
     background-color: #d4d4d4;
+    transition: 500ms;
 }
 .optionnv {
     color: #000000;
+    transition: 500ms;
 }
 
 .optionnv:hover{
@@ -29,13 +39,16 @@ body {
 }
 
 .feedhead {
+    box-shadow: 0px 30px 30px -30px rgba(0, 0, 0, 0); /* Cambio en esta línea */
     color: #333; /* Texto oscuro */
     background-color: rgb(242, 242, 242); /* Fondo */
-    border-bottom: 1.5px solid rgba(0, 0, 0, 0.276); /* Borde claro */
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.204); /* Borde claro */
+    transition: 500ms;
 }
 
 .feedhead h1 {
     color: #000000; /* Color de texto*/
+    transition: 500ms;
 }
 
 .feedhead button {
@@ -92,11 +105,12 @@ body {
 }
 
 .post-container {
-    
+    box-shadow: none;
     background-color: #d4d4d4;
 }
 
 .post-container:hover {
+    box-shadow: none;
     background-color: #979797;
 }
 
@@ -117,11 +131,20 @@ body {
     color: #333; /* Texto oscuro */
 }
 
+.image-container {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.127);
+}
+
 #theme-toggle-btn {
     background-color: #67a19b; /* Color de fondo para el modo claro */
     color: #ffffff; /* Color del texto para el modo claro */
 }   
 
 #theme-toggle-btn:hover{
-    background-color: #3f4f4d;
+    background-color: #2c4f49;
+}
+
+.toTop {
+    background-color: #5cb1a2;
+    color: #ffff;
 }
