@@ -21,7 +21,7 @@
         if($_POST['currentPage'] == 0){
             header("location:/src/views/main.php");
         }else if($_POST['currentPage'] == 1){
-            header("location:/src/views/userPage.php");
+            header("location:/src/views/PerfilPage.php");
         }else if($_POST['currentPage'] == 2){
             header("location:/src/views/admin.php");
         }
