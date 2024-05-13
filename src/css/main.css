@@ -153,14 +153,15 @@ body{
   align-items: center; 
   transition: 300ms;
   margin-top: 0%;
+  margin-bottom: 3%;
 }
 
 .upload:hover ::placeholder{
-  color:  #21926c;
+  color:  #5cb1a2;
 }
 
 .upload:hover{
-  box-shadow: 0 0px 20px #21926c;
+  box-shadow: 0 0px 20px #5cb1a2;
   transition: 300ms;
 }
 
@@ -174,6 +175,7 @@ body{
   padding: 1em;
   background-color: transparent;
   border: none;
+  color: white;
 }
 
 .upload button {
@@ -190,7 +192,7 @@ body{
 }
 
 .upload button:hover {
-  color:  #21926c;
+  color:  #5cb1a2;
   background-color: transparent;
   cursor: pointer;
 }
