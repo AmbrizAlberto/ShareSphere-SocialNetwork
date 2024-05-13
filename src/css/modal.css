@@ -9,6 +9,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
     transition: 500ms;
+    z-index: 1;
   }
   
   .modal-content {

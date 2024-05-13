@@ -281,14 +281,14 @@ div.login
 {
     color: #6ce9ff;
 }
-.aRegister{
+.Register a{
     font-weight: 700;
     color: #c2f7ff;
     margin-bottom: 15px;
     transition: 300ms;
 }
 
-.aRegister:hover{
+.Register a:hover{
     text-shadow: 0 0px 20px rgb(255, 255, 255);
     font-size: 3vh;
     transition: 300ms;
