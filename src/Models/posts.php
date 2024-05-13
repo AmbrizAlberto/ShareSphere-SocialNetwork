@@ -135,18 +135,38 @@ class posts extends connection{
         $update->execute($arrData);
     }
 
-    public function UpdateUser(string $id, string $newUsername, string $newDescripcion, string $Image=null){
+    public function UpdateUser(string $id, string $newUsername, string $newDescripcion, string $Image=null, string $imagePortada=null){
         if($Image == null){
-            $sql="UPDATE user SET username = ?, descripcion = ? WHERE id = ?";
-            $update = $this->conn->prepare($sql);
-            $arrData = array($newUsername, $newDescripcion, $id);
+            if($imagePortada == null){
+                $sql="UPDATE user SET username = ?, descripcion = ? WHERE id = ?";
+                $update = $this->conn->prepare($sql);
+                $arrData = array($newUsername, $newDescripcion, $id);
+            }else{
+                $sql="UPDATE user SET username = ?, descripcion = ?, coverImg = ? WHERE id = ?";
+                $portada = str_replace(" ", "", $imagePortada);
+                $today = date("Y-m-d_H-i-s");
+                move_uploaded_file($_FILES['imagePortada']['tmp_name'],"../.././public/fondo_users/".$today.$portada);
+                $update = $this->conn->prepare($sql);
+                $arrData = array($newUsername, $newDescripcion, $today.$portada, $id);
+            }
         }else{
-            $sql="UPDATE user SET username = ?, descripcion = ?, image = ? WHERE id = ?";
-            $img = str_replace(" ", "", $Image);
-            $today = date("Y-m-d_H-i-s");
-            move_uploaded_file($_FILES['newImage']['tmp_name'],"../.././public/images_users/".$today.$img);
-            $update = $this->conn->prepare($sql);
-            $arrData = array($newUsername, $newDescripcion, $today.$img, $id);
+            if($imagePortada == null){
+                $sql="UPDATE user SET username = ?, descripcion = ?, image = ? WHERE id = ?";
+                $img = str_replace(" ", "", $Image);
+                $today = date("Y-m-d_H-i-s");
+                move_uploaded_file($_FILES['newImage']['tmp_name'],"../.././public/images_users/".$today.$img);
+                $update = $this->conn->prepare($sql);
+                $arrData = array($newUsername, $newDescripcion, $today.$img, $id);
+            }else{
+                $sql="UPDATE user SET username = ?, descripcion = ?, image = ?, coverImg = ? WHERE id = ?";
+                $img = str_replace(" ", "", $Image);
+                $portada = str_replace(" ", "", $imagePortada);
+                $today = date("Y-m-d_H-i-s");
+                move_uploaded_file($_FILES['newImage']['tmp_name'],"../.././public/images_users/".$today.$img);
+                move_uploaded_file($_FILES['imagePortada']['tmp_name'],"../.././public/fondo_users/".$today.$portada);
+                $update = $this->conn->prepare($sql);
+                $arrData = array($newUsername, $newDescripcion, $today.$img, $today.$portada, $id);
+            }
         }
         $update->execute($arrData);
     }
