@@ -5,7 +5,6 @@
         header("Location:./login.php");
 
     }
-    
 ?>
 
 
@@ -94,8 +93,8 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
               <option value="4">Vida Submarina</option>
               <!-- Agrega más opciones según sea necesario -->
             </select>
-            <label for="texto">Titulo:</label>
-            <textarea id="texto" name="post_title" rows="1" required placeholder="Titulo..."></textarea>
+            <label for="titulo">Titulo:</label>
+            <textarea id="titulo" name="post_title" rows="1" required placeholder="Titulo..."></textarea>
 
             <label for="texto">Texto:</label>
             <textarea id="texto" name="post_content" rows="4" requiredplaceholder="Descripcion..."></textarea>
@@ -135,7 +134,8 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
     </div>
 
     <?php foreach ($postList as $post) { ?>
-      <?php $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_STRING)); ?>
+      <?php $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_STRING));
+      $editpost = $post; ?>
 
       <div class="post-container">
         <div class="user-info">
@@ -147,7 +147,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
           <span><i class="bi bi-caret-down-fill"></i></span>
           <?php if ($post['creatorId'] == $_SESSION['userId']) { ?>
             <div class="option-content">
-            <a id="modalBtn-edit"><i class="bi bi-pencil-fill"></i></a>
+            <a id="modalBtn-edit" onclick="openmodal('<?php echo htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8');?>')"><i class="bi bi-pencil-fill"></i></a>
               <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=0"><i
                   class="bi bi-trash-fill"></i></a>
             </div>
@@ -186,6 +186,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
           <button class="action-btn"><i class="bi bi-chat-square-text-fill"> 200</i></button>
         </div>
       </div>
+    <?php } ?>
     <div id="Post-complete" class="post">
       <span class="close-post" onclick="closeModal()">&times;</span>
       <div class="content-post">
@@ -219,35 +220,33 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       </div>
     </div>
   </div>
-
   <div id="myModal-edit" class="modal">
         <div class="modal-content">
           <span class="close" id="closeBtn-edit" >&times;</span>
           <form id="editForm" action="/controllers/Edit/EditPost.php" method="post" enctype="multipart/form-data">
-            <input type="hidden" value="<?php echo $_SESSION['userId']; ?>" name="post_creator_id">
+            <input type="hidden" id="idPost" name="id">
             <input type="hidden" value="0" name="currentPage">
             <label for="tema">Tema:</label>
-            <select id="selector" name="post_subgroup_id" required>
-              <option value="1" <?php if($post['SubgroupId']=='1'){echo 'selected';} ?>>Agua Limpia y Saneamineto</option>
-              <option value="3" <?php if($post['SubgroupId']=='3'){echo 'selected';} ?>>Energia Asequible y No Contaminante</option>
-              <option value="4" <?php if($post['SubgroupId']=='4'){echo 'selected';} ?>>Vida Submarina</option>
+            <select id="selector-edit" name="post_subgroup_id" required>
+              <option value="1" >Agua Limpia y Saneamineto</option>
+              <option value="3" >Energia Asequible y No Contaminante</option>
+              <option value="4" >Vida Submarina</option>
               <!-- Agrega más opciones según sea necesario -->
             </select>
-            <label for="texto">Titulo:</label>
-            <textarea id="texto" name="post_title" rows="1" required placeholder="Titulo..."><?php echo $post['title'] ?></textarea>
+            <label for="titulo-edit">Titulo:</label>
+            <textarea id="titulo-edit" name="post_title" rows="1" required placeholder="Titulo..."></textarea>
 
-            <label for="texto">Texto:</label>
-            <textarea id="texto" name="post_content" rows="4" requiredplaceholder="Descripcion..."><?php echo $post['content'] ?></textarea>
-            <label for="newImage">Cargar imagen:</label><br>
-            <img id="previewImage" src="<?php echo "/public/images_posts/" . $post['image'] ?>" alt="User Image" class=".modal-content">
-            <input type="file" id="newImage" name="newImage" accept="image/*">
-
+            <label for="texto-edit">Texto:</label>
+            <textarea id="texto-edit" name="post_content" rows="4" requiredplaceholder="Descripcion..."></textarea>
+            <label for="newImage-edit">Cargar imagen:</label><br>
+            <img id="previewImage-edit"  alt="User Image" class=".modal-content">
+            <input type="file" id="newImage-edit" name="newImage" accept="image/*">
             <button class=".modal-content" type="submit">Guardar Cambios</button>
           </form>
         </div>
-      </div>
-      <?php } ?>
-
+        </div>
+        
+      
   <button class="toTop" id="toTop">
     <svg viewBox="0 0 24 24">
       <path d="m4 16 8-8 8 8"></path>

@@ -1,37 +1,41 @@
-//document.addEventListener("DOMContentLoaded", function() {
+function openmodal(postInfo) {
+    var modal = document.getElementById("myModal-edit");
+    var span = document.getElementById("closeBtn-edit");
 
-var modal = document.getElementById("myModal-edit");
-        
-// Obtener el botón que abre el modal
-var btn = document.getElementById("modalBtn-edit");
+    var post = JSON.parse(postInfo);
 
-// Obtener el elemento <span> que cierra el modal
-var span = document.getElementById("closeBtn-edit");
-
-// Cuando se haga clic en <span> (x), cerrar el modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// Cuando el usuario haga clic en cualquier parte fuera del modal, cerrarlo
-window.onclick = function(event) {
-    if (event.target == modal) {
+    // Cuando se haga clic en <span> (x), cerrar el modal
+    span.onclick = function() {
         modal.style.display = "none";
     }
-}
 
-// Manejar el envío del formulario de edición
-document.getElementById("editForm").addEventListener("submit", function(event) {
-    // Cerrar el modal después de guardar los cambios
-    modal.style.display = "none";
-});
+    // Cuando el usuario haga clic en cualquier parte fuera del modal, cerrarlo
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 
-btn.onclick = function() {
+    // Manejar el envío del formulario de edición
+    document.getElementById("editForm").addEventListener("submit", function(event) {
+        // Cerrar el modal después de guardar los cambios
+        modal.style.display = "none";
+    });
+
+    // Muestra el modal
     modal.style.display = "block";
-    document.getElementById('newImage').value = document.getElementById('currentImage').value;
+
+    console.log(postInfo);
+    // Llenar el formulario con la información del post
+    document.getElementById('titulo-edit').textContent = post.title;
+    document.getElementById('texto-edit').textContent = post.content;
+    document.getElementById('selector-edit').value = post.SubgroupId;
+    document.getElementById('idPost').value = post.id;
+    document.getElementById('previewImage-edit').src = "/public/images_posts/" + post.image;
 }
 
-document.getElementById('newImage').addEventListener('change', function() {
+document.addEventListener("DOMContentLoaded", function() {
+document.getElementById('newImage-edit').addEventListener('change', function() {
     var file = this.files[0];
     var reader = new FileReader();
 
@@ -64,7 +68,7 @@ document.getElementById('newImage').addEventListener('change', function() {
             canvas.height = height;
             ctx.drawImage(img, 0, 0, width, height);
 
-            document.getElementById('previewImage').src = canvas.toDataURL('image/jpeg');
+            document.getElementById('previewImage-edit').src = canvas.toDataURL('image/jpeg');
         }
     };
 
@@ -73,6 +77,8 @@ document.getElementById('newImage').addEventListener('change', function() {
 
 
 window.onload = function() {
+
+
     var currentImage = document.getElementById('currentImage');
     var previewCurrentImage = document.getElementById('previewCurrentImage');
 
@@ -106,4 +112,4 @@ window.onload = function() {
         previewCurrentImage.src = canvas.toDataURL('image/jpeg');
     };
 };
-//});
+});
