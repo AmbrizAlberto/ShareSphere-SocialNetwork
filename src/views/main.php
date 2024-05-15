@@ -35,6 +35,8 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   <link rel="stylesheet" href="../css/Post.css">
   <link rel="stylesheet" href="../css/modalEdit.css">
 
+  <link rel="stylesheet" href="../css/ResponsiveMain.css">
+
   <!-- CSS TEMAS -->
   <link rel="stylesheet" href="<?php echo $userdata['theme'] == '0' ? '../css/light-mode.css' : '../css/main.css' ?>"
     id="theme-style">
@@ -131,7 +133,8 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
 
     </div>
 
-    <br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
 
     <!-- FILTROS CONTENEDOR -->
     <div class="filtros">
@@ -147,12 +150,6 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       </div>
     </div>
 
-    <div class="upload">
-          <form action="#" method="post">
-            <input type="text" class="uploadtext" placeholder="¿Qué estás pensando?" />
-            <button class="button">Upload</button>
-          </form>
-        </div>
     <!-- PUBLICACIONES -->
     <?php foreach ($postList as $post) { ?>
       <?php $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_STRING));
