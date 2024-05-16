@@ -5,6 +5,18 @@ html {
   font-family: 'Roboto', sans-serif;
 }
 
+br {
+  display: block;
+  content: "";
+  margin: 15vh; /* Ajusta el margen según sea necesario */
+}
+
+.navbar br{
+  display: block;
+  content: "";
+  margin: 5vh; /* Ajusta el margen según sea necesario */
+}
+
 body{
   background-color: transparent;
   font-family: 'Roboto', sans-serif;

@@ -133,7 +133,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
 
     </div>
 
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+   <br/><br/><br/><br/><br/><br/>
 
 
     <!-- FILTROS CONTENEDOR -->

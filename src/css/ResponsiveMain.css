@@ -1,8 +1,4 @@
-br {
-    display: block;
-    content: "";
-    margin: 15vh; /* Ajusta el margen según sea necesario */
-}
+
 /* Medias para hacer responsive */
 /* Media Query para pantallas con ancho máximo de 1024px (sin restricción de altura) */
 @media (max-width: 1024px) {
@@ -203,9 +199,7 @@ br {
         font-size: 50%;
     }
     br {
-        display: block;
-        content: "";
-        margin: 10vh; /* Ajusta el margen según sea necesario */
+        margin: 11vh !important; /* Ajusta el margen según sea necesario */
     }
     .navbar{
         display: none;
@@ -262,10 +256,10 @@ br {
         font-size: 90% !important;
     }
     .post-container{
-        margin-left: 23% !important;
-        position: relative;
-        width: 80% !important;
+        margin-left: 25.3% !important;
+        width: 75% !important;
         padding: 5% !important;
+        margin-bottom: 5% !important;
     }
     .post-content{
         font-size: 2vh !important;
@@ -297,9 +291,7 @@ br {
         font-size: 50%;
     }
     br {
-        display: block;
-        content: "";
-        margin: 10vh; /* Ajusta el margen según sea necesario */
+        margin: 11vh !important; /* Ajusta el margen según sea necesario */
     }
     .navbar{
         display: none;
