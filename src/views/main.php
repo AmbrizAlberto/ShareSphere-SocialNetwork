@@ -36,6 +36,8 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   <link rel="stylesheet" href="../css/modalEdit.css">
 
   <link rel="stylesheet" href="../css/ResponsiveMain.css">
+  <link rel="stylesheet" href="../css/ResponsiveModal.css">
+
 
   <!-- CSS TEMAS -->
   <link rel="stylesheet" href="<?php echo $userdata['theme'] == '0' ? '../css/light-mode.css' : '../css/main.css' ?>"
