@@ -2,22 +2,31 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    flex-direction: column;
+    min-height: 100vh;
     background-color: #242839;
     font-family: Arial, sans-serif;
+}
+
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
     display: flex;
     flex-direction: row;
     width: 90%;
-    height: 90%;
+    height: 90vh !important;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    background-color: #fff;
-
+    border-radius: 20px;
+    box-shadow: 0 0 30px black;
 }
 
 .image-container {
@@ -25,21 +34,23 @@ body {
     background-image: url('../images/Green_Fondo.jpg');
     background-size: cover;
     background-position: center;
+    position: relative;
 }
 
-.image-container h1{
+.image-container h1 {
     position: absolute;
-    width: 40%;
+    width: 90%;
     height: auto;
     top: 40%;
     left: 10%;
     color: #fff;
 }
 
-.logo{
+.logo {
+    display: flex;
     position: absolute;
+    margin: auto;
     top: 10%;
-    left: 69%;
     max-width: 100px;
     max-height: 100px;
 }
@@ -47,10 +58,13 @@ body {
 .form-container {
     flex: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 13%;
+    align-items: center;
     padding: 20px;
+    padding-top: 25vh;
     background-color: #fff;
+    position: relative;
 }
 
 .form-container h2 {
@@ -68,7 +82,8 @@ input[type="name"],
 input[type="lastname"],
 input[type="name-user"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="code"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -82,7 +97,7 @@ input[type="lastname"]:hover,
 input[type="name-user"]:hover,
 input[type="email"]:hover,
 input[type="password"]:hover, 
-input[type="code"]:hover{
+input[type="code"]:hover {
     transform: scale(1.1);
 }
 
@@ -105,9 +120,9 @@ input[type="submit"]:hover {
 }
 
 .login-link {
+    margin-top: -5vh;
     position: absolute;
-    margin-top: -2%;
-    left: 73%;
+    left: 53%;
 }
 
 .login-link a {
@@ -117,11 +132,11 @@ input[type="submit"]:hover {
 }
 
 .login-link a:hover {
-    color:#000000;
+    color: #000000;
     text-decoration: underline;
 }
 
-.code-opcion{
+.code-opcion {
     position: relative;
     padding-top: 5%;
     margin-top: 0%;
@@ -137,4 +152,63 @@ input[type="code"] {
     border: 1px solid #ccc;
     border-radius: 5px;
     transition: transform 0.3s ease;
+}
+
+
+
+/* FOOTERS */
+footer {
+    width: 90%;
+    background-color: #fff;
+    color: #000000;
+    padding: 20px 0;
+    border-radius: 20px;
+    margin-bottom: 2.5%;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.footer-container div {
+    flex: 1;
+    margin: 10px;
+}
+
+.footer-about, .footer-contact, .footer-links, .footer-social {
+    max-width: 250px;
+}
+
+.footer-about p, .footer-contact p, .footer-links ul, .footer-social ul {
+    margin: 0;
+}
+
+.footer-links ul, .footer-social ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links a, .footer-social a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.footer-links a:hover, .footer-social a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid #0000007a;
 }
