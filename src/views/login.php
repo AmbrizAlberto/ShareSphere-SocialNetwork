@@ -36,9 +36,9 @@
                 <div class="footer-links">
                     <h4>Enlaces Rápidos</h4>
                     <ul>
-                        <li><a href="#home">Registrarte</a></li>
-                        <li><a href="#services">Iniciar Sesion</a></li>
-                        <li><a href="#about">Visitante</a></li>
+                        <li><a href="./register.php">Registrarte</a></li>
+                        <li><a href="./login.php">Iniciar Sesion</a></li>
+                        <li><a href="./visitor.php">Visitante</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -53,8 +53,8 @@
                 <div class="footer-social">
                     <h4>Síguenos</h4>
                     <ul class="social-icons">
-                        <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
-                        <li><a href="https://www.twitter.com" target="_blank">Twitter</a></li>
+                        <li><a href="https://www.twitter.com" target="_blank">Portafolios</a></li>
+                        <li><a href="https://www.twitter.com" target="_blank">Github</a></li>
                         <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
                         <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
                     </ul>

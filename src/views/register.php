@@ -72,8 +72,8 @@ if (isset($_SESSION['email'])) {
             <div class="footer-social">
                 <h4>Síguenos</h4>
                 <ul class="social-icons">
-                    <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
-                    <li><a href="https://www.twitter.com" target="_blank">Twitter</a></li>
+                    <li><a href="https://www.twitter.com" target="_blank">Portafolios</a></li>
+                    <li><a href="https://www.twitter.com" target="_blank">Github</a></li>
                     <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
                     <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
                 </ul>
