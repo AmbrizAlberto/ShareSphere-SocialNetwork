@@ -1,4 +1,7 @@
 @media (max-width: 1024px) {
+    .modal-content label{
+        margin-top: 0;
+    }
 }
 
 @media (max-width: 912px) {
@@ -14,8 +17,11 @@
         font-size: 3vh;
         width: 70%;
     }
-    .modal-content button {
-        margin-left: 3% !important;
+    .modal-content select{
+        font-size: 2vh;
+    }
+    .modal-content textarea{
+        font-size: 2vh;
     }
 }
 
@@ -24,15 +30,22 @@
 }
 
 @media(max-width: 431px){
+    .modal-content img{
+        margin-top: -20vh;
+    }
+    .modal-content select{
+        font-size: 1.7vh;
+    }
+    .modal-content textarea{
+        font-size: 1.7vh;
+    }
+
 }
 
 @media (max-width:415px) {
     .modal-content {
         font-size: 3vh;
         width: 70%;
-    }
-    .modal-content button {
-        margin-left: 3% !important;
     }
 
 }
@@ -43,9 +56,11 @@
         font-size: 3vh;
         width: 70%;
     }
+    .modal-content label{
+        margin-top: 0;
+    }
     .modal-content button {
         font-size: 3vh !important;
-        margin-left: 3% !important;
     }
 }
 

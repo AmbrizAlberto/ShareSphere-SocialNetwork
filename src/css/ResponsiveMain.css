@@ -22,12 +22,17 @@
         width: 100% !important;
         height: 7% !important;
         font-size: 1vh;
+        padding-top: 1%;
+    }
+    .feedhead h1{
+        margin-top: 1% !important;
+        font-size: 300%;
     }
     .feedhead i {
         font-size: 150% !important;
     }.bi.bi-box-arrow-right {
         margin: 0 !important;
-        margin-left: -60% !important;
+        margin-left: 40% !important;
         font-size: 260% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
     }
 
@@ -35,18 +40,18 @@
         width: 100% !important;
     }
     .search-nav input[type="text"]{
-        margin-left: -2% !important;
-        width: 15vh !important;
-        height: 3vh !important;
+        margin-left: -30% !important;
+        width: 50vh !important;
+        height: 2vh !important;
     }
     .feedhead input[type="image"]{
-        margin-left: -50% !important;
+        margin-left: -20% !important;
         width: 4vh !important;
         height: 4vh !important;
     }
     .feedhead button{
-        margin-left: -5% !important;
-        margin-right: 4% !important;
+        margin-left: 0% !important;
+        margin-right: 0% !important;
     }
     .search-nav {
         width: 30% !important;
@@ -57,15 +62,15 @@
     }
     #theme-toggle-btn {
         left: auto !important;
-        right: 2% !important;
+        right: 10% !important;
         margin-left: -0vh !important;
-        padding: 3px 3px !important;
-        font-size: 90% !important;
+        padding: 5px 20px !important;
+        font-size: 100% !important;
     }
     .post-container{
-        margin-left: 28% !important;
+        margin-left: 37% !important;
         position: relative;
-        width: 70% !important;
+        width: 50% !important;
         padding: 5% !important;
     }
     .post-content{
@@ -78,7 +83,7 @@
         font-size: 2vh !important;
     }
     .post-options {
-        left: 85% !important;
+        left: 90% !important;
     }
     .post-actions button{
         margin: auto !important;
@@ -121,6 +126,10 @@
         width: 95% !important;
         height: 10% !important;
         font-size: 1.5vh;
+    }
+    .feedhead h1 {
+        margin-top: 1% !important;
+        font-size: 200%;
     }
     .feedhead button{
         margin-left: -1.5% !important;
@@ -405,6 +414,10 @@
         width: 92% !important;
         height: 7% !important;
         font-size: 1vh;
+    }
+    .feedhead h1 {
+        margin-top: 1% !important;
+        font-size: 200% !important;
     }
     .feedhead i {
         font-size: 150% !important;

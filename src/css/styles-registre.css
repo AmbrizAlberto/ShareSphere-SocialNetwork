@@ -203,7 +203,7 @@ footer {
 }
 
 .social-icons {
-    display: flex;
+    display: wrap;
     gap: 10px;
 }
 

@@ -64,14 +64,11 @@
 }
 
 .modal-content img {
+  width: 50%;
+  margin: auto;
+  margin-top: -30vh;
   position: relative;
-  max-width: 15%;
-  max-height: 15%;
-  top: 23%;
-  left: 32%;
-  height: auto;
   border-radius: 20px;
-  margin-bottom: 10px;
 }
 
 .modal-content textarea {
@@ -93,15 +90,14 @@
 }
 
 .modal-content button {
+  width: 50%;
   margin: auto;
   font-size: 2vh !important;
   color: white;
   background-color: #21926c;
   padding: 4px;
   font-size: 100%;
-  left: 25%;
   position: relative;
-  width: 50%;
   border-radius: 20px;
   padding: 1%;
 }

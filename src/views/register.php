@@ -17,6 +17,8 @@ if (isset($_SESSION['email'])) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Registro</title>
 <link rel="stylesheet" type="text/css" href="../css/styles-registre.css">
+<link rel="stylesheet" type="text/css" href="../css/ResponsiveRegister.css">
+
 </head>
 <body>
 
