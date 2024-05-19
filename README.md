@@ -1,4 +1,4 @@
-# Open Social Communication Platform (Web Forum) :globe_with_meridians:
+# ShareSphere (Web Forum) :globe_with_meridians:
 
 ## Project Overview
 The Open Social Communication Platform is a web-based forum designed to foster an enriching exchange of information and perspectives within virtual communities. This digital interaction platform enables the posting and replying of messages by users within thematic threads, featuring user profiles and moderation systems to promote a constructive and inclusive participation environment. The forum's design emphasizes accessibility and interaction, ensuring a seamless user experience for all community members.
