@@ -8,35 +8,61 @@ function openModalForProject(projectId) {
             fetch('/controllers/Get/getPost.php')
                 .then(response => response.json())
                 .then(data => {
-                    var html = "<h2>Lista de publicaciones</h2>";
-                    html += "<ul>";
+                    let html = "<h2>Lista de publicaciones</h2>";
+                    html += `
+                        <table class="usertable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Título</th>
+                                    <th>Nombre del creador</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
                     data.forEach(post => { 
-                        html +=`<li> 
-                        <a href="/src/views/userPage.php?idPerfil=${post.creatorId}" style="text-decoration: none;"> 
-                            <img src="../../public/images_users/${post.img}"  alt='si' style=" width:2%; height: auto;">
-                        </a> ID: ${post.id}, Titulo: ${post.title}, Nombre del creador: ${post.creator_name} 
-                        <a href="/controllers/Delete/DeletePost.php?id=${post.id}&page=2"><i class="bi bi-trash-fill" style="width: 20px; height: 20px; color: black;"></i></a> 
-                        <i class="bi bi-pencil-fill" ></i>
-                        </li>
-                        `
+                        html += `
+                            <tr class="trusers">
+                                <td><a href="/src/views/userPage.php?idPerfil=${post.creatorId}" style="color: black; text-decoration: none;"> 
+                                    <img src="../../public/images_users/${post.img}" alt='si' style="width:5vh; height:5vh; border-radius: 20px;"></a> ${post.id}
+                                </td>
+                                <td>${post.title}</td>
+                                <td>${post.creator_name}</td>
+                                <td>
+                                    <a href="/controllers/Delete/DeletePost.php?id=${post.id}&page=2">
+                                        <i class="bi bi-trash-fill" style="color: white; font-size: 3vh;"></i>
+                                    </a>
+                                    <i class="bi bi-pencil-fill" style="font-size: 3vh;"></i>
+                                </td>
+                            </tr>
+                        `;
                     });
-                    html += "</ul>"; 
+                    html += `
+                            </tbody>
+                        </table>
+                    `;
                     modalContent.innerHTML = html;
-                }).catch(error => {
-                console.error('Error al obtener los datos:', error);
-            });
+                })
+                .catch(error => {
+                    console.error('Error al obtener los datos:', error);
+                });
             break;
+
         case 2:
             fetch('/controllers/Get/getUsers.php')
                 .then(response => response.json())
                 .then(data => {
                     var html = "<h2>Tabla de usuarios</h2>";
                     html += `<table class="usertable">`;
-                    html += `<tr><th>ID</th><th>USUARIO</th><th>CORREO</th><th>ELIMINAR</th></tr>`;
+                    html += `<thead><tr><th>ID</th><th>USUARIO</th><th>CORREO</th><th>ELIMINAR</th></tr></thead>`;
+                    html += `<tbody>`;
                     data.forEach(user => {
                         if(user.id !== 16){
                             html += `<tr class="trusers"> 
-                                <td><a href="/src/views/userPage.php?idPerfil=${user.id}" style="color: black; text-decoration: none;"> <img src="../../public/images_users/${user.image}"  alt='' style=" width:5vh; height:5vh; border-radius: 20px;"></a>   ${user.id}</td>
+                                <td><a href="/src/views/userPage.php?idPerfil=${user.id}" style="color: black; text-decoration: none;"> 
+                                    <img src="../../public/images_users/${user.image}"  alt='' style="width:5vh; height:5vh; border-radius: 20px;"></a> ${user.id}
+                                </td>
                                 <td><span style="text-decoration: none;">${user.username}</span></td>
                                 <td>${user.email}</td>
                                 <td>
@@ -47,14 +73,14 @@ function openModalForProject(projectId) {
                             </tr>`;
                         }
                     });
-                    html += "</table>";
+                    html += `</tbody></table>`;
                     modalContent.innerHTML = html;
                 }).catch(error => {
-                console.error('Error al obtener los datos:', error);
-            });
+                    console.error('Error al obtener los datos:', error);
+                });
             break;
-        }
     }
+}
 
 function closeModal() {
     var modal = document.getElementById("myModal");

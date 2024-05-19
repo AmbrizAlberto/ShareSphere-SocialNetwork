@@ -36,6 +36,9 @@ html, body {
 }
 
 .contain input{
+    align-items: center;
+    align-self: auto;
+    align-content: center;
     text-align: center;
     width: 30vh;
     height: 3vh;
@@ -48,8 +51,9 @@ html, body {
     transition: transform 0.3s ease;
     color: black;
 }.contain input::placeholder{
+    padding: 1%;
     text-align: center;
-    font-size: 4vh;
+    font-size: 150%;
 }
 
 
