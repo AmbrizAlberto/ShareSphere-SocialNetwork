@@ -52,7 +52,7 @@ if (isset($_SESSION['email'])) {
         <div class="footer-container">
             <div class="footer-about">
                 <h4>Sobre Nosotros</h4>
-                <p>Foro web desarrollada como proyecto escolar.</p>
+                <p>ShareSphere. Foro web desarrollado como proyecto escolar. <p>Universidad de Colima. <p>FIE</p></p></p>
             </div>
             <div class="footer-links">
                 <h4>Enlaces Rápidos</h4>
