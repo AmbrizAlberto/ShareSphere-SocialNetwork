@@ -11,7 +11,7 @@
     <div class="content-wrapper">
         <div class="container">
             <div class="contain">
-                <h1>Recuperar contraseña</h1>
+                <h1>Ingresar codigo</h1>
                 <form action="../../controllers/funtion_code.php" method="post" id="MyForm">
                     <input type="text" class="input-field" placeholder="Inserta tu correo" name="email" required>
                     <button type="submit" class="button" value="Iniciar sesión">Continuar</button>

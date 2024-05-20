@@ -23,6 +23,12 @@
         top: 78%;
         left: 35%;
     }
+
+    input[type="code"] {    
+        bottom: 10%;
+        left: 78%;
+        width: 12%;
+    }
 }
 
 
@@ -72,6 +78,11 @@
     .visit{
         top: 70%;
         left: 37%;
+    }
+    input[type="code"] {    
+        bottom: 30%;
+        left: 74%;
+        width: 15%;
     }
 }
 
@@ -123,7 +134,12 @@
     .visit{
         left: 28%;
     }
-
+    input[type="code"] {    
+        font-size: 80%;
+        bottom: 7% !important;
+        left: 35% !important;
+        width: 25% !important;
+    }
 }
 
 @media (max-width:415px) {
@@ -143,6 +159,11 @@
     }
     .form-container h2{
         top: 24%;
+    }
+    input[type="code"] {    
+        bottom: 7%;
+        left: 36%;
+        width: auto;
     }
 
 }
