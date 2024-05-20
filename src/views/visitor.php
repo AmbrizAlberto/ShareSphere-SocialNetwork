@@ -13,7 +13,7 @@ $postList = $posts->GetPosts();
     <title>ShareSphere</title>
 
     <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/mainVisit.css">
     <link rel="stylesheet" href="../css/textpost.css">
     <link rel="stylesheet" href="../css/photopost.css">
     <link rel="stylesheet" href="../css/filtros.css">
@@ -37,19 +37,22 @@ $postList = $posts->GetPosts();
             <input type="text" placeholder="Buscar..." name="search">
           </form>
           </div>
-          <a href="/src/views/login.php" class="logout"><i class="bi bi-box-arrow-in-left">Logeate</i></a> <!-- Cerramos la sesion -->
+          <a href="/src/views/login.php" class="logout"><i class="bi bi-box-arrow-in-left">  Iniciar Sesion</i></a> <!-- Cerramos la sesion -->
+
+          <button id="theme-toggle-btn-visitor"><i class="bi bi-lightbulb-fill"></i></button>
+
         </div>
+
         <br /><br /><br /><br /><br />
-        <button id="theme-toggle-btn-visitor"><i class="bi bi-lightbulb-fill"></i></button>
 
         <div class="filtros">
           <div class="containerfiltros">
             <h1>Filtro</h1>
 
             <div class="forum">
-              <button><img src="../images/6.png"></button>
-              <button><img src="../images/7.png"></button>
-              <button><img src="../images/14.jpg"></button>
+              <button onclick="window.location.href='../views/foro_6.php'"><img src="../images/6.png"></button>
+              <button onclick="window.location.href='../views/foro_7.php'"><img src="../images/7.png"></button>
+              <button onclick="window.location.href='../views/foro_14.php'"><img src="../images/14.jpg"></button>
             </div>
 
           </div>

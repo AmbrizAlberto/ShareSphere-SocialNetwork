@@ -50,7 +50,7 @@ body {
     display: flex;
     position: absolute;
     margin: auto;
-    top: 10%;
+    top: 5%;
     max-width: 100px;
     max-height: 100px;
 }
@@ -70,7 +70,7 @@ body {
 .form-container h2 {
     position: absolute;
     font-size: 30px;
-    top: 22%;
+    top: 19%;
 }
 
 .form-container form {
