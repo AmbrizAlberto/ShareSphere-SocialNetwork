@@ -74,14 +74,15 @@ body {
 
 .form-container h3 {
   left: 30%;
-  top: 63%;
+  top: 66%;
   margin-left: 0%;
   font-size: 15px;
   position: absolute;
 }
 
 .password {
-  top: 59%;
+  top: 63%;
+  right: 39%;
   font-size: 90%;
   position: absolute;
   text-decoration: none;
@@ -95,7 +96,7 @@ body {
 
 .Register {
   left: 57%;
-  top: 65%;
+  top: 68%;
   font-size: 15px;
   position: absolute;
   text-decoration: none;
@@ -108,8 +109,8 @@ body {
 }
 
 .visit {
-  left: 40%;
-  top: 70%;
+  left: 39%;
+  top: 76%;
   font-size: 15px;
   position: absolute;
   text-decoration: none;
@@ -137,13 +138,16 @@ input[type="password"] {
 }
 
 input[type="text"]:hover,
-input[type="password"]:hover {
+input[type="password"]:hover,
+input[type="code"]:hover {
   transform: scale(1.1);
 }
 
 input[type="submit"] {
-  margin-left: 56%;
-  width: 45%;
+  position: relative;
+  top: 2%;
+  left: 9%;
+  width: 50%;
   padding: 10px;
   padding-right: 20px;
   font-size: 15px;
@@ -170,8 +174,7 @@ input[type="submit"]:hover {
 input[type="code"] {
     text-align: center;
     position: relative;
-    left: 10%;
-    width: 50%;
+    width: 40%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
