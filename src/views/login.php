@@ -1,3 +1,12 @@
+<?php //Funcion para evitar que los usuarios sin sesion iniciada puedan acceder al main
+    session_start();// Iniciar la sesión
+    if(isset($_SESSION['email']))
+    {
+        header("Location:./main.php");
+
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
