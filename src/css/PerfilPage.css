@@ -1,20 +1,20 @@
 html{
-    font-size: inherit;
-    background-color: rgb(37, 37, 37);
-    font-family: 'Roboto', sans-serif;
+  font-size: inherit;
+  background-color: rgb(37, 37, 37);
+  font-family: 'Roboto', sans-serif;
 }
 
 body{
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .PerfilPage{
-    width: 80%;
-    margin-left: 5%;
-    background-color: black;
-    border-radius: 50px;
-    border: none;
-    transition: 500ms;
+  width: 80%;
+  margin-left: 5%;
+  background-color: black;
+  border-radius: 50px;
+  border: none;
+  transition: 500ms;
 }
 
 .PerfilPage:hover{
@@ -46,9 +46,9 @@ body{
 }
 
 .PerfilPhoto img{
-    max-height: 100%;
-    display: block;
-    margin: auto;
+  max-height: 100%;
+  display: block;
+  margin: auto;
 }
 
 .PerfilPage .PerfilPortada button{

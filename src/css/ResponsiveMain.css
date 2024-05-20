@@ -1,585 +1,574 @@
-
 /* Medias para hacer responsive */
 /* Media Query para pantallas con ancho máximo de 1024px (sin restricción de altura) */
 @media (max-width: 1024px) {
-    html{
-        font-size: 50%;
-    }
-    .navbar{
-        display: none;
-    }
-    .filtros{
-        display: none;
-    }
-    .main{
-        width: 100% !important;
-        height: 100% !important;
-        margin-left: 0% !important;
-    }
-    .feedhead{
-        margin-left: 2%;
-        margin-top: -2% !important;
-        width: 100% !important;
-        height: 7% !important;
-        font-size: 1vh;
-        padding-top: 1%;
-    }
-    .feedhead h1{
-        margin-top: 1% !important;
-        font-size: 300%;
-    }
-    .feedhead i {
-        font-size: 150% !important;
-    }.bi.bi-box-arrow-right {
-        margin: 0 !important;
-        margin-left: 40% !important;
-        font-size: 260% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
-    }
+  html {
+    font-size: 50%;
+  }
+  .navbar {
+    display: none;
+  }
+  .filtros {
+    display: none;
+  }
+  .main {
+    width: 100% !important;
+    height: 100% !important;
+    margin-left: 0% !important;
+  }
+  .feedhead {
+    margin-left: 2%;
+    margin-top: -2% !important;
+    width: 100% !important;
+    height: 7% !important;
+    font-size: 1vh;
+    padding-top: 1%;
+  }
+  .feedhead h1 {
+    margin-top: 1% !important;
+    font-size: 300%;
+  }
+  .feedhead i {
+    font-size: 150% !important;
+  }
+  .bi.bi-box-arrow-right {
+    margin: 0 !important;
+    margin-left: 40% !important;
+    font-size: 260% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
+  }
 
-    .search-nav form {
-        width: 100% !important;
-    }
-    .search-nav input[type="text"]{
-        margin-left: -30% !important;
-        width: 50vh !important;
-        height: 2vh !important;
-    }
-    .feedhead input[type="image"]{
-        margin-left: -20% !important;
-        width: 4vh !important;
-        height: 4vh !important;
-    }
-    .feedhead button{
-        margin-left: 0% !important;
-        margin-right: 0% !important;
-    }
-    .search-nav {
-        width: 30% !important;
-        
-    }
-    .user-info span{
-        font-size: 250% !important;
-    }
-    #theme-toggle-btn {
-        left: auto !important;
-        right: 10% !important;
-        margin-left: -0vh !important;
-        padding: 5px 20px !important;
-        font-size: 100% !important;
-    }
-    .post-container{
-        margin-left: 37% !important;
-        position: relative;
-        width: 50% !important;
-        padding: 5% !important;
-    }
-    .post-content{
-        font-size: 2.4vh !important;
-    }
-    .description{
-        font-size: 2vh !important;
-    }
-    .SubTitle{
-        font-size: 2vh !important;
-    }
-    .post-options {
-        left: 90% !important;
-    }
-    .post-actions button{
-        margin: auto !important;
-        margin-top: 3% !important;
-        width: 25% !important;
-        height: 10% !important;
-    }
+  .search-nav form {
+    width: 100% !important;
+  }
+  .search-nav input[type="text"] {
+    margin-left: -30% !important;
+    width: 50vh !important;
+    height: 2vh !important;
+  }
+  .feedhead input[type="image"] {
+    margin-left: -20% !important;
+    width: 4vh !important;
+    height: 4vh !important;
+  }
+  .feedhead button {
+    margin-left: 0% !important;
+    margin-right: 0% !important;
+  }
+  .search-nav {
+    width: 30% !important;
+  }
+  .user-info span {
+    font-size: 250% !important;
+  }
+  #theme-toggle-btn {
+    left: auto !important;
+    right: 10% !important;
+    margin-left: -0vh !important;
+    padding: 5px 20px !important;
+    font-size: 100% !important;
+  }
+  .post-container {
+    margin-left: 37% !important;
+    position: relative;
+    width: 50% !important;
+    padding: 5% !important;
+  }
+  .post-content {
+    font-size: 2.4vh !important;
+  }
+  .description {
+    font-size: 2vh !important;
+  }
+  .SubTitle {
+    font-size: 2vh !important;
+  }
+  .post-options {
+    left: 90% !important;
+  }
+  .post-actions button {
+    margin: auto !important;
+    margin-top: 3% !important;
+    width: 25% !important;
+    height: 10% !important;
+  }
 }
 
-
-
 @media (max-width: 912px) {
-    
 }
 
 /* Media Query para pantallas con ancho máximo de 912px */
-@media (max-width:820px) {
-    
+@media (max-width: 820px) {
 }
 
+@media (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+  .navbar {
+    display: none;
+  }
+  .filtros {
+    display: none;
+  }
+  .main {
+    width: 100% !important;
+    height: 100% !important;
+    margin-left: 0% !important;
+  }
+  .feedhead {
+    margin-left: 1%;
+    margin-top: -2% !important;
+    width: 95% !important;
+    height: 10% !important;
+    font-size: 1.5vh;
+  }
+  .feedhead h1 {
+    margin-top: 1% !important;
+    font-size: 200%;
+  }
+  .feedhead button {
+    margin-left: -1.5% !important;
+    margin-right: 1.5% !important;
+  }
+  .feedhead i {
+    font-size: 150% !important;
+  }
+  .bi.bi-box-arrow-right {
+    margin: 0 !important;
+    margin-left: 0% !important;
+    font-size: 260% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
+  }
 
-@media(max-width:768px){
-    html{
-        font-size: 50%;
-    }
-    .navbar{
-        display: none;
-    }
-    .filtros{
-        display: none;
-    }
-    .main{
-        width: 100% !important;
-        height: 100% !important;
-        margin-left: 0% !important;
-    }
-    .feedhead{
-        margin-left: 1%;
-        margin-top: -2% !important;
-        width: 95% !important;
-        height: 10% !important;
-        font-size: 1.5vh;
-    }
-    .feedhead h1 {
-        margin-top: 1% !important;
-        font-size: 200%;
-    }
-    .feedhead button{
-        margin-left: -1.5% !important;
-        margin-right: 1.5% !important;
-    }
-    .feedhead i {
-        font-size: 150% !important;
-    }.bi.bi-box-arrow-right {
-        margin: 0 !important;
-        margin-left: 0% !important;
-        font-size: 260% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
-    }
-
-    .search-nav form {
-        width: 150% !important;
-    }
-    .search-nav input[type="text"]{
-        margin-left: -10% !important;
-        width: 18vh !important;
-        height: 2.5vh !important;
-    }
-    .feedhead input[type="image"]{
-        margin-left: -50% !important;
-        width: 4vh !important;
-        height: 4vh !important;
-    }
-    .search-nav {
-        width: 30% !important;
-        
-    }
-    .user-info span{
-        font-size: 350% !important;
-    }
-    #theme-toggle-btn {
-        left: auto !important;
-        right: 2% !important;
-        margin-left: -0vh !important;
-        padding: 5px 15px !important;
-        font-size: 90% !important;
-    }
-    .post-container{
-        margin-left: 28% !important;
-        position: relative;
-        width: 70% !important;
-        padding: 5% !important;
-    }
-    .post-content{
-        font-size: 2.7vh !important;
-    }
-    .description{
-        font-size: 2.5vh !important;
-    }
-    .SubTitle{
-        font-size: 2vh !important;
-    }
-    .post-options {
-        padding: 1% !important;
-        font-size: 250% !important;
-        left: 90% !important;
-    }
-    .post-actions button{
-        margin: auto !important;
-        margin-top: 3% !important;
-        width: 25% !important;
-        height: 50px !important;
-    }
+  .search-nav form {
+    width: 150% !important;
+  }
+  .search-nav input[type="text"] {
+    margin-left: -10% !important;
+    width: 18vh !important;
+    height: 2.5vh !important;
+  }
+  .feedhead input[type="image"] {
+    margin-left: -50% !important;
+    width: 4vh !important;
+    height: 4vh !important;
+  }
+  .search-nav {
+    width: 30% !important;
+  }
+  .user-info span {
+    font-size: 350% !important;
+  }
+  #theme-toggle-btn {
+    left: auto !important;
+    right: 2% !important;
+    margin-left: -0vh !important;
+    padding: 5px 15px !important;
+    font-size: 90% !important;
+  }
+  .post-container {
+    margin-left: 28% !important;
+    position: relative;
+    width: 70% !important;
+    padding: 5% !important;
+  }
+  .post-content {
+    font-size: 2.7vh !important;
+  }
+  .description {
+    font-size: 2.5vh !important;
+  }
+  .SubTitle {
+    font-size: 2vh !important;
+  }
+  .post-options {
+    padding: 1% !important;
+    font-size: 250% !important;
+    left: 90% !important;
+  }
+  .post-actions button {
+    margin: auto !important;
+    margin-top: 3% !important;
+    width: 25% !important;
+    height: 50px !important;
+  }
 }
 
-@media(max-width:540px){
-
+@media (max-width: 540px) {
 }
 
+@media (max-width: 431px) {
+  html {
+    font-size: 50%;
+  }
+  br {
+    margin: 11vh !important; /* Ajusta el margen según sea necesario */
+  }
+  .navbar {
+    display: none;
+  }
+  .filtros {
+    display: none;
+  }
+  .main {
+    width: 100% !important;
+    height: 100% !important;
+    margin-left: 0% !important;
+  }
+  .feedhead {
+    margin-left: 2%;
+    margin-top: -2% !important;
+    width: 100% !important;
+    height: 7% !important;
+    font-size: 1vh;
+  }
+  .feedhead i {
+    font-size: 150% !important;
+  }
+  .bi.bi-box-arrow-right {
+    margin: 0 !important;
+    margin-left: -60% !important;
+    font-size: 260% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
+  }
 
-@media(max-width: 431px){
-    html{
-        font-size: 50%;
-    }
-    br {
-        margin: 11vh !important; /* Ajusta el margen según sea necesario */
-    }
-    .navbar{
-        display: none;
-    }
-    .filtros{
-        display: none;
-    }
-    .main{
-        width: 100% !important;
-        height: 100% !important;
-        margin-left: 0% !important;
-    }
-    .feedhead{
-        margin-left: 2%;
-        margin-top: -2% !important;
-        width: 100% !important;
-        height: 7% !important;
-        font-size: 1vh;
-    }
-    .feedhead i {
-        font-size: 150% !important;
-    }.bi.bi-box-arrow-right {
-        margin: 0 !important;
-        margin-left: -60% !important;
-        font-size: 260% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
-    }
-
-    .search-nav form {
-        width: 100% !important;
-    }
-    .search-nav input[type="text"]{
-        margin-left: -9% !important;
-        width: 10vh !important;
-        height: 3vh !important;
-    }
-    .feedhead input[type="image"]{
-        margin-left: -50% !important;
-        width: 4vh !important;
-        height: 4vh !important;
-    }
-    .feedhead button{
-        margin-left: -5% !important;
-        margin-right: 4% !important;
-    }
-    .search-nav {
-        width: 30% !important;
-        
-    }
-    #theme-toggle-btn {
-        left: auto !important;
-        right: 2% !important;
-        margin-left: -0vh !important;
-        padding: 3px 3px !important;
-        font-size: 90% !important;
-    }
-    .post-container{
-        margin-left: 25.3% !important;
-        width: 75% !important;
-        padding: 5% !important;
-        margin-bottom: 5% !important;
-    }
-    .post-content{
-        font-size: 2vh !important;
-    }
-    .user-info span{
-        font-size: 280% !important;
-    }
-    .description{
-        font-size: 2vh !important;
-    }
-    .SubTitle{
-        font-size: 1.7vh !important;
-    }
-    .post-options {
-        padding: 0 !important;
-        font-size: 150% !important;
-        left: 86% !important;
-    }
-    .post-actions button{
-        margin: auto !important;
-        margin-top: 3% !important;
-        width: 25% !important;
-        height: 10% !important;
-    }
+  .search-nav form {
+    width: 100% !important;
+  }
+  .search-nav input[type="text"] {
+    margin-left: -9% !important;
+    width: 10vh !important;
+    height: 3vh !important;
+  }
+  .feedhead input[type="image"] {
+    margin-left: -50% !important;
+    width: 4vh !important;
+    height: 4vh !important;
+  }
+  .feedhead button {
+    margin-left: -5% !important;
+    margin-right: 4% !important;
+  }
+  .search-nav {
+    width: 30% !important;
+  }
+  #theme-toggle-btn {
+    left: auto !important;
+    right: 2% !important;
+    margin-left: -0vh !important;
+    padding: 3px 3px !important;
+    font-size: 90% !important;
+  }
+  .post-container {
+    margin-left: 25.3% !important;
+    width: 75% !important;
+    padding: 5% !important;
+    margin-bottom: 5% !important;
+  }
+  .post-content {
+    font-size: 2vh !important;
+  }
+  .user-info span {
+    font-size: 280% !important;
+  }
+  .description {
+    font-size: 2vh !important;
+  }
+  .SubTitle {
+    font-size: 1.7vh !important;
+  }
+  .post-options {
+    padding: 0 !important;
+    font-size: 150% !important;
+    left: 86% !important;
+  }
+  .post-actions button {
+    margin: auto !important;
+    margin-top: 3% !important;
+    width: 25% !important;
+    height: 10% !important;
+  }
 }
 
-@media (max-width:415px) {
-    html{
-        font-size: 50%;
-    }
-    br {
-        margin: 11vh !important; /* Ajusta el margen según sea necesario */
-    }
-    .navbar{
-        display: none;
-    }
-    .filtros{
-        display: none;
-    }
-    .main{
-        width: 100% !important;
-        height: 100% !important;
-        margin-left: 0% !important;
-    }
-    .feedhead{
-        margin-left: 2%;
-        margin-top: -2% !important;
-        width: 100% !important;
-        height: 7% !important;
-        font-size: 1vh;
-    }
-    .feedhead i {
-        font-size: 150% !important;
-    }.bi.bi-box-arrow-right {
-        margin: 0 !important;
-        margin-left: -60% !important;
-        font-size: 260% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
-    }
+@media (max-width: 415px) {
+  html {
+    font-size: 50%;
+  }
+  br {
+    margin: 11vh !important; /* Ajusta el margen según sea necesario */
+  }
+  .navbar {
+    display: none;
+  }
+  .filtros {
+    display: none;
+  }
+  .main {
+    width: 100% !important;
+    height: 100% !important;
+    margin-left: 0% !important;
+  }
+  .feedhead {
+    margin-left: 2%;
+    margin-top: -2% !important;
+    width: 100% !important;
+    height: 7% !important;
+    font-size: 1vh;
+  }
+  .feedhead i {
+    font-size: 150% !important;
+  }
+  .bi.bi-box-arrow-right {
+    margin: 0 !important;
+    margin-left: -60% !important;
+    font-size: 260% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
+  }
 
-    .search-nav form {
-        width: 100% !important;
-    }
-    .search-nav input[type="text"]{
-        margin-left: -5% !important;
-        width: 9vh !important;
-        height: 3vh !important;
-    }
-    .feedhead input[type="image"]{
-        margin-left: -60% !important;
-        width: 4vh !important;
-        height: 4vh !important;
-    }
-    .feedhead button{
-        margin-left: -6% !important;
-        margin-right: 4.5% !important;
-    }
-    #theme-toggle-btn {
-        left: auto !important;
-        right: 2% !important;
-        margin-left: -0vh !important;
-        padding: 4px 4px !important;
-        font-size: 90% !important;
-    }
-    .search-nav {
-        width: 30% !important;
-        
-    }
-    .post-container{
-        margin-left: 23% !important;
-        position: relative;
-        width: 80% !important;
-        padding: 5% !important;
-    }
-    .post-content{
-        font-size: 2vh !important;
-    }
-    .user-info span{
-        font-size: 280% !important;
-    }
-    .description{
-        font-size: 2vh !important;
-    }
-    .SubTitle{
-        font-size: 2vh !important;
-    }
-    .post-options {
-        padding: 0 !important;
-        font-size: 150% !important;
-        left: 86% !important;
-    }
-    .post-actions button{
-        margin: auto !important;
-        margin-top: 3% !important;
-        width: 25% !important;
-        height: 10% !important;
-    }
+  .search-nav form {
+    width: 100% !important;
+  }
+  .search-nav input[type="text"] {
+    margin-left: -5% !important;
+    width: 9vh !important;
+    height: 3vh !important;
+  }
+  .feedhead input[type="image"] {
+    margin-left: -60% !important;
+    width: 4vh !important;
+    height: 4vh !important;
+  }
+  .feedhead button {
+    margin-left: -6% !important;
+    margin-right: 4.5% !important;
+  }
+  #theme-toggle-btn {
+    left: auto !important;
+    right: 2% !important;
+    margin-left: -0vh !important;
+    padding: 4px 4px !important;
+    font-size: 90% !important;
+  }
+  .search-nav {
+    width: 30% !important;
+  }
+  .post-container {
+    margin-left: 23% !important;
+    position: relative;
+    width: 80% !important;
+    padding: 5% !important;
+  }
+  .post-content {
+    font-size: 2vh !important;
+  }
+  .user-info span {
+    font-size: 280% !important;
+  }
+  .description {
+    font-size: 2vh !important;
+  }
+  .SubTitle {
+    font-size: 2vh !important;
+  }
+  .post-options {
+    padding: 0 !important;
+    font-size: 150% !important;
+    left: 86% !important;
+  }
+  .post-actions button {
+    margin: auto !important;
+    margin-top: 3% !important;
+    width: 25% !important;
+    height: 10% !important;
+  }
 }
 
-
-@media (max-width: 376px){
-    html{
-        font-size: 50%;
-    }
-    br {
-        display: block;
-        content: "";
-        margin: 10vh; /* Ajusta el margen según sea necesario */
-    }
-    .navbar{
-        display: none;
-    }
-    .filtros{
-        display: none;
-    }
-    .main{
-        width: 100% !important;
-        height: 100% !important;
-        margin-left: 0% !important;
-    }
-    .feedhead{
-        margin-left: 2%;
-        margin-top: -2% !important;
-        width: 92% !important;
-        height: 7% !important;
-        font-size: 1vh;
-    }
-    .feedhead h1 {
-        margin-top: 1% !important;
-        font-size: 200% !important;
-    }
-    .feedhead i {
-        font-size: 150% !important;
-    }
-    .search-nav form {
-        width: 100% !important;
-    }
-    .search-nav input[type="text"]{
-        margin-top: -1% !important;
-        margin-left: -20% !important;
-        width: 11vh !important;
-        height: 1.5vh !important;
-    }
-    .feedhead input[type="image"]{
-        margin-left: -100% !important;
-        width: 4vh !important;
-        height: 4vh !important;
-    }
-    .feedhead button{
-        font-size: 2vh !important;
-        margin-left: -8% !important;
-        margin-right: 7% !important;
-    }
-    .bi.bi-box-arrow-right {
-        margin: 0 !important;
-        margin-left: -120% !important;
-        font-size: 300% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
-    }
-    #theme-toggle-btn {
-        left: auto !important;
-        right: -5% !important;
-        margin-left: -0vh !important;
-        padding: 4px 10px !important;
-        font-size: 90% !important;
-    }
-    .search-nav {
-        width: 30% !important;
-        
-    }
-    .post-container{
-        margin-left: 23% !important;
-        position: relative;
-        width: 80% !important;
-        padding: 5% !important;
-    }
-    .post-content{
-        font-size: 2vh !important;
-    }
-    .user-info span{
-        font-size: 280% !important;
-    }
-    .description{
-        font-size: 2vh !important;
-    }
-    .SubTitle{
-        font-size: 2vh !important;
-    }
-    .post-options {
-        padding: 0 !important;
-        font-size: 150% !important;
-        left: 86% !important;
-    }
-    .post-actions button{
-        margin: auto !important;
-        margin-top: 3% !important;
-        width: 25% !important;
-        height: 10% !important;
-    }
+@media (max-width: 376px) {
+  html {
+    font-size: 50%;
+  }
+  br {
+    display: block;
+    content: "";
+    margin: 10vh; /* Ajusta el margen según sea necesario */
+  }
+  .navbar {
+    display: none;
+  }
+  .filtros {
+    display: none;
+  }
+  .main {
+    width: 100% !important;
+    height: 100% !important;
+    margin-left: 0% !important;
+  }
+  .feedhead {
+    margin-left: 2%;
+    margin-top: -2% !important;
+    width: 92% !important;
+    height: 7% !important;
+    font-size: 1vh;
+  }
+  .feedhead h1 {
+    margin-top: 1% !important;
+    font-size: 200% !important;
+  }
+  .feedhead i {
+    font-size: 150% !important;
+  }
+  .search-nav form {
+    width: 100% !important;
+  }
+  .search-nav input[type="text"] {
+    margin-top: -1% !important;
+    margin-left: -20% !important;
+    width: 11vh !important;
+    height: 1.5vh !important;
+  }
+  .feedhead input[type="image"] {
+    margin-left: -100% !important;
+    width: 4vh !important;
+    height: 4vh !important;
+  }
+  .feedhead button {
+    font-size: 2vh !important;
+    margin-left: -8% !important;
+    margin-right: 7% !important;
+  }
+  .bi.bi-box-arrow-right {
+    margin: 0 !important;
+    margin-left: -120% !important;
+    font-size: 300% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
+  }
+  #theme-toggle-btn {
+    left: auto !important;
+    right: -5% !important;
+    margin-left: -0vh !important;
+    padding: 4px 10px !important;
+    font-size: 90% !important;
+  }
+  .search-nav {
+    width: 30% !important;
+  }
+  .post-container {
+    margin-left: 23% !important;
+    position: relative;
+    width: 80% !important;
+    padding: 5% !important;
+  }
+  .post-content {
+    font-size: 2vh !important;
+  }
+  .user-info span {
+    font-size: 280% !important;
+  }
+  .description {
+    font-size: 2vh !important;
+  }
+  .SubTitle {
+    font-size: 2vh !important;
+  }
+  .post-options {
+    padding: 0 !important;
+    font-size: 150% !important;
+    left: 86% !important;
+  }
+  .post-actions button {
+    margin: auto !important;
+    margin-top: 3% !important;
+    width: 25% !important;
+    height: 10% !important;
+  }
 }
 
-@media (max-width:361px){
-    html{
-        font-size: 40%;
-    }
-    br {
-        display: block;
-        content: "";
-        margin: 10vh; /* Ajusta el margen según sea necesario */
-    }
-    .navbar{
-        display: none;
-    }
-    .filtros{
-        display: none;
-    }
-    .main{
-        width: 100% !important;
-        height: 100% !important;
-        margin-left: 0% !important;
-    }
-    .feedhead{
-        margin-left: 2%;
-        margin-top: -2% !important;
-        width: 92% !important;
-        height: 7% !important;
-        font-size: 1vh;
-    }
-    .feedhead i {
-        font-size: 150% !important;
-    }
-    .search-nav form {
-        width: 100% !important;
-    }
-    .search-nav input[type="text"]{
-        margin-top: -1% !important;
-        margin-left: -10% !important;
-        width: 8vh !important;
-        height: 1.5vh !important;
-    }
-    .feedhead input[type="image"]{
-        margin-left: -90% !important;
-        width: 4vh !important;
-        height: 4vh !important;
-    }
-    .feedhead button{
-        font-size: 2vh !important;
-        margin-left: -9% !important;
-        margin-right: 7% !important;
-    }
-    .bi.bi-box-arrow-right {
-        margin: 0 !important;
-        margin-left: -110% !important;
-        font-size: 310% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
-    }
-    #theme-toggle-btn {
-        left: auto !important;
-        right: -6% !important;
-        margin-left: -0vh !important;
-        padding: 4px 10px !important;
-        font-size: 90% !important;
-    }
-    .search-nav {
-        width: 30% !important;
-        
-    }
-    .post-container{
-        margin-left: 23% !important;
-        position: relative;
-        width: 80% !important;
-        padding: 5% !important;
-    }
-    .post-content{
-        font-size: 2vh !important;
-    }
-    .user-info span{
-        font-size: 280% !important;
-    }
-    .description{
-        font-size: 2vh !important;
-    }
-    .SubTitle{
-        font-size: 2vh !important;
-    }
-    .post-options {
-        padding: 0 !important;
-        font-size: 150% !important;
-        left: 86% !important;
-    }
-    .post-actions button{
-        margin: auto !important;
-        margin-top: 3% !important;
-        width: 25% !important;
-        height: 10% !important;
-    }
+@media (max-width: 361px) {
+  html {
+    font-size: 40%;
+  }
+  br {
+    display: block;
+    content: "";
+    margin: 10vh; /* Ajusta el margen según sea necesario */
+  }
+  .navbar {
+    display: none;
+  }
+  .filtros {
+    display: none;
+  }
+  .main {
+    width: 100% !important;
+    height: 100% !important;
+    margin-left: 0% !important;
+  }
+  .feedhead {
+    margin-left: 2%;
+    margin-top: -2% !important;
+    width: 92% !important;
+    height: 7% !important;
+    font-size: 1vh;
+  }
+  .feedhead i {
+    font-size: 150% !important;
+  }
+  .search-nav form {
+    width: 100% !important;
+  }
+  .search-nav input[type="text"] {
+    margin-top: -1% !important;
+    margin-left: -10% !important;
+    width: 8vh !important;
+    height: 1.5vh !important;
+  }
+  .feedhead input[type="image"] {
+    margin-left: -90% !important;
+    width: 4vh !important;
+    height: 4vh !important;
+  }
+  .feedhead button {
+    font-size: 2vh !important;
+    margin-left: -9% !important;
+    margin-right: 7% !important;
+  }
+  .bi.bi-box-arrow-right {
+    margin: 0 !important;
+    margin-left: -110% !important;
+    font-size: 310% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
+  }
+  #theme-toggle-btn {
+    left: auto !important;
+    right: -6% !important;
+    margin-left: -0vh !important;
+    padding: 4px 10px !important;
+    font-size: 90% !important;
+  }
+  .search-nav {
+    width: 30% !important;
+  }
+  .post-container {
+    margin-left: 23% !important;
+    position: relative;
+    width: 80% !important;
+    padding: 5% !important;
+  }
+  .post-content {
+    font-size: 2vh !important;
+  }
+  .user-info span {
+    font-size: 280% !important;
+  }
+  .description {
+    font-size: 2vh !important;
+  }
+  .SubTitle {
+    font-size: 2vh !important;
+  }
+  .post-options {
+    padding: 0 !important;
+    font-size: 150% !important;
+    left: 86% !important;
+  }
+  .post-actions button {
+    margin: auto !important;
+    margin-top: 3% !important;
+    width: 25% !important;
+    height: 10% !important;
+  }
 }

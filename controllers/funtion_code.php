@@ -1,6 +1,7 @@
 <?php
-require_once('../src/Models/conexion.php');
+require_once ('../src/Models/conexion.php');
 use Models\Conexion;
+
 $conn = new Conexion();
 $pdo = $conn->getPdo();
 
@@ -23,15 +24,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = "Tu código de restablecimiento de contraseña es: " . $code;
     $headers = "From: from@example.com";
 
-    if(mail($to, $subject, $message, $headers))
-    {
+    if (mail($to, $subject, $message, $headers)) {
         echo "<script>
             alert('Se ha enviado un correo electrónico con tu código de restablecimiento de contraseña.');
             window.location.href = '../src/views/reset.php';
         </script>";
-    }
-    else
-    {
+    } else {
         echo "<script>
             alert('El mensaje no pudo ser enviado.');
             window.location.href = '../src/views/reset.php';

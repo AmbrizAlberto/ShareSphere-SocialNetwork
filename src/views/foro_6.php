@@ -55,7 +55,8 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       <div class="access">
         <br /><br />
         <a href="./main.php"><button class="optionnv"><i class="bi bi-house-fill"></i></i><span>Home</span></button></a>
-        <a href="./PerfilPage.php"><button class="optionnv"><i class="bi bi-person-circle"></i></i><span>Profile</span></button></a>
+        <a href="./PerfilPage.php"><button class="optionnv"><i
+              class="bi bi-person-circle"></i></i><span>Profile</span></button></a>
       </div>
 
     </div>
@@ -112,7 +113,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       <a href="../../controllers/logout.php" class="logout"><i class="bi bi-box-arrow-right"></i></a>
 
       <button id="theme-toggle-btn"><i class="bi bi-lightbulb-fill"></i></button>
-      
+
     </div>
 
     <br /><br /><br /><br /><br /><br />
@@ -126,8 +127,10 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
         <h1>Filtro</h1>
 
         <div class="forum">
-          <button onclick="window.location.href='../views/foro_7.php'"><img src="../images/7.png" style="position: relative; top: 50%;"></button>
-          <button onclick="window.location.href='../views/foro_14.php'"><img src="../images/14.jpg" style="position: relative; top:70%"></button>
+          <button onclick="window.location.href='../views/foro_7.php'"><img src="../images/7.png"
+              style="position: relative; top: 50%;"></button>
+          <button onclick="window.location.href='../views/foro_14.php'"><img src="../images/14.jpg"
+              style="position: relative; top:70%"></button>
         </div>
 
       </div>

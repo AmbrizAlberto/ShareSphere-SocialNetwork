@@ -2,7 +2,7 @@ html {
   width: 100%;
   height: 100vh;
   background-color: rgb(37, 37, 37);
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 br {
@@ -11,15 +11,15 @@ br {
   margin: 15vh; /* Ajusta el margen según sea necesario */
 }
 
-.navbar br{
+.navbar br {
   display: block;
   content: "";
   margin: 5vh; /* Ajusta el margen según sea necesario */
 }
 
-body{
+body {
   background-color: transparent;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   overflow-x: hidden;
 }
 
@@ -34,7 +34,7 @@ body{
 
 /* FEEDHEAD*/
 .feedhead {
-  padding-top: .5%;
+  padding-top: 0.5%;
   color: rgba(255, 255, 255, 0.77);
   z-index: 1;
   position: fixed;
@@ -47,7 +47,6 @@ body{
   border-bottom: 1.5px solid rgba(255, 255, 255, 0.422);
   box-shadow: 0px 30px 30px -30px rgba(0, 0, 0, 0.576); /* Cambio en esta línea */
 }
-
 
 .feedhead h1 {
   margin-top: 2%;
@@ -69,19 +68,19 @@ body{
   transition: 300ms;
 }
 
-.feedhead  i.bi.bi-box-arrow-right {
+.feedhead i.bi.bi-box-arrow-right {
   margin-left: 35%;
   font-size: 220%;
 }
 
-.feedhead button{
+.feedhead button {
   font-size: 150%;
   border: none;
   color: white;
   margin-left: 0%;
 }
 
-.feedhead i:hover{
+.feedhead i:hover {
   background-color: transparent;
   color: #6de4bd;
   text-shadow: 0 0px 10px rgb(0, 0, 0);
@@ -129,13 +128,12 @@ body{
   border: none;
   border-radius: 20px;
 }
-.search-nav input[type="text"]::placeholder{
+.search-nav input[type="text"]::placeholder {
   color: rgba(255, 255, 255, 0.43);
   background-color: transparent;
   padding: 8px;
   border-radius: 4px;
 }
-
 
 .feed {
   color: white;
@@ -156,17 +154,17 @@ body{
   border: none;
   border-radius: 10px;
   display: flex;
-  align-items: center; 
+  align-items: center;
   transition: 300ms;
   margin-top: 0%;
   margin-bottom: 3%;
 }
 
-.upload:hover ::placeholder{
-  color:  #5cb1a2;
+.upload:hover ::placeholder {
+  color: #5cb1a2;
 }
 
-.upload:hover{
+.upload:hover {
   box-shadow: 0 0px 20px #5cb1a2;
   transition: 300ms;
 }
@@ -177,7 +175,7 @@ body{
 }
 
 .upload input {
-  flex: 0 0 75%; 
+  flex: 0 0 75%;
   padding: 1em;
   background-color: transparent;
   border: none;
@@ -186,7 +184,7 @@ body{
 
 .upload button {
   color: rgba(255, 255, 255, 0.557);
-  flex: 0 0 10%; 
+  flex: 0 0 10%;
   background-color: transparent;
   border: none;
   border-left: 1px solid rgba(255, 255, 255, 0.644);
@@ -194,11 +192,10 @@ body{
   padding-right: 3.5vh;
   padding-top: 4%;
   padding-bottom: 4%;
-
 }
 
 .upload button:hover {
-  color:  #5cb1a2;
+  color: #5cb1a2;
   background-color: transparent;
   cursor: pointer;
 }
@@ -209,9 +206,9 @@ body{
   right: 18%;
   margin: 2vh auto;
   position: relative;
-  border-radius:3vh;
+  border-radius: 3vh;
   overflow: hidden;
-  box-shadow: 0 0px 15px #0000001a;  
+  box-shadow: 0 0px 15px #0000001a;
   background-color: #ffffff13;
   border: 1px solid rgba(255, 255, 255, 0.194);
   cursor: pointer;
@@ -221,7 +218,7 @@ body{
   margin-bottom: 5vh;
 }
 
-.post-container:hover{
+.post-container:hover {
   background-color: #ffffff28;
   box-shadow: 0 0px 40px black;
   transition: 500ms;
@@ -239,7 +236,8 @@ body{
   color: #fff;
   align-items: center;
   left: 3%;
-}.user-info span{
+}
+.user-info span {
   font-weight: bold;
   font-size: 1.5em;
   margin: auto;
@@ -268,7 +266,7 @@ body{
 /* Opciones de Publicacion */
 .option-content {
   text-align: center;
-  width: 150%; 
+  width: 150%;
   height: auto;
   display: none;
   position: absolute;
@@ -322,14 +320,14 @@ body{
   font-size: 1.5em;
 }
 
-.SubTitle{
+.SubTitle {
   color: #fff;
   text-align: center;
   font-size: 2.5vh;
   margin-top: -2%;
 }
 
-.description{
+.description {
   font-size: 3vh;
   font-weight: bold;
   color: #ffffffa8;
@@ -379,7 +377,6 @@ body{
   color: black;
 }
 
-
 #theme-toggle-btn {
   position: absolute;
   font-size: x-small;
@@ -392,7 +389,7 @@ body{
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
-#theme-toggle-btn:hover{
+#theme-toggle-btn:hover {
   background-color: #5cb1a2;
   color: white;
 }
@@ -400,15 +397,15 @@ body{
   position: absolute;
   font-size: x-small;
   right: 0%;
-  background-color: #ffffff; 
-  color: #000000; 
+  background-color: #ffffff;
+  color: #000000;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
-#theme-toggle-btn-visitor:hover{
+#theme-toggle-btn-visitor:hover {
   background-color: #5cb1a2;
 }
 
@@ -417,7 +414,10 @@ body{
   display: flex;
   cursor: pointer;
   transition: opacity 0.3s, transform 0.3s;
-  position: fixed; right: 1rem; bottom: 1rem; z-index: 9999;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 9999;
   background-color: #5cb1a2;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   border-radius: 0.5rem;
@@ -436,4 +436,4 @@ body{
   stroke: currentColor;
   fill: none;
   width: 24px;
-} 
+}

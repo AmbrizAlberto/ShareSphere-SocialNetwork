@@ -1,68 +1,62 @@
 @media (max-width: 1024px) {
-    .modal-content label{
-        margin-top: 0;
-    }
+  .modal-content label {
+    margin-top: 0;
+  }
 }
 
 @media (max-width: 912px) {
 }
 
-
-@media (max-width:820px) {
+@media (max-width: 820px) {
 }
 
-
-@media(max-width:768px){
-    .modal-content {
-        font-size: 3vh;
-        width: 70%;
-    }
-    .modal-content select{
-        font-size: 2vh;
-    }
-    .modal-content textarea{
-        font-size: 2vh;
-    }
+@media (max-width: 768px) {
+  .modal-content {
+    font-size: 3vh;
+    width: 70%;
+  }
+  .modal-content select {
+    font-size: 2vh;
+  }
+  .modal-content textarea {
+    font-size: 2vh;
+  }
 }
 
-
-@media(max-width:540px){
+@media (max-width: 540px) {
 }
 
-@media(max-width: 431px){
-    .modal-content img{
-        margin-top: -20vh;
-    }
-    .modal-content select{
-        font-size: 1.7vh;
-    }
-    .modal-content textarea{
-        font-size: 1.7vh;
-    }
-
+@media (max-width: 431px) {
+  .modal-content img {
+    margin-top: -20vh;
+  }
+  .modal-content select {
+    font-size: 1.7vh;
+  }
+  .modal-content textarea {
+    font-size: 1.7vh;
+  }
 }
 
-@media (max-width:415px) {
-    .modal-content {
-        font-size: 3vh;
-        width: 70%;
-    }
-
+@media (max-width: 415px) {
+  .modal-content {
+    font-size: 3vh;
+    width: 70%;
+  }
 }
 
-
-@media (max-width: 376px){
-    .modal-content {
-        font-size: 3vh;
-        width: 70%;
-    }
-    .modal-content label{
-        margin-top: 0;
-    }
-    .modal-content button {
-        font-size: 3vh !important;
-    }
+@media (max-width: 376px) {
+  .modal-content {
+    font-size: 3vh;
+    width: 70%;
+  }
+  .modal-content label {
+    margin-top: 0;
+  }
+  .modal-content button {
+    font-size: 3vh !important;
+  }
 }
 
-@media (max-width:361px){
+@media (max-width: 361px) {
 }

@@ -1,152 +1,163 @@
-html, body {
-    height: auto;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #242839;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    color: black;
+html,
+body {
+  height: auto;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #242839;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: black;
 }
 
 .content-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: black;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
 }
 
 .container {
-    margin-top: 7%;
-    width: 80vh;
-    height: 25vh;
-    background-color: #fff;
-    color: black;
-    border-radius: 20px;
-    box-shadow: 0 0 30px black;
-    padding: 10%;
+  margin-top: 7%;
+  width: 80vh;
+  height: 25vh;
+  background-color: #fff;
+  color: black;
+  border-radius: 20px;
+  box-shadow: 0 0 30px black;
+  padding: 10%;
 }
 
-.contain h1{
-    font-size: 5vh;
-    color: black;
+.contain h1 {
+  font-size: 5vh;
+  color: black;
 }
 
-.contain input{
-    align-items: center;
-    align-self: auto;
-    align-content: center;
-    text-align: center;
-    width: 30vh;
-    height: 3vh;
-    padding: 2%;
-    border-radius: 10px;
-    margin-right: 2%;
-    margin-bottom: 3vh;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: transform 0.3s ease;
-    color: black;
-}.contain input::placeholder{
-    padding: 1%;
-    text-align: center;
-    font-size: 150%;
+.contain input {
+  align-items: center;
+  align-self: auto;
+  align-content: center;
+  text-align: center;
+  width: 30vh;
+  height: 3vh;
+  padding: 2%;
+  border-radius: 10px;
+  margin-right: 2%;
+  margin-bottom: 3vh;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+  color: black;
+}
+.contain input::placeholder {
+  padding: 1%;
+  text-align: center;
+  font-size: 150%;
 }
 
-
-.contain input:is([type="button"], [type="submit"], [type="reset"]), input[type="file"]::file-selector-button, button {
-    width: auto;
-    height: auto;
-    background-color: #5cb1a2;
-    border-radius: 10px;
-    padding: 2%;
-    font-size: 3vh;
-    background-color: #5cb1a2;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    cursor: pointer;
+.contain input:is([type="button"], [type="submit"], [type="reset"]),
+input[type="file"]::file-selector-button,
+button {
+  width: auto;
+  height: auto;
+  background-color: #5cb1a2;
+  border-radius: 10px;
+  padding: 2%;
+  font-size: 3vh;
+  background-color: #5cb1a2;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
-.contain input:is([type="button"], [type="submit"], [type="reset"]), input[type="file"]::file-selector-button, button:hover {
-    background-color: #417f74;
-    transition: 500ms;
+.contain input:is([type="button"], [type="submit"], [type="reset"]),
+input[type="file"]::file-selector-button,
+button:hover {
+  background-color: #417f74;
+  transition: 500ms;
 }
 
 .contain a:any-link {
-    color: rgba(0, 0, 0, 0.268);
-    font-size: 4vh;
+  color: rgba(0, 0, 0, 0.268);
+  font-size: 4vh;
 }
 .contain a:any-link:hover {
-    color: black;
-    transition: 500ms;
-    cursor: pointer;
+  color: black;
+  transition: 500ms;
+  cursor: pointer;
 }
-
-
-
 
 /* FOOTERS */
 footer {
-    width: 90%;
-    background-color: #fff;
-    color: #000000;
-    padding: 20px 0;
-    border-radius: 20px;
-    margin-bottom: 2.5%;
-    margin-top: 10%;
-    box-shadow: 0 0 25px black;
+  width: 90%;
+  background-color: #fff;
+  color: #000000;
+  padding: 20px 0;
+  border-radius: 20px;
+  margin-bottom: 2.5%;
+  margin-top: 10%;
+  box-shadow: 0 0 25px black;
 }
 
 .footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .footer-container div {
-    flex: 1;
-    margin: 10px;
+  flex: 1;
+  margin: 10px;
 }
 
-.footer-about, .footer-contact, .footer-links, .footer-social {
-    max-width: 250px;
+.footer-about,
+.footer-contact,
+.footer-links,
+.footer-social {
+  max-width: 250px;
 }
 
-.footer-about p, .footer-contact p, .footer-links ul, .footer-social ul {
-    margin: 0;
+.footer-about p,
+.footer-contact p,
+.footer-links ul,
+.footer-social ul {
+  margin: 0;
 }
 
-.footer-links ul, .footer-social ul {
-    list-style: none;
-    padding: 0;
+.footer-links ul,
+.footer-social ul {
+  list-style: none;
+  padding: 0;
 }
 
-.footer-links a, .footer-social a {
-    color: #000000;
-    text-decoration: none;
+.footer-links a,
+.footer-social a {
+  color: #000000;
+  text-decoration: none;
 }
 
-.footer-links a:hover, .footer-social a:hover {
-    text-decoration: underline;
+.footer-links a:hover,
+.footer-social a:hover {
+  text-decoration: underline;
 }
 
 .social-icons {
-    display: wrap;
-    gap: 10px;
+  display: wrap;
+  gap: 10px;
 }
 
 .footer-bottom {
-    margin: auto;
-    width: 90%;
-    text-align: center;
-    padding: 10px;
-    border-top: 1px solid #0000007a;
+  margin: auto;
+  width: 90%;
+  text-align: center;
+  padding: 10px;
+  border-top: 1px solid #0000007a;
 }

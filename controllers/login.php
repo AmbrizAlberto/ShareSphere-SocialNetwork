@@ -1,15 +1,16 @@
 <?php
 namespace controllers;
-require_once('../autoload.php');
-use Models\{posts,conexion};
+
+require_once ('../autoload.php');
+use Models\{posts, conexion};
 use PDO, PDOException;
+
 $posts = new posts();
 session_set_cookie_params(0);
-    session_start();// Iniciar la sesión
-    if(isset($_SESSION['email']))
-    {
-        header("Location:../src/views/main.php");
-    }
+session_start();// Iniciar la sesión
+if (isset($_SESSION['email'])) {
+    header("Location:../src/views/main.php");
+}
 ?>
 
 <?php
@@ -21,10 +22,8 @@ $pdo = $conn->getPdo();
 
 
 // Verifica si se envió el formulario
-if ($_SERVER['REQUEST_METHOD'] == 'POST') 
-{
-    if (isset($_POST['email']) && isset($_POST['password'])) 
-    {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['email']) && isset($_POST['password'])) {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
@@ -35,11 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $consulta->execute();
             $user = $consulta->fetch(PDO::FETCH_ASSOC);
 
-            if ($user) 
-            {
+            if ($user) {
                 // Verificamos si la contraseña ingresada coincide con la almacenada en la base de datos
-                if (password_verify($password, $user['passwordHash']))
-                {
+                if (password_verify($password, $user['passwordHash'])) {
                     $_SESSION['email'] = $email; // Almacenamos el email del usuario en la sesión
                     $_SESSION['name'] = $user['name']; // Almacenamos el nombre del usuario en la sesión
                     $_SESSION['username'] = $user['username'];
@@ -47,16 +44,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     $_SESSION['theme'] = $user['theme'];
                     header("Location:../src/views/main.php"); // Redireccionar al usuario a la página de inicio
                     exit();
-                } else 
-                {
+                } else {
                     echo "<script>alert('Los datos ingresados son incorrectos.'); window.history.back();</script>";
                 }
-            } else 
-            {
+            } else {
                 echo "<script>alert('El correo electrónico no está registrado.'); window.location.href = '../src/views/login.php';</script>";
             }
-        } catch (PDOException $e) 
-        {
+        } catch (PDOException $e) {
             // En caso de error, muestra un mensaje de error
             $errorMessage = addslashes($e->getMessage());
             echo "<script>
@@ -64,11 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 window.location.href = '../src/views/login.php';
             </script>";
         }
-    } 
-    else 
-    {
+    } else {
         echo "No se enviaron los datos del formulario.";
     }
-    
+
 }
 ?>

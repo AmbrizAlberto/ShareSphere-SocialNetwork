@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
 
     <link rel="stylesheet" href="../css/PassForg.css">
 </head>
+
 <body>
     <div class="content-wrapper">
         <div class="container">
@@ -14,7 +16,8 @@
                 <h1>Recuperar contraseña</h1>
                 <form action="../../controllers/funtion_reset.php" method="post">
                     <input type="text" class="input-field" placeholder="Ingrese el codigo" name="code" required>
-                    <input type="password" id="new_password" name="new_password" class="input-field" placeholder="Ingrese la nueva contraseña" required>
+                    <input type="password" id="new_password" name="new_password" class="input-field"
+                        placeholder="Ingrese la nueva contraseña" required>
                     <input type="submit" value="Continuar">
                 </form>
             </div>
@@ -59,4 +62,5 @@
         </footer>
     </div>
 </body>
+
 </html>

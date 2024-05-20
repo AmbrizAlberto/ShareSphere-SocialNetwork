@@ -1,6 +1,7 @@
 <?php
-require_once('../src/Models/conexion.php');
+require_once ('../src/Models/conexion.php');
 use Models\Conexion;
+
 $conn = new conexion();
 
 $pdo = $conn->getPdo();
@@ -46,4 +47,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-

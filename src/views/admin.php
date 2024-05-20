@@ -1,12 +1,14 @@
 <?php
 require_once "../../autoload.php";
 use models\{posts, users};
+
 $posts = new posts();
 $users = new users();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +18,7 @@ $users = new users();
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/modal_admin.css">
 
-   <!-- <link rel="stylesheet" href="../css/main.css">
+    <!-- <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/textpost.css">
     <link rel="stylesheet" href="../css/photopost.css">
     <link rel="stylesheet" href="../css/modal.css">
@@ -30,14 +32,15 @@ $users = new users();
         <div class="navbar">
             <div class="logo">
                 <a href="./main.php">
-                    <img src="../images/Logo-cut.png" alt="Logo" style="font-size: 24px; background-color: transparent; border: none;">
+                    <img src="../images/Logo-cut.png" alt="Logo"
+                        style="font-size: 24px; background-color: transparent; border: none;">
                 </a>
             </div>
 
             <div class="access">
                 <br /><br />
                 <button class="optionnv" href="#"><i class="bi bi-house-fill"></i><span>Home</span></button>
-                
+
                 <div class="botonimg">
                     <button class="botonimgs">
                         <img src="../../src/images/6.png" alt="Agua Limpia y Saneamiento">
@@ -49,9 +52,10 @@ $users = new users();
                         <img src="../../src/images/14.jpg" alt="Vida Submarina">
                     </button>
                 </div>
-                <a class="optionnv" href="/controllers/logout.php"><i class="bi bi-box-arrow-left"></i></i><span>Salir</span></a>
-                
-            </div>  
+                <a class="optionnv" href="/controllers/logout.php"><i
+                        class="bi bi-box-arrow-left"></i></i><span>Salir</span></a>
+
+            </div>
         </div>
     </header>
 
@@ -67,10 +71,10 @@ $users = new users();
                 </div>
                 <div class="contador">
                     <div class="iconcont">
-                        <i class="bi bi-postcard"></i>                    
+                        <i class="bi bi-postcard"></i>
                     </div>
                     <div class="numero">
-                        <?= $posts->GetPostsIndex(); ?>  publicaciones
+                        <?= $posts->GetPostsIndex(); ?> publicaciones
                     </div>
                 </div>
             </button>
@@ -95,7 +99,7 @@ $users = new users();
                 </div>
                 <div class="contador">
                     <div class="iconcont">
-                        <i class="bi bi-flag"></i>                    
+                        <i class="bi bi-flag"></i>
                     </div>
                     <div class="numero">
                         No se que más poner aquí
@@ -113,7 +117,8 @@ $users = new users();
         </div>
 
         <script src="../js/modal_admin_user.js"></script>
-        
+
     </div>
 </body>
+
 </html>

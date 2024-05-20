@@ -1,14 +1,14 @@
 <?php //Funcion para evitar que los usuarios sin sesion iniciada puedan acceder al main
-    session_start();// Iniciar la sesión
-    if(isset($_SESSION['email']))
-    {
-        header("Location:./main.php");
+session_start();// Iniciar la sesión
+if (isset($_SESSION['email'])) {
+    header("Location:./main.php");
 
-    }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="../css/ResponsiveLogin.css">
 
 </head>
+
 <body>
     <div class="content-wrapper">
         <div class="container">
@@ -28,8 +29,10 @@
                 <img src="../images/Logo.png" class="logo">
                 <h2>Iniciar Sesion</h2>
                 <form action="../../controllers/login.php" method="post">
-                    <input type="text" id="email" name="email" class="input-field" placeholder="Correo electronico" required>
-                    <input type="password" id="password" name="password" class="input-field" placeholder="Contraseña" required>
+                    <input type="text" id="email" name="email" class="input-field" placeholder="Correo electronico"
+                        required>
+                    <input type="password" id="password" name="password" class="input-field" placeholder="Contraseña"
+                        required>
                     <input type="submit" value="Iniciar Sesion">
                     <a class="password" href="./code.php">¿Contraseña Olvidada?</a>
                     <h3>¿Aun no eres miembro?</h3>
@@ -44,7 +47,11 @@
             <div class="footer-container">
                 <div class="footer-about">
                     <h4>Sobre Nosotros</h4>
-                    <p>ShareSphere. Foro web desarrollado como proyecto escolar. <p>Universidad de Colima. <p>FIE</p></p></p>
+                    <p>ShareSphere. Foro web desarrollado como proyecto escolar.
+                    <p>Universidad de Colima.
+                    <p>FIE</p>
+                    </p>
+                    </p>
                 </div>
                 <div class="footer-links">
                     <h4>Enlaces Rápidos</h4>
@@ -79,4 +86,5 @@
         </footer>
     </div>
 </body>
+
 </html>

@@ -1,60 +1,60 @@
-.photopost img{
-    width: 50%;
-    height: auto;
-    position: relative;
-    display: inline-block;
-    border-radius: 1%;
-    transition: 500ms;
+.photopost img {
+  width: 50%;
+  height: auto;
+  position: relative;
+  display: inline-block;
+  border-radius: 1%;
+  transition: 500ms;
 }
 
-.photopost .description{
-    margin-left: 1%;
-    width: 120%;
-    transition: 300ms;
+.photopost .description {
+  margin-left: 1%;
+  width: 120%;
+  transition: 300ms;
 }
-.photopost .description h1{
-    font-size: 100%;
-    width: 120%;
-    transition: 300ms;
+.photopost .description h1 {
+  font-size: 100%;
+  width: 120%;
+  transition: 300ms;
 }
 
 /* RIGHTSIDE */
-.Post .rightside{
-    position: absolute;
-    width: 22%;
-    height: 0%;
-    padding-left: 1%;
-    padding-right: 0%;
-    padding-top: 2%;
-    margin-right: 10%;
-    margin-left: 22%;
-    margin-top: 9%;
+.Post .rightside {
+  position: absolute;
+  width: 22%;
+  height: 0%;
+  padding-left: 1%;
+  padding-right: 0%;
+  padding-top: 2%;
+  margin-right: 10%;
+  margin-left: 22%;
+  margin-top: 9%;
 }
 
 /* DESCRIPTION */
 
-.rightside .description h1{
-    text-align:left;
-    font-size: 90%;
+.rightside .description h1 {
+  text-align: left;
+  font-size: 90%;
 }
 
 /* PROPIETIES */
-.rightside .propieties{
-    height: 0%;
-    margin-top: 5vh;
-    margin-bottom: 10%;
+.rightside .propieties {
+  height: 0%;
+  margin-top: 5vh;
+  margin-bottom: 10%;
 }
 
-.rightside .propieties h1{
-    text-align: center;
-    font-size: 120%;
+.rightside .propieties h1 {
+  text-align: center;
+  font-size: 120%;
 }
 
-.propieties p{
-    margin-top: 5%;
-    display: flex;
+.propieties p {
+  margin-top: 5%;
+  display: flex;
 }
 
-.propieties i{
-    margin-right: 3%;
+.propieties i {
+  margin-right: 3%;
 }

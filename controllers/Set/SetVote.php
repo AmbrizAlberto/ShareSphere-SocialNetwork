@@ -20,7 +20,7 @@ $database = new DatabaseConnection();  // Asume una clase existente para conexiÃ
 try {
     // Verificar si ya existe un voto del usuario
     $existingVote = $database->query("SELECT type FROM Vote WHERE user_id = ? AND post_id = ?", [$userId, $postId])->fetchColumn();
-    
+
     if ($existingVote) {
         if ($existingVote == $voteType) {
             // Si el tipo de voto es el mismo, eliminarlo (desvotar)
@@ -33,7 +33,7 @@ try {
         // Crear nuevo voto
         $database->execute("INSERT INTO Vote (user_id, post_id, type) VALUES (?, ?, ?)", [$userId, $postId, $voteType]);
     }
-    
+
     echo json_encode(['success' => true, 'message' => 'Voto actualizado']);
 } catch (Exception $e) {
     echo json_encode(['success' => false, 'message' => 'Error en la base de datos']);

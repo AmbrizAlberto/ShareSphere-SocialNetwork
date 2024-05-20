@@ -1,10 +1,9 @@
 <?php //Funcion para evitar que los usuarios sin sesion iniciada puedan acceder al main
-    session_start();// Iniciar la sesión
-    if(empty($_SESSION['email']))
-    {
-        header("Location:./login.php");
+session_start();// Iniciar la sesión
+if (empty($_SESSION['email'])) {
+  header("Location:./login.php");
 
-    }
+}
 ?>
 
 
@@ -42,8 +41,8 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   <!-- CSS TEMAS -->
   <link rel="stylesheet" href="<?php echo $userdata['theme'] == '0' ? '../css/light-mode.css' : '../css/main.css' ?>"
     id="theme-style">
-  
-  <!-- IMPORTACION DE TOOLS -->    
+
+  <!-- IMPORTACION DE TOOLS -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -82,7 +81,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       </button>
       <!-- NOMBRE DE PAGINA -->
       <h1>ShareSphere</h1>
-      
+
       <!-- BUSCADOR -->
       <div class="search-nav">
         <form action="#" method="get">
@@ -135,7 +134,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
 
     </div>
 
-   <br/><br/><br/><br/><br/><br/>
+    <br /><br /><br /><br /><br /><br />
 
 
     <!-- FILTROS CONTENEDOR -->
@@ -167,19 +166,20 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
               alt="User Image"></a>
           <span><?php echo $username['username'] ?></span>
         </div>
-        
+
         <!-- OPCIONES DE POST -->
         <div class="post-options">
           <span><i class="bi bi-caret-down-fill"></i></span>
           <?php if ($post['creatorId'] == $_SESSION['userId']) { ?>
             <div class="option-content">
-            <!-- EDITAR POST -->
-            <a id="modalBtn-edit" onclick="openmodal('<?php echo htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8');?>')">
-              <i class="bi bi-pencil-fill"></i>
-            </a>
-            <!-- ELIMINAR POST -->
-            <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=0">
-              <i class="bi bi-trash-fill"></i></a>
+              <!-- EDITAR POST -->
+              <a id="modalBtn-edit"
+                onclick="openmodal('<?php echo htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8'); ?>')">
+                <i class="bi bi-pencil-fill"></i>
+              </a>
+              <!-- ELIMINAR POST -->
+              <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=0">
+                <i class="bi bi-trash-fill"></i></a>
             </div>
           <?php } ?>
         </div>
@@ -235,11 +235,11 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
           <span><?php echo $username['username'] ?></span>
         </div>
         <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro quam, perspiciatis sit ipsum voluptatum
-            provident accusamus dolores dolorem ex numquam et magnam fugit praesentium, sapiente nemo culpa quisquam,
-            consectetur corporis.
+          provident accusamus dolores dolorem ex numquam et magnam fugit praesentium, sapiente nemo culpa quisquam,
+          consectetur corporis.
         </h2>
       </div>
-      
+
       <div id="comment">
         <div class="text-comment">
           <input type="comment" placeholder="Comenta...">
@@ -274,31 +274,31 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
 
   <!-- MODAL DE EDITAR POST -->
   <div id="myModal-edit" class="modal">
-        <div class="modal-content">
-          <span class="close" id="closeBtn-edit" >&times;</span>
-          <form id="editForm" action="/controllers/Edit/EditPost.php" method="post" enctype="multipart/form-data">
-            <input type="hidden" id="idPost" name="id">
-            <input type="hidden" value="0" name="currentPage">
-            <label for="tema">Tema:</label>
-            <select id="selector-edit" name="post_subgroup_id" required>
-              <option value="1" >Agua Limpia y Saneamineto</option>
-              <option value="3" >Energia Asequible y No Contaminante</option>
-              <option value="4" >Vida Submarina</option>
-              <!-- Agrega más opciones según sea necesario -->
-            </select>
-            <label for="titulo-edit">Titulo:</label>
-            <textarea id="titulo-edit" name="post_title" rows="1" required placeholder="Titulo..."></textarea>
+    <div class="modal-content">
+      <span class="close" id="closeBtn-edit">&times;</span>
+      <form id="editForm" action="/controllers/Edit/EditPost.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" id="idPost" name="id">
+        <input type="hidden" value="0" name="currentPage">
+        <label for="tema">Tema:</label>
+        <select id="selector-edit" name="post_subgroup_id" required>
+          <option value="1">Agua Limpia y Saneamineto</option>
+          <option value="3">Energia Asequible y No Contaminante</option>
+          <option value="4">Vida Submarina</option>
+          <!-- Agrega más opciones según sea necesario -->
+        </select>
+        <label for="titulo-edit">Titulo:</label>
+        <textarea id="titulo-edit" name="post_title" rows="1" required placeholder="Titulo..."></textarea>
 
-            <label for="texto-edit">Texto:</label>
-            <textarea id="texto-edit" name="post_content" rows="4" requiredplaceholder="Descripcion..."></textarea>
-            <label for="newImage-edit">Cargar imagen:</label><br>
-            <img id="previewImage-edit"   class=".modal-content">
-            <input type="file" id="newImage-edit" name="newImage" accept="image/*">
-            <button class=".modal-content" type="submit">Guardar Cambios</button>
-          </form>
-        </div>
-        </div>
-        
+        <label for="texto-edit">Texto:</label>
+        <textarea id="texto-edit" name="post_content" rows="4" requiredplaceholder="Descripcion..."></textarea>
+        <label for="newImage-edit">Cargar imagen:</label><br>
+        <img id="previewImage-edit" class=".modal-content">
+        <input type="file" id="newImage-edit" name="newImage" accept="image/*">
+        <button class=".modal-content" type="submit">Guardar Cambios</button>
+      </form>
+    </div>
+  </div>
+
   <!-- BOTON A TOP -->
   <button class="toTop" id="toTop">
     <svg viewBox="0 0 24 24">
