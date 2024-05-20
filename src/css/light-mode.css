@@ -77,17 +77,17 @@ body {
 
 .upload {
     color: #333; /* Texto oscuro */
-    background-color: #ffffff23;
-    box-shadow: 0 0px 20px black;
-   
+    background-color: #d4d4d4b6;
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0);
+    border: 1px solid #00000022;
 }
 
 .upload:hover ::placeholder {
-    color: #070707; /* Color de texto */
+    color: #07070755; /* Color de texto */
 }
 
 .upload:hover {
-    box-shadow: 0 0px 20px rgba(0, 123, 255, 0.5); /* Sombra con color de texto azul */
+    box-shadow: 0 0px 20px #5cb1a2; /* Sombra con color de texto azul */
 }
 
 .upload button {
@@ -96,7 +96,7 @@ body {
 }
 
 .upload button:hover {
-    color: #0059b7; /* Color de texto azul más oscuro */
+    color: #5cb1a2; /* Color de texto azul más oscuro */
    
 }
 

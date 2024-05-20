@@ -25,6 +25,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ShareSphere</title>
 
+  <!-- CSS -->
   <link rel="stylesheet" href="../css/navbar.css">
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/textpost.css">
@@ -34,9 +35,15 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   <link rel="stylesheet" href="../css/Post.css">
   <link rel="stylesheet" href="../css/modalEdit.css">
 
+  <link rel="stylesheet" href="../css/ResponsiveMain.css">
+  <link rel="stylesheet" href="../css/ResponsiveModal.css">
+
+
+  <!-- CSS TEMAS -->
   <link rel="stylesheet" href="<?php echo $userdata['theme'] == '0' ? '../css/light-mode.css' : '../css/main.css' ?>"
     id="theme-style">
-
+  
+  <!-- IMPORTACION DE TOOLS -->    
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -44,6 +51,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
 
 <body>
 
+  <!-- NAVBAR -->
   <header>
     <div class="navbar">
       <div class="logo">
@@ -55,9 +63,11 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
 
       <div class="access">
         <br /><br />
+        <!-- ACCESOS -->
         <button class="optionnv" href="#"><i class="bi bi-house-fill"></i></i><span>Home</span></button>
         <a href="./PerfilPage.php"><button class="optionnv"><i
-              class="bi bi-person-circle"></i></i><span>Profile</span></button></a>
+              class="bi bi-person-circle"></i></i><span>Profile</span></button>
+        </a>
       </div>
 
     </div>
@@ -65,26 +75,32 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
 
   <div class="main">
 
+    <!-- HEADER MAIN -->
     <div class="feedhead">
       <button id="theme-toggle-btn">
         <i class="bi bi-lightbulb-fill"></i>
       </button>
-
+      <!-- NOMBRE DE PAGINA -->
       <h1>ShareSphere</h1>
       
+      <!-- BUSCADOR -->
       <div class="search-nav">
         <form action="#" method="get">
           <input type="text" placeholder="Buscar..." name="search">
         </form>
       </div>
+      <!-- FOTO DE PERFIL -->
       <form action="./PerfilPage.php" method="post">
         <input type="image"
           src="<?php echo $userdata['image'] ? "/public/images_users/" . $userdata['image'] : "/public/images_users/userdefault.png" ?>"
           alt="Texto Alternativo" />
       </form>
+
+      <!-- BOTON CREAR POST -->
       <button id="modalBtn" style="background-color: transparent;">
         <i class="bi bi-plus-square"></i>
       </button>
+      <!-- MODAL CREAR POST -->
       <div id="myModal" class="modal">
         <div class="modal-content">
           <span class="close" id="closeBtn">&times;</span>
@@ -100,29 +116,29 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
             </select>
             <label for="titulo">Titulo:</label>
             <textarea id="titulo" name="post_title" rows="1" required placeholder="Titulo..."></textarea>
-
             <label for="texto">Texto:</label>
             <textarea id="texto" name="post_content" rows="4" requiredplaceholder="Descripcion..."></textarea>
-
             <label for="foto">Imagen:</label>
             <input type="file" id="foto" name="image" accept="image/*">
-
             <button type="submit">Enviar</button>
           </form>
         </div>
       </div>
       <script src="script.js"></script>
 
+      <!-- NOTIFICACIONES -->
       <button style="background-color: transparent;">
         <i class="bi bi-app-indicator"></i>
       </button>
-
+      <!-- CERRAR SESION -->
       <a href="../../controllers/logout.php" class="logout"><i class="bi bi-box-arrow-right"></i></a>
 
     </div>
 
-    <br /><br /><br /><br /><br /><br />
+   <br/><br/><br/><br/><br/><br/>
 
+
+    <!-- FILTROS CONTENEDOR -->
     <div class="filtros">
       <div class="containerfiltros">
         <h1>Filtro</h1>
@@ -136,11 +152,14 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       </div>
     </div>
 
+    <!-- PUBLICACIONES -->
     <?php foreach ($postList as $post) { ?>
       <?php $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_STRING));
       $editpost = $post; ?>
 
+      <!-- CONTENEDOR POST -->
       <div class="post-container">
+        <!-- INFO USUARIO -->
         <div class="user-info" onclick="openModal(event)">
           <a
             href="<?php echo "/src/views/" . ($_SESSION['userId'] == $post['creatorId'] ? "PerfilPage.php" : "userPage.php?idPerfil=" . $post['creatorId']); ?>">
@@ -148,19 +167,27 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
               alt="User Image"></a>
           <span><?php echo $username['username'] ?></span>
         </div>
+        
+        <!-- OPCIONES DE POST -->
         <div class="post-options">
           <span><i class="bi bi-caret-down-fill"></i></span>
           <?php if ($post['creatorId'] == $_SESSION['userId']) { ?>
             <div class="option-content">
-            <a id="modalBtn-edit" onclick="openmodal('<?php echo htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8');?>')"><i class="bi bi-pencil-fill"></i></a>
-              <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=0"><i
-                  class="bi bi-trash-fill"></i></a>
+            <!-- EDITAR POST -->
+            <a id="modalBtn-edit" onclick="openmodal('<?php echo htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8');?>')">
+              <i class="bi bi-pencil-fill"></i>
+            </a>
+            <!-- ELIMINAR POST -->
+            <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=0">
+              <i class="bi bi-trash-fill"></i></a>
             </div>
           <?php } ?>
         </div>
+        <!-- TITULO POST -->
         <h2 class="post-content" onclick="openModal(event)">
           <?php echo $post['title']; ?>
         </h2>
+        <!-- SUBTITULO POST-->
         <a href="#" style=text-decoration:none>
           <h3 class="SubTitle" onclick="openModal(event)">
             <?php switch ($post['SubgroupId']) {
@@ -176,6 +203,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
             } ?>
           </h3>
         </a>
+        <!-- DESCRIPCION POST -->
         <div class="description" onclick="openModal(event)">
           <?php echo $post['content'] ?>
         </div>
@@ -191,6 +219,10 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
         </div>
       </div>
     <?php } ?>
+
+
+
+    <!-- MODAL AL ENTRAR AL POST -->
     <div id="Post-complete" class="post">
       <span class="close-post" onclick="closeModal()">&times;</span>
       <div class="content-post">
@@ -237,6 +269,10 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       </div>
     </div>
   </div>
+
+
+
+  <!-- MODAL DE EDITAR POST -->
   <div id="myModal-edit" class="modal">
         <div class="modal-content">
           <span class="close" id="closeBtn-edit" >&times;</span>
@@ -256,20 +292,21 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
             <label for="texto-edit">Texto:</label>
             <textarea id="texto-edit" name="post_content" rows="4" requiredplaceholder="Descripcion..."></textarea>
             <label for="newImage-edit">Cargar imagen:</label><br>
-            <img id="previewImage-edit"  alt="User Image" class=".modal-content">
+            <img id="previewImage-edit"   class=".modal-content">
             <input type="file" id="newImage-edit" name="newImage" accept="image/*">
             <button class=".modal-content" type="submit">Guardar Cambios</button>
           </form>
         </div>
         </div>
         
-      
+  <!-- BOTON A TOP -->
   <button class="toTop" id="toTop">
     <svg viewBox="0 0 24 24">
       <path d="m4 16 8-8 8 8"></path>
     </svg>
   </button>
 
+  <!-- SCRIPTS -->
   <script src="../js/script.js"></script>
   <script src="../js/scriptedit.js"></script>
   <script src="../js/toTop.js"></script>

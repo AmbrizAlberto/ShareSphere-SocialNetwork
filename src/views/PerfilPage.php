@@ -148,8 +148,8 @@ $user = $posts->GetUserById($_SESSION['userId']);
           <input type="hidden" value="<?php echo $_SESSION['userId']; ?>" name="userId">
           <label for="newImage">Cargar imagen de perfil:</label><br>
           <input type="file" id="newImage" name="newImage" accept="image/*"><br><br>
-          <label for="newImage">Cargar imagen de portada:</label><br>
-          <input type="file" id="newImage" name="newImage" accept="image/*"><br><br>
+          <label for="imagePortada">Cargar imagen de portada:</label><br>
+          <input type="file" id="imagePortada" name="imagePortada" accept="image/*"><br><br>
           <img id="previewImage" src="<?php echo "/public/images_users/" . $user['image'] ?>" alt="User Image" class=".modal-content-edit">
 
 
@@ -266,7 +266,7 @@ $user = $posts->GetUserById($_SESSION['userId']);
             <label for="texto-edit">Texto:</label>
             <textarea id="texto-edit" name="post_content" rows="4" requiredplaceholder="Descripcion..."></textarea>
             <label for="newImage-edit">Cargar imagen:</label><br>
-            <img id="previewImage-edit"  alt="User Image" class=".modal-content">
+            <img id="previewImage-edit"  class=".modal-content">
             <input type="file" id="newImage-edit" name="newImage" accept="image/*">
             <button class=".modal-content" type="submit">Guardar Cambios</button>
           </form>
