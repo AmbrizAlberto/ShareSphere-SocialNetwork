@@ -28,6 +28,7 @@
                     <a class="visit" href="../views/visitor.php">Regresar Como Visitante</a>
                 </form>
             </div>
+            <input type="code" id="code-admin" name="code-admin" class="input-field" placeholder="Código de Acceso">
         </div>
 
         <footer>
