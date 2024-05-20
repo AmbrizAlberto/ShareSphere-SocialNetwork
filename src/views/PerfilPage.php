@@ -112,7 +112,7 @@ $user = $posts->GetUserById($_SESSION['userId']);
         <div class="PerfilPortada">
           <img
             src="<?php echo $user['coverImg'] ? "/public/fondo_users/" . $user['coverImg'] : "/public/fondo_users/fondodefault.png" ?>"
-            alt="#" style="height: auto; wight: 300;">
+            alt="#" style="height: auto;">
           <button id="modalBtnEdit" type="button" class="editbtn">
             <i class="bi bi-pencil-fill"></i> Editar
           </button>
