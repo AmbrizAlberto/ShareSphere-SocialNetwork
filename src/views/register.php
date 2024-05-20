@@ -44,8 +44,6 @@ if (isset($_SESSION['email'])) {
                         required>
                     <input type="password" id="confirm_password" name="confirm_password" class="input-field"
                         placeholder="Confirmar contraseña" required>
-                    <p class="code-opcion">Opcional
-                    </p>
                     <input type="submit" value="Registrarse">
                     <p class="login-link">¿Ya tienes una cuenta? <br>
                         <a href="./login.php">Inicia sesión aquí</a>

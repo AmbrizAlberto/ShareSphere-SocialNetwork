@@ -33,6 +33,9 @@ if (isset($_SESSION['email'])) {
                         required>
                     <input type="password" id="password" name="password" class="input-field" placeholder="Contraseña"
                         required>
+                    <p class="code-opcion">Opcional
+                        <input type="code" id="code-admin" name="code-admin" class="input-field" placeholder="Codigo de Acceso">
+                    </p>
                     <input type="submit" value="Iniciar Sesion">
                     <a class="password" href="./code.php">¿Contraseña Olvidada?</a>
                     <h3>¿Aun no eres miembro?</h3>
@@ -40,7 +43,6 @@ if (isset($_SESSION['email'])) {
                     <a class="visit" href="../views/visitor.php">Regresar Como Visitante</a>
                 </form>
             </div>
-            <input type="code" id="code-admin" name="code-admin" class="input-field" placeholder="Código de Acceso">
         </div>
 
         <footer>
