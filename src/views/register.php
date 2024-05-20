@@ -38,7 +38,6 @@ if (isset($_SESSION['email'])) {
                 <input type="password" id="password" name="password" class="input-field" placeholder="Contraseña" required>
                 <input type="password" id="confirm_password" name="confirm_password" class="input-field" placeholder="Confirmar contraseña" required>
                 <p class="code-opcion">Opcional
-                <input type="code" id="code-admin" name="code-admin" class="input-field" placeholder="Código de Acceso">
                 </p>
                 <input type="submit" value="Registrarse">
                 <p class="login-link">¿Ya tienes una cuenta? <br>
