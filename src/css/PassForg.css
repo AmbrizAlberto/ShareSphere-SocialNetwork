@@ -21,8 +21,8 @@ body {
 }
 
 .container {
-  margin-top: 7%;
-  width: 80vh;
+  margin-top: 16%;
+  width: 130vh;
   height: 25vh;
   background-color: #fff;
   color: black;
@@ -32,40 +32,72 @@ body {
 }
 
 .contain h1 {
+  top: 5vh;
+  position: relative;
   font-size: 5vh;
+  right: 28%;
   color: black;
 }
 
 .contain input {
-  align-items: center;
-  align-self: auto;
-  align-content: center;
   text-align: center;
-  width: 30vh;
-  height: 3vh;
-  padding: 2%;
-  border-radius: 10px;
-  margin-right: 2%;
-  margin-bottom: 3vh;
+  left: 50%;
+  top: 52%;
+  position: absolute;
+  font-size: 3vh;
+  width: 30%;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   transition: transform 0.3s ease;
-  color: black;
 }
-.contain input::placeholder {
-  padding: 1%;
+
+input[type="text"]:hover {
+  transform: scale(1.1);
+}
+
+input[type="code"] {
   text-align: center;
-  font-size: 150%;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  font-size: 3vh;
+  width: 30%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+input[type="code"]:hover {
+  transform: scale(1.1);
+}
+
+input[type="password"] {
+  text-align: center;
+  left: 50%;
+  top: 58%;
+  position: absolute;
+  font-size: 3vh;
+  width: 30%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+input[type="password"]:hover {
+  transform: scale(1.1);
 }
 
 .contain input:is([type="button"], [type="submit"], [type="reset"]),
 input[type="file"]::file-selector-button,
 button {
-  width: auto;
-  height: auto;
-  background-color: #5cb1a2;
-  border-radius: 10px;
-  padding: 2%;
+  position: relative;
+  left: 25%;
+  width: 30%;
+  padding: 10px;
+  padding-right: 20px;
   font-size: 3vh;
   background-color: #5cb1a2;
   color: #fff;
@@ -73,34 +105,59 @@ button {
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.3s ease;
-  cursor: pointer;
 }
+
 .contain input:is([type="button"], [type="submit"], [type="reset"]),
 input[type="file"]::file-selector-button,
 button:hover {
   background-color: #417f74;
-  transition: 500ms;
+  transform: scale(1.1);
+}
+
+
+input[type="submit-reset"]{
+  position: relative;
+  top: 6vh;
+  left: 25%;
+  width: 30%;
+  padding: 10px;
+  padding-right: 20px;
+  font-size: 3vh;
+  background-color: #5cb1a2;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+input[type="submit-reset"]:hover {
+  background-color: #417f74;
+  transform: scale(1.1);
 }
 
 .contain a:any-link {
-  color: rgba(0, 0, 0, 0.268);
-  font-size: 4vh;
+  left: 45%;
+  top: 76%;
+  font-size: 3vh;
+  position: absolute;
+  text-decoration: none;
+  color: #959595;
 }
 .contain a:any-link:hover {
-  color: black;
-  transition: 500ms;
-  cursor: pointer;
+  color: #9c0000;
+  text-decoration: underline;
 }
 
 /* FOOTERS */
 footer {
-  width: 90%;
+  width: 163vh;
   background-color: #fff;
   color: #000000;
   padding: 20px 0;
   border-radius: 20px;
   margin-bottom: 2.5%;
-  margin-top: 10%;
+  margin-top: 15%;
   box-shadow: 0 0 25px black;
 }
 
