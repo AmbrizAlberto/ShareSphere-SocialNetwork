@@ -155,8 +155,11 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
 
     <!-- PUBLICACIONES -->
     <?php foreach ($postList as $post) { ?>
-      <?php $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_STRING));
-      $editpost = $post; ?>
+      <?php
+        $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $editpost = $post;
+        ?>
+
 
       <!-- CONTENEDOR POST -->
       <div class="post-container">
