@@ -49,10 +49,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         $update = $pdo->prepare("UPDATE user SET admin = 1 WHERE id = :id");
                         $update->bindParam(':id', $user['id']);
                         $update->execute();
+                        header("Location:../src/views/admin.php"); // Redireccionar al usuario a la página de inicio
+                        exit();
                     }
-
-                    header("Location:../src/views/main.php"); // Redireccionar al usuario a la página de inicio
-                    exit();
+                    else
+                    {
+                        header("Location:../src/views/main.php"); // Redireccionar al usuario a la página de inicio
+                        exit();
+                    }
                 } else {
                     echo "<script>alert('Los datos ingresados son incorrectos.'); window.history.back();</script>";
                 }
