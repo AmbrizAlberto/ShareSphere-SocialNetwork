@@ -158,7 +158,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       <?php
         $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $editpost = $post;
-      ?>
+        ?>
 
 
       <!-- CONTENEDOR POST -->
