@@ -24,14 +24,26 @@ if (!isset($_POST['post_title']) or !isset($_POST['post_content']) or !isset($_P
         error_log("Se ha insertado el post con id: $id sin imagen");
     }
     // Get the likes count and userLiked value or flag
-    $likes = $votes->countLikes($id);
-    $userLiked = $votes->userLiked($creator_id, $id);
+    //$likes = $votes->countLikes($id);
+    //$userLiked = $votes->userLiked($creator_id, $id);
     //Include the likes count and userLiked value in the response
-    $response = [
-    'post_id' => $id,
-    'likes' => $likes,
-    'userLiked' => $userLiked,
-    ];
-    header($_POST['currentPage'] == 0 ? "location:/src/views/main.php" : "location:/src/views/PerfilPage.php");
+    //$response = [
+    //'post_id' => $id,
+    //'likes' => $likes,
+    //'userLiked' => $userLiked,
+    //];
+    if ($_POST['currentPage'] == 0) {
+        header("location:/src/views/main.php");
+    } else if ($_POST['currentPage'] == 1) {
+        header("location:/src/views/PerfilPage.php");
+    } else if ($_POST['currentPage'] == 2) {
+        header("location:/src/views/admin.php");
+    } else if ($_POST['currentPage'] == 3) {
+        header("location:/src/views/foro_6.php");
+    } else if ($_POST['currentPage'] == 4) {
+        header("location:/src/views/foro_7.php");
+    } else if ($_POST['currentPage'] == 5) {
+        header("location:/src/views/foro_14.php");
+    }
 }
 ?>

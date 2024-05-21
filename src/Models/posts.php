@@ -53,6 +53,13 @@ class posts extends connection{
         return $request;
     }
 
+    public function GetPostsByIdSubgroup($id){
+        $sql="SELECT * FROM post WHERE SubgroupId = $id ORDER BY id DESC";
+        $execute = $this->conn->query($sql);
+        $request = $execute->fetchall(PDO::FETCH_ASSOC);
+        return $request;
+    }
+
     public function InsertImg($name_images, $name){
         if(isset($_FILES['image'])){
 

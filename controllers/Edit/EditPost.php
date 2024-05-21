@@ -26,6 +26,14 @@ if (!isset($_POST['post_title']) or !isset($_POST['post_content']) or !isset($_P
         header("location:/src/views/PerfilPage.php");
     } else if ($_POST['currentPage'] == 2) {
         header("location:/src/views/admin.php");
+    } else if ($_POST['currentPage'] == 2) {
+        header("location:/src/views/admin.php");
+    } else if ($_POST['currentPage'] == 3) {
+        header("location:/src/views/foro_6.php");
+    } else if ($_POST['currentPage'] == 4) {
+        header("location:/src/views/foro_7.php");
+    } else if ($_POST['currentPage'] == 5) {
+        header("location:/src/views/foro_14.php");
     }
 }
 ?>

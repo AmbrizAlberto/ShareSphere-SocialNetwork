@@ -14,8 +14,14 @@ if (isset($_GET['id'])) {
 if ($_GET['page'] == 0) {
     header("location:/src/views/main.php");
 } else if ($_GET['page'] == 1) {
-    header("location:/src/views/userPage.php");
+    header("location:/src/views/PerfilPage.php");
 } else if ($_GET['page'] == 2) {
     header("location:/src/views/admin.php");
+}else if ($_GET['page'] == 3) {
+    header("location:/src/views/foro_6.php");
+}else if ($_GET['page'] == 4) {
+    header("location:/src/views/foro_7.php");
+}else if ($_GET['page'] == 5) {
+    header("location:/src/views/foro_14.php");
 }
 ?>
