@@ -17,6 +17,8 @@ if (isset($_SESSION['email'])) {
 
     <link rel="stylesheet" type="text/css" href="../css/ResponsiveLogin.css">
 
+    <link rel="icon" href="../images/Logo-cut.png" type="image/png">
+
 </head>
 
 <body>

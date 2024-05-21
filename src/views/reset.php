@@ -7,6 +7,9 @@
     <title>Recuperar Contraseña</title>
 
     <link rel="stylesheet" href="../css/PassForg.css">
+
+    <link rel="icon" href="../images/Logo-cut.png" type="image/png">
+
 </head>
 
 <body>

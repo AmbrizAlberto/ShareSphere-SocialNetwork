@@ -20,6 +20,8 @@ if (isset($_SESSION['email'])) {
     <link rel="stylesheet" type="text/css" href="../css/styles-registre.css">
     <link rel="stylesheet" type="text/css" href="../css/ResponsiveRegister.css">
 
+    <link rel="icon" href="../images/Logo-cut.png" type="image/png">
+
 </head>
 
 <body>

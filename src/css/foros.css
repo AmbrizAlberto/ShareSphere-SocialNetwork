@@ -201,7 +201,7 @@ body {
 }
 /* POST */
 .post-container {
-  top: 125px;
+  top: 20vh;
   width: 50%;
   right: 18%;
   margin: 20px auto;
