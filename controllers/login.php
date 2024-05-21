@@ -26,10 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['email']) && isset($_POST['password'])) {
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $admincode = $_POST['code-admin'];
 
         try {
             // Preparamos la consulta para obtener el usuario por su email
-            $consulta = $pdo->prepare("SELECT name , username,id, passwordHash, theme FROM user WHERE email = :email");
+            $consulta = $pdo->prepare("SELECT name , username,id, passwordHash, theme, admin_code, admin FROM user WHERE email = :email");
             $consulta->bindParam(':email', $email);
             $consulta->execute();
             $user = $consulta->fetch(PDO::FETCH_ASSOC);
@@ -42,6 +43,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $_SESSION['username'] = $user['username'];
                     $_SESSION['userId'] = $user['id']; // Almacenamos el id del usuario en la sesión
                     $_SESSION['theme'] = $user['theme'];
+                    
+                    if ($admincode == $user['admin_code']) {
+                        // Actualizamos el valor de admin a 1
+                        $update = $pdo->prepare("UPDATE user SET admin = 1 WHERE id = :id");
+                        $update->bindParam(':id', $user['id']);
+                        $update->execute();
+                    }
+
                     header("Location:../src/views/main.php"); // Redireccionar al usuario a la página de inicio
                     exit();
                 } else {
