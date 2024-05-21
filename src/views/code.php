@@ -4,18 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>recuperar contraseña</title>
+    <title>Recuperar contraseña</title>
 
     <link rel="stylesheet" href="../css/PassForg.css">
+
+    <link rel="icon" href="../images/Logo-cut.png" type="image/png">
+
 </head>
 
 <body>
     <div class="content-wrapper">
         <div class="container">
             <div class="contain">
-                <h1>Ingresar codigo</h1>
+                <h1>Contraseña Olvidada?<br>No te preocupes</h1>
                 <form action="../../controllers/funtion_code.php" method="post" id="MyForm">
-                    <input type="text" class="input-field" placeholder="Inserta tu correo" name="email" required>
+                    <input type="text" class="input-field" placeholder="Ingresa tu correo" name="email" required>
                     <button type="submit" class="button" value="Iniciar sesión">Continuar</button>
                 </form>
                 <a class="login" href="./login.php">Regresar</a>

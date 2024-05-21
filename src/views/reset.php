@@ -4,21 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cambiar contraseña</title>
+    <title>Recuperar Contraseña</title>
 
     <link rel="stylesheet" href="../css/PassForg.css">
+
+    <link rel="icon" href="../images/Logo-cut.png" type="image/png">
+
 </head>
 
 <body>
     <div class="content-wrapper">
         <div class="container">
             <div class="contain">
-                <h1>Recuperar contraseña</h1>
+                <h1>Ingresa tu nueva<br>contraseña</h1>
                 <form action="../../controllers/funtion_reset.php" method="post">
-                    <input type="text" class="input-field" placeholder="Ingrese el codigo" name="code" required>
+                    <input type="code" class="input-field" placeholder="Ingrese el codigo" name="code" required>
                     <input type="password" id="new_password" name="new_password" class="input-field"
                         placeholder="Ingrese la nueva contraseña" required>
-                    <input type="submit" value="Continuar">
+                    <input type="submit-reset" value="Continuar">
                 </form>
             </div>
         </div>

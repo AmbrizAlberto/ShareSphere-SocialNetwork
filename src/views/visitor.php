@@ -28,6 +28,8 @@ $postList = $posts->GetPosts();
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+  <link rel="icon" href="../images/Logo-cut.png" type="image/png">
+
 </head>
 
 <body>

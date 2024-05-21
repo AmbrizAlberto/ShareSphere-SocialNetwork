@@ -18,6 +18,9 @@ $users = new users();
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/modal_admin.css">
 
+    <link rel="icon" href="../images/Logo-cut.png" type="image/png">
+
+
     <!-- <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/textpost.css">
     <link rel="stylesheet" href="../css/photopost.css">
