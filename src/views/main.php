@@ -213,8 +213,14 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
           <?php } ?>
         </div>
         <div class="post-actions">
-          <button class="action-btn"><i class="bi bi-hand-thumbs-up-fill"> 200</i></button>
-          <button class="action-btn"><i class="bi bi-hand-thumbs-down-fill"> 200</i></button>
+          <!-- Like -->
+          <button class="action-btn like-button" data-post-id="<?php echo $post['id']; ?>" data-like-type="LIKE">
+            <i class="bi bi-hand-thumbs-up-fill"> <?php echo isset($post['likes']) ? $post['likes'] : 0; ?></i>
+            <span id="like-count-<?php echo $post['id']; ?>"><?php echo isset($post['likes']) ? $post['likes'] : 0; ?></span>          
+          </button>
+          <!-- Dislike -->
+          <button class="action-btn like-button" data-post-id="<?php echo $post['id']; ?>" data-like-type="DISLIKE">
+            <i class="bi bi-hand-thumbs-down-fill"> <?php echo isset($post['dislikes']) ? $post['dislikes'] : 0; ?></i>          </button>
           <button class="action-btn" onclick="openModal(event)"><i class="bi bi-chat-square-text-fill"> 200</i></button>
         </div>
       </div>
