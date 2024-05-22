@@ -83,7 +83,7 @@ body{
 .PerfilPage .PerfilName h1{
     position: absolute;
     font-size: 90px;
-    top: 25%;
+    top: 22%;
     margin-left: 14%;
     color: rgb(0, 0, 0);
     text-shadow: 1px  0px 0px rgb(255, 255, 255),
@@ -100,7 +100,7 @@ body{
     font-size: 20px;
     width: 20%;
     height: auto;
-    top: 48%;
+    top: 44%;
     left: 20%;
     border-left: 6px solid rgb(0 0 0);
     padding-left: 2%;
