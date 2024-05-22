@@ -153,7 +153,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
           <span><i class="bi bi-caret-down-fill"></i></span>
           <?php if ($post['creatorId'] == $_SESSION['userId']) { ?>
             <div class="option-content">
-              <a onclick="openmodal('<?php echo htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8'); ?>')"><i class="bi bi-pencil-fill"></i></a>
+              <a id="modalBtn-edit" onclick="openmodal('<?php echo htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8'); ?>')"><i class="bi bi-pencil-fill"></i></a>
               <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=3"><i
                   class="bi bi-trash-fill"></i></a>
             </div>
