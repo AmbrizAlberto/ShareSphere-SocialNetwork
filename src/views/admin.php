@@ -96,16 +96,16 @@ $users = new users();
                 </div>
             </button>
 
-            <button class="postscont" onclick="openModalForProject(3)">
+            <button class="postscont" onclick="window.location.href='../views/main-admin.php'">
                 <div class="titulo">
                     Reportes
                 </div>
                 <div class="contador">
                     <div class="iconcont">
-                        <i class="bi bi-flag"></i>
+                        <i class="bi bi-globe2"></i>                    
                     </div>
                     <div class="numero">
-                        No se que más poner aquí
+                        Explorar
                     </div>
                 </div>
             </button>
