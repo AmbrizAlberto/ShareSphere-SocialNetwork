@@ -112,11 +112,9 @@ $user = $posts->GetUserById($_SESSION['userId']);
 
     <div class="PerfilPage">
 
-      <div class="PerfilDatos">
         <div class="PerfilPortada">
-          <img
-            src="<?php echo $user['coverImg'] ? "/public/fondo_users/" . $user['coverImg'] : "/public/fondo_users/fondodefault.png" ?>"
-            alt="#" style="height: auto;">
+          <img src="<?php echo $user['coverImg'] ? "/public/fondo_users/" . $user['coverImg'] : "/public/fondo_users/fondodefault.png" ?>" alt="#" style="height: auto;">
+          
           <button id="modalBtnEdit" type="button" class="editbtn">
             <i class="bi bi-pencil-fill"></i> Editar
           </button>
@@ -124,16 +122,16 @@ $user = $posts->GetUserById($_SESSION['userId']);
 
         <div class="PerfilPhoto">
           <img
-            src="<?php echo $user['image'] ? "/public/images_users/" . $user['image'] : "/public/images_users/userdefault.png" ?>"
-            alt="">
+            src="<?php echo $user['image'] ? "/public/images_users/" . $user['image'] : "/public/images_users/userdefault.png" ?>" alt="">
         </div>
+
         <div class="PerfilName">
           <h1><?php echo $user['username'] ?></h1>
         </div>
+
         <div class="PerfilDescription">
           <h2><?php echo $user['descripcion'] ? $user['descripcion'] : "Sin descripcion" ?></h2>
         </div>
-      </div>
 
     </div>
 
@@ -142,20 +140,20 @@ $user = $posts->GetUserById($_SESSION['userId']);
         <span class="close-edit">&times;</span>
         <h2>Editar Perfil</h2>
         <form id="editForm" action="/controllers/Edit/EditUser.php" method="post" enctype="multipart/form-data">
-          <label for="newUsername">Nombre de Usuario:</label><br>
-          <input type="text" id="newUsername" name="newUsername" value="<?php echo $user['username'] ?>"><br><br>
+          <label for="newUsername">Nombre de Usuario:</label>
+          <p><input type="text" id="newUsername" name="newUsername" value="<?php echo $user['username'] ?>"></p>
 
-          <label for="newDescription">Descripción:</label><br>
-          <textarea id="newDescription" name="newDescription" rows="4"
-            cols="50"><?php echo $user['descripcion'] ?></textarea><br><br>
+          <label for="newDescription">Descripción:</label>
+          <p><textarea id="newDescription" name="newDescription" rows="4"
+            cols="50"><?php echo $user['descripcion'] ?></textarea></p>
 
           <input type="hidden" value="<?php echo $_SESSION['userId']; ?>" name="userId">
-          <label for="newImage">Cargar imagen de perfil:</label><br>
-          <input type="file" id="newImage" name="newImage" accept="image/*"><br><br>
-          <label for="imagePortada">Cargar imagen de portada:</label><br>
-          <input type="file" id="imagePortada" name="imagePortada" accept="image/*"><br><br>
-          <img id="previewImage" src="<?php echo "/public/images_users/" . $user['image'] ?>" alt="User Image"
-            class=".modal-content-edit">
+          <label for="newImage">Cargar imagen de perfil:</label>
+          <p><input type="file" id="newImage" name="newImage" accept="image/*"></p>
+          <label for="imagePortada">Cargar imagen de portada:</label>
+          <p><input type="file" id="imagePortada" name="imagePortada" accept="image/*"></p>
+          <p><img id="previewImage" src="<?php echo "/public/images_users/" . $user['image'] ?>" alt="User Image"
+            class=".modal-content-edit"></p>
 
 
 

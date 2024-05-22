@@ -35,8 +35,8 @@ html {
   position: fixed;
   margin-left: -2.5%;
   margin-top: 0%;
-  width: 5%;
-  height: 9%;
+  width: 80px;
+  height: 80px;
   transition: 500ms;
 }
 
@@ -103,10 +103,4 @@ button:hover {
 }
 .optionnv:hover span {
   visibility: visible;
-}
-
-.logout {
-  text-decoration: none;
-  color: white;
-  width: 15%;
 }
