@@ -12,14 +12,20 @@ body{
   display: block;
   width: 80%;
   margin-left: 5%;
-  margin-top: 5%;
+  margin-top: 0%;
   background-color: transparent;
-  border: 1px solid white;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
+  border: 1px solid rgb(94, 94, 94);
+  transition: 500ms;
 }
 
+.PerfilPage:hover{
+  box-shadow: 0 0 40px black;
+  transition: 500ms;
+}
 .PerfilPortada {
+  margin-top: 5%;
   width: 100%;  /* Ancho del contenedor */
   height: 350px;  /* Altura específica para el contenedor */
   overflow: hidden;  /* Esconde cualquier parte de la imagen que sobresalga del contenedor */
@@ -60,12 +66,17 @@ body{
     top: 43%;
     left: 80%;
     background-color: #21926c;
-    color: #fff;
+    color: #fff;  
     width: 60px;
     height: 60px;
     border-radius: 100%;
     z-index: auto;
     transition: 500ms;
+}
+
+.PerfilPortada .editbtn:hover{
+  background-color: #257d60;
+  box-shadow: 0 0 40px black;
 }
 
 
