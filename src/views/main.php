@@ -302,8 +302,8 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
 
         <label for="texto-edit">Texto:</label>
         <textarea id="texto-edit" name="post_content" rows="4" requiredplaceholder="Descripcion..."></textarea>
-        <label for="newImage-edit">Cargar imagen:</label><br>
-        <img id="previewImage-edit" class=".modal-content">
+        <label for="newImage-edit">Cargar imagen:</label>
+        <p><img id="previewImage-edit" class=".modal-content"></p>
         <input type="file" id="newImage-edit" name="newImage" accept="image/*">
         <button class=".modal-content" type="submit">Guardar Cambios</button>
       </form>
