@@ -98,14 +98,14 @@ $users = new users();
 
             <button class="postscont" onclick="window.location.href='../views/main-admin.php'">
                 <div class="titulo">
-                    Reportes
+                    Explorar
                 </div>
                 <div class="contador">
                     <div class="iconcont">
                         <i class="bi bi-globe2"></i>                    
                     </div>
                     <div class="numero">
-                        Explorar
+                        Ver publicaciones recientes
                     </div>
                 </div>
             </button>
