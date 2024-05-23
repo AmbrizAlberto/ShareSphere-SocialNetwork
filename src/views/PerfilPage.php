@@ -26,6 +26,7 @@ $user = $posts->GetUserById($_SESSION['userId']);
   <link rel="stylesheet" href="../css/modalEdit.css">
   <link rel="stylesheet" href="../css/filtros.css">
   <link rel="stylesheet" href="../css/Post.css">
+  <link rel="stylesheet" href="../css/light-mode.css">
 
 
   <link rel="stylesheet" href="../css/ResponsivePerfilPage.css">
