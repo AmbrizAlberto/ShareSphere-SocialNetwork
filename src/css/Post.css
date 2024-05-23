@@ -54,6 +54,13 @@ input[type="comment"]:focus {
   text-align: center;
 }
 
+.title-comment{
+  position: absolute;
+  color: #ffffff;
+  left: 67%;
+  top: 3%;
+}
+
 #comment {
   width: 98%;
   position: absolute;

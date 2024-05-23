@@ -254,6 +254,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
         </h2>
       </div>
 
+      <h1 class="title-comment">Comentarios</h1>
       <div id="comment">
         <div class="text-comment">
           <input type="comment" placeholder="Comenta...">
