@@ -175,9 +175,9 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
         </div>
 
         <!-- OPCIONES DE POST -->
-        <div class="post-options">
-          <span><i class="bi bi-caret-down-fill"></i></span>
-          <?php if ($post['creatorId'] == $_SESSION['userId']) { ?>
+        <?php if ($post['creatorId'] == $_SESSION['userId']) { ?>
+          <div class="post-options">
+            <span><i class="bi bi-caret-down-fill"></i></span>
             <div class="option-content">
               <!-- EDITAR POST -->
               <a id="modalBtn-edit"
@@ -188,8 +188,9 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
               <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=0">
                 <i class="bi bi-trash-fill"></i></a>
             </div>
-          <?php } ?>
-        </div>
+          </div>
+        <?php } ?>
+
         <!-- TITULO POST -->
         <h2 class="post-content" onclick="openModal(event)">
           <?php echo $post['title']; ?>
