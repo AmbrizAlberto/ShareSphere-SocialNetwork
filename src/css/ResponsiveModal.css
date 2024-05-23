@@ -21,6 +21,23 @@
   .modal-content textarea {
     font-size: 2vh;
   }
+  /* PerfilPage */
+  .modal-content-edit {
+    font-size: 1.5vh;
+    width: 80%;
+  }
+  .modal-content-edit img {
+    top: 15%;
+    left: 10%;
+    max-width: 30%;
+    max-height: 30%;
+  }
+  .modal-content-edit input {
+    width: 50%;
+  }
+  .modal-content-edit button {
+    font-size: 150%;
+  }
 }
 
 @media (max-width: 540px) {
@@ -35,6 +52,23 @@
   }
   .modal-content textarea {
     font-size: 1.7vh;
+  }
+  /* PerfilPage */
+  .modal-content-edit {
+    font-size: 1.5vh;
+    width: 80%;
+  }
+  .modal-content-edit img {
+    top: 15%;
+    left: 10%;
+    max-width: 30%;
+    max-height: 30%;
+  }
+  .modal-content-edit input {
+    width: 50%;
+  }
+  .modal-content-edit button {
+    font-size: 150%;
   }
 }
 

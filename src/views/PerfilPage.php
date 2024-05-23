@@ -28,6 +28,10 @@ $user = $posts->GetUserById($_SESSION['userId']);
   <link rel="stylesheet" href="../css/Post.css">
 
 
+  <link rel="stylesheet" href="../css/ResponsivePerfilPage.css">
+  <link rel="stylesheet" href="../css/ResponsiveMain.css">
+  <link rel="stylesheet" href="../css/ResponsiveModal.css">
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -55,7 +59,9 @@ $user = $posts->GetUserById($_SESSION['userId']);
 
   <div class="main">
     <div class="feedhead">
-      <h1>ShareSphere</h1>
+      <a href="./main.php" class="ShSp">
+        <h1 href="./main.php">ShareSphere</h1>
+      </a>
 
       <div class="search-nav">
         <form action="#" method="get">

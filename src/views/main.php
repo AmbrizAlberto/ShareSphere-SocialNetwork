@@ -82,7 +82,9 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
         <i class="bi bi-lightbulb-fill"></i>
       </button>
       <!-- NOMBRE DE PAGINA -->
-      <h1>ShareSphere</h1>
+      <a href="./main.php" class="ShSp">
+        <h1 href="./main.php">ShareSphere</h1>
+      </a>
 
       <!-- BUSCADOR -->
       <div class="search-nav">
@@ -237,7 +239,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
     <div id="Post-complete" class="post">
       <span class="close-post" onclick="closeModal()">&times;</span>
       <div class="content-post">
-        <img id="fullImage">
+        <img id="fullImage" alt="No hay imagen">
       </div>
 
       <div class="box-descripcion">

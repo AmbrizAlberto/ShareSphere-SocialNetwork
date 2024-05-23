@@ -24,16 +24,19 @@
     padding-top: 1%;
   }
   .feedhead h1 {
-    margin-top: 1% !important;
+    margin-top: 10% !important;
     font-size: 300%;
   }
   .feedhead i {
+    margin-top: 10%;
     font-size: 150% !important;
   }
   .bi.bi-box-arrow-right {
     margin: 0 !important;
-    margin-left: 40% !important;
-    font-size: 260% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
+    top: 10% !important;
+    margin-top: 10% !important;
+    margin-left: 350% !important;
+    font-size: 350% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
   }
 
   .search-nav form {
@@ -45,13 +48,15 @@
     height: 2vh !important;
   }
   .feedhead input[type="image"] {
-    margin-left: -20% !important;
+    margin-left: 200% !important;
     width: 4vh !important;
     height: 4vh !important;
   }
   .feedhead button {
-    margin-left: 0% !important;
-    margin-right: 0% !important;
+    margin-top: .5%;
+    font-size: 2vh !important;
+    margin-left: 6% !important;
+    margin-right: -5% !important;
   }
   .search-nav {
     width: 30% !important;
@@ -93,6 +98,100 @@
 }
 
 @media (max-width: 912px) {
+  html {
+    font-size: 50%;
+  }
+  .navbar {
+    display: none;
+  }
+  .filtros {
+    display: none;
+  }
+  .main {
+    width: 100% !important;
+    height: 100% !important;
+    margin-left: 0% !important;
+  }
+  .feedhead {
+    margin-left: 2%;
+    margin-top: -2% !important;
+    width: 100% !important;
+    height: 5% !important;
+    font-size: 1vh;
+    padding-top: 1%;
+  }
+  .feedhead h1 {
+    margin-top: 1% !important;
+    font-size: 300%;
+  }
+  .feedhead i {
+    margin-top: 10%;
+    font-size: 150% !important;
+  }
+  .bi.bi-box-arrow-right {
+    margin: 0 !important;
+    top: 10% !important;
+    margin-top: 10% !important;
+    margin-left: 150% !important;
+    font-size: 350% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
+  }
+
+  .search-nav form {
+    width: 40% !important;
+  }
+  .search-nav input[type="text"] {
+    margin-left: -30% !important;
+    width: 20vh !important;
+    height: 2vh !important;
+  }
+  .feedhead input[type="image"] {
+    margin-left: 100% !important;
+    width: 4vh !important;
+    height: 4vh !important;
+  }
+  .feedhead button {
+    margin-top: .5%;
+    font-size: 2vh !important;
+    margin-left: 7% !important;
+    margin-right: -6% !important;
+  }
+  .search-nav {
+    width: 30% !important;
+  }
+  .user-info span {
+    font-size: 250% !important;
+  }
+  #theme-toggle-btn {
+    left: auto !important;
+    right: 10% !important;
+    margin-left: -0vh !important;
+    padding: 5px 20px !important;
+    font-size: 100% !important;
+  }
+  .post-container {
+    margin-left: 37% !important;
+    position: relative;
+    width: 50% !important;
+    padding: 5% !important;
+  }
+  .post-content {
+    font-size: 2.4vh !important;
+  }
+  .description {
+    font-size: 2vh !important;
+  }
+  .SubTitle {
+    font-size: 2vh !important;
+  }
+  .post-options {
+    left: 90% !important;
+  }
+  .post-actions button {
+    margin: auto !important;
+    margin-top: 3% !important;
+    width: 25% !important;
+    height: 10% !important;
+  }
 }
 
 /* Media Query para pantallas con ancho máximo de 912px */
@@ -118,23 +217,25 @@
     margin-left: 1%;
     margin-top: -2% !important;
     width: 95% !important;
-    height: 10% !important;
+    height: 7% !important;
     font-size: 1.5vh;
   }
   .feedhead h1 {
-    margin-top: 1% !important;
+    margin-top: 10% !important;
     font-size: 200%;
   }
   .feedhead button {
-    margin-left: -1.5% !important;
-    margin-right: 1.5% !important;
+    margin-top: .5%;
+    margin-left: 7% !important;
+    margin-right: -6% !important;
   }
   .feedhead i {
     font-size: 150% !important;
   }
   .bi.bi-box-arrow-right {
     margin: 0 !important;
-    margin-left: 0% !important;
+    margin-top: 1%;
+    margin-left: 150% !important;
     font-size: 260% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
   }
 
@@ -147,7 +248,8 @@
     height: 2.5vh !important;
   }
   .feedhead input[type="image"] {
-    margin-left: -50% !important;
+    margin-top: .5% !important;
+    margin-left: 100% !important;
     width: 4vh !important;
     height: 4vh !important;
   }
@@ -158,10 +260,9 @@
     font-size: 350% !important;
   }
   #theme-toggle-btn {
-    left: auto !important;
-    right: 2% !important;
+    right: 8% !important;
     margin-left: -0vh !important;
-    padding: 5px 15px !important;
+    padding: 5px 18px !important;
     font-size: 90% !important;
   }
   .post-container {
@@ -190,6 +291,16 @@
     width: 25% !important;
     height: 50px !important;
   }
+  /* Modal Comentarios */
+  .post{
+    background-color: rgba(32, 32, 32, 0.692);
+    width: 100%;
+  }
+  .close-post{
+    color: #ff4d4d;
+    left: 47%;
+    top: 4%;
+  }
 }
 
 @media (max-width: 540px) {
@@ -216,8 +327,8 @@
   .feedhead {
     margin-left: 2%;
     margin-top: -2% !important;
-    width: 100% !important;
-    height: 7% !important;
+    width: 92% !important;
+    height: 6% !important;
     font-size: 1vh;
   }
   .feedhead i {
@@ -225,26 +336,29 @@
   }
   .bi.bi-box-arrow-right {
     margin: 0 !important;
-    margin-left: -60% !important;
-    font-size: 260% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
+    margin-left: 15% !important;
+    font-size: 340% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
   }
 
   .search-nav form {
+    max-width: 100%;
+    margin-top: -7%;
     width: 100% !important;
   }
   .search-nav input[type="text"] {
-    margin-left: -9% !important;
-    width: 10vh !important;
-    height: 3vh !important;
+    margin-top: 0 !important;
+    margin-left: -3% !important;
+    width: 6vh !important;
+    height: 2vh !important;
   }
   .feedhead input[type="image"] {
-    margin-left: -50% !important;
-    width: 4vh !important;
-    height: 4vh !important;
+    margin-left: -5% !important;
+    width: 35px !important;
+    height: 35px !important;
   }
   .feedhead button {
-    margin-left: -5% !important;
-    margin-right: 4% !important;
+    margin-left: -1% !important;
+    margin-right: -1% !important;
   }
   .search-nav {
     width: 30% !important;
@@ -253,7 +367,7 @@
     left: auto !important;
     right: 2% !important;
     margin-left: -0vh !important;
-    padding: 3px 3px !important;
+    padding: 3px 10px !important;
     font-size: 90% !important;
   }
   .post-container {
@@ -285,6 +399,43 @@
     width: 25% !important;
     height: 10% !important;
   }
+  /* Modal Comentarios */
+  .post{
+    background-color: rgba(32, 32, 32, 0.692);
+    width: 100%;
+  }
+  .close-post{
+    color: #ff4d4d;
+    left: 47%;
+    top: 4%;
+  }
+  input[type="comment"]{
+    top: 0 !important;
+    margin-top: 125%;
+    left: 4%;
+    width: 87%;
+  }
+  .box-descripcion{
+    width: 90%;
+  }
+  .content-post{
+    top: 27%;
+    left: 0%;
+    width: 90%;
+    margin: auto;
+  }
+  .content-post img{
+    display: flex;
+    margin: auto;
+    max-width: 390px !important;
+    max-height: 400px !important;
+    width: auto;
+    height: auto;
+  }
+  .box-comment{
+    left: 0 !important;
+    width: 80%;
+  }
 }
 
 @media (max-width: 415px) {
@@ -307,7 +458,6 @@
   }
   .feedhead {
     margin-left: 2%;
-    margin-top: -2% !important;
     width: 100% !important;
     height: 7% !important;
     font-size: 1vh;
@@ -317,32 +467,32 @@
   }
   .bi.bi-box-arrow-right {
     margin: 0 !important;
-    margin-left: -60% !important;
-    font-size: 260% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
+    margin-left: 40% !important;
+    font-size: 320% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
   }
 
   .search-nav form {
+    margin-top: 0;
+    top: 0;
     width: 100% !important;
   }
   .search-nav input[type="text"] {
     margin-left: -5% !important;
-    width: 9vh !important;
-    height: 3vh !important;
+    width: 7vh !important;
+    height: 2vh !important;
   }
   .feedhead input[type="image"] {
-    margin-left: -60% !important;
+    margin-left: 5% !important;
     width: 4vh !important;
     height: 4vh !important;
   }
   .feedhead button {
-    margin-left: -6% !important;
-    margin-right: 4.5% !important;
+    margin-left: 1% !important;
+    margin-right: -2% !important;
   }
   #theme-toggle-btn {
-    left: auto !important;
-    right: 2% !important;
-    margin-left: -0vh !important;
-    padding: 4px 4px !important;
+    right: 8% !important;
+    padding: 6px 2px !important;
     font-size: 90% !important;
   }
   .search-nav {
@@ -400,10 +550,11 @@
     margin-left: 0% !important;
   }
   .feedhead {
+    top: 1% !important;
     margin-left: 2%;
     margin-top: -2% !important;
     width: 92% !important;
-    height: 7% !important;
+    height: 8.5% !important;
     font-size: 1vh;
   }
   .feedhead h1 {
@@ -417,30 +568,29 @@
     width: 100% !important;
   }
   .search-nav input[type="text"] {
-    margin-top: -1% !important;
+    margin-top: 5% !important;
     margin-left: -20% !important;
-    width: 11vh !important;
+    width: 10vh !important;
     height: 1.5vh !important;
   }
   .feedhead input[type="image"] {
-    margin-left: -100% !important;
+    margin-left: 0% !important;
     width: 4vh !important;
     height: 4vh !important;
   }
   .feedhead button {
     font-size: 2vh !important;
-    margin-left: -8% !important;
-    margin-right: 7% !important;
+    margin-left: 1% !important;
+    margin-right: 0% !important;
   }
   .bi.bi-box-arrow-right {
     margin: 0 !important;
-    margin-left: -120% !important;
-    font-size: 300% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
+    margin-left: 30% !important;
+    font-size: 350% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
   }
   #theme-toggle-btn {
     left: auto !important;
-    right: -5% !important;
-    margin-left: -0vh !important;
+    right: -1% !important;
     padding: 4px 10px !important;
     font-size: 90% !important;
   }
@@ -509,6 +659,8 @@
     font-size: 150% !important;
   }
   .search-nav form {
+    margin-top: 0;
+    top: 0;
     width: 100% !important;
   }
   .search-nav input[type="text"] {
@@ -518,23 +670,22 @@
     height: 1.5vh !important;
   }
   .feedhead input[type="image"] {
-    margin-left: -90% !important;
+    margin-left: 10% !important;
     width: 4vh !important;
     height: 4vh !important;
   }
   .feedhead button {
     font-size: 2vh !important;
-    margin-left: -9% !important;
-    margin-right: 7% !important;
+    margin-left: 1% !important;
+    margin-right: -3% !important;
   }
   .bi.bi-box-arrow-right {
     margin: 0 !important;
-    margin-left: -110% !important;
-    font-size: 310% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
+    margin-left: 40% !important;
+    font-size: 350% !important; /* Tamaño de fuente para pantallas aún más pequeñas */
   }
   #theme-toggle-btn {
-    left: auto !important;
-    right: -6% !important;
+    right: 2% !important;
     margin-left: -0vh !important;
     padding: 4px 10px !important;
     font-size: 90% !important;
