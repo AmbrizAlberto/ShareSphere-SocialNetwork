@@ -16,7 +16,7 @@
     <div class="content-wrapper">
         <div class="container">
             <div class="contain">
-                <h1>Contraseña Olvidada?<br>No te preocupes</h1>
+                <h1>Se te Olvido la Contraseña?<br>No te preocupes</h1>
                 <form action="../../controllers/funtion_code.php" method="post" id="MyForm">
                     <input type="text" class="input-field" placeholder="Ingresa tu correo" name="email" required>
                     <button type="submit" class="button" value="Iniciar sesión">Continuar</button>
