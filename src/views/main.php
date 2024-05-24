@@ -45,7 +45,8 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   <!-- IMPORTACION DE TOOLS -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <link rel="icon" href="../images/Logo-cut.png" type="image/png">
 
 </head>
@@ -222,14 +223,14 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
         </div>
         <div class="post-actions">
           <!-- Like -->
-          <button class="action-btn like-button" data-post-id="<?php echo $post['id']; ?>" data-like-type="LIKE">
-            <i class="bi bi-hand-thumbs-up-fill"> <?php echo isset($post['likes']) ? $post['likes'] : 0; ?></i>
-            <span id="like-count-<?php echo $post['id']; ?>"><?php echo isset($post['likes']) ? $post['likes'] : 0; ?></span>          
+          <button class="action-btn like-button" data-post-id="<?php echo $post['id']; ?>">
+              <i class="bi bi-hand-thumbs-up-fill"></i>
+              <span id="like-count-<?php echo $post['id']; ?>"><?php echo $posts->GetLikesCount($post['id']); ?></span>
           </button>
-          <!-- Dislike -->
-          <button class="action-btn like-button" data-post-id="<?php echo $post['id']; ?>" data-like-type="DISLIKE">
-            <i class="bi bi-hand-thumbs-down-fill"> <?php echo isset($post['dislikes']) ? $post['dislikes'] : 0; ?></i>          </button>
-          <button class="action-btn" onclick="openModal(event)"><i class="bi bi-chat-square-text-fill"> 200</i></button>
+          <!-- Comentarios -->
+          <button class="action-btn" onclick="openModal(event)">
+              <i class="bi bi-chat-square-text-fill"> 200</i>
+          </button>
         </div>
       </div>
     <?php } ?>
@@ -321,6 +322,35 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   </button>
 
   <!-- SCRIPTS -->
+  <script>
+    $(document).ready(function() {
+        $('.like-button').click(function() {
+            var postId = $(this).data('post-id');
+            var likeButton = $(this);
+            var likeCountSpan = $('#like-count-' + postId);
+
+            $.ajax({
+                type: 'POST',
+                url: '../../controllers/Set/like_handler.php',
+                data: { postId: postId },
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status === 'success') {
+                        var likeCount = response.likeCount;
+                        likeCountSpan.text(likeCount);
+                        if (response.liked) {
+                            likeButton.addClass('liked');
+                        } else {
+                            likeButton.removeClass('liked');
+                        }
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+        });
+    });
+    </script>
   <script src="../js/script.js"></script>
   <script src="../js/scriptedit.js"></script>
   <script src="../js/toTop.js"></script>

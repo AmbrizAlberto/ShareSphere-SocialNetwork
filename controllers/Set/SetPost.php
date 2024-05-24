@@ -1,4 +1,5 @@
 <?php
+// SetPost.php
 namespace controllers;
 
 require_once ("../../autoload.php");
@@ -23,15 +24,6 @@ if (!isset($_POST['post_title']) or !isset($_POST['post_content']) or !isset($_P
         $id = $post->InsertPost($title, $content, null, $creator_id, $subgroup_id);
         error_log("Se ha insertado el post con id: $id sin imagen");
     }
-    // Get the likes count and userLiked value or flag
-    //$likes = $votes->countLikes($id);
-    //$userLiked = $votes->userLiked($creator_id, $id);
-    //Include the likes count and userLiked value in the response
-    //$response = [
-    //'post_id' => $id,
-    //'likes' => $likes,
-    //'userLiked' => $userLiked,
-    //];
     if ($_POST['currentPage'] == 0) {
         header("location:/src/views/main.php");
     } else if ($_POST['currentPage'] == 1) {
