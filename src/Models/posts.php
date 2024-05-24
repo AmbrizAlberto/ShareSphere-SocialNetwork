@@ -1,4 +1,5 @@
 <?php
+// posts.php
 namespace models;
 use PDO;
 
@@ -222,6 +223,39 @@ class posts extends connection{
         $arrwhere =array($id);
         $delete= $this->conn->prepare($sql);
         $delete->execute($arrwhere);    
+    }
+
+    public function AddLike($postId, $userId){
+        $sql = "INSERT INTO post_likes (post_id, user_id) VALUES (?, ?)";
+        $insert = $this->conn->prepare($sql);
+        $insert->execute([$postId, $userId]);
+    }
+
+    public function RemoveLike($postId, $userId){
+        $sql = "DELETE FROM post_likes WHERE post_id = ? AND user_id = ?";
+        $delete = $this->conn->prepare($sql);
+        $delete->execute([$postId, $userId]);
+    }    
+
+    public function UserLikedPost($postId, $userId){
+        $sql = "SELECT COUNT(*) FROM post_likes WHERE post_id = ? AND user_id = ?";
+        $query = $this->conn->prepare($sql);
+        $query->execute([$postId, $userId]);
+        return $query->fetchColumn() > 0;
+    }
+    
+    public function GetLikesCount($postId){
+        $sql = "SELECT COUNT(*) FROM post_likes WHERE post_id = ?";
+        $query = $this->conn->prepare($sql);
+        $query->execute([$postId]);
+        return $query->fetchColumn();
+    }
+
+    public function hasLiked($postId, $userId){
+        $sql = "SELECT COUNT(*) FROM post_likes WHERE post_id = ? AND user_id = ?";
+        $query = $this->conn->prepare($sql);
+        $query->execute([$postId, $userId]);
+        return $query->fetchColumn() > 0;
     }
 }
 ?>
