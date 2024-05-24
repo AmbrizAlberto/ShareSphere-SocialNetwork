@@ -13,7 +13,7 @@ require_once ("../../autoload.php");
 use Models\{posts};
 
 $posts = new posts();
-$postList = $posts->GetPosts();
+$postList = $posts->GetPostsByIdSubgroup(1);
 $userdata = $posts->GetUserById($_SESSION['userId']);
 ?>
 
@@ -39,6 +39,8 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+  <link rel="icon" href="../images/Logo-cut.png" type="image/png">
+
 </head>
 
 <body>
@@ -55,7 +57,8 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       <div class="access">
         <br /><br />
         <a href="./main.php"><button class="optionnv"><i class="bi bi-house-fill"></i></i><span>Home</span></button></a>
-        <a href="./PerfilPage.php"><button class="optionnv"><i class="bi bi-person-circle"></i></i><span>Profile</span></button></a>
+        <a href="./PerfilPage.php"><button class="optionnv"><i
+              class="bi bi-person-circle"></i></i><span>Profile</span></button></a>
       </div>
 
     </div>
@@ -82,7 +85,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
           <span class="close" id="closeBtn">&times;</span>
           <form action="/controllers/Set/SetPost.php" method="post" enctype="multipart/form-data">
             <input type="hidden" value="<?php echo $_SESSION['userId']; ?>" name="post_creator_id">
-            <input type="hidden" value="0" name="currentPage">
+            <input type="hidden" value="3" name="currentPage">
             <label for="tema">Tema:</label>
             <select id="selector" name="post_subgroup_id" required>
               <option value="1">Agua Limpia y Saneamineto</option>
@@ -112,7 +115,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       <a href="../../controllers/logout.php" class="logout"><i class="bi bi-box-arrow-right"></i></a>
 
       <button id="theme-toggle-btn"><i class="bi bi-lightbulb-fill"></i></button>
-      
+
     </div>
 
     <br /><br /><br /><br /><br /><br />
@@ -126,8 +129,10 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
         <h1>Filtro</h1>
 
         <div class="forum">
-          <button onclick="window.location.href='../views/foro_7.php'"><img src="../images/7.png" style="position: relative; top: 50%;"></button>
-          <button onclick="window.location.href='../views/foro_14.php'"><img src="../images/14.jpg" style="position: relative; top:70%"></button>
+          <button onclick="window.location.href='../views/foro_7.php'"><img src="../images/7.png"
+              style="position: relative; top: 50%;"></button>
+          <button onclick="window.location.href='../views/foro_14.php'"><img src="../images/14.jpg"
+              style="position: relative; top:70%"></button>
         </div>
 
       </div>
@@ -148,8 +153,8 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
           <span><i class="bi bi-caret-down-fill"></i></span>
           <?php if ($post['creatorId'] == $_SESSION['userId']) { ?>
             <div class="option-content">
-              <a><i class="bi bi-pencil-fill"></i></a>
-              <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=0"><i
+              <a id="modalBtn-edit" onclick="openmodal('<?php echo htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8'); ?>')"><i class="bi bi-pencil-fill"></i></a>
+              <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=3"><i
                   class="bi bi-trash-fill"></i></a>
             </div>
           <?php } ?>
@@ -224,7 +229,32 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
     </div>
   </div>
 
+<!-- MODAL DE EDITAR POST -->
+<div id="myModal-edit" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeBtn-edit">&times;</span>
+      <form id="editForm" action="/controllers/Edit/EditPost.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" id="idPost" name="id">
+        <input type="hidden" value="3" name="currentPage">
+        <label for="tema">Tema:</label>
+        <select id="selector-edit" name="post_subgroup_id" required>
+          <option value="1">Agua Limpia y Saneamineto</option>
+          <option value="3">Energia Asequible y No Contaminante</option>
+          <option value="4">Vida Submarina</option>
+          <!-- Agrega más opciones según sea necesario -->
+        </select>
+        <label for="titulo-edit">Titulo:</label>
+        <textarea id="titulo-edit" name="post_title" rows="1" required placeholder="Titulo..."></textarea>
 
+        <label for="texto-edit">Texto:</label>
+        <textarea id="texto-edit" name="post_content" rows="4" requiredplaceholder="Descripcion..."></textarea>
+        <label for="newImage-edit">Cargar imagen:</label><br>
+        <img id="previewImage-edit" class=".modal-content">
+        <input type="file" id="newImage-edit" name="newImage" accept="image/*">
+        <button class=".modal-content" type="submit">Guardar Cambios</button>
+      </form>
+    </div>
+  </div>
 
 
   <button class="toTop" id="toTop">
@@ -238,6 +268,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   <script src="../js/toTop.js"></script>
   <script src="../js/light-darkMode.js"></script>
   <script src="../js/post.js"></script>
+  <script src="../js/editpost.js"></script>
 </body>
 
 </html>

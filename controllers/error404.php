@@ -12,7 +12,7 @@ The user is provided with a button to go back to the home page.
         <p class="lead">
             The page you’re looking for doesn’t exist.
         </p>
-        <a href="<?php echo APPURL;  ?>" class="btn btn-primary">Go Home</a>
+        <a href="<?php echo APPURL; ?>" class="btn btn-primary">Go Home</a>
     </div>
 </div>
 

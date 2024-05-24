@@ -1,116 +1,106 @@
-
-html{
-    background-color: transparent;
+html {
+  background-color: transparent;
 }
 
 .navbar {
-    position: fixed;
-    width: 7%;
-    height: 35%;
-    background-color: #817e7e4c;
-    top: 15%;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 2%;
-    box-shadow: 0 0px 20px #000000ac;
-    transition: width 0.5s;
-    border-radius: 25px;
-    margin: 2%;
-    z-index: 1  ;
+  position: fixed;
+  width: 7%;
+  height: 35%;
+  background-color: #817e7e4c;
+  top: 15%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2%;
+  box-shadow: 0 0px 20px #000000ac;
+  transition: width 0.5s;
+  border-radius: 25px;
+  margin: 2%;
+  z-index: 1;
 }
 
 .navbar .logo {
-    text-decoration: none;
-    color: hsl(175, 100%, 51%);
-    width: auto;
-    height: auto;
-    font-size: 200%;
-    margin-bottom: 5%;
-    transition: 500ms;
+  text-decoration: none;
+  color: hsl(175, 100%, 51%);
+  width: auto;
+  height: auto;
+  font-size: 200%;
+  margin-bottom: 5%;
+  transition: 500ms;
 }
 
-.navbar .logo img{
-    text-decoration: none;
-    position: fixed;
-    margin-left: -2.5%;
-    margin-top: 0%;
-    width: 5%;
-    height: 9%;
-    transition: 500ms;
+.navbar .logo img {
+  text-decoration: none;
+  position: fixed;
+  margin-left: -2.5%;
+  margin-top: 0%;
+  width: 80px;
+  height: 80px;
+  transition: 500ms;
 }
 
-.navbar .logo img:hover{
-    text-decoration: none;
-    box-shadow: 0 0px 10px hsl(175, 100%, 51%);
-    border-radius: 51%;
-    transition: 500ms;
+.navbar .logo img:hover {
+  text-decoration: none;
+  box-shadow: 0 0px 10px hsl(175, 100%, 51%);
+  border-radius: 51%;
+  transition: 500ms;
 }
 
-
-.navbar .logo:hover{
-    color: hsl(175, 100%, 51%);
-    text-shadow: 0 0 10px hsl(175, 100%, 51%);
-    transition: 500ms;
-}
-
-.optionnv span{
-    visibility: hidde   n;
-}
-
-.optionnv i {
-    margin-left: 29%;
-    margin-right: 2%;
-    font-size: 350%;
-    transition: margin-left 0.5s;
-}
-
-.optionnv {
-    position: relative;
-    overflow: hidden;
-    color: #ffffff;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    border: none;
-    transition: 500ms;
-    top: 40%;
-}
-
-.optionnv:hover{
-    font-weight: bold;
-    color:  #ffffff23;
-    transition: 500ms;
+.navbar .logo:hover {
+  color: hsl(175, 100%, 51%);
+  text-shadow: 0 0 10px hsl(175, 100%, 51%);
+  transition: 500ms;
 }
 
 .optionnv span {
-    visibility: hidden;
+  visibility: hidde n;
 }
 
+.optionnv i {
+  margin-left: 29%;
+  margin-right: 2%;
+  font-size: 350%;
+  transition: margin-left 0.5s;
+}
 
+.optionnv {
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  transition: 500ms;
+  top: 40%;
+}
 
+.optionnv:hover {
+  font-weight: bold;
+  color: #ffffff23;
+  transition: 500ms;
+}
+
+.optionnv span {
+  visibility: hidden;
+}
 
 /* HOVERS */
-button:hover{
-    cursor:pointer;
+button:hover {
+  cursor: pointer;
 }
 .navbar:hover {
-    width: 10.5%;
+  width: 10.5%;
 }
 
 .optionnv:hover i {
-    text-decoration: none;
-    color: #ffffff23;;
-    margin-left: 2%;
-    transition: 500ms;
+  text-decoration: none;
+  color: #ffffff23;
+  margin-left: 2%;
+  transition: 500ms;
 }
 .optionnv:hover span {
-    visibility: visible;
-}
-
-.logout{
-    text-decoration: none;
-    color: white;
+  visibility: visible;
 }

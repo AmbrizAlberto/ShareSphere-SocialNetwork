@@ -1,104 +1,105 @@
 /* MODAL */
 .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    transition: 500ms;
-  }
-  
-  .modal-content {
-    background-color: #3e3e3e;
-    width: 40%;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    border-radius: 20px;
-    transition: 500ms;
-  }
-  
-  .close {
-    color: #b15050;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .close:hover {
-    color: black;
-  }
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  transition: 500ms;
+  z-index: 1;
+}
 
-   /* Estilos del formulario dentro del modal */
-   .modal-content form {
-    display: flex;
-    flex-direction: column;
+.modal-content {
+  background-color: #3e3e3e;
+  width: 40%;
+  margin: 5vh auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 20px;
+  transition: 500ms;
+}
+
+.close {
+  color: #b15050;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: black;
+}
+
+/* Estilos del formulario dentro del modal */
+.modal-content form {
+  width: 100% !important;
+  margin: auto !important;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-content label {
-    text-align: center;
-    color: white;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-.modal-content input {
-    color: white;
-    margin-bottom: 15px;
-    margin-top: 1%;
-    position: relative;
-    left: 20%;
-    width: 43%;
-    top: 8px;
-    padding: 8px;
-    border: none;
-    border-radius: 20px;
-    background-color: #00000087;
-}
-
-.modal-content img {
-  position: relative;
-  max-width: 15%;
-  max-height: 15%;
-  top: 23%;
-  left: 32%;
-  height: auto;
-  border-radius: 20px;
+  text-align: center;
+  color: white;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
+.modal-content input {
+  color: white;
+  margin-bottom: 3vh;
+  margin-top: 1vh;
+  position: relative;
+  left: 20%;
+  width: 60%;
+  top: 8px;
+  padding: 8px;
+  border: none;
+  border-radius: 20px;
+  background-color: #00000087;
+}
+
+.modal-content img {
+  width: 50%;
+  margin: auto;
+  margin-top: -30vh;
+  position: relative;
+  border-radius: 20px;
+}
+
 .modal-content textarea {
-    color: white;
-    margin-bottom: 15px;
-    padding: 8px;
-    border: none;
-    border-radius: 10px;
-    background-color: #00000087;
+  color: white;
+  margin-bottom: 15px;
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  background-color: #00000087;
 }
 
 .modal-content select {
-    color: #ccc;
-    margin-bottom: 15px;
-    padding: 8px;
-    border: none;
-    border-radius: 10px;
-    background-color: #00000087;
+  color: #ccc;
+  margin-bottom: 15px;
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  background-color: #00000087;
 }
 
 .modal-content button {
+  width: 50%;
+  margin: auto;
+  font-size: 2vh !important;
   color: white;
-    background-color: #21926c;
-    padding: 4px;
-    font-size: 100%;
-    left: 25%;
-    position: relative;
-    width: 50%;
-    border-radius: 20px;
-    padding: 1%;
+  background-color: #21926c;
+  padding: 4px;
+  font-size: 100%;
+  position: relative;
+  border-radius: 20px;
+  padding: 1%;
 }
 
 .modal-content button:hover {

@@ -1,144 +1,210 @@
 body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #242839;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #242839;
+  font-family: Arial, sans-serif;
+}
+
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
-    display: flex;
-    flex-direction: row;
-    width: 90%;
-    height: 90%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    background-color: #fff;
-
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  height: 90vh !important;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 0 30px black;
 }
 
 .image-container {
-    flex: 1;
-    background-image: url('../images/Green_Fondo.jpg');
-    background-size: cover;
-    background-position: center;
+  flex: 1;
+  background-image: url("../images/Green_Fondo.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
 }
 
-.image-container h1{
-    position: absolute;
-    width: 40%;
-    height: auto;
-    top: 40%;
-    left: 10%;
-    color: #fff;
+.image-container h1 {
+  position: absolute;
+  width: 90%;
+  height: auto;
+  top: 40%;
+  left: 10%;
+  color: #fff;
 }
 
-.logo{
-    position: absolute;
-    top: 10%;
-    left: 69%;
-    max-width: 100px;
-    max-height: 100px;
+.logo {
+  display: flex;
+  position: absolute;
+  margin: auto;
+  top: 5%;
+  max-width: 100px;
+  max-height: 100px;
 }
 
 .form-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    margin-top: 13%;
-    padding: 20px;
-    background-color: #fff;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  padding-top: 25vh;
+  background-color: #fff;
+  position: relative;
 }
 
 .form-container h2 {
-    position: absolute;
-    font-size: 30px;
-    top: 22%;
+  position: absolute;
+  font-size: 30px;
+  top: 19%;
 }
 
 .form-container form {
-    max-width: 50%;
-    margin: 0 auto;
+  max-width: 50%;
+  margin: 0 auto;
 }
 
 input[type="name"],
 input[type="lastname"],
 input[type="name-user"],
 input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: transform 0.3s ease;
+input[type="password"],
+input[type="code"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
 }
 
 input[type="name"]:hover,
 input[type="lastname"]:hover,
 input[type="name-user"]:hover,
 input[type="email"]:hover,
-input[type="password"]:hover, 
-input[type="code"]:hover{
-    transform: scale(1.1);
+input[type="password"]:hover,
+input[type="code"]:hover {
+  transform: scale(1.1);
 }
 
 input[type="submit"] {
-    margin-top: 10px;
-    width: 50%;
-    padding: 10px;
-    font-size: 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+  margin-top: 10px;
+  width: 50%;
+  padding: 10px;
+  font-size: 15px;
+  background-color: #5cb1a2;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3;
-    transform: scale(1.1);
+  background-color: #3a7469;
+  transform: scale(1.1);
 }
 
 .login-link {
-    position: absolute;
-    margin-top: -2%;
-    left: 73%;
+  margin-top: -5vh;
+  position: absolute;
+  left: 53%;
 }
 
 .login-link a {
-    margin-left: 15%;
-    color: #959595;
-    text-decoration: none;
+  margin-left: 15%;
+  color: #959595;
+  text-decoration: none;
 }
 
 .login-link a:hover {
-    color:#000000;
-    text-decoration: underline;
+  color: #000000;
+  text-decoration: underline;
 }
 
-<<<<<<< HEAD
-.code-opcion{
-    position: relative;
-    padding-top: 5%;
-    margin-top: 0%;
-    left: 11%;
+.code-opcion {
+  position: relative;
+  padding-top: 5%;
+  margin-top: 0%;
+  left: 11%;
 }
 
-input[type="code"] {
-    text-align: center;
-    position: relative;
-    left: 10%;
-    width: 50%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: transform 0.3s ease;
+/* FOOTERS */
+footer {
+  width: 90%;
+  background-color: #fff;
+  color: #000000;
+  padding: 20px 0;
+  border-radius: 20px;
+  margin-bottom: 2.5%;
 }
-=======
 
->>>>>>> b1379947b9d9453f37503794f483c95318f17495
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.footer-container div {
+  flex: 1;
+  margin: 10px;
+}
+
+.footer-about,
+.footer-contact,
+.footer-links,
+.footer-social {
+  max-width: 250px;
+}
+
+.footer-about p,
+.footer-contact p,
+.footer-links ul,
+.footer-social ul {
+  margin: 0;
+}
+
+.footer-links ul,
+.footer-social ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links a,
+.footer-social a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: wrap;
+  gap: 10px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 10px;
+  border-top: 1px solid #0000007a;
+}

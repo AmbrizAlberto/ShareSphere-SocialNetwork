@@ -8,6 +8,7 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px);
 }
 
 input[type="comment"] {
@@ -35,6 +36,7 @@ input[type="comment"]:focus {
 .content-post {
   width: 60%;
   left: 3%;
+  top: 30%;
   position: relative;
   overflow: hidden;
 }
@@ -43,18 +45,23 @@ input[type="comment"]:focus {
   background-size: cover;
   background-position: center;
   border-radius: 10px;
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 50%;
+  color: white;
+  font-size: 2vh;
+  text-align: center;
 }
 
 #comment {
   width: 98%;
   position: absolute;
-  top: 40%;
+  top: 10%;
 }
 
 .close-post {
-  color: #b15050;
+  color: #ff5a5a;
   position: relative;
   left: 96%;
   font-size: 60px;
@@ -80,8 +87,8 @@ input[type="comment"]:focus {
 
 .box-descripcion {
   top: 10%;
-  right: 62px;
-  width: 29%;
+  left: 4%;
+  width: 58%;
   margin: 20px auto;
   position: absolute;
   border-radius: 10px;
@@ -92,7 +99,7 @@ input[type="comment"]:focus {
   transition: background-color 0.3s;
 }
 
-.box-descripcion h2{
+.box-descripcion h2 {
   color: #fff;
   font-size: 15px;
   font-family: "Roboto", sans-serif;
@@ -113,7 +120,7 @@ input[type="comment"]:focus {
   transition: background-color 0.3s;
 }
 
-.description-comment h2{
+.description-comment h2 {
   color: #fff;
   font-size: 15px;
   font-family: "Roboto", sans-serif;

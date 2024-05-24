@@ -1,5 +1,7 @@
 <?php
-require_once('../src/Models/conexion.php');
+require_once ('../src/Models/conexion.php');
+use Models\Conexion;
+
 $conn = new conexion();
 
 $pdo = $conn->getPdo();
@@ -26,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $hashed_password = password_hash($new_password, PASSWORD_BCRYPT);
 
             // Actualizar la contraseña en la base de datos
-            $sql = "UPDATE user SET password = :new_password WHERE code = :code";
+            $sql = "UPDATE user SET passwordHash = :new_password WHERE code = :code";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':new_password', $hashed_password);
             $stmt->bindParam(':code', $code);
@@ -45,4 +47,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-

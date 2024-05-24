@@ -15,7 +15,9 @@ $user = $posts->GetUserById($_SESSION['userId']);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ShareSphere</title>
 
-  <link rel="stylesheet" href="<?php echo '../css/main.css'//$user['theme'] =='0' ?  '../css/light-mode.css':  '../css/main.css' ?>" id="theme-style">
+  <link rel="stylesheet"
+    href="<?php echo '../css/main.css'//$user['theme'] =='0' ?  '../css/light-mode.css':  '../css/main.css' ?>"
+    id="theme-style">
   <link rel="stylesheet" href="../css/navbar.css">
   <link rel="stylesheet" href="../css/textpost.css">
   <link rel="stylesheet" href="../css/photopost.css">
@@ -24,10 +26,17 @@ $user = $posts->GetUserById($_SESSION['userId']);
   <link rel="stylesheet" href="../css/modalEdit.css">
   <link rel="stylesheet" href="../css/filtros.css">
   <link rel="stylesheet" href="../css/Post.css">
+  <link rel="stylesheet" href="../css/light-mode.css">
 
+
+  <link rel="stylesheet" href="../css/ResponsivePerfilPage.css">
+  <link rel="stylesheet" href="../css/ResponsiveMain.css">
+  <link rel="stylesheet" href="../css/ResponsiveModal.css">
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="icon" href="../images/Logo-cut.png" type="image/png">
 
 </head>
 
@@ -51,7 +60,9 @@ $user = $posts->GetUserById($_SESSION['userId']);
 
   <div class="main">
     <div class="feedhead">
-      <h1>ShareSphere</h1>
+      <a href="./main.php" class="ShSp">
+        <h1 href="./main.php">ShareSphere</h1>
+      </a>
 
       <div class="search-nav">
         <form action="#" method="get">
@@ -102,17 +113,15 @@ $user = $posts->GetUserById($_SESSION['userId']);
       <a href="../../controllers/logout.php" class="logout"><i class="bi bi-box-arrow-right"></i></a>
 
       <button id="theme-toggle-btn"><i class="bi bi-lightbulb-fill"></i></button>
-      
+
     </div>
 
 
     <div class="PerfilPage">
 
-      <div class="PerfilDatos">
         <div class="PerfilPortada">
-          <img
-            src="<?php echo $user['coverImg'] ? "/public/fondo_users/" . $user['coverImg'] : "/public/fondo_users/fondodefault.png" ?>"
-            alt="#" style="height: auto; wight: 300;">
+          <img src="<?php echo $user['coverImg'] ? "/public/fondo_users/" . $user['coverImg'] : "/public/fondo_users/fondodefault.png" ?>" alt="#" style="height: auto;">
+          
           <button id="modalBtnEdit" type="button" class="editbtn">
             <i class="bi bi-pencil-fill"></i> Editar
           </button>
@@ -120,16 +129,16 @@ $user = $posts->GetUserById($_SESSION['userId']);
 
         <div class="PerfilPhoto">
           <img
-            src="<?php echo $user['image'] ? "/public/images_users/" . $user['image'] : "/public/images_users/userdefault.png" ?>"
-            alt="">
+            src="<?php echo $user['image'] ? "/public/images_users/" . $user['image'] : "/public/images_users/userdefault.png" ?>" alt="">
         </div>
+
         <div class="PerfilName">
           <h1><?php echo $user['username'] ?></h1>
         </div>
+
         <div class="PerfilDescription">
           <h2><?php echo $user['descripcion'] ? $user['descripcion'] : "Sin descripcion" ?></h2>
         </div>
-      </div>
 
     </div>
 
@@ -138,19 +147,20 @@ $user = $posts->GetUserById($_SESSION['userId']);
         <span class="close-edit">&times;</span>
         <h2>Editar Perfil</h2>
         <form id="editForm" action="/controllers/Edit/EditUser.php" method="post" enctype="multipart/form-data">
-          <label for="newUsername">Nombre de Usuario:</label><br>
-          <input type="text" id="newUsername" name="newUsername" value="<?php echo $user['username'] ?>"><br><br>
+          <label for="newUsername">Nombre de Usuario:</label>
+          <p><input type="text" id="newUsername" name="newUsername" value="<?php echo $user['username'] ?>"></p>
 
-          <label for="newDescription">Descripción:</label><br>
-          <textarea id="newDescription" name="newDescription" rows="4"
-            cols="50"><?php echo $user['descripcion'] ?></textarea><br><br>
+          <label for="newDescription">Descripción:</label>
+          <p><textarea id="newDescription" name="newDescription" rows="4"
+            cols="50"><?php echo $user['descripcion'] ?></textarea></p>
 
           <input type="hidden" value="<?php echo $_SESSION['userId']; ?>" name="userId">
-          <label for="newImage">Cargar imagen de perfil:</label><br>
-          <input type="file" id="newImage" name="newImage" accept="image/*"><br><br>
-          <label for="newImage">Cargar imagen de portada:</label><br>
-          <input type="file" id="newImage" name="newImage" accept="image/*"><br><br>
-          <img id="previewImage" src="<?php echo "/public/images_users/" . $user['image'] ?>" alt="User Image" class=".modal-content-edit">
+          <label for="newImage">Cargar imagen de perfil:</label>
+          <p><input type="file" id="newImage" name="newImage" accept="image/*"></p>
+          <label for="imagePortada">Cargar imagen de portada:</label>
+          <p><input type="file" id="imagePortada" name="imagePortada" accept="image/*"></p>
+          <p><img id="previewImage" src="<?php echo "/public/images_users/" . $user['image'] ?>" alt="User Image"
+            class=".modal-content-edit"></p>
 
 
 
@@ -178,7 +188,9 @@ $user = $posts->GetUserById($_SESSION['userId']);
         <div class="post-options">
           <span><i class="bi bi-caret-down-fill"></i></span>
           <div class="option-content">
-            <a href="#"><i class="bi bi-pencil-fill"></i></a>
+            <a id="modalBtn-edit"
+              onclick="openmodal('<?php echo htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8'); ?>')"><i
+                class="bi bi-pencil-fill"></i></a>
             <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=1"><i
                 class="bi bi-trash-fill"></i></a>
           </div>
@@ -200,9 +212,11 @@ $user = $posts->GetUserById($_SESSION['userId']);
         <div class="description">
           <h3><?php echo $post['content'] ?></h3>
         </div>
-        <div class="image-container">
-          <img src="<?php echo "/public/images_posts/" . $post['image'] ?>" alt="Imagen de la publicacion">
-        </div>
+        <?php if ($post['image'] != null) { ?>
+          <div class="image-container">
+            <img src="<?php echo "/public/images_posts/" . $post['image'] ?>" alt="Imagen de la publicacion">
+          </div>
+        <?php } ?>
         <div class="post-actions">
           <button class="action-btn"><i class="bi bi-hand-thumbs-up-fill"> 200</i></button>
           <button class="action-btn"><i class="bi bi-hand-thumbs-down-fill"> 200</i></button>
@@ -245,6 +259,32 @@ $user = $posts->GetUserById($_SESSION['userId']);
       </div>
     </div>
 
+    <div id="myModal-edit" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeBtn-edit">&times;</span>
+        <form id="editForm" action="/controllers/Edit/EditPost.php" method="post" enctype="multipart/form-data">
+          <input type="hidden" id="idPost" name="id">
+          <input type="hidden" value="1" name="currentPage">
+          <label for="tema">Tema:</label>
+          <select id="selector-edit" name="post_subgroup_id" required>
+            <option value="1">Agua Limpia y Saneamineto</option>
+            <option value="3">Energia Asequible y No Contaminante</option>
+            <option value="4">Vida Submarina</option>
+            <!-- Agrega más opciones según sea necesario -->
+          </select>
+          <label for="titulo-edit">Titulo:</label>
+          <textarea id="titulo-edit" name="post_title" rows="1" required placeholder="Titulo..."></textarea>
+
+          <label for="texto-edit">Texto:</label>
+          <textarea id="texto-edit" name="post_content" rows="4" requiredplaceholder="Descripcion..."></textarea>
+          <label for="newImage-edit">Cargar imagen:</label>
+          <p><img id="previewImage-edit" class=".modal-content"></p>
+          <input type="file" id="newImage-edit" name="newImage" accept="image/*">
+          <button class=".modal-content" type="submit">Guardar Cambios</button>
+        </form>
+      </div>
+    </div>
+
     <button class="toTop" id="toTop">
       <svg viewBox="0 0 24 24">
         <path d="m4 16 8-8 8 8"></path>
@@ -255,3 +295,4 @@ $user = $posts->GetUserById($_SESSION['userId']);
     <script src="../js/toTop.js"></script>
     <script src="../js/light-darkMode.js"></script>
     <script src="../js/post.js"></script>
+    <script src="../js/editpost.js"></script>

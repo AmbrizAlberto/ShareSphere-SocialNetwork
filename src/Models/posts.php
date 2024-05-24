@@ -1,4 +1,5 @@
 <?php
+// posts.php
 namespace models;
 use PDO;
 
@@ -48,6 +49,13 @@ class posts extends connection{
 
     public function GetPostsByIdUser($id){
         $sql="SELECT * FROM post WHERE creatorId = $id ORDER BY id DESC";
+        $execute = $this->conn->query($sql);
+        $request = $execute->fetchall(PDO::FETCH_ASSOC);
+        return $request;
+    }
+
+    public function GetPostsByIdSubgroup($id){
+        $sql="SELECT * FROM post WHERE SubgroupId = $id ORDER BY id DESC";
         $execute = $this->conn->query($sql);
         $request = $execute->fetchall(PDO::FETCH_ASSOC);
         return $request;
@@ -135,18 +143,54 @@ class posts extends connection{
         $update->execute($arrData);
     }
 
-    public function UpdateUser(string $id, string $newUsername, string $newDescripcion, string $Image=null){
+    public function UpdateUser(string $id, string $newUsername, string $newDescripcion, string $Image=null, string $imagePortada=null){
         if($Image == null){
-            $sql="UPDATE user SET username = ?, descripcion = ? WHERE id = ?";
-            $update = $this->conn->prepare($sql);
-            $arrData = array($newUsername, $newDescripcion, $id);
+            if($imagePortada == null){
+                $sql="UPDATE user SET username = ?, descripcion = ? WHERE id = ?";
+                $update = $this->conn->prepare($sql);
+                $arrData = array($newUsername, $newDescripcion, $id);
+            }else{
+                $sql="UPDATE user SET username = ?, descripcion = ?, coverImg = ? WHERE id = ?";
+                $portada = str_replace(" ", "", $imagePortada);
+                $today = date("Y-m-d_H-i-s");
+                move_uploaded_file($_FILES['imagePortada']['tmp_name'],"../.././public/fondo_users/".$today.$portada);
+                $update = $this->conn->prepare($sql);
+                $arrData = array($newUsername, $newDescripcion, $today.$portada, $id);
+            }
         }else{
-            $sql="UPDATE user SET username = ?, descripcion = ?, image = ? WHERE id = ?";
+            if($imagePortada == null){
+                $sql="UPDATE user SET username = ?, descripcion = ?, image = ? WHERE id = ?";
+                $img = str_replace(" ", "", $Image);
+                $today = date("Y-m-d_H-i-s");
+                move_uploaded_file($_FILES['newImage']['tmp_name'],"../.././public/images_users/".$today.$img);
+                $update = $this->conn->prepare($sql);
+                $arrData = array($newUsername, $newDescripcion, $today.$img, $id);
+            }else{
+                $sql="UPDATE user SET username = ?, descripcion = ?, image = ?, coverImg = ? WHERE id = ?";
+                $img = str_replace(" ", "", $Image);
+                $portada = str_replace(" ", "", $imagePortada);
+                $today = date("Y-m-d_H-i-s");
+                move_uploaded_file($_FILES['newImage']['tmp_name'],"../.././public/images_users/".$today.$img);
+                move_uploaded_file($_FILES['imagePortada']['tmp_name'],"../.././public/fondo_users/".$today.$portada);
+                $update = $this->conn->prepare($sql);
+                $arrData = array($newUsername, $newDescripcion, $today.$img, $today.$portada, $id);
+            }
+        }
+        $update->execute($arrData);
+    }
+
+    public function EditPost(string $id, string $title, string $content, string $idSubgroup, string $Image=null){
+        if($Image == null){
+            $sql="UPDATE post SET title = ?, content = ?, updatedAt = NOW(), SubgroupId = ?  WHERE id = ?";
+            $update = $this->conn->prepare($sql);
+            $arrData = array($title, $content, $idSubgroup, $id);
+        }else{
+            $sql="UPDATE  post SET title = ?, content = ?, image = ?, updatedAt = NOW(), SubgroupId = ? WHERE id = ?";
             $img = str_replace(" ", "", $Image);
             $today = date("Y-m-d_H-i-s");
-            move_uploaded_file($_FILES['newImage']['tmp_name'],"../.././public/images_users/".$today.$img);
+            move_uploaded_file($_FILES['newImage']['tmp_name'],"../.././public/images_posts/".$today.$img);
             $update = $this->conn->prepare($sql);
-            $arrData = array($newUsername, $newDescripcion, $today.$img, $id);
+            $arrData = array($title, $content, $today.$img, $idSubgroup, $id);
         }
         $update->execute($arrData);
     }
@@ -179,6 +223,39 @@ class posts extends connection{
         $arrwhere =array($id);
         $delete= $this->conn->prepare($sql);
         $delete->execute($arrwhere);    
+    }
+
+    public function AddLike($postId, $userId){
+        $sql = "INSERT INTO post_likes (post_id, user_id) VALUES (?, ?)";
+        $insert = $this->conn->prepare($sql);
+        $insert->execute([$postId, $userId]);
+    }
+
+    public function RemoveLike($postId, $userId){
+        $sql = "DELETE FROM post_likes WHERE post_id = ? AND user_id = ?";
+        $delete = $this->conn->prepare($sql);
+        $delete->execute([$postId, $userId]);
+    }    
+
+    public function UserLikedPost($postId, $userId){
+        $sql = "SELECT COUNT(*) FROM post_likes WHERE post_id = ? AND user_id = ?";
+        $query = $this->conn->prepare($sql);
+        $query->execute([$postId, $userId]);
+        return $query->fetchColumn() > 0;
+    }
+    
+    public function GetLikesCount($postId){
+        $sql = "SELECT COUNT(*) FROM post_likes WHERE post_id = ?";
+        $query = $this->conn->prepare($sql);
+        $query->execute([$postId]);
+        return $query->fetchColumn();
+    }
+
+    public function hasLiked($postId, $userId){
+        $sql = "SELECT COUNT(*) FROM post_likes WHERE post_id = ? AND user_id = ?";
+        $query = $this->conn->prepare($sql);
+        $query->execute([$postId, $userId]);
+        return $query->fetchColumn() > 0;
     }
 }
 ?>

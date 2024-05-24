@@ -39,9 +39,7 @@
   cursor: pointer;
 }
 
-
- /* Estilos del formulario dentro del modal */
-
+/* Estilos del formulario dentro del modal */
 
 .modal-content-edit label {
   position: relative;
@@ -62,7 +60,7 @@
   padding: 8px;
   border: none;
   border-radius: 20px;
-  background-color: #00000087
+  background-color: #00000087;
 }
 
 .modal-content-edit textarea {
@@ -76,7 +74,7 @@
   padding: 8px;
   border: none;
   border-radius: 10px;
-  background-color: #00000087
+  background-color: #00000087;
 }
 
 .modal-content-edit select {
