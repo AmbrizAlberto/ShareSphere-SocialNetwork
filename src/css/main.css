@@ -430,3 +430,41 @@ body{
   fill: none;
   width: 24px;
 } 
+
+
+
+
+
+
+.notificaciones-menu {
+  display: none;
+  position: absolute;
+  top: 50px; /* Ajusta la posición según tu diseño */
+  right: 10px; /* Ajusta la posición según tu diseño */
+  background-color: rgba(0, 0, 0, 0.382);
+  color: white;
+  font-weight: bold;
+  border: 1px solid #393939c0;
+  padding: 10px;
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  height: 80vh;
+}
+
+.notificacion {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.notificacion img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 1px solid white;
+}
+
+.hidden {
+  display: none;
+}

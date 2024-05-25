@@ -18,9 +18,19 @@ $postId = $_POST['postId'];
 if ($posts->UserLikedPost($postId, $userId)) {
     $posts->RemoveLike($postId, $userId); // Si ya ha dado like, quitar el like
     $likeStatus = -1; // Indicar que se ha eliminado el like
+
+    // Eliminar la notificación relacionada
+    $posts->RemoveNotification($postId, $userId);
 } else {
     $posts->AddLike($postId, $userId); // Si no ha dado like, agregar un nuevo like
     $likeStatus = 1; // Indicar que se ha agregado un nuevo like
+
+    // Obtener el ID del usuario que publicó la publicación
+    $authorId = $posts->GetPostById($postId)['creatorId'];
+
+    // Registrar la notificación
+    $notificationContent = 'El usuario ' . $_SESSION['userId'] . ' ha dado like a tu publicación ' . $postId;
+    $posts->InsertNotification($authorId, $notificationContent);
 }
 
 $likeCount = $posts->GetLikesCount($postId); // Obtener el nuevo conteo de likes

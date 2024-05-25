@@ -257,5 +257,44 @@ class posts extends connection{
         $query->execute([$postId, $userId]);
         return $query->fetchColumn() > 0;
     }
+
+    public function InsertNotification($userId, $content) {
+        $sql = "INSERT INTO notifications (user_id, content, date_created) VALUES (?, ?, NOW())";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$userId, $content]);
+        return $this->conn->lastInsertId();
+    }
+
+    public function GetNotificationCount($userId) {
+        $sql = "SELECT COUNT(*) FROM notifications WHERE user_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$userId]);
+        return $stmt->fetchColumn();
+    }
+
+    public function GetNotifications($userId) {
+        $sql = "SELECT * FROM notifications WHERE user_id = ? ORDER BY date_created DESC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$userId]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    public function RemoveNotification($postId, $userId) {
+        $query = "DELETE FROM notifications WHERE user_id = :user_id AND content LIKE :content";
+        $statement = $this->conn->prepare($query);
+        $likeContent = 'El usuario ' . $userId . ' ha dado like a tu publicación ' . $postId . '%';
+        $statement->execute([
+            'user_id' => $userId,
+            'content' => $likeContent
+        ]);
+    }
+    
+
+    public function DeleteNotificationById($notificationId) {
+        $query = "DELETE FROM notifications WHERE id = :notification_id";
+        $statement = $this->conn->prepare($query); // Asegúrate de usar $this->conn
+        return $statement->execute(['notification_id' => $notificationId]);
+    }    
+    
 }
 ?>

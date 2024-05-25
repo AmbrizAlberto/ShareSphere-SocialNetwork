@@ -3,14 +3,17 @@
 session_start(); // Iniciar la sesión
 if (empty($_SESSION['email'])) {
     header("Location:./login.php");
+    exit();
 }
 
 require_once ("../../autoload.php");
-use Models\{posts};
+use Models\posts;
 
 $posts = new posts();
 $postList = $posts->GetPosts();
 $userdata = $posts->GetUserById($_SESSION['userId']);
+$notifications = $posts->GetNotifications($_SESSION['userId']);
+$hasNotifications = !empty($notifications);
 
 // Filtrar publicaciones basadas en el término de búsqueda
 if (isset($_GET['search'])) {
@@ -153,9 +156,27 @@ if (isset($_GET['search'])) {
       <script src="script.js"></script>
 
       <!-- NOTIFICACIONES -->
-      <button style="background-color: transparent;">
+
+      <button id="notificaciones-btn" onclick="toggleMenu()">
         <i class="bi bi-app-indicator"></i>
       </button>
+      <div id="notificaciones-menu" class="notificaciones-menu <?php echo $hasNotifications ? '' : 'hidden'; ?>">
+        <!-- Contenido del menú de notificaciones -->
+        <?php if ($hasNotifications) { ?>
+          <?php foreach ($notifications as $notification) { ?>
+            <div class="notificacion">
+              <div class="contenido">
+                <p><?php echo $notification['content']; ?></p>
+                <p><?php echo $notification['date_created']; ?></p>
+                <button class="delete-notification-btn" data-id="<?php echo $notification['id']; ?>">Eliminar</button>
+              </div>
+            </div>
+          <?php } ?>
+        <?php } else { ?>
+          <p>No hay notificaciones.</p>
+        <?php } ?>
+      </div>      
+      
       <!-- CERRAR SESION -->
       <a href="../../controllers/logout.php" class="logout"><i class="bi bi-box-arrow-right"></i></a>
 
@@ -345,35 +366,9 @@ if (isset($_GET['search'])) {
   </button>
 
   <!-- SCRIPTS -->
-  <script>
-    $(document).ready(function() {
-        $('.like-button').click(function() {
-            var postId = $(this).data('post-id');
-            var likeButton = $(this);
-            var likeCountSpan = $('#like-count-' + postId);
-
-            $.ajax({
-                type: 'POST',
-                url: '../../controllers/Set/like_handler.php',
-                data: { postId: postId },
-                dataType: 'json',
-                success: function(response) {
-                    if (response.status === 'success') {
-                        var likeCount = response.likeCount;
-                        likeCountSpan.text(likeCount);
-                        if (response.liked) {
-                            likeButton.addClass('liked');
-                        } else {
-                            likeButton.removeClass('liked');
-                        }
-                    } else {
-                        alert(response.message);
-                    }
-                }
-            });
-        });
-    });
-    </script>
+  <script src="../js/Notifications.js"></script>
+  <script src="../js/NotificationsDEL.js"></script>
+  <script src="../js/Likes.js"></script>
   <script src="../js/script.js"></script>
   <script src="../js/scriptedit.js"></script>
   <script src="../js/toTop.js"></script>
