@@ -1,21 +1,43 @@
-<?php //Funcion para evitar que los usuarios sin sesion iniciada puedan acceder al main
-session_start();// Iniciar la sesión
-if (empty($_SESSION['email'])) {
-  header("Location:./login.php");
-
-}
-?>
-
-
-<!DOCTYPE html>
 <?php
+// Función para evitar que los usuarios sin sesión iniciada puedan acceder al main
+session_start(); // Iniciar la sesión
+if (empty($_SESSION['email'])) {
+    header("Location:./login.php");
+}
+
 require_once ("../../autoload.php");
 use Models\{posts};
 
 $posts = new posts();
 $postList = $posts->GetPosts();
 $userdata = $posts->GetUserById($_SESSION['userId']);
+
+// Filtrar publicaciones basadas en el término de búsqueda
+if (isset($_GET['search'])) {
+  $searchTerm = filter_var($_GET['search'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+  $postList = array_filter($postList, function($post) use ($searchTerm) {
+        // Buscar en el título, subtítulo (SubgroupId), y contenido
+        $titleMatch = stripos($post['title'], $searchTerm) !== false;
+        $contentMatch = stripos($post['content'], $searchTerm) !== false;
+        $subgroupMatch = false;
+        switch ($post['SubgroupId']) {
+            case '1':
+                $subgroupMatch = stripos("Agua Limpia y Saneamiento", $searchTerm) !== false;
+                break;
+            case '3':
+                $subgroupMatch = stripos("Energia Asequible y No Contaminante", $searchTerm) !== false;
+                break;
+            case '4':
+                $subgroupMatch = stripos("Vida Submarina", $searchTerm) !== false;
+                break;
+        }
+        return $titleMatch || $contentMatch || $subgroupMatch;
+    });
+}
 ?>
+
+
+<!DOCTYPE html>
 
 <html lang="en">
 
@@ -88,11 +110,11 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       </a>
 
       <!-- BUSCADOR -->
-      <div class="search-nav">
+    <div class="search-nav">
         <form action="#" method="get">
-          <input type="text" placeholder="Buscar..." name="search">
+            <input type="text" placeholder="Buscar..." name="search" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search'], ENT_QUOTES) : ''; ?>">
         </form>
-      </div>
+    </div>
       <!-- FOTO DE PERFIL -->
       <form action="./PerfilPage.php" method="post">
         <input type="image"
