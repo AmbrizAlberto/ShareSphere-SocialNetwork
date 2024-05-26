@@ -210,11 +210,11 @@ if (isset($_GET['search'])) {
       <!-- CONTENEDOR POST -->
       <div class="post-container">
         <!-- INFO USUARIO -->
-        <div class="user-info" onclick="openModal(event)">
+        <div class="user-info">
           <a
             href="<?php echo "/src/views/" . ($_SESSION['userId'] == $post['creatorId'] ? "PerfilPage.php" : "userPage.php?idPerfil=" . $post['creatorId']); ?>">
-            <img src="<?php echo "/public/images_users/" . $posts->GetUserImgById($post['creatorId']) ?>"
-              alt="User Image"></a>
+            <img src="<?php echo "/public/images_users/" . $posts->GetUserById($post['creatorId'])['image']; ?>" />
+          </a>
           <span><?php echo $username['username'] ?></span>
         </div>
 
@@ -236,12 +236,12 @@ if (isset($_GET['search'])) {
         <?php } ?>
 
         <!-- TITULO POST -->
-        <h2 class="post-content" onclick="openModal(event)">
+        <h2 class="post-content">
           <?php echo $post['title']; ?>
         </h2>
         <!-- SUBTITULO POST-->
         <a href="#" style=text-decoration:none>
-          <h3 class="SubTitle" onclick="openModal(event)">
+          <h3 class="SubTitle">
             <?php switch ($post['SubgroupId']) {
               case '1':
                 echo "Agua Limpia y Saneamineto";
@@ -256,10 +256,10 @@ if (isset($_GET['search'])) {
           </h3>
         </a>
         <!-- DESCRIPCION POST -->
-        <div class="description" onclick="openModal(event)">
+        <div class="description">
           <?php echo $post['content'] ?>
         </div>
-        <div class="image-container" onclick="openModal(event)">
+        <div class="image-container">
           <?php if ($post['image'] != null) { ?>
             <img src="/public/images_posts/<?php echo $post['image'] ?>" alt="Imagen de la publicacion">
           <?php } ?>
@@ -271,63 +271,30 @@ if (isset($_GET['search'])) {
               <span id="like-count-<?php echo $post['id']; ?>"><?php echo $posts->GetLikesCount($post['id']); ?></span>
           </button>
           <!-- Comentarios -->
-          <button class="action-btn" onclick="openModal(event)">
-              <i class="bi bi-chat-square-text-fill"> 200</i>
+          <button class="action-btn" onclick="openPostModal(<?php echo $post['id']; ?>)">
+            <i class="bi bi-chat-square-text-fill"></i>
+            <span id="comment-count-<?php echo $post['id']; ?>"><?php echo $posts->GetCommentsCount($post['id']); ?></span>
           </button>
         </div>
       </div>
     <?php } ?>
 
-
-
     <!-- MODAL AL ENTRAR AL POST -->
-    <div id="Post-complete" class="post">
-      <span class="close-post" onclick="closeModal()">&times;</span>
-      <div class="content-post">
-        <img id="fullImage" alt="No hay imagen">
-      </div>
-
-      <div class="box-descripcion">
-        <div class="user-info-post">
-          <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
-          <span><?php echo $username['username'] ?></span>
+    <div id="postModal" class="post-modal">
+        <div class="post-content1">
+            <span class="close-post" onclick="closePostModal()">&times;</span>
+            <div id="postModalContent" class="post-description"></div>
         </div>
-        <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro quam, perspiciatis sit ipsum voluptatum
-          provident accusamus dolores dolorem ex numquam et magnam fugit praesentium, sapiente nemo culpa quisquam,
-          consectetur corporis.
-        </h2>
-      </div>
-
-      <h1 class="title-comment">Comentarios</h1>
-      <div id="comment">
-        <div class="text-comment">
-          <input type="comment" placeholder="Comenta...">
+        <div class="post-comments">
+            <!-- Aquí se colocará el contenido de los comentarios y el formulario de nuevo comentario -->
         </div>
-        <div class="box-comment">
-          <div class="user-info-post">
-            <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
-            <span><?php echo $username['username'] ?></span>
-          </div>
-          <div class="description-comment">
-            <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro quam, perspiciatis sit ipsum voluptatum
-              provident accusamus dolores dolorem ex numquam et magnam fugit praesentium, sapiente nemo culpa quisquam,
-              consectetur corporis.</h2>
-          </div>
-        </div>
-        <div class="box-comment">
-          <div class="user-info-post">
-            <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
-            <span><?php echo $username['username'] ?></span>s
-          </div>
-          <div class="description-comment">
-            <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro quam, perspiciatis sit ipsum voluptatum
-              provident accusamus dolores dolorem ex numquam et magnam fugit praesentium, sapiente nemo culpa quisquam,
-              consectetur corporis.</h2>
-          </div>
-        </div>
-      </div>
     </div>
+
+
+
+
   </div>
+
 
 
 
