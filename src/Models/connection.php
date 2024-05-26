@@ -1,4 +1,5 @@
 <?php
+/* connection.php */
     namespace models;
     use PDO, PDOException;
     class connection{

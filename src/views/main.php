@@ -1,21 +1,46 @@
-<?php //Funcion para evitar que los usuarios sin sesion iniciada puedan acceder al main
-session_start();// Iniciar la sesión
+<?php
+// Función para evitar que los usuarios sin sesión iniciada puedan acceder al main
+session_start(); // Iniciar la sesión
 if (empty($_SESSION['email'])) {
-  header("Location:./login.php");
+    header("Location:./login.php");
+    exit();
+}
 
+require_once ("../../autoload.php");
+use Models\posts;
+
+$posts = new posts();
+$postList = $posts->GetPosts();
+$userdata = $posts->GetUserById($_SESSION['userId']);
+$notifications = $posts->GetNotifications($_SESSION['userId']);
+$hasNotifications = !empty($notifications);
+
+// Filtrar publicaciones basadas en el término de búsqueda
+if (isset($_GET['search'])) {
+  $searchTerm = filter_var($_GET['search'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+  $postList = array_filter($postList, function($post) use ($searchTerm) {
+        // Buscar en el título, subtítulo (SubgroupId), y contenido
+        $titleMatch = stripos($post['title'], $searchTerm) !== false;
+        $contentMatch = stripos($post['content'], $searchTerm) !== false;
+        $subgroupMatch = false;
+        switch ($post['SubgroupId']) {
+            case '1':
+                $subgroupMatch = stripos("Agua Limpia y Saneamiento", $searchTerm) !== false;
+                break;
+            case '3':
+                $subgroupMatch = stripos("Energia Asequible y No Contaminante", $searchTerm) !== false;
+                break;
+            case '4':
+                $subgroupMatch = stripos("Vida Submarina", $searchTerm) !== false;
+                break;
+        }
+        return $titleMatch || $contentMatch || $subgroupMatch;
+    });
 }
 ?>
 
 
 <!DOCTYPE html>
-<?php
-require_once ("../../autoload.php");
-use Models\{posts};
-
-$posts = new posts();
-$postList = $posts->GetPosts();
-$userdata = $posts->GetUserById($_SESSION['userId']);
-?>
 
 <html lang="en">
 
@@ -83,11 +108,11 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       </a>
 
       <!-- BUSCADOR -->
-      <div class="search-nav">
+    <div class="search-nav">
         <form action="#" method="get">
-          <input type="text" placeholder="Buscar..." name="search">
+            <input type="text" placeholder="Buscar..." name="search" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search'], ENT_QUOTES) : ''; ?>">
         </form>
-      </div>
+    </div>
       <!-- FOTO DE PERFIL -->
       <form action="./PerfilPage.php" method="post">
         <input type="image"
@@ -126,9 +151,27 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       <script src="script.js"></script>
 
       <!-- NOTIFICACIONES -->
-      <button style="background-color: transparent;">
+
+      <button id="notificaciones-btn" onclick="toggleMenu()">
         <i class="bi bi-app-indicator"></i>
       </button>
+      <div id="notificaciones-menu" class="notificaciones-menu <?php echo $hasNotifications ? '' : 'hidden'; ?>">
+        <!-- Contenido del menú de notificaciones -->
+        <?php if ($hasNotifications) { ?>
+          <?php foreach ($notifications as $notification) { ?>
+            <div class="notificacion">
+              <div class="contenido">
+                <p><?php echo $notification['content']; ?></p>
+                <p><?php echo $notification['date_created']; ?></p>
+                <button class="delete-notification-btn" data-id="<?php echo $notification['id']; ?>">Eliminar</button>
+              </div>
+            </div>
+          <?php } ?>
+        <?php } else { ?>
+          <p>No hay notificaciones.</p>
+        <?php } ?>
+      </div>      
+      
       <!-- CERRAR SESION -->
       <a href="../../controllers/logout.php" class="logout"><i class="bi bi-box-arrow-right"></i></a>
 
@@ -318,35 +361,9 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   </button>
 
   <!-- SCRIPTS -->
-  <script>
-    $(document).ready(function () {
-      $('.like-button').click(function () {
-        var postId = $(this).data('post-id');
-        var likeButton = $(this);
-        var likeCountSpan = $('#like-count-' + postId);
-
-        $.ajax({
-          type: 'POST',
-          url: '../../controllers/Set/like_handler.php',
-          data: { postId: postId },
-          dataType: 'json',
-          success: function (response) {
-            if (response.status === 'success') {
-              var likeCount = response.likeCount;
-              likeCountSpan.text(likeCount);
-              if (response.liked) {
-                likeButton.addClass('liked');
-              } else {
-                likeButton.removeClass('liked');
-              }
-            } else {
-              alert(response.message);
-            }
-          }
-        });
-      });
-    });
-  </script>
+  <script src="../js/Notifications.js"></script>
+  <script src="../js/NotificationsDEL.js"></script>
+  <script src="../js/Likes.js"></script>
   <script src="../js/script.js"></script>
   <script src="../js/scriptedit.js"></script>
   <script src="../js/toTop.js"></script>

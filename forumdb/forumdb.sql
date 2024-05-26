@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 24-05-2024 a las 06:43:06
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Servidor: localhost
+-- Tiempo de generación: 25-05-2024 a las 09:43:59
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -75,6 +75,28 @@ CREATE TABLE `commentvote` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `content` text DEFAULT NULL,
+  `date_created` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `notifications`
+--
+
+INSERT INTO `notifications` (`id`, `user_id`, `content`, `date_created`) VALUES
+(4, 13, 'El usuario 18 ha dado like a tu publicación 29', '2024-05-25 05:35:03'),
+(7, 13, 'El usuario 19 ha dado like a tu publicación 29', '2024-05-25 05:36:12'),
+(15, 18, 'El usuario 18 ha dado like a tu publicación 39', '2024-05-25 07:41:20');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `post`
 --
 
@@ -95,7 +117,8 @@ CREATE TABLE `post` (
 
 INSERT INTO `post` (`id`, `title`, `content`, `image`, `createdAt`, `updatedAt`, `creatorId`, `SubgroupId`) VALUES
 (29, 'hola', 'buenos dias', 'hola2024-05-02_21-24-26.jpeg', '2024-05-02 13:24:26', NULL, 13, 4),
-(38, 'ihsidgfuisguydf', 'sdfguishdgufsdf', '2024-05-23_02-36-441mb2.jpeg', '2024-05-22 18:35:19', '2024-05-22 18:36:44', 18, 1);
+(38, 'ihsidgfuisguydf', 'sdfguishdgufsdf', '2024-05-23_02-36-441mb2.jpeg', '2024-05-22 18:35:19', '2024-05-22 18:36:44', 18, 1),
+(39, 'asdasdad', 'asdadsad', NULL, '2024-05-24 19:14:49', NULL, 18, 3);
 
 -- --------------------------------------------------------
 
@@ -114,8 +137,11 @@ CREATE TABLE `post_likes` (
 --
 
 INSERT INTO `post_likes` (`id`, `user_id`, `post_id`) VALUES
-(11, 18, 29),
-(10, 18, 38);
+(28, 18, 29),
+(12, 18, 38),
+(39, 18, 39),
+(31, 19, 29),
+(34, 19, 39);
 
 -- --------------------------------------------------------
 
@@ -219,7 +245,8 @@ INSERT INTO `user` (`id`, `name`, `lastname`, `email`, `emailVerified`, `usernam
 (15, 'ajjajaj', 'genial ', 'hola@ucol.mx', NULL, 'armando', '$2y$10$cCktAHld350lwobbYLLwBO7MrX2HyX0826DIp/AEzFZirbFWHlkP2', 'userdefault.png', NULL, NULL, 1, NULL, NULL, 0),
 (16, 'si', 'no', 's', NULL, 'sa', '$2y$10$RQNUMfAo3DeufciTSRP.f.imOwlVkOBN8HNFEm5sY2JjkYixT48UW', ' jlx', 'jgk', 'gfg', 0, 0, NULL, 0),
 (17, 'Alan Adolfo San', 'Millan Ramos', 'asanmillan@ucol.mx', NULL, 'Alan', '$2y$10$RQNUMfAo3DeufciTSRP.f.imOwlVkOBN8HNFEm5sY2JjkYixT48UW', 'userdefault.png', NULL, NULL, 0, 7, 347821, 1),
-(18, 'Alberto', 'Ambriz', 'jambriz0@ucol.mx', NULL, 'al.jsx', '$2y$10$.fVKEZR9XngAvtao5ECm/Ol1/M3AUHdjgsxWL8SSJlKJDiPaudvQe', 'userdefault.png', '', '2024-05-22_07-27-15descarga(3).jpg', 1, NULL, NULL, 1);
+(18, 'Alberto', 'Ambriz', 'jambriz0@ucol.mx', NULL, 'al.jsx', '$2y$10$.fVKEZR9XngAvtao5ECm/Ol1/M3AUHdjgsxWL8SSJlKJDiPaudvQe', 'userdefault.png', '', '2024-05-22_07-27-15descarga(3).jpg', 0, NULL, NULL, 1),
+(19, 'Al', 'AC', 'albertpoambez@gmail.com', NULL, 'albertp', '$2y$10$uZHpC6v.PxMtAKrMCslkgO7Otn0VD3VwdqnqWdv73eqRAFWzOFa1u', 'userdefault.png', NULL, NULL, 0, NULL, NULL, 1);
 
 --
 -- Índices para tablas volcadas
@@ -248,6 +275,13 @@ ALTER TABLE `commentvote`
   ADD PRIMARY KEY (`id`),
   ADD KEY `userId` (`userId`),
   ADD KEY `commentId` (`commentId`);
+
+--
+-- Indices de la tabla `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indices de la tabla `post`
@@ -325,16 +359,22 @@ ALTER TABLE `commentvote`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT de la tabla `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `post_likes`
 --
 ALTER TABLE `post_likes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `response`
@@ -358,7 +398,7 @@ ALTER TABLE `subgroup`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Restricciones para tablas volcadas
@@ -383,6 +423,12 @@ ALTER TABLE `comment`
 ALTER TABLE `commentvote`
   ADD CONSTRAINT `commentvote_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `commentvote_ibfk_2` FOREIGN KEY (`commentId`) REFERENCES `comment` (`id`);
+
+--
+-- Filtros para la tabla `notifications`
+--
+ALTER TABLE `notifications`
+  ADD CONSTRAINT `notifications_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User` (`id`);
 
 --
 -- Filtros para la tabla `post`
