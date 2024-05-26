@@ -35,6 +35,38 @@ body{
   box-shadow: 0px 30px 30px -30px rgba(0, 0, 0, 0.576); /* Cambio en esta línea */
 }
 
+.feedhead .logo {
+  text-decoration: none;
+  color: hsl(175, 100%, 51%);
+  width: auto;
+  height: auto;
+  font-size: 200%;
+  margin-bottom: 5%;
+  transition: 500ms;
+}
+
+.feedhead .logo img {
+  text-decoration: none;
+  position: fixed;
+  left: 8%;
+  top: 1%;
+  width: 9vh;
+  transition: 500ms;
+}
+
+.feedhead .logo img:hover {
+  text-decoration: none;
+  box-shadow: 0 0px 10px hsl(175, 100%, 51%);
+  border-radius: 51%;
+  transition: 500ms;
+}
+
+.feedhead .logo:hover {
+  color: hsl(175, 100%, 51%);
+  text-shadow: 0 0 10px hsl(175, 100%, 51%);
+  transition: 500ms;
+}
+
 .feedhead a{
   text-decoration: none;
   min-width: 0%;
@@ -44,7 +76,6 @@ body{
   margin-right: 10%;
 }
 .feedhead h1 {
-  margin-top: 15%;
   font-size: 200%;
   width: 20%;
   max-width: 20%;

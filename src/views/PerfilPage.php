@@ -26,8 +26,9 @@ $user = $posts->GetUserById($_SESSION['userId']);
   <link rel="stylesheet" href="../css/modalEdit.css">
   <link rel="stylesheet" href="../css/filtros.css">
   <link rel="stylesheet" href="../css/Post.css">
-  <link rel="stylesheet" href="../css/light-mode.css">
 
+  <link rel="stylesheet" href="<?php echo $userdata['theme'] == '0' ? '../css/light-mode.css' : '../css/main.css' ?>"
+    id="theme-style">
 
   <link rel="stylesheet" href="../css/ResponsivePerfilPage.css">
   <link rel="stylesheet" href="../css/ResponsiveMain.css">
@@ -42,24 +43,22 @@ $user = $posts->GetUserById($_SESSION['userId']);
 
 <body>
   <header>
-    <div class="navbar">
-      <div class="logo">
-        <a href="./main.php">
-          <img src="../images/Logo-cut.png" alt="Logo"
-            style="font-size: 24px; background-color: transparent; border: none;">
-        </a>
-      </div>
-
+  <div class="navbar">
       <div class="access">
-        <br /><br />
+        <!-- ACCESOS -->
         <a href="./main.php"><button class="optionnv"><i class="bi bi-house-fill"></i></i><span>Home</span></button></a>
         <a href="#"><button class="optionnv"><i class="bi bi-person-circle"></i></i><span>Profile</span></button></a>
-
       </div>
+  </div>
   </header>
 
   <div class="main">
     <div class="feedhead">
+
+      <div class="logo">
+        <a href="./main.php"><img src="../images/Logo-cut.png" alt="Logo"></a>
+      </div>
+
       <a href="./main.php" class="ShSp">
         <h1 href="./main.php">ShareSphere</h1>
       </a>

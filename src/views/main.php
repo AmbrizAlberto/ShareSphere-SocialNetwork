@@ -56,22 +56,12 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   <!-- NAVBAR -->
   <header>
     <div class="navbar">
-      <div class="logo">
-        <a href="./main.php">
-          <img src="../images/Logo-cut.png" alt="Logo"
-            style="font-size: 24px; background-color: transparent; border: none;">
-        </a>
-      </div>
-
       <div class="access">
-        <br /><br />
         <!-- ACCESOS -->
-        <button class="optionnv" href="#"><i class="bi bi-house-fill"></i></i><span>Home</span></button>
+        <a href="#"><button class="optionnv"><i class="bi bi-house-fill"></i></i><span>Home</span></button></a>
         <a href="./PerfilPage.php"><button class="optionnv"><i
-              class="bi bi-person-circle"></i></i><span>Profile</span></button>
-        </a>
+              class="bi bi-person-circle"></i></i><span>Profile</span></button></a>
       </div>
-
     </div>
   </header>
 
@@ -79,6 +69,11 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
 
     <!-- HEADER MAIN -->
     <div class="feedhead">
+
+      <div class="logo">
+        <a href="./main.php"><img src="../images/Logo-cut.png" alt="Logo"></a>
+      </div>
+
       <button id="theme-toggle-btn">
         <i class="bi bi-lightbulb-fill"></i>
       </button>
@@ -159,9 +154,9 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
     <!-- PUBLICACIONES -->
     <?php foreach ($postList as $post) { ?>
       <?php
-        $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-        $editpost = $post;
-        ?>
+      $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+      $editpost = $post;
+      ?>
 
 
       <!-- CONTENEDOR POST -->
@@ -224,12 +219,12 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
         <div class="post-actions">
           <!-- Like -->
           <button class="action-btn like-button" data-post-id="<?php echo $post['id']; ?>">
-              <i class="bi bi-hand-thumbs-up-fill"></i>
-              <span id="like-count-<?php echo $post['id']; ?>"><?php echo $posts->GetLikesCount($post['id']); ?></span>
+            <i class="bi bi-hand-thumbs-up-fill"></i>
+            <span id="like-count-<?php echo $post['id']; ?>"><?php echo $posts->GetLikesCount($post['id']); ?></span>
           </button>
           <!-- Comentarios -->
           <button class="action-btn" onclick="openModal(event)">
-              <i class="bi bi-chat-square-text-fill"> 200</i>
+            <i class="bi bi-chat-square-text-fill"> 200</i>
           </button>
         </div>
       </div>
@@ -324,34 +319,34 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
 
   <!-- SCRIPTS -->
   <script>
-    $(document).ready(function() {
-        $('.like-button').click(function() {
-            var postId = $(this).data('post-id');
-            var likeButton = $(this);
-            var likeCountSpan = $('#like-count-' + postId);
+    $(document).ready(function () {
+      $('.like-button').click(function () {
+        var postId = $(this).data('post-id');
+        var likeButton = $(this);
+        var likeCountSpan = $('#like-count-' + postId);
 
-            $.ajax({
-                type: 'POST',
-                url: '../../controllers/Set/like_handler.php',
-                data: { postId: postId },
-                dataType: 'json',
-                success: function(response) {
-                    if (response.status === 'success') {
-                        var likeCount = response.likeCount;
-                        likeCountSpan.text(likeCount);
-                        if (response.liked) {
-                            likeButton.addClass('liked');
-                        } else {
-                            likeButton.removeClass('liked');
-                        }
-                    } else {
-                        alert(response.message);
-                    }
-                }
-            });
+        $.ajax({
+          type: 'POST',
+          url: '../../controllers/Set/like_handler.php',
+          data: { postId: postId },
+          dataType: 'json',
+          success: function (response) {
+            if (response.status === 'success') {
+              var likeCount = response.likeCount;
+              likeCountSpan.text(likeCount);
+              if (response.liked) {
+                likeButton.addClass('liked');
+              } else {
+                likeButton.removeClass('liked');
+              }
+            } else {
+              alert(response.message);
+            }
+          }
         });
+      });
     });
-    </script>
+  </script>
   <script src="../js/script.js"></script>
   <script src="../js/scriptedit.js"></script>
   <script src="../js/toTop.js"></script>
