@@ -98,7 +98,7 @@ function submitComment(postId) {
                 </ul>
                 <div class="new-comment">
                     <input type="text" id="newCommentInput" placeholder="Nuevo comentario" class="new-comment-input">
-                    <button onclick="submitComment(${postId})" class="new-comment-button">Enviar</button>
+                    <button onclick="submitComment(${postId})" class="new-comment-button">Comentar</button>
                 </div>
             </div>
         `;
