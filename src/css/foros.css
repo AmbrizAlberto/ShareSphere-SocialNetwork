@@ -34,6 +34,38 @@ body {
   border-bottom: 1.5px solid rgba(255, 255, 255, 0.422);
 }
 
+.feedhead .logo {
+  text-decoration: none;
+  color: hsl(175, 100%, 51%);
+  width: auto;
+  height: auto;
+  font-size: 200%;
+  margin-bottom: 5%;
+  transition: 500ms;
+}
+
+.feedhead .logo img {
+  text-decoration: none;
+  position: fixed;
+  left: 8%;
+  top: 1%;
+  width: 9vh;
+  transition: 500ms;
+}
+
+.feedhead .logo img:hover {
+  text-decoration: none;
+  box-shadow: 0 0px 10px hsl(175, 100%, 51%);
+  border-radius: 51%;
+  transition: 500ms;
+}
+
+.feedhead .logo:hover {
+  color: hsl(175, 100%, 51%);
+  text-shadow: 0 0 10px hsl(175, 100%, 51%);
+  transition: 500ms;
+}
+
 .feedhead h1 {
   margin-top: 2%;
   font-size: 200%;
@@ -49,7 +81,6 @@ body {
 
 .feedhead i {
   margin-top: 0.5vh;
-  margin-left: 20%;
   margin-right: 1%;
   font-size: 130%;
   transition: 300ms;

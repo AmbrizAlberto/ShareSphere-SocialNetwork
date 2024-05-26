@@ -47,25 +47,22 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
 
   <header>
     <div class="navbar">
-      <div class="logo">
-        <a href="./main.php">
-          <img src="../images/Logo-cut.png" alt="Logo"
-            style="font-size: 24px; background-color: transparent; border: none;">
-        </a>
-      </div>
-
       <div class="access">
-        <br /><br />
+        <!-- ACCESOS -->
         <a href="./main.php"><button class="optionnv"><i class="bi bi-house-fill"></i></i><span>Home</span></button></a>
         <a href="./PerfilPage.php"><button class="optionnv"><i
               class="bi bi-person-circle"></i></i><span>Profile</span></button></a>
       </div>
-
     </div>
   </header>
 
   <div class="main">
     <div class="feedhead">
+
+      <div class="logo">
+        <a href="./main.php"><img src="../images/Logo-cut.png" alt="Logo"></a>
+      </div>
+
       <h1>ShareSphere</h1>
       <div class="search-nav">
         <form action="#" method="get">
@@ -153,7 +150,9 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
           <span><i class="bi bi-caret-down-fill"></i></span>
           <?php if ($post['creatorId'] == $_SESSION['userId']) { ?>
             <div class="option-content">
-              <a id="modalBtn-edit" onclick="openmodal('<?php echo htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8'); ?>')"><i class="bi bi-pencil-fill"></i></a>
+              <a id="modalBtn-edit"
+                onclick="openmodal('<?php echo htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8'); ?>')"><i
+                  class="bi bi-pencil-fill"></i></a>
               <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=4"><i
                   class="bi bi-trash-fill"></i></a>
             </div>

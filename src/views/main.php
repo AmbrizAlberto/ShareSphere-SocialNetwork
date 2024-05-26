@@ -81,22 +81,12 @@ if (isset($_GET['search'])) {
   <!-- NAVBAR -->
   <header>
     <div class="navbar">
-      <div class="logo">
-        <a href="./main.php">
-          <img src="../images/Logo-cut.png" alt="Logo"
-            style="font-size: 24px; background-color: transparent; border: none;">
-        </a>
-      </div>
-
       <div class="access">
-        <br /><br />
         <!-- ACCESOS -->
-        <button class="optionnv" href="#"><i class="bi bi-house-fill"></i></i><span>Home</span></button>
+        <a href="#"><button class="optionnv"><i class="bi bi-house-fill"></i></i><span>Home</span></button></a>
         <a href="./PerfilPage.php"><button class="optionnv"><i
-              class="bi bi-person-circle"></i></i><span>Profile</span></button>
-        </a>
+              class="bi bi-person-circle"></i></i><span>Profile</span></button></a>
       </div>
-
     </div>
   </header>
 
@@ -104,6 +94,11 @@ if (isset($_GET['search'])) {
 
     <!-- HEADER MAIN -->
     <div class="feedhead">
+
+      <div class="logo">
+        <a href="./main.php"><img src="../images/Logo-cut.png" alt="Logo"></a>
+      </div>
+
       <button id="theme-toggle-btn">
         <i class="bi bi-lightbulb-fill"></i>
       </button>
@@ -202,9 +197,9 @@ if (isset($_GET['search'])) {
     <!-- PUBLICACIONES -->
     <?php foreach ($postList as $post) { ?>
       <?php
-        $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-        $editpost = $post;
-        ?>
+      $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+      $editpost = $post;
+      ?>
 
 
       <!-- CONTENEDOR POST -->
@@ -267,8 +262,8 @@ if (isset($_GET['search'])) {
         <div class="post-actions">
           <!-- Like -->
           <button class="action-btn like-button" data-post-id="<?php echo $post['id']; ?>">
-              <i class="bi bi-hand-thumbs-up-fill"></i>
-              <span id="like-count-<?php echo $post['id']; ?>"><?php echo $posts->GetLikesCount($post['id']); ?></span>
+            <i class="bi bi-hand-thumbs-up-fill"></i>
+            <span id="like-count-<?php echo $post['id']; ?>"><?php echo $posts->GetLikesCount($post['id']); ?></span>
           </button>
           <!-- Comentarios -->
           <button class="action-btn" onclick="openPostModal(<?php echo $post['id']; ?>)">
