@@ -50,7 +50,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       <div class="access">
         <!-- ACCESOS -->
         <a href="./main.php"><button class="optionnv"><i class="bi bi-house-fill"></i></i><span>Home</span></button></a>
-        <a href="./ProfilePage.php"><button class="optionnv"><i
+        <a href="./PerfilPage.php"><button class="optionnv"><i
               class="bi bi-person-circle"></i></i><span>Profile</span></button></a>
       </div>
     </div>
