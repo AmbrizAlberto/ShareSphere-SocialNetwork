@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 25-05-2024 a las 09:43:59
+-- Tiempo de generación: 26-05-2024 a las 06:58:03
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -62,6 +62,34 @@ CREATE TABLE `comment` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `post_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `content` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `comment` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `comments`
+--
+
+INSERT INTO `comments` (`id`, `post_id`, `user_id`, `content`, `created_at`, `comment`) VALUES
+(3, 39, 18, 'asdasdas', '2024-05-26 01:52:43', NULL),
+(4, 39, 18, 'asdadasd', '2024-05-26 01:52:46', NULL),
+(5, 39, 18, '', '2024-05-26 02:04:46', NULL),
+(6, 39, 18, 'kjajkhsd', '2024-05-26 02:12:55', NULL),
+(7, 39, 18, 'asdasda', '2024-05-26 03:25:49', NULL),
+(8, 42, 18, 'jhaljdhlasd', '2024-05-26 04:53:50', NULL),
+(9, 42, 18, 'asdljadjlajhsda hi', '2024-05-26 04:55:57', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `commentvote`
 --
 
@@ -91,8 +119,7 @@ CREATE TABLE `notifications` (
 
 INSERT INTO `notifications` (`id`, `user_id`, `content`, `date_created`) VALUES
 (4, 13, 'El usuario 18 ha dado like a tu publicación 29', '2024-05-25 05:35:03'),
-(7, 13, 'El usuario 19 ha dado like a tu publicación 29', '2024-05-25 05:36:12'),
-(15, 18, 'El usuario 18 ha dado like a tu publicación 39', '2024-05-25 07:41:20');
+(7, 13, 'El usuario 19 ha dado like a tu publicación 29', '2024-05-25 05:36:12');
 
 -- --------------------------------------------------------
 
@@ -118,7 +145,10 @@ CREATE TABLE `post` (
 INSERT INTO `post` (`id`, `title`, `content`, `image`, `createdAt`, `updatedAt`, `creatorId`, `SubgroupId`) VALUES
 (29, 'hola', 'buenos dias', 'hola2024-05-02_21-24-26.jpeg', '2024-05-02 13:24:26', NULL, 13, 4),
 (38, 'ihsidgfuisguydf', 'sdfguishdgufsdf', '2024-05-23_02-36-441mb2.jpeg', '2024-05-22 18:35:19', '2024-05-22 18:36:44', 18, 1),
-(39, 'asdasdad', 'asdadsad', NULL, '2024-05-24 19:14:49', NULL, 18, 3);
+(39, 'asdasdad', 'asdadsad', NULL, '2024-05-24 19:14:49', NULL, 18, 3),
+(40, 'asdad', 'asdasd', NULL, '2024-05-25 21:51:04', NULL, 18, 1),
+(41, 'hola', 'holaquetal', NULL, '2024-05-25 21:51:16', NULL, 18, 1),
+(42, 'adads', 'sdadasdasdas hi\r\n\r\n', 'adads2024-05-26_04-53-37.jpeg', '2024-05-25 21:53:37', NULL, 18, 1);
 
 -- --------------------------------------------------------
 
@@ -269,6 +299,14 @@ ALTER TABLE `comment`
   ADD KEY `postId` (`postId`);
 
 --
+-- Indices de la tabla `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `post_id` (`post_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indices de la tabla `commentvote`
 --
 ALTER TABLE `commentvote`
@@ -353,6 +391,12 @@ ALTER TABLE `comment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT de la tabla `commentvote`
 --
 ALTER TABLE `commentvote`
@@ -368,7 +412,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT de la tabla `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `post_likes`
@@ -416,6 +460,13 @@ ALTER TABLE `account`
 ALTER TABLE `comment`
   ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`creatorId`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`postId`) REFERENCES `post` (`id`);
+
+--
+-- Filtros para la tabla `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`),
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Filtros para la tabla `commentvote`

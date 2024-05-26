@@ -294,7 +294,44 @@ class posts extends connection{
         $query = "DELETE FROM notifications WHERE id = :notification_id";
         $statement = $this->conn->prepare($query); // Asegúrate de usar $this->conn
         return $statement->execute(['notification_id' => $notificationId]);
-    }    
+    } 
+    public function GetCommentsCount($postId) {
+        // Aquí debes escribir la lógica para obtener el número de comentarios
+        // Por ejemplo, podrías usar una consulta SQL para contar los comentarios asociados con la publicación $postId
+        // Luego, devuelves el número de comentarios
+        
+        // Ejemplo:
+        $sql = "SELECT COUNT(*) AS comment_count FROM comments WHERE post_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$postId]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        return $result['comment_count'];
+    }
+    public function GetComments($postId) {
+        $sql = "SELECT * FROM comments WHERE post_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$postId]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function AgregarComentario($postId, $userId, $comment) {
+        // Insertar el nuevo comentario en la base de datos
+        $sql = "INSERT INTO comments (post_id, user_id, content, created_at) VALUES (?, ?, ?, NOW())";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$postId, $userId, $comment]);
+    
+        // Obtener el ID del comentario recién insertado
+        $commentId = $this->conn->lastInsertId();
+    
+        // Obtener el número total de comentarios después de agregar el nuevo comentario
+        $commentCount = $this->GetCommentsCount($postId);
+    
+        // Devolver el ID del comentario y el número total de comentarios
+        return [
+            'commentId' => $commentId,
+            'commentCount' => $commentCount
+        ];
+    }   
     
 }
 ?>
