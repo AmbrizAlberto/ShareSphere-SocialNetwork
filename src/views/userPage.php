@@ -45,13 +45,6 @@ $userProfile = $posts->GetUserById($_GET['idPerfil']);
 
   <header>
     <div class="navbar">
-      <div class="logo">
-        <a href="./main.php">
-          <img src="../images/Logo-cut.png" alt="Logo"
-            style="font-size: 24px; background-color: transparent; border: none;">
-        </a>
-      </div>
-
       <div class="access">
         <br /><br />
         <a href="./main.php"><button class="optionnv"><i class="bi bi-house-fill"></i></i><span>Home</span></button></a>
@@ -64,6 +57,10 @@ $userProfile = $posts->GetUserById($_GET['idPerfil']);
   <div class="main">
     <div class="feedhead">
       <h1>ShareSphere</h1>
+      
+      <div class="logo">
+        <a href="./main.php"><img src="../images/Logo-cut.png" alt="Logo"></a>
+      </div>
 
       <div class="search-nav">
         <form action="#" method="get">
