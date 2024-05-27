@@ -45,7 +45,6 @@
 .modal-content label {
   text-align: center;
   color: white;
-  margin-top: 20px;
   margin-bottom: 10px;
 }
 
@@ -64,9 +63,8 @@
 }
 
 .modal-content img {
-  width: 50%;
+  max-width: 20%;
   margin: auto;
-  margin-top: -30vh;
   position: relative;
   border-radius: 20px;
 }
