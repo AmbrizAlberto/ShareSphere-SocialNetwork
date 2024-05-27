@@ -102,7 +102,7 @@ if (isset($_GET['search'])) {
       <button id="theme-toggle-btn">
         <i class="bi bi-lightbulb-fill"></i>
       </button>
-      
+
       <!-- NOMBRE DE PAGINA -->
       <a href="./main.php" class="ShSp">
         <h1 href="./main.php">ShareSphere</h1>
@@ -257,6 +257,7 @@ if (isset($_GET['search'])) {
             <img src="/public/images_posts/<?php echo $post['image'] ?>" alt="Imagen de la publicacion">
           <?php } ?>
         </div>
+
         <div class="post-actions">
           <!-- Like -->
           <button class="action-btn like-button" data-post-id="<?php echo $post['id']; ?>">
@@ -272,9 +273,6 @@ if (isset($_GET['search'])) {
       </div>
     <?php } ?>
 
-
-
-
     <!-- MODAL AL ENTRAR AL POST -->
     <div id="postModal" class="post-modal">
         <div class="post-content1">
@@ -285,14 +283,7 @@ if (isset($_GET['search'])) {
             <!-- Aquí se colocará el contenido de los comentarios y el formulario de nuevo comentario -->
         </div>
     </div>
-
-
-
-
   </div>
-
-
-
 
   <!-- MODAL DE EDITAR POST -->
   <div id="myModal-edit" class="modal">
