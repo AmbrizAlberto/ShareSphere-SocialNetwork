@@ -6,6 +6,31 @@ use Models\{posts};
 $posts = new posts();
 $postList = $posts->GetPostsByIdUser($_SESSION['userId']);
 $user = $posts->GetUserById($_SESSION['userId']);
+$notifications = $posts->GetNotifications($_SESSION['userId']);
+$hasNotifications = !empty($notifications);
+
+// Filtrar publicaciones basadas en el término de búsqueda
+if (isset($_GET['search'])) {
+  $searchTerm = filter_var($_GET['search'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+  $postList = array_filter($postList, function($post) use ($searchTerm) {
+        // Buscar en el título, subtítulo (SubgroupId), y contenido
+        $titleMatch = stripos($post['title'], $searchTerm) !== false;
+        $contentMatch = stripos($post['content'], $searchTerm) !== false;
+        $subgroupMatch = false;
+        switch ($post['SubgroupId']) {
+            case '1':
+                $subgroupMatch = stripos("Agua Limpia y Saneamiento", $searchTerm) !== false;
+                break;
+            case '3':
+                $subgroupMatch = stripos("Energia Asequible y No Contaminante", $searchTerm) !== false;
+                break;
+            case '4':
+                $subgroupMatch = stripos("Vida Submarina", $searchTerm) !== false;
+                break;
+        }
+        return $titleMatch || $contentMatch || $subgroupMatch;
+    });
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,6 +84,10 @@ $user = $posts->GetUserById($_SESSION['userId']);
         <a href="./main.php"><img src="../images/Logo-cut.png" alt="Logo"></a>
       </div>
 
+      <button id="theme-toggle-btn">
+        <i class="bi bi-lightbulb-fill"></i>
+      </button>
+
       <a href="./main.php" class="ShSp">
         <h1 href="./main.php">ShareSphere</h1>
       </a>
@@ -105,16 +134,32 @@ $user = $posts->GetUserById($_SESSION['userId']);
       </div>
       <script src="../js/script.js"></script>
 
-      <button style="background-color: transparent;">
+      <!-- NOTIFICACIONES -->
+
+      <button id="notificaciones-btn" onclick="toggleMenu()">
         <i class="bi bi-app-indicator"></i>
       </button>
-
+      <div id="notificaciones-menu" class="notificaciones-menu <?php echo $hasNotifications ? '' : 'hidden'; ?>">
+        <!-- Contenido del menú de notificaciones -->
+        <?php if ($hasNotifications) { ?>
+          <?php foreach ($notifications as $notification) { ?>
+            <div class="notificacion">
+              <div class="contenido">
+                <p><?php echo $notification['content']; ?></p>
+                <p><?php echo $notification['date_created']; ?></p>
+                <button class="delete-notification-btn" data-id="<?php echo $notification['id']; ?>">Eliminar</button>
+              </div>
+            </div>
+          <?php } ?>
+        <?php } else { ?>
+          <p>No hay notificaciones.</p>
+        <?php } ?>
+      </div>      
+      
+      <!-- CERRAR SESION -->
       <a href="../../controllers/logout.php" class="logout"><i class="bi bi-box-arrow-right"></i></a>
 
-      <button id="theme-toggle-btn"><i class="bi bi-lightbulb-fill"></i></button>
-
     </div>
-
 
     <div class="PerfilPage">
 
@@ -183,17 +228,23 @@ $user = $posts->GetUserById($_SESSION['userId']);
 
 
     <?php foreach ($postList as $post) { ?>
-      <div class="post-container">
+      <!-- CONTENEDOR POST -->
+      <div class="post-container" onclick="openPostModal(<?php echo $post['id']; ?>)">
+         <!-- OPCIONES DE POST -->
+         <?php if ($post['creatorId'] == $_SESSION['userId']) { ?>
         <div class="post-options">
           <span><i class="bi bi-caret-down-fill"></i></span>
           <div class="option-content">
-            <a id="modalBtn-edit"
-              onclick="openmodal('<?php echo htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8'); ?>')"><i
-                class="bi bi-pencil-fill"></i></a>
-            <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=1"><i
-                class="bi bi-trash-fill"></i></a>
+            <!-- EDITAR POST -->
+            <a id="modalBtn-edit" onclick="openmodal('<?php echo addslashes(htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8')); ?>', event)">
+              <i class="bi bi-pencil-fill"></i>
+            </a>
+            <!-- ELIMINAR POST -->
+            <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=0">
+              <i class="bi bi-trash-fill"></i></a>
           </div>
         </div>
+        <?php } ?>
         <h2 class="post-content"> <?php echo $post['title'] ?> </h2><br>
         <h3 class="SubTitle">
           <?php switch ($post['SubgroupId']) {
@@ -216,82 +267,76 @@ $user = $posts->GetUserById($_SESSION['userId']);
             <img src="<?php echo "/public/images_posts/" . $post['image'] ?>" alt="Imagen de la publicacion">
           </div>
         <?php } ?>
+        
         <div class="post-actions">
-          <button class="action-btn"><i class="bi bi-hand-thumbs-up-fill"> 200</i></button>
-          <button class="action-btn"><i class="bi bi-hand-thumbs-down-fill"> 200</i></button>
-          <button class="action-btn"><i class="bi bi-chat-square-text-fill"> 200</i></button>
+          <!-- Like -->
+          <button class="action-btn like-button" data-post-id="<?php echo $post['id']; ?>">
+            <i class="bi bi-hand-thumbs-up-fill"></i>
+            <span id="like-count-<?php echo $post['id']; ?>"><?php echo $posts->GetLikesCount($post['id']); ?></span>
+          </button>
+          <!-- Comentarios -->
+          <button class="action-btn" onclick="openPostModal(<?php echo $post['id']; ?>)">
+            <i class="bi bi-chat-square-text-fill"></i>
+            <span id="comment-count-<?php echo $post['id']; ?>"><?php echo $posts->GetCommentsCount($post['id']); ?></span>
+          </button>
         </div>
       </div>
     <?php } ?>
+    
 
-    <div id="Post-complete" class="post">
-      <span class="close-post" onclick="closeModal()">&times;</span>
-      <div class="content-post">
-        <img id="fullImage">
-      </div>
-      <div id="comment">
-        <div class="text-comment">
-          <input type="comment" placeholder="Comenta...">
+    <!-- MODAL AL ENTRAR AL POST -->
+    <div id="postModal" class="post-modal">
+        <div class="post-content1">
+            <span class="close-post" onclick="closePostModal()">&times;</span>
+            <div id="postModalContent" class="post-description"></div>
         </div>
-        <div class="box-comment">
-          <div class="user-info-post">
-            <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
-            <span><?php echo $username['username'] ?></span>
-          </div>
-          <div class="description-comment">
-            <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro quam, perspiciatis sit ipsum voluptatum
-              provident accusamus dolores dolorem ex numquam et magnam fugit praesentium, sapiente nemo culpa quisquam,
-              consectetur corporis.</h2>
-          </div>
+        <div class="post-comments">
+            <!-- Aquí se colocará el contenido de los comentarios y el formulario de nuevo comentario -->
         </div>
-        <div class="box-comment">
-          <div class="user-info-post">
-            <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
-            <span><?php echo $username['username'] ?></span>
-          </div>
-          <div class="description-comment">
-            <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro quam, perspiciatis sit ipsum voluptatum
-              provident accusamus dolores dolorem ex numquam et magnam fugit praesentium, sapiente nemo culpa quisquam,
-              consectetur corporis.</h2>
-          </div>
-        </div>
-      </div>
     </div>
+  </div>
 
-    <div id="myModal-edit" class="modal">
-      <div class="modal-content">
-        <span class="close" id="closeBtn-edit">&times;</span>
-        <form id="editForm" action="/controllers/Edit/EditPost.php" method="post" enctype="multipart/form-data">
-          <input type="hidden" id="idPost" name="id">
-          <input type="hidden" value="1" name="currentPage">
-          <label for="tema">Tema:</label>
-          <select id="selector-edit" name="post_subgroup_id" required>
-            <option value="1">Agua Limpia y Saneamineto</option>
-            <option value="3">Energia Asequible y No Contaminante</option>
-            <option value="4">Vida Submarina</option>
-            <!-- Agrega más opciones según sea necesario -->
-          </select>
-          <label for="titulo-edit">Titulo:</label>
-          <textarea id="titulo-edit" name="post_title" rows="1" required placeholder="Titulo..."></textarea>
+  <!-- MODAL DE EDITAR POST -->
+  <div id="myModal-edit" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeBtn-edit">&times;</span>
+      <form id="editForm" action="/controllers/Edit/EditPost.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" id="idPost" name="id">
+        <input type="hidden" value="0" name="currentPage">
+        <label for="tema">Tema:</label>
+        <select id="selector-edit" name="post_subgroup_id" required>
+          <option value="1">Agua Limpia y Saneamineto</option>
+          <option value="3">Energia Asequible y No Contaminante</option>
+          <option value="4">Vida Submarina</option>
+          <!-- Agrega más opciones según sea necesario -->
+        </select>
+        <label for="titulo-edit">Titulo:</label>
+        <textarea id="titulo-edit" name="post_title" rows="1" required placeholder="Titulo..."></textarea>
 
-          <label for="texto-edit">Texto:</label>
-          <textarea id="texto-edit" name="post_content" rows="4" requiredplaceholder="Descripcion..."></textarea>
-          <label for="newImage-edit">Cargar imagen:</label>
-          <p><img id="previewImage-edit" class=".modal-content"></p>
-          <input type="file" id="newImage-edit" name="newImage" accept="image/*">
-          <button class=".modal-content" type="submit">Guardar Cambios</button>
-        </form>
-      </div>
+        <label for="texto-edit">Texto:</label>
+        <textarea id="texto-edit" name="post_content" rows="4" requiredplaceholder="Descripcion..."></textarea>
+        <label for="newImage-edit">Cargar imagen:</label>
+        <p><img id="previewImage-edit" class=".modal-content" style="align-content: center;display: flex;"></p>
+        <input type="file" id="newImage-edit" name="newImage" accept="image/*">
+        <button class=".modal-content" type="submit">Guardar Cambios</button>
+      </form>
     </div>
+  </div>
 
-    <button class="toTop" id="toTop">
-      <svg viewBox="0 0 24 24">
-        <path d="m4 16 8-8 8 8"></path>
-      </svg>
-    </button>
+  <!-- BOTON A TOP -->
+  <button class="toTop" id="toTop">
+    <svg viewBox="0 0 24 24">
+      <path d="m4 16 8-8 8 8"></path>
+    </svg>
+  </button>
 
-    <script src="../js/scriptedituser.js"></script>
-    <script src="../js/toTop.js"></script>
-    <script src="../js/light-darkMode.js"></script>
-    <script src="../js/post.js"></script>
-    <script src="../js/editpost.js"></script>
+  <!-- SCRIPTS -->
+  <script src="../js/Notifications.js"></script>
+  <script src="../js/NotificationsDEL.js"></script>
+  <script src="../js/Likes.js"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/scriptedit.js"></script>
+  <script src="../js/toTop.js"></script>
+  <script src="../js/light-darkMode.js"></script>
+  <script src="../js/post.js"></script>
+  <script src="../js/editpost.js"></script>

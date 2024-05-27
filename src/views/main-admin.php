@@ -55,19 +55,12 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   <!-- NAVBAR -->
   <header>
     <div class="navbar">
-      <div class="logo">
-        <a href="./main.php">
-          <img src="../images/Logo-cut.png" alt="Logo"
-            style="font-size: 24px; background-color: transparent; border: none;">
-        </a>
-      </div>
-
       <div class="access">
-        <br /><br />
         <!-- ACCESOS -->
-        <button class="optionnv" href="#"><i class="bi bi-house-fill"></i></i><span>Home</span></button>
+        <a href="#"><button class="optionnv"><i class="bi bi-house-fill"></i></i><span>Home</span></button></a>
+        <a href="./PerfilPage.php"><button class="optionnv"><i
+              class="bi bi-person-circle"></i></i><span>Profile</span></button></a>
       </div>
-
     </div>
   </header>
 
@@ -78,6 +71,11 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       <button id="theme-toggle-btn">
         <i class="bi bi-lightbulb-fill"></i>
       </button>
+
+      <div class="logo">
+        <a href="./main.php"><img src="../images/Logo-cut.png" alt="Logo"></a>
+      </div>
+      
       <!-- NOMBRE DE PAGINA -->
       <h1>ShareSphere</h1>
 
