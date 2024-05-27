@@ -258,12 +258,27 @@ class posts extends connection{
         return $query->fetchColumn() > 0;
     }
 
-    public function InsertNotification($userId, $content) {
-        $sql = "INSERT INTO notifications (user_id, content, date_created) VALUES (?, ?, NOW())";
+    public function InsertNotification($userId, $reactorId, $postId) {
+        // Obtener el nombre de usuario del usuario que ha dado like
+        $reactorInfo = $this->GetUserById($reactorId);
+        $reactorName = $reactorInfo['username'];
+    
+        // Obtener el título de la publicación usando su ID
+        $postInfo = $this->GetPostById($postId);
+        $postTitle = $postInfo['title'];
+    
+        // Construir el contenido de la notificación con el nombre del usuario que ha dado like y el título de la publicación
+        $notificationContent = 'El usuario ' . $reactorName . ' ha dado like a tu publicación "' . $postTitle . '"';
+    
+        // Insertar la notificación en la base de datos
+        $sql = "INSERT INTO notifications (user_id, reactor_id, content, date_created) VALUES (?, ?, ?, NOW())";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([$userId, $content]);
+        $stmt->execute([$userId, $reactorId, $notificationContent]);
+    
+        // Devolver el ID de la notificación recién insertada
         return $this->conn->lastInsertId();
     }
+    
 
     public function GetNotificationCount($userId) {
         $sql = "SELECT COUNT(*) FROM notifications WHERE user_id = ?";
@@ -280,14 +295,14 @@ class posts extends connection{
     }
     
     public function RemoveNotification($postId, $userId) {
-        $query = "DELETE FROM notifications WHERE user_id = :user_id AND content LIKE :content";
-        $statement = $this->conn->prepare($query);
+        $sql = "DELETE FROM notifications WHERE user_id = :user_id AND content LIKE :content";
+        $statement = $this->conn->prepare($sql);
         $likeContent = 'El usuario ' . $userId . ' ha dado like a tu publicación ' . $postId . '%';
         $statement->execute([
             'user_id' => $userId,
             'content' => $likeContent
         ]);
-    }
+    }    
     
 
     public function DeleteNotificationById($notificationId) {

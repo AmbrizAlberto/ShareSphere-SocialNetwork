@@ -464,29 +464,30 @@ body{
 } 
 
 
-
-
-
-
+/* NOTIFICATIONS */
 .notificaciones-menu {
   display: none;
   position: absolute;
-  top: 50px; /* Ajusta la posición según tu diseño */
-  right: 10px; /* Ajusta la posición según tu diseño */
+  width: 30%;
+  height: 80vh;
+  top: 10vh; /* Ajusta la posición según tu diseño */
+  left: 65%; /* Ajusta la posición según tu diseño */
   background-color: rgba(0, 0, 0, 0.382);
   color: white;
   font-weight: bold;
-  border: 1px solid #393939c0;
+  border: 1px solid #ffffffc0;
   padding: 10px;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(30px);
   border-radius: 10px;
-  height: 80vh;
+  box-shadow: 0 0 50px black;
 }
 
 .notificacion {
   display: flex;
   align-items: center;
+  border-bottom: 1px solid white;
   margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 .notificacion img {
@@ -499,4 +500,17 @@ body{
 
 .hidden {
   display: none;
+}
+
+.delete-notification-btn{
+  position: absolute;
+  margin-top: -13%;
+  margin-left: 60%;
+  border: 1px solid white !important;
+  width: 100px !important;
+  height: 35px !important;
+  background-color: #5cb1a2 !important;
+  color: white !important;
+  font-size: 20px !important;
+  border-radius: 10px;
 }

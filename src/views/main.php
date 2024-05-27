@@ -37,6 +37,20 @@ if (isset($_GET['search'])) {
         return $titleMatch || $contentMatch || $subgroupMatch;
     });
 }
+
+// Definir la función para obtener la URL de la vista de cada subgrupo
+function getSubgroupViewUrl($subgroupId) {
+  switch ($subgroupId) {
+    case '1':
+      return "./foro_6.php";
+    case '3':
+      return "./foro_7.php";
+    case '4':
+      return "./foro_14.php";
+    default:
+      return "#"; // URL por defecto si no se encuentra un subtema específico
+  }
+}
 ?>
 
 
@@ -108,11 +122,12 @@ if (isset($_GET['search'])) {
       </a>
 
       <!-- BUSCADOR -->
-    <div class="search-nav">
-        <form action="#" method="get">
-            <input type="text" placeholder="Buscar..." name="search" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search'], ENT_QUOTES) : ''; ?>">
-        </form>
-    </div>
+      <div class="search-nav">
+          <form action="#" method="get">
+              <input type="text" placeholder="Buscar..." name="search" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search'], ENT_QUOTES) : ''; ?>">
+          </form>
+      </div>
+
       <!-- FOTO DE PERFIL -->
       <form action="./PerfilPage.php" method="post">
         <input type="image"
@@ -151,7 +166,6 @@ if (isset($_GET['search'])) {
       <script src="script.js"></script>
 
       <!-- NOTIFICACIONES -->
-
       <button id="notificaciones-btn" onclick="toggleMenu()">
         <i class="bi bi-app-indicator"></i>
       </button>
@@ -200,7 +214,7 @@ if (isset($_GET['search'])) {
       $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_FULL_SPECIAL_CHARS));
       $editpost = $post;
       ?>
-
+      
       <!-- CONTENEDOR POST -->
       <div class="post-container" onclick="openPostModal(<?php echo $post['id']; ?>)">
         <!-- INFO USUARIO -->
@@ -231,8 +245,9 @@ if (isset($_GET['search'])) {
         <h2 class="post-content">
           <?php echo $post['title']; ?>
         </h2>
+
         <!-- SUBTITULO POST-->
-        <a href="#" style="text-decoration:none;">
+        <a href="<?php echo getSubgroupViewUrl($post['SubgroupId']); ?>" style="text-decoration:none;">
           <h3 class="SubTitle">
             <?php switch ($post['SubgroupId']) {
               case '1':
@@ -247,6 +262,8 @@ if (isset($_GET['search'])) {
             } ?>
           </h3>
         </a>
+
+
         <!-- DESCRIPCION POST -->
         <div class="description">
           <?php echo $post['content'] ?>
@@ -271,9 +288,6 @@ if (isset($_GET['search'])) {
       </div>
     <?php } ?>
 
-
-
-
     <!-- MODAL AL ENTRAR AL POST -->
     <div id="postModal" class="post-modal">
         <div class="post-content1">
@@ -284,13 +298,7 @@ if (isset($_GET['search'])) {
             <!-- Aquí se colocará el contenido de los comentarios y el formulario de nuevo comentario -->
         </div>
     </div>
-
-
-
-
   </div>
-
-
 
 
   <!-- MODAL DE EDITAR POST -->
