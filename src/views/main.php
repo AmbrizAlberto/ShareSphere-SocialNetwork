@@ -102,6 +102,7 @@ if (isset($_GET['search'])) {
       <button id="theme-toggle-btn">
         <i class="bi bi-lightbulb-fill"></i>
       </button>
+      
       <!-- NOMBRE DE PAGINA -->
       <a href="./main.php" class="ShSp">
         <h1 href="./main.php">ShareSphere</h1>
@@ -313,7 +314,7 @@ if (isset($_GET['search'])) {
         <label for="texto-edit">Texto:</label>
         <textarea id="texto-edit" name="post_content" rows="4" requiredplaceholder="Descripcion..."></textarea>
         <label for="newImage-edit">Cargar imagen:</label>
-        <p><img id="previewImage-edit" class=".modal-content"></p>
+        <p><img id="previewImage-edit" class=".modal-content" style="align-content: center;display: flex;"></p>
         <input type="file" id="newImage-edit" name="newImage" accept="image/*">
         <button class=".modal-content" type="submit">Guardar Cambios</button>
       </form>
