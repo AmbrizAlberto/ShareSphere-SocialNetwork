@@ -201,13 +201,11 @@ if (isset($_GET['search'])) {
       $editpost = $post;
       ?>
 
-
       <!-- CONTENEDOR POST -->
-      <div class="post-container">
+      <div class="post-container" onclick="openPostModal(<?php echo $post['id']; ?>)">
         <!-- INFO USUARIO -->
         <div class="user-info">
-          <a
-            href="<?php echo "/src/views/" . ($_SESSION['userId'] == $post['creatorId'] ? "PerfilPage.php" : "userPage.php?idPerfil=" . $post['creatorId']); ?>">
+          <a href="<?php echo "/src/views/" . ($_SESSION['userId'] == $post['creatorId'] ? "PerfilPage.php" : "userPage.php?idPerfil=" . $post['creatorId']); ?>">
             <img src="<?php echo "/public/images_users/" . $posts->GetUserById($post['creatorId'])['image']; ?>" />
           </a>
           <span><?php echo $username['username'] ?></span>
@@ -215,19 +213,18 @@ if (isset($_GET['search'])) {
 
         <!-- OPCIONES DE POST -->
         <?php if ($post['creatorId'] == $_SESSION['userId']) { ?>
-          <div class="post-options">
-            <span><i class="bi bi-caret-down-fill"></i></span>
-            <div class="option-content">
-              <!-- EDITAR POST -->
-              <a id="modalBtn-edit"
-                onclick="openmodal('<?php echo htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8'); ?>')">
-                <i class="bi bi-pencil-fill"></i>
-              </a>
-              <!-- ELIMINAR POST -->
-              <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=0">
-                <i class="bi bi-trash-fill"></i></a>
-            </div>
+        <div class="post-options">
+          <span><i class="bi bi-caret-down-fill"></i></span>
+          <div class="option-content">
+            <!-- EDITAR POST -->
+            <a id="modalBtn-edit" onclick="openmodal('<?php echo addslashes(htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8')); ?>', event)">
+              <i class="bi bi-pencil-fill"></i>
+            </a>
+            <!-- ELIMINAR POST -->
+            <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=0">
+              <i class="bi bi-trash-fill"></i></a>
           </div>
+        </div>
         <?php } ?>
 
         <!-- TITULO POST -->
@@ -235,7 +232,7 @@ if (isset($_GET['search'])) {
           <?php echo $post['title']; ?>
         </h2>
         <!-- SUBTITULO POST-->
-        <a href="#" style=text-decoration:none>
+        <a href="#" style="text-decoration:none;">
           <h3 class="SubTitle">
             <?php switch ($post['SubgroupId']) {
               case '1':
@@ -273,6 +270,9 @@ if (isset($_GET['search'])) {
         </div>
       </div>
     <?php } ?>
+
+
+
 
     <!-- MODAL AL ENTRAR AL POST -->
     <div id="postModal" class="post-modal">

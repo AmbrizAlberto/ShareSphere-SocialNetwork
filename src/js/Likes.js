@@ -1,5 +1,7 @@
 $(document).ready(function() {
-    $('.like-button').click(function() {
+    $('.like-button').click(function(event) {
+        event.stopPropagation(); // Detiene la propagación del evento de clic
+
         var postId = $(this).data('post-id');
         var likeButton = $(this);
         var likeCountSpan = $('#like-count-' + postId);
