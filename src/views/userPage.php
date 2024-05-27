@@ -58,6 +58,10 @@ $userProfile = $posts->GetUserById($_GET['idPerfil']);
   <div class="main">
     <div class="feedhead">
       <h1>ShareSphere</h1>
+      
+      <div class="logo">
+        <a href="./main.php"><img src="../images/Logo-cut.png" alt="Logo"></a>
+      </div>
 
       <div class="search-nav">
         <form action="#" method="get">
