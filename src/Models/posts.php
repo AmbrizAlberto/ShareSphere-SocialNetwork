@@ -235,7 +235,13 @@ class posts extends connection{
         $sql = "DELETE FROM post_likes WHERE post_id = ? AND user_id = ?";
         $delete = $this->conn->prepare($sql);
         $delete->execute([$postId, $userId]);
-    }    
+    }
+    
+    public function RemoveLikesByIdUser($userId){
+        $sql = "DELETE FROM post_likes WHERE user_id = ?";
+        $delete = $this->conn->prepare($sql);
+        $delete->execute([$userId]);
+    }
 
     public function UserLikedPost($postId, $userId){
         $sql = "SELECT COUNT(*) FROM post_likes WHERE post_id = ? AND user_id = ?";
@@ -295,6 +301,13 @@ class posts extends connection{
         $statement = $this->conn->prepare($query); // Asegúrate de usar $this->conn
         return $statement->execute(['notification_id' => $notificationId]);
     } 
+    public function DeleteNotificationsByIdUser($userId) {
+        $query = "DELETE FROM notifications WHERE user_id = :user_id";
+        $statement = $this->conn->prepare($query); // Asegúrate de usar $this->conn
+        $statement->execute(['user_id' => $userId]);
+    }
+
+
     public function GetCommentsCount($postId) {
         // Aquí debes escribir la lógica para obtener el número de comentarios
         // Por ejemplo, podrías usar una consulta SQL para contar los comentarios asociados con la publicación $postId
@@ -332,6 +345,11 @@ class posts extends connection{
             'commentCount' => $commentCount
         ];
     }   
+    public function DeleteCommentsByIdUser($userId) {
+        $query = "DELETE FROM comments WHERE user_id = :user_id";
+        $statement = $this->conn->prepare($query); // Asegúrate de usar $this->conn
+        $statement->execute(['user_id' => $userId]);
+    }
     
 }
 ?>
