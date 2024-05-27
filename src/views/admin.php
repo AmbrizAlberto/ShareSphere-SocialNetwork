@@ -46,13 +46,13 @@ $users = new users();
 
                 <div class="botonimg">
                     <button class="botonimgs">
-                        <img src="../../src/images/6.png" alt="Agua Limpia y Saneamiento">
+                        <a href="./foro_6.php"><img src="../../src/images/6.png" alt="Agua Limpia y Saneamiento"></a>
                     </button>
                     <button class="botonimgs">
-                        <img src="../../src/images/7.png" alt="Energía Asequible y no contaminable">
+                        <a href="./foro_7.php"><img src="../../src/images/7.png" alt="Energía Asequible y no contaminable"></a>
                     </button>
                     <button class="botonimgs">
-                        <img src="../../src/images/14.jpg" alt="Vida Submarina">
+                        <a href="./foro_14.php"><img src="../../src/images/14.jpg" alt="Vida Submarina"></a>
                     </button>
                 </div>
                 <a class="optionnv" href="/controllers/logout.php"><i
