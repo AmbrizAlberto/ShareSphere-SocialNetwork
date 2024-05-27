@@ -43,22 +43,16 @@ $userProfile = $posts->GetUserById($_GET['idPerfil']);
 
 <body>
 
+  <!-- NAVBAR -->
   <header>
     <div class="navbar">
-      <div class="logo">
-        <a href="./main.php">
-          <img src="../images/Logo-cut.png" alt="Logo"
-            style="font-size: 24px; background-color: transparent; border: none;">
-        </a>
-      </div>
-
       <div class="access">
-        <br /><br />
-        <a href="./main.php"><button class="optionnv"><i class="bi bi-house-fill"></i></i><span>Home</span></button></a>
+        <!-- ACCESOS -->
+        <a href="#"><button class="optionnv"><i class="bi bi-house-fill"></i></i><span>Home</span></button></a>
         <a href="./PerfilPage.php"><button class="optionnv"><i
               class="bi bi-person-circle"></i></i><span>Profile</span></button></a>
-
       </div>
+    </div>
   </header>
 
   <div class="main">
