@@ -27,7 +27,7 @@ function openPostModal(postId) {
                 </div>
                 <h2 class="post-title">${data.title}</h2>
                 <p class="post-text">${data.content}</p>
-                <img src="/public/images_posts/${data.image}" alt="Imagen de la publicacion" class="post-image1">
+                ${data.image ? `<img src="../../public/images_posts/${data.image}" alt="Imagen de la publicación" class="post-image1">` : ''}
             `;
 
             postModalComment.innerHTML = `
@@ -67,6 +67,14 @@ function closePostModal() {
 
 function submitComment(postId) {
     const newComment = document.querySelector('#newCommentInput').value;
+    if (/[a-zA-Z]/.test(newComment)) {
+        // Aquí puedes agregar el código para enviar el comentario
+        console.log('Comentario válido:', newComment);
+    } else {
+        alert('El comentario debe contener al menos una letra.');
+        return;
+    }
+
     // Enviar el nuevo comentario mediante una solicitud AJAX
     fetch('../../controllers/Get/submit_comment.php', {
         method: 'POST',

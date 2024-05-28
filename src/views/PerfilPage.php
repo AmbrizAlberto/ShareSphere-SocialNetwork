@@ -41,7 +41,7 @@ if (isset($_GET['search'])) {
   <title>ShareSphere</title>
 
   <link rel="stylesheet"
-    href="<?php echo '../css/main.css'//$user['theme'] =='0' ?  '../css/light-mode.css':  '../css/main.css' ?>"
+    href="<?php echo '../css/main.css' //$user['theme'] =='0' ?  '../css/light-mode.css':  '../css/main.css' ?>"
     id="theme-style">
   <link rel="stylesheet" href="../css/navbar.css">
   <link rel="stylesheet" href="../css/textpost.css">
