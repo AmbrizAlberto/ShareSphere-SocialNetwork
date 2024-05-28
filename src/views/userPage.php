@@ -15,6 +15,7 @@ $posts = new posts();
 $postList = $posts->GetPostsByIdUser($_GET['idPerfil']);
 $user = $posts->GetUserById($_SESSION['userId']);
 $userProfile = $posts->GetUserById($_GET['idPerfil']);
+$fromPage = isset($_GET['fromPage']) ? $_GET['fromPage'] : '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -160,11 +161,15 @@ $userProfile = $posts->GetUserById($_GET['idPerfil']);
     </div>
     <?php foreach ($postList as $post) { ?>
       <div class="post-container">
+        <?php if($fromPage== 'admin'){ ?>
         <div class="post-options">
           <span><i class="bi bi-caret-down-fill"></i></span>
           <div class="option-content">
+          <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=6&idPerfil=<?php echo $post['creatorId']?>">
+              <i class="bi bi-trash-fill"></i></a>
           </div>
         </div>
+        <?php } ?>
         <h2 class="post-content"> <?php echo $post['title'] ?> </h2><br>
         <h3 class="SubTitle">
           <?php switch ($post['SubgroupId']) {

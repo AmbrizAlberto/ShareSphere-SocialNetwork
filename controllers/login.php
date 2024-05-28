@@ -1,25 +1,21 @@
 <?php
 namespace controllers;
 
-require_once ('../autoload.php');
+require_once('../autoload.php');
 use Models\{posts, conexion};
 use PDO, PDOException;
 
 $posts = new posts();
 session_set_cookie_params(0);
-session_start();// Iniciar la sesión
+session_start(); // Iniciar la sesión
+
 if (isset($_SESSION['email'])) {
-    header("Location:../src/views/main.php");
+    header("Location: ../src/views/main.php");
+    exit();
 }
-?>
-
-<?php
-
 
 $conn = new conexion();
-
 $pdo = $conn->getPdo();
-
 
 // Verifica si se envió el formulario
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -30,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         try {
             // Preparamos la consulta para obtener el usuario por su email
-            $consulta = $pdo->prepare("SELECT name , username,id, passwordHash, theme, admin_code, admin FROM user WHERE email = :email");
+            $consulta = $pdo->prepare("SELECT name, username, id, passwordHash, theme, admin_code, admin FROM user WHERE email = :email");
             $consulta->bindParam(':email', $email);
             $consulta->execute();
             $user = $consulta->fetch(PDO::FETCH_ASSOC);
@@ -43,18 +39,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $_SESSION['username'] = $user['username'];
                     $_SESSION['userId'] = $user['id']; // Almacenamos el id del usuario en la sesión
                     $_SESSION['theme'] = $user['theme'];
-                    
+                    $_SESSION['admin'] = $user['admin']; // Almacenamos el valor actual de admin en la sesión
+
                     if ($admincode == $user['admin_code']) {
                         // Actualizamos el valor de admin a 1
                         $update = $pdo->prepare("UPDATE user SET admin = 1 WHERE id = :id");
                         $update->bindParam(':id', $user['id']);
                         $update->execute();
-                        header("Location:../src/views/admin.php"); // Redireccionar al usuario a la página de inicio
+                        $_SESSION['admin'] = 1; // Actualizamos el valor de admin en la sesión
+                        header("Location: ../src/views/admin.php"); // Redireccionar al usuario a la página de admin
                         exit();
-                    }
-                    else
-                    {
-                        header("Location:../src/views/main.php"); // Redireccionar al usuario a la página de inicio
+                    } else {
+                        header("Location: ../src/views/main.php"); // Redireccionar al usuario a la página principal
                         exit();
                     }
                 } else {
@@ -74,6 +70,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo "No se enviaron los datos del formulario.";
     }
-
 }
 ?>

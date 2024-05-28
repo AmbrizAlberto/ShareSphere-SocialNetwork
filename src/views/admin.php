@@ -4,6 +4,21 @@ use models\{posts, users};
 
 $posts = new posts();
 $users = new users();
+
+session_start(); // Iniciar la sesión
+
+// Verificar si el email está en la sesión
+if (empty($_SESSION['email'])) {
+    header("Location: ./login.php");
+    exit();
+}
+
+// Verificar si el valor de admin en la sesión es igual a 1
+if (empty($_SESSION['admin']) || $_SESSION['admin'] != 1) {
+    header("Location: ./login.php");
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>

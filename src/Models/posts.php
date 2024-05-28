@@ -243,6 +243,12 @@ class posts extends connection{
         $delete->execute([$userId]);
     }
 
+    public function DeleteLikesByIdPost($postId){
+        $sql = "DELETE FROM post_likes WHERE post_id = ?";
+        $delete = $this->conn->prepare($sql);
+        $delete->execute([$postId]);
+    }
+
     public function UserLikedPost($postId, $userId){
         $sql = "SELECT COUNT(*) FROM post_likes WHERE post_id = ? AND user_id = ?";
         $query = $this->conn->prepare($sql);
@@ -316,10 +322,17 @@ class posts extends connection{
         $statement = $this->conn->prepare($query); // Asegúrate de usar $this->conn
         return $statement->execute(['notification_id' => $notificationId]);
     } 
+
     public function DeleteNotificationsByIdUser($userId) {
         $query = "DELETE FROM notifications WHERE user_id = :user_id";
         $statement = $this->conn->prepare($query); // Asegúrate de usar $this->conn
         $statement->execute(['user_id' => $userId]);
+    }
+
+    public function DeleteNotificationsByIdPost($postId) {
+        $query = "DELETE FROM notifications WHERE post_id = :post_id";
+        $statement = $this->conn->prepare($query); // Asegúrate de usar $this->conn
+        $statement->execute(['post_id' => $postId]);
     }
 
 
@@ -364,6 +377,12 @@ class posts extends connection{
         $query = "DELETE FROM comments WHERE user_id = :user_id";
         $statement = $this->conn->prepare($query); // Asegúrate de usar $this->conn
         $statement->execute(['user_id' => $userId]);
+    }
+    
+    public function DeleteCommentsByIdPost($postId) {
+        $query = "DELETE FROM comments WHERE post_id = :post_id";
+        $statement = $this->conn->prepare($query); // Asegúrate de usar $this->conn
+        $statement->execute(['post_id' => $postId]);
     }
     
 }
