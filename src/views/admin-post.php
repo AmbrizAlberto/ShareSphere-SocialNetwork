@@ -232,7 +232,7 @@ if (isset($_GET['search'])) {
           <span><i class="bi bi-caret-down-fill"></i></span>
           <div class="option-content">
             <!-- ELIMINAR POST -->
-            <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=0">
+            <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=2">
               <i class="bi bi-trash-fill"></i></a>
           </div>
         </div>

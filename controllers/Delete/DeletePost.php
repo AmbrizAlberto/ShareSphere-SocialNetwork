@@ -11,6 +11,7 @@ if (isset($_GET['id'])) {
 } else {
     console_log("Error: No se ha recibido el id del post a eliminar");
 }
+
 if ($_GET['page'] == 0) {
     header("location:/src/views/main.php");
 } else if ($_GET['page'] == 1) {
@@ -23,5 +24,7 @@ if ($_GET['page'] == 0) {
     header("location:/src/views/foro_7.php");
 }else if ($_GET['page'] == 5) {
     header("location:/src/views/foro_14.php");
+}else if ($_GET['page'] == 6) {
+    header("location:/src/views/userPage.php?idPerfil=".$_GET['idPerfil']);
 }
 ?>

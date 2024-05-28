@@ -29,7 +29,7 @@ function openModalForProject(projectId) {
                                 </td>
                                 <td>${post.title}</td>
                                 <td>${post.creator_name}
-                                    <a href="/src/views/userPage.php?idPerfil=${post.creatorId}" style="color: black; text-decoration: none;"> 
+                                    <a href="/src/views/userPage.php?idPerfil=${post.creatorId}&fromPage=admin" style="color: black; text-decoration: none;"> 
                                     <img src="../../public/images_users/${post.img}" alt='si' style="width:5vh; height:5vh; border-radius: 20px;"></a>
                                 </td>
                                 <td>
@@ -62,7 +62,7 @@ function openModalForProject(projectId) {
                     data.forEach(user => {
                         if(user.id !== 16){
                             html += `<tr class="trusers"> 
-                                <td><a href="/src/views/userPage.php?idPerfil=${user.id}" style="color: black; text-decoration: none;"> 
+                                <td><a href="/src/views/userPage.php?idPerfil=${user.id}&fromPage=admin" style="color: black; text-decoration: none;"> 
                                     <img src="../../public/images_users/${user.image}"  alt='' style="width:5vh; height:5vh; border-radius: 20px;"></a> ${user.id}
                                 </td>
                                 <td><span style="text-decoration: none;">${user.username}</span></td>
