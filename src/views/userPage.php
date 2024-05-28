@@ -159,12 +159,24 @@ $userProfile = $posts->GetUserById($_GET['idPerfil']);
       </div>
     </div>
     <?php foreach ($postList as $post) { ?>
-      <div class="post-container">
+      <!-- CONTENEDOR POST -->
+      <div class="post-container" onclick="openPostModal(<?php echo $post['id']; ?>)">
+        <!-- OPCIONES DE POST -->
+        <?php if ($post['creatorId'] == $_SESSION['userId']) { ?>
         <div class="post-options">
           <span><i class="bi bi-caret-down-fill"></i></span>
           <div class="option-content">
+            <!-- EDITAR POST -->
+            <a id="modalBtn-edit" onclick="openmodal('<?php echo addslashes(htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8')); ?>', event)">
+              <i class="bi bi-pencil-fill"></i>
+            </a>
+            <!-- ELIMINAR POST -->
+            <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=0">
+              <i class="bi bi-trash-fill"></i></a>
           </div>
         </div>
+        <?php } ?>
+
         <h2 class="post-content"> <?php echo $post['title'] ?> </h2><br>
         <h3 class="SubTitle">
           <?php switch ($post['SubgroupId']) {
@@ -186,16 +198,30 @@ $userProfile = $posts->GetUserById($_GET['idPerfil']);
           <img src="<?php echo "/public/images_posts/" . $post['image'] ?>" alt="Imagen de la publicacion">
         </div>
         <div class="post-actions">
-          <button class="action-btn"><i class="bi bi-hand-thumbs-up-fill"></i></button>
-          <button class="action-btn"><i class="bi bi-hand-thumbs-down-fill"></i></button>
-          <button class="action-btn"><i class="bi bi-chat-square-text-fill"></i></button>
-          <div>
-            <span class="likes">100 Likes</span>
-            <span class="comments">50 Comments</span>
-          </div>
+          <!-- Like -->
+          <button class="action-btn like-button" data-post-id="<?php echo $post['id']; ?>">
+            <i class="bi bi-hand-thumbs-up-fill"></i>
+            <span id="like-count-<?php echo $post['id']; ?>"><?php echo $posts->GetLikesCount($post['id']); ?></span>
+          </button>
+          <!-- Comentarios -->
+          <button class="action-btn" onclick="openPostModal(<?php echo $post['id']; ?>)">
+            <i class="bi bi-chat-square-text-fill"></i>
+            <span id="comment-count-<?php echo $post['id']; ?>"><?php echo $posts->GetCommentsCount($post['id']); ?></span>
+          </button>
         </div>
       </div>
     <?php } ?>
+
+    <!-- MODAL AL ENTRAR AL POST -->
+    <div id="postModal" class="post-modal">
+        <div class="post-content1">
+            <span class="close-post" onclick="closePostModal()">&times;</span>
+            <div id="postModalContent" class="post-description"></div>
+        </div>
+        <div class="post-comments">
+            <!-- Aquí se colocará el contenido de los comentarios y el formulario de nuevo comentario -->
+        </div>
+    </div>
 
     <button class="toTop" id="toTop">
       <svg viewBox="0 0 24 24">
@@ -203,5 +229,13 @@ $userProfile = $posts->GetUserById($_GET['idPerfil']);
       </svg>
     </button>
 
-    <script src="../js/scriptedituser.js"></script>
-    <script src="../js/light-darkMode.js"></script>
+    <!-- SCRIPTS -->
+  <script src="../js/Notifications.js"></script>
+  <script src="../js/NotificationsDEL.js"></script>
+  <script src="../js/Likes.js"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/scriptedit.js"></script>
+  <script src="../js/toTop.js"></script>
+  <script src="../js/light-darkMode.js"></script>
+  <script src="../js/post.js"></script>
+  <script src="../js/editpost.js"></script>
