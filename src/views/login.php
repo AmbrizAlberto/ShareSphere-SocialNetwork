@@ -40,7 +40,7 @@ if (isset($_SESSION['email'])) {
                     <a class="password" href="./code.php">¿Contraseña Olvidada?</a>
                     <h3>¿Aun no eres miembro?</h3>
                     <a class="Register" href="./register.php">Registrarme</a>
-                    <a class="visit" href="../views/visitor.php">Regresar Como Visitante</a>
+                    <a class="visit" href="../views/visitor.php">Ingresar Como Visitante</a>
                 </form>
             </div>
         </div>

@@ -86,8 +86,6 @@ body{
 }
 
 .feedhead i {
-  margin-top: 0.5vh;
-  margin-right: 1%;
   font-size: 130%;
   transition: 300ms;
 }
