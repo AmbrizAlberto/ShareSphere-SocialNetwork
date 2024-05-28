@@ -16,22 +16,22 @@ body {
   margin-left: 13%;
   width: auto;
 }
-
 /* FEEDHEAD*/
 .feedhead {
   color: rgba(255, 255, 255, 0.77);
   z-index: 1;
   position: fixed;
   width: 83%;
-  max-width: 83%;
+  max-width: 100%;
   height: auto;
   max-height: 12%;
-  min-height: 10%;
+  min-height: 5%;
   margin-top: -1%;
   display: flex;
   align-items: center;
   background-color: rgb(37, 37, 37);
   border-bottom: 1.5px solid rgba(255, 255, 255, 0.422);
+  box-shadow: 0px 30px 30px -30px rgba(0, 0, 0, 0.576); /* Cambio en esta línea */
 }
 
 .feedhead .logo {
@@ -66,17 +66,22 @@ body {
   transition: 500ms;
 }
 
-.feedhead h1 {
-  margin-top: 2%;
-  font-size: 200%;
+.feedhead a{
+  text-decoration: none;
+  min-width: 0%;
+  max-width: 20%;
+  color: #ffffff;
   size-adjust: 150%;
+  margin-right: 10%;
+}
+.feedhead h1 {
+  font-size: 200%;
   width: 20%;
   max-width: 20%;
   min-width: 20%;
   text-align: center;
-  margin-left: 3%;
-  margin-right: 10%;
   color: #ffffff;
+  border: 10x solid rebeccapurple;
 }
 
 .feedhead i {
@@ -86,38 +91,37 @@ body {
   transition: 300ms;
 }
 
-.feedhead i.bi.bi-box-arrow-right {
+.feedhead  i.bi.bi-box-arrow-right {
   margin-left: 35%;
   font-size: 220%;
+  color: white;
 }
 
-.feedhead button {
+.feedhead button{
   font-size: 150%;
   border: none;
   color: white;
-  margin-left: 0%;
+  background-color: transparent;
 }
 
-.feedhead i:hover {
+.feedhead i:hover{
   background-color: transparent;
   color: #6de4bd;
-  text-shadow: 0 0px 30px rgb(0, 0, 0);
+  text-shadow: 0 0px 10px rgb(0, 0, 0);
   cursor: pointer;
   transition: 500ms;
 }
 
 .feedhead input[type="image"] {
-  width: 5vh;
-  max-height: 6vh;
-  min-height: 5vh;
-  height: 5vh;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: 1px solid black;
   transition: 500ms;
 }
 .feedhead input[type="image"]:hover {
-  width: 6vh;
-  height: 6vh;
+  width: 50px;
+  height: 50px;
   transition: 500ms;
   text-shadow: 0 0px 30px rgb(0, 0, 0);
 }
@@ -141,10 +145,7 @@ body {
 
 .search-nav input[type="text"] {
   width: 60%;
-  max-width: 60%;
-  min-width: 50%;
   height: 4vh;
-  max-height: 4vh;
   margin-top: 4px;
   color: white;
   background-color: #ffffff23;
@@ -153,12 +154,13 @@ body {
   border: none;
   border-radius: 20px;
 }
-.search-nav input[type="text"]::placeholder {
+.search-nav input[type="text"]::placeholder{
   color: rgba(255, 255, 255, 0.43);
   background-color: transparent;
   padding: 8px;
   border-radius: 4px;
 }
+
 
 .feed {
   color: white;
