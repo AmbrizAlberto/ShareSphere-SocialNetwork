@@ -1,13 +1,5 @@
-<?php //Funcion para evitar que los usuarios sin sesion iniciada puedan acceder al userPage
-session_start();// Iniciar la sesión
-if (empty($_SESSION['email'])) {
-  header("Location:./login.php");
-
-}
-
-?>
-
 <?php
+session_start();
 require_once ("../../autoload.php");
 use Models\{posts};
 
@@ -16,6 +8,31 @@ $postList = $posts->GetPostsByIdUser($_GET['idPerfil']);
 $user = $posts->GetUserById($_SESSION['userId']);
 $userProfile = $posts->GetUserById($_GET['idPerfil']);
 $fromPage = isset($_GET['fromPage']) ? $_GET['fromPage'] : '';
+$notifications = $posts->GetNotifications($_SESSION['userId']);
+$hasNotifications = !empty($notifications);
+
+// Filtrar publicaciones basadas en el término de búsqueda
+if (isset($_GET['search'])) {
+  $searchTerm = filter_var($_GET['search'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+  $postList = array_filter($postList, function($post) use ($searchTerm) {
+        // Buscar en el título, subtítulo (SubgroupId), y contenido
+        $titleMatch = stripos($post['title'], $searchTerm) !== false;
+        $contentMatch = stripos($post['content'], $searchTerm) !== false;
+        $subgroupMatch = false;
+        switch ($post['SubgroupId']) {
+            case '1':
+                $subgroupMatch = stripos("Agua Limpia y Saneamiento", $searchTerm) !== false;
+                break;
+            case '3':
+                $subgroupMatch = stripos("Energia Asequible y No Contaminante", $searchTerm) !== false;
+                break;
+            case '4':
+                $subgroupMatch = stripos("Vida Submarina", $searchTerm) !== false;
+                break;
+        }
+        return $titleMatch || $contentMatch || $subgroupMatch;
+    });
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,14 +43,23 @@ $fromPage = isset($_GET['fromPage']) ? $_GET['fromPage'] : '';
   <title>ShareSphere</title>
 
   <link rel="stylesheet"
-    href="<?php echo '../css/main.css'//echo $user['theme'] =='0' ?  '../css/light-mode.css':  '../css/main.css' ?>">
+    href="<?php echo '../css/main.css'//$user['theme'] =='0' ?  '../css/light-mode.css':  '../css/main.css' ?>"
+    id="theme-style">
   <link rel="stylesheet" href="../css/navbar.css">
   <link rel="stylesheet" href="../css/textpost.css">
   <link rel="stylesheet" href="../css/photopost.css">
   <link rel="stylesheet" href="../css/PerfilPage.css">
   <link rel="stylesheet" href="../css/modal.css">
   <link rel="stylesheet" href="../css/modalEdit.css">
+  <link rel="stylesheet" href="../css/filtros.css">
+  <link rel="stylesheet" href="../css/Post.css">
 
+  <link rel="stylesheet" href="<?php echo $userdata['theme'] == '0' ? '../css/light-mode.css' : '../css/main.css' ?>"
+    id="theme-style">
+
+  <link rel="stylesheet" href="../css/ResponsivePerfilPage.css">
+  <link rel="stylesheet" href="../css/ResponsiveMain.css">
+  <link rel="stylesheet" href="../css/ResponsiveModal.css">
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -43,26 +69,30 @@ $fromPage = isset($_GET['fromPage']) ? $_GET['fromPage'] : '';
 </head>
 
 <body>
-
-  <!-- NAVBAR -->
   <header>
-    <div class="navbar">
+  <div class="navbar">
       <div class="access">
         <!-- ACCESOS -->
-        <a href="#"><button class="optionnv"><i class="bi bi-house-fill"></i></i><span>Home</span></button></a>
-        <a href="./PerfilPage.php"><button class="optionnv"><i
-              class="bi bi-person-circle"></i></i><span>Profile</span></button></a>
+        <a href="./main.php"><button class="optionnv"><i class="bi bi-house-fill"></i></i><span>Home</span></button></a>
+        <a href="#"><button class="optionnv"><i class="bi bi-person-circle"></i></i><span>Profile</span></button></a>
       </div>
-    </div>
+  </div>
   </header>
 
   <div class="main">
     <div class="feedhead">
-      <h1>ShareSphere</h1>
-      
+
       <div class="logo">
         <a href="./main.php"><img src="../images/Logo-cut.png" alt="Logo"></a>
       </div>
+
+      <button id="theme-toggle-btn">
+        <i class="bi bi-lightbulb-fill"></i>
+      </button>
+
+      <a href="./main.php" class="ShSp">
+        <h1 href="./main.php">ShareSphere</h1>
+      </a>
 
       <div class="search-nav">
         <form action="#" method="get">
@@ -76,7 +106,7 @@ $fromPage = isset($_GET['fromPage']) ? $_GET['fromPage'] : '';
           alt="Texto Alternativo">
       </form>
 
-      <button id="modalBtn">
+      <button id="modalBtn" style="background-color: transparent;">
         <i class="bi bi-plus-square"></i>
       </button>
       <div id="myModal" class="modal">
@@ -106,27 +136,43 @@ $fromPage = isset($_GET['fromPage']) ? $_GET['fromPage'] : '';
       </div>
       <script src="../js/script.js"></script>
 
-      <button>
+      <!-- NOTIFICACIONES -->
+
+      <button id="notificaciones-btn" onclick="toggleMenu()">
         <i class="bi bi-app-indicator"></i>
       </button>
-
+      <div id="notificaciones-menu" class="notificaciones-menu <?php echo $hasNotifications ? '' : 'hidden'; ?>">
+        <!-- Contenido del menú de notificaciones -->
+        <?php if ($hasNotifications) { ?>
+          <?php foreach ($notifications as $notification) { ?>
+            <div class="notificacion">
+              <div class="contenido">
+                <p><?php echo $notification['content']; ?></p>
+                <p><?php echo $notification['date_created']; ?></p>
+                <button class="delete-notification-btn" data-id="<?php echo $notification['id']; ?>">Eliminar</button>
+              </div>
+            </div>
+          <?php } ?>
+        <?php } else { ?>
+          <p>No hay notificaciones.</p>
+        <?php } ?>
+      </div>      
+      
+      <!-- CERRAR SESION -->
       <a href="../../controllers/logout.php" class="logout"><i class="bi bi-box-arrow-right"></i></a>
-    </div>
 
+    </div>
 
     <div class="PerfilPage">
 
-      <div class="PerfilDatos">
         <div class="PerfilPortada">
-          <img
-            src="<?php echo $userProfile['coverImg'] ? "/public/fondo_users/" . $userProfile['coverImg'] : "/public/fondo_users/fondodefault.png" ?>"
-            alt="#" style="height: auto; wight: 300;">
-        </div>
+          <img src="<?php echo $userProfile['coverImg'] ? "/public/fondo_users/" . $userProfile['coverImg'] : "/public/fondo_users/fondodefault.png" ?>" alt="#" style="height: auto;">
+        
 
+        </div>
         <div class="PerfilPhoto">
           <img
-            src="<?php echo $userProfile['image'] ? "/public/images_users/" . $userProfile['image'] : "/public/images_users/userdefault.png" ?>"
-            alt="">
+            src="<?php echo $userProfile['image'] ? "/public/images_users/" . $userProfile['image'] : "/public/images_users/userdefault.png" ?>" alt="">
         </div>
         <div class="PerfilName">
           <h1><?php echo $userProfile['username'] ?></h1>
@@ -134,38 +180,57 @@ $fromPage = isset($_GET['fromPage']) ? $_GET['fromPage'] : '';
         <div class="PerfilDescription">
           <h2><?php echo $userProfile['descripcion'] ? $userProfile['descripcion'] : "Sin descripcion" ?></h2>
         </div>
-      </div>
-
     </div>
 
-    <!-- El modal -->
-    <div id="myModalEdit" class="modaledit">
-      <!-- Contenido del modal -->
+    <div id="Modal-Profile" class="modaledit">
       <div class="modal-content-edit">
         <span class="close-edit">&times;</span>
         <h2>Editar Perfil</h2>
         <form id="editForm" action="/controllers/Edit/EditUser.php" method="post" enctype="multipart/form-data">
+          <label for="newUsername">Nombre de Usuario:</label>
+          <p><input type="text" id="newUsername" name="newUsername" value="<?php echo $user['username'] ?>"></p>
+
+          <label for="newDescription">Descripción:</label>
+          <p><textarea id="newDescription" name="newDescription" rows="4"
+            cols="50"><?php echo $user['descripcion'] ?></textarea></p>
+
           <input type="hidden" value="<?php echo $_SESSION['userId']; ?>" name="userId">
-          <label for="newImage">Cargar imagen:</label><br>
-          <img id="previewImage" src="<?php echo "/public/images_users/" . $user['image'] ?>" alt="User Image"
-            class=".modal-content-edit">
-          <input type="file" id="newImage" name="newImage" accept="image/*"><br><br>
-          <label for="newUsername">Nombre de Usuario:</label><br>
-          <input type="text" id="newUsername" name="newUsername" value="<?php echo $user['username'] ?>"><br><br>
-          <label for="newDescription">Descripción:</label><br>
-          <textarea id="newDescription" name="newDescription" rows="4"
-            cols="50"><?php echo $user['descripcion'] ?></textarea><br><br>
-          <button class=".modal-content-edit " type="submit" value="Guardar cambios">Guardar</button>
+          <label for="newImage">Cargar imagen de perfil:</label>
+          <p><input type="file" id="newImage" name="newImage" accept="image/*"></p>
+          <label for="imagePortada">Cargar imagen de portada:</label>
+          <p><input type="file" id="imagePortada" name="imagePortada" accept="image/*"></p>
+          <p><img id="previewImage" src="<?php echo "/public/images_users/" . $user['image'] ?>" alt="User Image"
+            class=".modal-content-edit"></p>
+          
+          <button class=".modal-content-edit" type="submit" value="Guardar cambios">Guardar</button>
         </form>
       </div>
     </div>
+
+    <div class="filtros" style="position: absolute;">
+      <div class="containerfiltros">
+        <h1>Filtro</h1>
+
+        <div class="forum">
+          <button onclick="window.location.href='../views/foro_6.php'"><img src="../images/6.png"></button>
+          <button onclick="window.location.href='../views/foro_7.php'"><img src="../images/7.png"></button>
+          <button onclick="window.location.href='../views/foro_14.php'"><img src="../images/14.jpg"></button>
+        </div>
+
+      </div>
+    </div>
+
+
     <?php foreach ($postList as $post) { ?>
-      <div class="post-container">
-        <?php if($fromPage== 'admin'){ ?>
+      <!-- CONTENEDOR POST -->
+      <div class="post-container" onclick="openPostModal(<?php echo $post['id']; ?>)">
+         <!-- OPCIONES DE POST -->
+         <?php if ($fromPage== 'admin'){ ?>
         <div class="post-options">
           <span><i class="bi bi-caret-down-fill"></i></span>
           <div class="option-content">
-          <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=6&idPerfil=<?php echo $post['creatorId']?>">
+            <!-- ELIMINAR POST -->
+            <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=6&idPerfil=<?php echo $post['creatorId']?>">
               <i class="bi bi-trash-fill"></i></a>
           </div>
         </div>
@@ -187,9 +252,12 @@ $fromPage = isset($_GET['fromPage']) ? $_GET['fromPage'] : '';
         <div class="description">
           <h3><?php echo $post['content'] ?></h3>
         </div>
-        <div class="image-container">
-          <img src="<?php echo "/public/images_posts/" . $post['image'] ?>" alt="Imagen de la publicacion">
-        </div>
+        <?php if ($post['image'] != null) { ?>
+          <div class="image-container">
+            <img src="<?php echo "/public/images_posts/" . $post['image'] ?>" alt="Imagen de la publicacion">
+          </div>
+        <?php } ?>
+        
         <div class="post-actions">
           <!-- Like -->
           <button class="action-btn like-button" data-post-id="<?php echo $post['id']; ?>">
@@ -204,6 +272,7 @@ $fromPage = isset($_GET['fromPage']) ? $_GET['fromPage'] : '';
         </div>
       </div>
     <?php } ?>
+    
 
     <!-- MODAL AL ENTRAR AL POST -->
     <div id="postModal" class="post-modal">
@@ -215,14 +284,43 @@ $fromPage = isset($_GET['fromPage']) ? $_GET['fromPage'] : '';
             <!-- Aquí se colocará el contenido de los comentarios y el formulario de nuevo comentario -->
         </div>
     </div>
+  </div>
 
-    <button class="toTop" id="toTop">
-      <svg viewBox="0 0 24 24">
-        <path d="m4 16 8-8 8 8"></path>
-      </svg>
-    </button>
+  <!-- MODAL DE EDITAR POST -->
+  <div id="myModal-edit" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeBtn-edit">&times;</span>
+      <form id="editForm" action="/controllers/Edit/EditPost.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" id="idPost" name="id">
+        <input type="hidden" value="0" name="currentPage">
+        <label for="tema">Tema:</label>
+        <select id="selector-edit" name="post_subgroup_id" required>
+          <option value="1">Agua Limpia y Saneamineto</option>
+          <option value="3">Energia Asequible y No Contaminante</option>
+          <option value="4">Vida Submarina</option>
+          <!-- Agrega más opciones según sea necesario -->
+        </select>
+        <label for="titulo-edit">Titulo:</label>
+        <textarea id="titulo-edit" name="post_title" rows="1" required placeholder="Titulo..."></textarea>
 
-    <!-- SCRIPTS -->
+        <label for="texto-edit">Texto:</label>
+        <textarea id="texto-edit" name="post_content" rows="4" requiredplaceholder="Descripcion..."></textarea>
+        <label for="newImage-edit">Cargar imagen:</label>
+        <p><img id="previewImage-edit" class=".modal-content" style="align-content: center;display: flex;"></p>
+        <input type="file" id="newImage-edit" name="newImage" accept="image/*">
+        <button class=".modal-content" type="submit">Guardar Cambios</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- BOTON A TOP -->
+  <button class="toTop" id="toTop">
+    <svg viewBox="0 0 24 24">
+      <path d="m4 16 8-8 8 8"></path>
+    </svg>
+  </button>
+
+  <!-- SCRIPTS -->
   <script src="../js/Notifications.js"></script>
   <script src="../js/NotificationsDEL.js"></script>
   <script src="../js/Likes.js"></script>
@@ -232,3 +330,4 @@ $fromPage = isset($_GET['fromPage']) ? $_GET['fromPage'] : '';
   <script src="../js/light-darkMode.js"></script>
   <script src="../js/post.js"></script>
   <script src="../js/editpost.js"></script>
+  <script src="../js/scriptedituser.js"></script>

@@ -25,7 +25,8 @@ function openModalForProject(projectId) {
                         html += `
                             <tr class="trusers">
                                 <td><a href="/src/views/admin-post.php?idPerfil=${post.creatorId}&idPost=${post.id}" style="color: black; text-decoration: none;"> 
-                                    <img src="../../public/images_posts/${post.image}" alt='si' style="width:5vh; height:5vh; border-radius: 20px;"></a> ${post.id}
+                                    ${post.image ? `<img src="../../public/images_posts/${post.image}" alt="Imagen de la publicación" style="width:5vh; height:5vh; border-radius: 20px;">` : ''}
+                                    ${post.id}</a>
                                 </td>
                                 <td>${post.title}</td>
                                 <td>${post.creator_name}
