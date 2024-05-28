@@ -33,20 +33,41 @@ $userProfile = $posts->GetUserById($_GET['idPerfil']);
 </head>
 
 <body>
-  <div class="main">
-    <div class="feedhead">
-      <h1>ShareSphere</h1>
-
-      <div class="search-nav">
-        <form action="#" method="get">
-          <input type="text" placeholder="Buscar..." name="search">
-        </form>
-      </div>
-      <script src="../js/script.js"></script>
-
-      <a href="/src/views/login.php" class="logout">Logeate<i class="bi bi-box-arrow-in-left"></i></a>
+  <div class="navbar" style="height: 13%;">
+    <div class="access">
+      <!-- ACCESOS -->
+      <a href="./visitor.php"><button class="optionnv"><i class="bi bi-house-fill"></i></i><span>Home</span></button></a>
     </div>
+  </div>
 
+  <div class="main">
+    <!-- HEADER MAIN -->
+    <div class="feedhead">
+
+      <div class="logo">
+        <a href="./main.php"><img src="../images/Logo-cut.png" alt="Logo"></a>
+      </div>
+
+      <button id="theme-toggle-btn">
+        <i class="bi bi-lightbulb-fill"></i>
+      </button>
+
+      <!-- NOMBRE DE PAGINA -->
+      <a href="./main.php" class="ShSp">
+        <h1 href="./main.php">ShareSphere</h1>
+      </a>
+
+      <!-- BUSCADOR -->
+      <div class="search-nav">
+          <form action="#" method="get">
+              <input type="text" placeholder="Buscar..." name="search" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search'], ENT_QUOTES) : ''; ?>">
+          </form>
+      </div>
+
+      <a href="/src/views/login.php" class="login"><i class="bi bi-box-arrow-in-left"> Iniciar Sesion</i></a>
+      <!-- Cerramos la sesion -->
+
+    </div>
 
     <div class="PerfilPage">
 
@@ -94,12 +115,8 @@ $userProfile = $posts->GetUserById($_GET['idPerfil']);
       </div>
     </div>
     <?php foreach ($postList as $post) { ?>
-      <div class="post-container">
-        <div class="post-options">
-          <span><i class="bi bi-caret-down-fill"></i></span>
-          <div class="option-content">
-          </div>
-        </div>
+      <div class="post-container" style="right: 11%;">
+        
         <h2 class="post-content"> <?php echo $post['title'] ?> </h2><br>
         <h3 class="SubTitle">
           <?php switch ($post['SubgroupId']) {
@@ -121,13 +138,11 @@ $userProfile = $posts->GetUserById($_GET['idPerfil']);
           <img src="<?php echo "/public/images_posts/" . $post['image'] ?>" alt="Imagen de la publicacion">
         </div>
         <div class="post-actions">
-          <button class="action-btn"><i class="bi bi-hand-thumbs-up-fill"></i></button>
-          <button class="action-btn"><i class="bi bi-hand-thumbs-down-fill"></i></button>
-          <button class="action-btn"><i class="bi bi-chat-square-text-fill"></i></button>
-          <div>
-            <span class="likes">100 Likes</span>
-            <span class="comments">50 Comments</span>
-          </div>
+          <!-- Like -->
+          <button class="action-btn like-button" data-post-id="<?php echo $post['id']; ?>">
+            <i class="bi bi-hand-thumbs-up-fill"></i>
+            <span id="like-count-<?php echo $post['id']; ?>"><?php echo $posts->GetLikesCount($post['id']); ?></span>
+          </button>
         </div>
       </div>
     <?php } ?>

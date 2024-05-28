@@ -1,4 +1,3 @@
-
 .post-modal {
   display: none; /* Inicialmente oculto */
   position: fixed;
@@ -177,5 +176,3 @@
   display: flex;
   margin-top: 20px;
 }
-
-

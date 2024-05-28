@@ -301,10 +301,7 @@ function getSubgroupViewUrl($subgroupId) {
         </div>
     </div>
   </div>
-
-
-
-
+  
   <!-- MODAL DE EDITAR POST -->
   <div id="myModal-edit" class="modal">
     <div class="modal-content">
