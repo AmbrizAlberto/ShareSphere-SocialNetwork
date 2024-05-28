@@ -10,6 +10,8 @@ function openPostModal(postId) {
                 return;
             }
 
+            const currentUserId = data.currentUserId;
+            const postOwnerId = data.creator.id;
             // Verificar si los datos del creador existen
             const userImage = data.creator && data.creator.image ? data.creator.image : 'default.png';
             const userName = data.creator && data.creator.username ? data.creator.username : 'Usuario desconocido';
@@ -38,6 +40,9 @@ function openPostModal(postId) {
                                     <img src="/public/images_users/${comment.user && comment.user.image ? comment.user.image : 'default.png'}" alt="Foto de perfil" class="comment-user-image">
                                     <span class="comment-user-name">${comment.user && comment.user.username ? comment.user.username : 'Usuario desconocido'}</span>
                                     <span class="comment-date">${comment.created_at}</span>
+                                    ${(currentUserId === postOwnerId || currentUserId === comment.user.userId) ? `
+                                            <a href="/controllers/Delete/deleteComment.php?id=${comment.id}&from=main">
+                                            <i class="bi bi-trash-fill"></i></a>` : ''}
                                 </div>
                                 <div class="comment-text">${comment.content}</div>
                             </li>`).join('')}
@@ -80,6 +85,9 @@ function submitComment(postId) {
     })
     .then(response => response.json())
     .then(data => {
+        const currentUserId = data.currentUserId;
+        const postOwnerId = data.creator.id;
+
         // Actualizar la lista de comentarios en el modal con la información actualizada
         const postModalComment = document.querySelector('.post-comments');
         postModalComment.innerHTML = `
@@ -92,6 +100,10 @@ function submitComment(postId) {
                                 <img src="/public/images_users/${comment.user && comment.user.image ? comment.user.image : 'default.png'}" alt="Foto de perfil" class="comment-user-image">
                                 <span class="comment-user-name">${comment.user && comment.user.username ? comment.user.username : 'Usuario desconocido'}</span>
                                 <span class="comment-date">${comment.created_at}</span>
+                                ${(currentUserId === postOwnerId || currentUserId === comment.user.userId) ? `
+                                <a href="/controllers/Delete/deleteComment.php?id=${comment.id}&from=main">
+                                    <i class="bi bi-trash-fill"></i>
+                                </a>` : ''}
                             </div>
                             <div class="comment-text">${comment.content}</div>
                         </li>`).join('')}
@@ -102,7 +114,7 @@ function submitComment(postId) {
                 </div>
             </div>
         `;
-        
+
         // Limpiar el input del comentario
         document.querySelector('#newCommentInput').value = '';
 

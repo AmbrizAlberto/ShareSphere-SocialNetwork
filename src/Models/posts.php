@@ -391,6 +391,12 @@ class posts extends connection{
         $statement = $this->conn->prepare($query); // Asegúrate de usar $this->conn
         $statement->execute(['post_id' => $postId]);
     }
+
+    public function DeleteCommentById($id){
+        $query = "DELETE FROM comments WHERE id = :id";
+        $statement = $this->conn->prepare($query);
+        $statement->execute(['id' => $id]);
+    }
     
 }
 ?>

@@ -3,7 +3,7 @@
 namespace controllers;
 
 session_start();
-require_once ("../../autoload.php");
+require_once("../../autoload.php");
 use Models\posts;
 
 if (empty($_SESSION['email'])) {
@@ -12,7 +12,8 @@ if (empty($_SESSION['email'])) {
 }
 
 $posts = new posts();
-$postId = $_GET['postId'];
+$postId = filter_var($_GET['postId'], FILTER_SANITIZE_NUMBER_INT);
+$currentUserId = $_SESSION['userId'];
 
 // Obtener la información de la publicación por su ID
 $postData = $posts->GetPostById($postId);
@@ -46,25 +47,31 @@ foreach ($commentsData as &$comment) {
         // Agregar los datos del usuario al comentario
         $comment['user'] = [
             'username' => $userData['username'],
-            'image' => $userData['image']
+            'image' => $userData['image'],
+            'userId' => $userData['id'] // Agregar userId al comentario
         ];
     } else {
         // Si no se encuentra el usuario, proporcionar un nombre y una imagen por defecto
         $comment['user'] = [
             'username' => 'Usuario desconocido',
-            'image' => 'default.jpg' // Ruta de la imagen predeterminada
+            'image' => 'default.jpg', // Ruta de la imagen predeterminada
+            'userId' => null
         ];
     }
 }
 
 // Preparar los datos de respuesta
 $responseData = [
+    'status' => 'success',
+    'currentUserId' => $currentUserId, // Agregar currentUserId a la respuesta
+    'postId' => $postId,
     'title' => $postData['title'],
     'content' => $postData['content'],
     'image' => $postData['image'],
     'creator' => [
         'username' => $creatorData['username'],
-        'image' => $creatorData['image']
+        'image' => $creatorData['image'],
+        'id' => $creatorData['id'] // Agregar id del creador
     ],
     'comments' => $commentsData
 ];
@@ -73,4 +80,5 @@ $responseData = [
 header('Content-Type: application/json');
 echo json_encode($responseData);
 ?>
+
 
