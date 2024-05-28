@@ -7,6 +7,9 @@ use Models\posts;
 $post = new posts();
 if (isset($_GET['id'])) {
     $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
+    //$post->DeleteNotificationsByIdUser($id);
+    $post->DeleteCommentsByIdPost($id);
+    $post->DeleteLikesByIdPost($id);
     $post->DeletePost($id);
 } else {
     console_log("Error: No se ha recibido el id del post a eliminar");
