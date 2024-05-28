@@ -52,8 +52,7 @@ if (isset($_GET['search'])) {
   <link rel="stylesheet" href="../css/filtros.css">
   <link rel="stylesheet" href="../css/Post.css">
 
-  <link rel="stylesheet" href="<?php echo $userdata['theme'] == '0' ? '../css/light-mode.css' : '../css/main.css' ?>"
-    id="theme-style">
+  
 
   <link rel="stylesheet" href="../css/ResponsivePerfilPage.css">
   <link rel="stylesheet" href="../css/ResponsiveMain.css">

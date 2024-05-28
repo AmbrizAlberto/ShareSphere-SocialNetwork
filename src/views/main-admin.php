@@ -97,7 +97,7 @@ function getSubgroupViewUrl($subgroupId) {
     <div class="navbar">
       <div class="access">
         <!-- ACCESOS -->
-        <a href="#"><button class="optionnv"><i class="bi bi-house-fill"></i></i><span>Home</span></button></a>
+        <a href="./admin.php"><button class="optionnv"><i class="bi bi-house-fill"></i></i><span>Home</span></button></a>
       </div>
     </div>
   </header>
@@ -156,7 +156,7 @@ function getSubgroupViewUrl($subgroupId) {
         </div>
 
         <!-- OPCIONES DE POST -->
-        <?php if ($post['creatorId'] == $_SESSION['userId']) { ?>
+        
         <div class="post-options">
           <span><i class="bi bi-caret-down-fill"></i></span>
           <div class="option-content">
@@ -165,7 +165,7 @@ function getSubgroupViewUrl($subgroupId) {
               <i class="bi bi-trash-fill"></i></a>
           </div>
         </div>
-        <?php } ?>
+        
 
         <!-- TITULO POST -->
         <h2 class="post-content">
