@@ -296,7 +296,7 @@ function getSubgroupViewUrl($subgroupId) {
     <div id="postModal" class="post-modal">
         <div class="post-content1">
             <span class="close-post" onclick="closePostModal()">&times;</span>
-            <div id="postModalContent" class="post-description"></div>
+            <div id="postModalContent" class="post-description" style="margin-top: 6%;"></div>
         </div>
         <div class="post-comments">
             <!-- Aquí se colocará el contenido de los comentarios y el formulario de nuevo comentario -->
