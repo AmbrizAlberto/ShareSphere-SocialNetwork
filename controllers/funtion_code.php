@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "<script>
             alert('El mensaje no pudo ser enviado.');
-            window.location.href = '../src/views/reset.php';
+            window.location.href = '../src/views/code.php';
         </script>";
     }
 }

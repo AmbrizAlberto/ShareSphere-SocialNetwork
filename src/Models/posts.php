@@ -235,7 +235,19 @@ class posts extends connection{
         $sql = "DELETE FROM post_likes WHERE post_id = ? AND user_id = ?";
         $delete = $this->conn->prepare($sql);
         $delete->execute([$postId, $userId]);
-    }    
+    }
+    
+    public function RemoveLikesByIdUser($userId){
+        $sql = "DELETE FROM post_likes WHERE user_id = ?";
+        $delete = $this->conn->prepare($sql);
+        $delete->execute([$userId]);
+    }
+
+    public function DeleteLikesByIdPost($postId){
+        $sql = "DELETE FROM post_likes WHERE post_id = ?";
+        $delete = $this->conn->prepare($sql);
+        $delete->execute([$postId]);
+    }
 
     public function UserLikedPost($postId, $userId){
         $sql = "SELECT COUNT(*) FROM post_likes WHERE post_id = ? AND user_id = ?";
@@ -257,5 +269,134 @@ class posts extends connection{
         $query->execute([$postId, $userId]);
         return $query->fetchColumn() > 0;
     }
+
+    public function InsertNotification($userId, $reactorId, $postId) {
+        try{
+        // Obtener el nombre de usuario del usuario que ha dado like
+        $reactorInfo = $this->GetUserById($reactorId);
+        $reactorName = $reactorInfo['username'];
+    
+        // Obtener el título de la publicación usando su ID
+        $postInfo = $this->GetPostById($postId);
+        $postTitle = $postInfo['title'];
+    
+        // Construir el contenido de la notificación con el nombre del usuario que ha dado like y el título de la publicación
+        $notificationContent = 'El usuario ' . $reactorName . ' ha dado like a tu publicación "' . $postTitle . '"';
+    
+        // Insertar la notificación en la base de datos
+        $sql = "INSERT INTO notifications (user_id, reactor_id, content, post_id, date_created) VALUES (?, ?, ?, ?, NOW())";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$userId, $reactorId, $notificationContent, $postId]);
+    
+        // Devolver el ID de la notificación recién insertada
+        return $this->conn->lastInsertId();
+    } catch (Exception $e) {
+        echo $e->getMessage();
+        // Handle errors gracefully
+        console_log($e->getMessage());
+        return null;
+    }
+    }
+    
+
+    public function GetNotificationCount($userId) {
+        $sql = "SELECT COUNT(*) FROM notifications WHERE user_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$userId]);
+        return $stmt->fetchColumn();
+    }
+
+    public function GetNotifications($userId) {
+        $sql = "SELECT * FROM notifications WHERE user_id = ? ORDER BY date_created DESC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$userId]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    public function RemoveNotification($postId, $userId) {
+        $sql = "DELETE FROM notifications WHERE user_id = :user_id AND content LIKE :content";
+        $statement = $this->conn->prepare($sql);
+        $likeContent = 'El usuario ' . $userId . ' ha dado like a tu publicación ' . $postId . '%';
+        $statement->execute([
+            'user_id' => $userId,
+            'content' => $likeContent
+        ]);
+    }    
+    
+
+    public function DeleteNotificationById($notificationId) {
+        $query = "DELETE FROM notifications WHERE id = :notification_id";
+        $statement = $this->conn->prepare($query); // Asegúrate de usar $this->conn
+        return $statement->execute(['notification_id' => $notificationId]);
+    } 
+
+    public function DeleteNotificationsByIdUser($userId) {
+        $query = "DELETE FROM notifications WHERE user_id = :user_id";
+        $statement = $this->conn->prepare($query); // Asegúrate de usar $this->conn
+        $statement->execute(['user_id' => $userId]);
+    }
+
+    public function DeleteNotificationsByIdPost($postId) {
+        $query = "DELETE FROM notifications WHERE post_id = :post_id";
+        $statement = $this->conn->prepare($query); // Asegúrate de usar $this->conn
+        $statement->execute(['post_id' => $postId]);
+    }
+
+
+    public function GetCommentsCount($postId) {
+        // Aquí debes escribir la lógica para obtener el número de comentarios
+        // Por ejemplo, podrías usar una consulta SQL para contar los comentarios asociados con la publicación $postId
+        // Luego, devuelves el número de comentarios
+        
+        // Ejemplo:
+        $sql = "SELECT COUNT(*) AS comment_count FROM comments WHERE post_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$postId]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        return $result['comment_count'];
+    }
+    public function GetComments($postId) {
+        $sql = "SELECT * FROM comments WHERE post_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$postId]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function AgregarComentario($postId, $userId, $comment) {
+        // Insertar el nuevo comentario en la base de datos
+        $sql = "INSERT INTO comments (post_id, user_id, content, created_at) VALUES (?, ?, ?, NOW())";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$postId, $userId, $comment]);
+    
+        // Obtener el ID del comentario recién insertado
+        $commentId = $this->conn->lastInsertId();
+    
+        // Obtener el número total de comentarios después de agregar el nuevo comentario
+        $commentCount = $this->GetCommentsCount($postId);
+    
+        // Devolver el ID del comentario y el número total de comentarios
+        return [
+            'commentId' => $commentId,
+            'commentCount' => $commentCount
+        ];
+    }   
+    public function DeleteCommentsByIdUser($userId) {
+        $query = "DELETE FROM comments WHERE user_id = :user_id";
+        $statement = $this->conn->prepare($query); // Asegúrate de usar $this->conn
+        $statement->execute(['user_id' => $userId]);
+    }
+    
+    public function DeleteCommentsByIdPost($postId) {
+        $query = "DELETE FROM comments WHERE post_id = :post_id";
+        $statement = $this->conn->prepare($query); // Asegúrate de usar $this->conn
+        $statement->execute(['post_id' => $postId]);
+    }
+
+    public function DeleteCommentById($id){
+        $query = "DELETE FROM comments WHERE id = :id";
+        $statement = $this->conn->prepare($query);
+        $statement->execute(['id' => $id]);
+    }
+    
 }
 ?>

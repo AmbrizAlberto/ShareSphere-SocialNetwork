@@ -35,6 +35,38 @@ body{
   box-shadow: 0px 30px 30px -30px rgba(0, 0, 0, 0.576); /* Cambio en esta línea */
 }
 
+.feedhead .logo {
+  text-decoration: none;
+  color: hsl(175, 100%, 51%);
+  width: auto;
+  height: auto;
+  font-size: 200%;
+  margin-bottom: 5%;
+  transition: 500ms;
+}
+
+.feedhead .logo img {
+  text-decoration: none;
+  position: fixed;
+  left: 8%;
+  top: 1%;
+  width: 9vh;
+  transition: 500ms;
+}
+
+.feedhead .logo img:hover {
+  text-decoration: none;
+  box-shadow: 0 0px 10px hsl(175, 100%, 51%);
+  border-radius: 51%;
+  transition: 500ms;
+}
+
+.feedhead .logo:hover {
+  color: hsl(175, 100%, 51%);
+  text-shadow: 0 0 10px hsl(175, 100%, 51%);
+  transition: 500ms;
+}
+
 .feedhead a{
   text-decoration: none;
   min-width: 0%;
@@ -44,7 +76,6 @@ body{
   margin-right: 10%;
 }
 .feedhead h1 {
-  margin-top: 15%;
   font-size: 200%;
   width: 20%;
   max-width: 20%;
@@ -55,8 +86,6 @@ body{
 }
 
 .feedhead i {
-  margin-top: 0.5vh;
-  margin-right: 1%;
   font-size: 130%;
   transition: 300ms;
 }
@@ -71,6 +100,7 @@ body{
   font-size: 150%;
   border: none;
   color: white;
+  background-color: transparent;
 }
 
 .feedhead i:hover{
@@ -430,3 +460,55 @@ body{
   fill: none;
   width: 24px;
 } 
+
+
+/* NOTIFICATIONS */
+.notificaciones-menu {
+  display: none;
+  position: absolute;
+  width: 30%;
+  height: 80vh;
+  top: 10vh; /* Ajusta la posición según tu diseño */
+  left: 65%; /* Ajusta la posición según tu diseño */
+  background-color: rgba(0, 0, 0, 0.382);
+  color: white;
+  font-weight: bold;
+  border: 1px solid #ffffffc0;
+  padding: 10px;
+  backdrop-filter: blur(30px);
+  border-radius: 10px;
+  box-shadow: 0 0 50px black;
+}
+
+.notificacion {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid white;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.notificacion img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 1px solid white;
+}
+
+.hidden {
+  display: none;
+}
+
+.delete-notification-btn{
+  position: absolute;
+  margin-top: -13%;
+  margin-left: 60%;
+  border: 1px solid white !important;
+  width: 100px !important;
+  height: 35px !important;
+  background-color: #5cb1a2 !important;
+  color: white !important;
+  font-size: 20px !important;
+  border-radius: 10px;
+}

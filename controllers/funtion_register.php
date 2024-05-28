@@ -20,19 +20,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $consulta_verificar_email->execute();
     $email_existente = $consulta_verificar_email->fetchColumn();
 
+    // Generar el código de administrador
+    $admin_code = rand(10000000, 99999999);
+
     // Comprobamos si el email ya existe
     if ($email_existente > 0) {
         echo "<script>
             alert('Este email ya está registrado. Por favor utiliza otro');
             window.location.href = '../src/views/register.php';
         </script>";
+        exit();
     } else {
         // Verifica si las contraseñas coinciden
         if ($password === $confirm_password) {
             if (strlen($password) >= 6) {
                 try {
                     // Preparamos la consulta de inserción
-                    $consulta = $pdo->prepare("INSERT INTO user (name,  username, lastname, email, passwordHash, theme, image) VALUES (:name,  :username, :lastname, :email, :passwordHash, :theme, 'userdefault.png')");
+                    $consulta = $pdo->prepare("INSERT INTO user (name, username, lastname, email, passwordHash, theme, image, admin_code) VALUES (:name, :username, :lastname, :email, :passwordHash, :theme, 'userdefault.png', :admin_code)");
 
                     // Bind de los parámetros
                     $theme = 0;
@@ -41,8 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $consulta->bindParam(':lastname', $lastname);
                     $consulta->bindParam(':email', $email);
                     $consulta->bindParam(':theme', $theme);
+                    $consulta->bindParam(':admin_code', $admin_code);
 
-                    // ciframos la contraseña
+                    // Ciframos la contraseña
                     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
                     $consulta->bindParam(':passwordHash', $hashed_password);
 
@@ -57,12 +62,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     if (mail($to, $subject, $message, $headers)) {
                         echo "<script>
-                            alert('Cuenta creada correctamente. se mando un codigo a su correo electronico);
+                            alert('Cuenta creada correctamente. Se mandó un código a su correo electrónico.');
                             window.location.href = '../src/views/login.php';
                         </script>";
                     } else {
                         echo "<script>
-                            alert('Cuenta creada correctamente. No se a podido enviar el correo');
+                            alert('Cuenta creada correctamente. No se ha podido enviar el correo.');
                             window.location.href = '../src/views/login.php';
                         </script>";
                     }
@@ -75,18 +80,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         console.log('Error de registro: " . $errorMessage . "');
                         window.location.href = '../src/views/register.php';
                     </script>";
+                    exit();
                 }
             } else {
                 echo "<script>
                     alert('La contraseña debe tener al menos 6 caracteres');
                     window.location.href = '../src/views/register.php';
                 </script>";
+                exit();
             }
         } else {
             echo "<script>
                 alert('Las contraseñas no coinciden.');
                 window.location.href = '../src/views/register.php';
             </script>";
+            exit();
         }
     }
 }

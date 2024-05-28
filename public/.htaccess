@@ -1,0 +1,13 @@
+# Habilitar el módulo de reescritura
+RewriteEngine On
+
+# Asegurarse de que la solicitud no sea para un archivo real o un directorio
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Reescribir la URL sin extensión a la versión con .php
+RewriteRule ^src/views/(.*)$ src/views/$1.php [L]
+
+
+# Redirige todas las solicitudes a index.php pasando la URI como parámetro
+RewriteRule ^(.*)$ index.php?uri=$1 [QSA,L]

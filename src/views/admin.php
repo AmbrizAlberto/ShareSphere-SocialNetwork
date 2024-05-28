@@ -4,6 +4,21 @@ use models\{posts, users};
 
 $posts = new posts();
 $users = new users();
+
+session_start(); // Iniciar la sesión
+
+// Verificar si el email está en la sesión
+if (empty($_SESSION['email'])) {
+    header("Location: ./login.php");
+    exit();
+}
+
+// Verificar si el valor de admin en la sesión es igual a 1
+if (empty($_SESSION['admin']) || $_SESSION['admin'] != 1) {
+    header("Location: ./login.php");
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -46,13 +61,13 @@ $users = new users();
 
                 <div class="botonimg">
                     <button class="botonimgs">
-                        <img src="../../src/images/6.png" alt="Agua Limpia y Saneamiento">
+                        <a href="./foro_6.php"><img src="../../src/images/6.png" alt="Agua Limpia y Saneamiento"></a>
                     </button>
                     <button class="botonimgs">
-                        <img src="../../src/images/7.png" alt="Energía Asequible y no contaminable">
+                        <a href="./foro_7.php"><img src="../../src/images/7.png" alt="Energía Asequible y no contaminable"></a>
                     </button>
                     <button class="botonimgs">
-                        <img src="../../src/images/14.jpg" alt="Vida Submarina">
+                        <a href="./foro_14.php"><img src="../../src/images/14.jpg" alt="Vida Submarina"></a>
                     </button>
                 </div>
                 <a class="optionnv" href="/controllers/logout.php"><i

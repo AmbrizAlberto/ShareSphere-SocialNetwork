@@ -1,4 +1,5 @@
 <?php
+// UpdateTheme.php
 namespace controllers;
 
 require_once ("../../autoload.php");

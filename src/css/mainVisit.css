@@ -32,14 +32,21 @@ body {
   margin-bottom: 5%;
 }
 
+.login{
+  text-decoration: none;
+  color: #fff;
+}
+
 /* FEEDHEAD*/
 .feedhead {
-  padding-top: 0.5%;
   color: rgba(255, 255, 255, 0.77);
   z-index: 1;
   position: fixed;
   width: 83%;
-  height: 10%;
+  max-width: 100%;
+  height: auto;
+  max-height: 12%;
+  min-height: 5%;
   margin-top: -1%;
   display: flex;
   align-items: center;
@@ -48,39 +55,75 @@ body {
   box-shadow: 0px 30px 30px -30px rgba(0, 0, 0, 0.576); /* Cambio en esta línea */
 }
 
-.feedhead h1 {
-  margin-top: 2%;
+.feedhead .logo {
+  text-decoration: none;
+  color: hsl(175, 100%, 51%);
+  width: auto;
+  height: auto;
   font-size: 200%;
+  margin-bottom: 5%;
+  transition: 500ms;
+}
+
+.feedhead .logo img {
+  text-decoration: none;
+  position: fixed;
+  left: 8%;
+  top: 1%;
+  width: 9vh;
+  transition: 500ms;
+}
+
+.feedhead .logo img:hover {
+  text-decoration: none;
+  box-shadow: 0 0px 10px hsl(175, 100%, 51%);
+  border-radius: 51%;
+  transition: 500ms;
+}
+
+.feedhead .logo:hover {
+  color: hsl(175, 100%, 51%);
+  text-shadow: 0 0 10px hsl(175, 100%, 51%);
+  transition: 500ms;
+}
+
+.feedhead a{
+  text-decoration: none;
+  min-width: 0%;
+  max-width: 20%;
+  color: #ffffff;
   size-adjust: 150%;
+  margin-right: 10%;
+}
+.feedhead h1 {
+  font-size: 200%;
   width: 20%;
   max-width: 20%;
   min-width: 20%;
   text-align: center;
-  margin-left: 3%;
-  margin-right: 10%;
   color: #ffffff;
+  border: 10x solid rebeccapurple;
 }
 
 .feedhead i {
-  margin-top: 0.5vh;
-  margin-right: 1%;
   font-size: 130%;
   transition: 300ms;
 }
 
-.feedhead i.bi.bi-box-arrow-right {
+.feedhead  i.bi.bi-box-arrow-right {
   margin-left: 35%;
   font-size: 220%;
+  color: white;
 }
 
-.feedhead button {
+.feedhead button{
   font-size: 150%;
   border: none;
   color: white;
-  margin-left: 0%;
+  background-color: transparent;
 }
 
-.feedhead i:hover {
+.feedhead i:hover{
   background-color: transparent;
   color: #6de4bd;
   text-shadow: 0 0px 10px rgb(0, 0, 0);
@@ -89,15 +132,15 @@ body {
 }
 
 .feedhead input[type="image"] {
-  width: 5vh;
-  height: 5vh;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: 1px solid black;
   transition: 500ms;
 }
 .feedhead input[type="image"]:hover {
-  width: 6vh;
-  height: 6vh;
+  width: 50px;
+  height: 50px;
   transition: 500ms;
   text-shadow: 0 0px 30px rgb(0, 0, 0);
 }
@@ -106,20 +149,22 @@ body {
 .search-nav {
   display: flex;
   align-items: center;
-  width: 40%;
+  margin-right: -10%;
+  width: 50%;
+  max-width: 50%;
 }
 
 .search-nav form {
-  width: 150vh;
-  height: auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 90%;
   display: flex;
   align-items: center;
 }
 
 .search-nav input[type="text"] {
-  margin-left: -5vh;
-  width: 50vh;
-  height: 3.5vh;
+  width: 60%;
+  height: 4vh;
   margin-top: 4px;
   color: white;
   background-color: #ffffff23;
@@ -128,12 +173,13 @@ body {
   border: none;
   border-radius: 20px;
 }
-.search-nav input[type="text"]::placeholder {
+.search-nav input[type="text"]::placeholder{
   color: rgba(255, 255, 255, 0.43);
   background-color: transparent;
   padding: 8px;
   border-radius: 4px;
 }
+
 
 .feed {
   color: white;
@@ -154,17 +200,17 @@ body {
   border: none;
   border-radius: 10px;
   display: flex;
-  align-items: center;
+  align-items: center; 
   transition: 300ms;
   margin-top: 0%;
   margin-bottom: 3%;
 }
 
-.upload:hover ::placeholder {
-  color: #5cb1a2;
+.upload:hover ::placeholder{
+  color:  #5cb1a2;
 }
 
-.upload:hover {
+.upload:hover{
   box-shadow: 0 0px 20px #5cb1a2;
   transition: 300ms;
 }
@@ -175,7 +221,7 @@ body {
 }
 
 .upload input {
-  flex: 0 0 75%;
+  flex: 0 0 75%; 
   padding: 1em;
   background-color: transparent;
   border: none;
@@ -184,7 +230,7 @@ body {
 
 .upload button {
   color: rgba(255, 255, 255, 0.557);
-  flex: 0 0 10%;
+  flex: 0 0 10%; 
   background-color: transparent;
   border: none;
   border-left: 1px solid rgba(255, 255, 255, 0.644);
@@ -192,10 +238,11 @@ body {
   padding-right: 3.5vh;
   padding-top: 4%;
   padding-bottom: 4%;
+
 }
 
 .upload button:hover {
-  color: #5cb1a2;
+  color:  #5cb1a2;
   background-color: transparent;
   cursor: pointer;
 }
@@ -364,17 +411,9 @@ body {
   background-color: #5cb1a2;
   color: #fff;
   border: none;
-  cursor: pointer;
   margin: 2%;
   margin-bottom: 0%;
-  transition: transform 0.3s ease;
   font-family: unset;
-}
-
-.post-actions button:hover {
-  background-color: rgb(137, 240, 206);
-  transform: scale(1.2);
-  color: black;
 }
 
 #theme-toggle-btn {

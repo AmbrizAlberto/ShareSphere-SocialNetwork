@@ -21,7 +21,7 @@
                     <input type="code" class="input-field" placeholder="Ingrese el codigo" name="code" required>
                     <input type="password" id="new_password" name="new_password" class="input-field"
                         placeholder="Ingrese la nueva contraseña" required>
-                    <input type="submit-reset" value="Continuar">
+                    <button type="submit-reset" value="Continuar">Continuar</button>
                 </form>
             </div>
         </div>

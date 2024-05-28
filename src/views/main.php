@@ -1,21 +1,60 @@
-<?php //Funcion para evitar que los usuarios sin sesion iniciada puedan acceder al main
-session_start();// Iniciar la sesión
+<?php
+// Función para evitar que los usuarios sin sesión iniciada puedan acceder al main
+session_start(); // Iniciar la sesión
 if (empty($_SESSION['email'])) {
-  header("Location:./login.php");
+    header("Location:./login.php");
+    exit();
+}
 
+require_once ("../../autoload.php");
+use Models\posts;
+
+$posts = new posts();
+$postList = $posts->GetPosts();
+$userdata = $posts->GetUserById($_SESSION['userId']);
+$notifications = $posts->GetNotifications($_SESSION['userId']);
+$hasNotifications = !empty($notifications);
+
+// Filtrar publicaciones basadas en el término de búsqueda
+if (isset($_GET['search'])) {
+  $searchTerm = filter_var($_GET['search'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+  $postList = array_filter($postList, function($post) use ($searchTerm) {
+        // Buscar en el título, subtítulo (SubgroupId), y contenido
+        $titleMatch = stripos($post['title'], $searchTerm) !== false;
+        $contentMatch = stripos($post['content'], $searchTerm) !== false;
+        $subgroupMatch = false;
+        switch ($post['SubgroupId']) {
+            case '1':
+                $subgroupMatch = stripos("Agua Limpia y Saneamiento", $searchTerm) !== false;
+                break;
+            case '3':
+                $subgroupMatch = stripos("Energia Asequible y No Contaminante", $searchTerm) !== false;
+                break;
+            case '4':
+                $subgroupMatch = stripos("Vida Submarina", $searchTerm) !== false;
+                break;
+        }
+        return $titleMatch || $contentMatch || $subgroupMatch;
+    });
+}
+
+// Definir la función para obtener la URL de la vista de cada subgrupo
+function getSubgroupViewUrl($subgroupId) {
+  switch ($subgroupId) {
+    case '1':
+      return "./foro_6.php";
+    case '3':
+      return "./foro_7.php";
+    case '4':
+      return "./foro_14.php";
+    default:
+      return "#"; // URL por defecto si no se encuentra un subtema específico
+  }
 }
 ?>
 
 
 <!DOCTYPE html>
-<?php
-require_once ("../../autoload.php");
-use Models\{posts};
-
-$posts = new posts();
-$postList = $posts->GetPosts();
-$userdata = $posts->GetUserById($_SESSION['userId']);
-?>
 
 <html lang="en">
 
@@ -56,22 +95,12 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   <!-- NAVBAR -->
   <header>
     <div class="navbar">
-      <div class="logo">
-        <a href="./main.php">
-          <img src="../images/Logo-cut.png" alt="Logo"
-            style="font-size: 24px; background-color: transparent; border: none;">
-        </a>
-      </div>
-
       <div class="access">
-        <br /><br />
         <!-- ACCESOS -->
-        <button class="optionnv" href="#"><i class="bi bi-house-fill"></i></i><span>Home</span></button>
+        <a href="#"><button class="optionnv"><i class="bi bi-house-fill"></i></i><span>Home</span></button></a>
         <a href="./PerfilPage.php"><button class="optionnv"><i
-              class="bi bi-person-circle"></i></i><span>Profile</span></button>
-        </a>
+              class="bi bi-person-circle"></i></i><span>Profile</span></button></a>
       </div>
-
     </div>
   </header>
 
@@ -79,9 +108,15 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
 
     <!-- HEADER MAIN -->
     <div class="feedhead">
+
+      <div class="logo">
+        <a href="./main.php"><img src="../images/Logo-cut.png" alt="Logo"></a>
+      </div>
+
       <button id="theme-toggle-btn">
         <i class="bi bi-lightbulb-fill"></i>
       </button>
+
       <!-- NOMBRE DE PAGINA -->
       <a href="./main.php" class="ShSp">
         <h1 href="./main.php">ShareSphere</h1>
@@ -89,10 +124,11 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
 
       <!-- BUSCADOR -->
       <div class="search-nav">
-        <form action="#" method="get">
-          <input type="text" placeholder="Buscar..." name="search">
-        </form>
+          <form action="#" method="get">
+              <input type="text" placeholder="Buscar..." name="search" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search'], ENT_QUOTES) : ''; ?>">
+          </form>
       </div>
+
       <!-- FOTO DE PERFIL -->
       <form action="./PerfilPage.php" method="post">
         <input type="image"
@@ -131,9 +167,26 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
       <script src="script.js"></script>
 
       <!-- NOTIFICACIONES -->
-      <button style="background-color: transparent;">
+      <button id="notificaciones-btn" onclick="toggleMenu()">
         <i class="bi bi-app-indicator"></i>
       </button>
+      <div id="notificaciones-menu" class="notificaciones-menu <?php echo $hasNotifications ? '' : 'hidden'; ?>">
+        <!-- Contenido del menú de notificaciones -->
+        <?php if ($hasNotifications) { ?>
+          <?php foreach ($notifications as $notification) { ?>
+            <div class="notificacion">
+              <div class="contenido">
+                <p><?php echo $notification['content']; ?></p>
+                <p><?php echo $notification['date_created']; ?></p>
+                <button class="delete-notification-btn" data-id="<?php echo $notification['id']; ?>">Eliminar</button>
+              </div>
+            </div>
+          <?php } ?>
+        <?php } else { ?>
+          <p>No hay notificaciones.</p>
+        <?php } ?>
+      </div>      
+      
       <!-- CERRAR SESION -->
       <a href="../../controllers/logout.php" class="logout"><i class="bi bi-box-arrow-right"></i></a>
 
@@ -159,46 +212,44 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
     <!-- PUBLICACIONES -->
     <?php foreach ($postList as $post) { ?>
       <?php
-        $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-        $editpost = $post;
-        ?>
-
-
+      $username = $posts->GetUserById(filter_var($post['creatorId'], FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+      $editpost = $post;
+      ?>
+      
       <!-- CONTENEDOR POST -->
-      <div class="post-container">
+      <div class="post-container" onclick="openPostModal(<?php echo $post['id']; ?>)">
         <!-- INFO USUARIO -->
-        <div class="user-info" onclick="openModal(event)">
-          <a
-            href="<?php echo "/src/views/" . ($_SESSION['userId'] == $post['creatorId'] ? "PerfilPage.php" : "userPage.php?idPerfil=" . $post['creatorId']); ?>">
-            <img src="<?php echo "/public/images_users/" . $posts->GetUserImgById($post['creatorId']) ?>"
-              alt="User Image"></a>
+        <div class="user-info">
+          <a href="<?php echo "/src/views/" . ($_SESSION['userId'] == $post['creatorId'] ? "PerfilPage.php" : "userPage.php?idPerfil=" . $post['creatorId']); ?>">
+            <img src="<?php echo "/public/images_users/" . $posts->GetUserById($post['creatorId'])['image']; ?>" />
+          </a>
           <span><?php echo $username['username'] ?></span>
         </div>
 
         <!-- OPCIONES DE POST -->
         <?php if ($post['creatorId'] == $_SESSION['userId']) { ?>
-          <div class="post-options">
-            <span><i class="bi bi-caret-down-fill"></i></span>
-            <div class="option-content">
-              <!-- EDITAR POST -->
-              <a id="modalBtn-edit"
-                onclick="openmodal('<?php echo htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8'); ?>')">
-                <i class="bi bi-pencil-fill"></i>
-              </a>
-              <!-- ELIMINAR POST -->
-              <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=0">
-                <i class="bi bi-trash-fill"></i></a>
-            </div>
+        <div class="post-options">
+          <span><i class="bi bi-caret-down-fill"></i></span>
+          <div class="option-content">
+            <!-- EDITAR POST -->
+            <a id="modalBtn-edit" onclick="openmodal('<?php echo addslashes(htmlspecialchars(json_encode($post), ENT_QUOTES, 'UTF-8')); ?>', event)">
+              <i class="bi bi-pencil-fill"></i>
+            </a>
+            <!-- ELIMINAR POST -->
+            <a href="/controllers/Delete/DeletePost.php?id=<?php echo $post['id'] ?>&page=0">
+              <i class="bi bi-trash-fill"></i></a>
           </div>
+        </div>
         <?php } ?>
 
         <!-- TITULO POST -->
-        <h2 class="post-content" onclick="openModal(event)">
+        <h2 class="post-content">
           <?php echo $post['title']; ?>
         </h2>
+
         <!-- SUBTITULO POST-->
-        <a href="#" style=text-decoration:none>
-          <h3 class="SubTitle" onclick="openModal(event)">
+        <a href="<?php echo getSubgroupViewUrl($post['SubgroupId']); ?>" style="text-decoration:none;">
+          <h3 class="SubTitle">
             <?php switch ($post['SubgroupId']) {
               case '1':
                 echo "Agua Limpia y Saneamineto";
@@ -212,81 +263,45 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
             } ?>
           </h3>
         </a>
+
+
         <!-- DESCRIPCION POST -->
-        <div class="description" onclick="openModal(event)">
+        <div class="description">
           <?php echo $post['content'] ?>
         </div>
-        <div class="image-container" onclick="openModal(event)">
+        <div class="image-container">
           <?php if ($post['image'] != null) { ?>
             <img src="/public/images_posts/<?php echo $post['image'] ?>" alt="Imagen de la publicacion">
           <?php } ?>
         </div>
+
         <div class="post-actions">
           <!-- Like -->
           <button class="action-btn like-button" data-post-id="<?php echo $post['id']; ?>">
-              <i class="bi bi-hand-thumbs-up-fill"></i>
-              <span id="like-count-<?php echo $post['id']; ?>"><?php echo $posts->GetLikesCount($post['id']); ?></span>
+            <i class="bi bi-hand-thumbs-up-fill"></i>
+            <span id="like-count-<?php echo $post['id']; ?>"><?php echo $posts->GetLikesCount($post['id']); ?></span>
           </button>
           <!-- Comentarios -->
-          <button class="action-btn" onclick="openModal(event)">
-              <i class="bi bi-chat-square-text-fill"> 200</i>
+          <button class="action-btn" onclick="openPostModal(<?php echo $post['id']; ?>)">
+            <i class="bi bi-chat-square-text-fill"></i>
+            <span id="comment-count-<?php echo $post['id']; ?>"><?php echo $posts->GetCommentsCount($post['id']); ?></span>
           </button>
         </div>
       </div>
     <?php } ?>
 
-
-
     <!-- MODAL AL ENTRAR AL POST -->
-    <div id="Post-complete" class="post">
-      <span class="close-post" onclick="closeModal()">&times;</span>
-      <div class="content-post">
-        <img id="fullImage" alt="No hay imagen">
-      </div>
-
-      <div class="box-descripcion">
-        <div class="user-info-post">
-          <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
-          <span><?php echo $username['username'] ?></span>
+    <div id="postModal" class="post-modal">
+        <div class="post-content1">
+            <span class="close-post" onclick="closePostModal()">&times;</span>
+            <div id="postModalContent" class="post-description"></div>
         </div>
-        <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro quam, perspiciatis sit ipsum voluptatum
-          provident accusamus dolores dolorem ex numquam et magnam fugit praesentium, sapiente nemo culpa quisquam,
-          consectetur corporis.
-        </h2>
-      </div>
-
-      <div id="comment">
-        <div class="text-comment">
-          <input type="comment" placeholder="Comenta...">
+        <div class="post-comments">
+            <!-- Aquí se colocará el contenido de los comentarios y el formulario de nuevo comentario -->
         </div>
-        <div class="box-comment">
-          <div class="user-info-post">
-            <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
-            <span><?php echo $username['username'] ?></span>
-          </div>
-          <div class="description-comment">
-            <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro quam, perspiciatis sit ipsum voluptatum
-              provident accusamus dolores dolorem ex numquam et magnam fugit praesentium, sapiente nemo culpa quisquam,
-              consectetur corporis.</h2>
-          </div>
-        </div>
-        <div class="box-comment">
-          <div class="user-info-post">
-            <a href="../views/PerfilPage.php"><img src="../images/Uli.png" alt="User Image"></a>
-            <span><?php echo $username['username'] ?></span>s
-          </div>
-          <div class="description-comment">
-            <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro quam, perspiciatis sit ipsum voluptatum
-              provident accusamus dolores dolorem ex numquam et magnam fugit praesentium, sapiente nemo culpa quisquam,
-              consectetur corporis.</h2>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
-
-
-
+  
   <!-- MODAL DE EDITAR POST -->
   <div id="myModal-edit" class="modal">
     <div class="modal-content">
@@ -307,7 +322,7 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
         <label for="texto-edit">Texto:</label>
         <textarea id="texto-edit" name="post_content" rows="4" requiredplaceholder="Descripcion..."></textarea>
         <label for="newImage-edit">Cargar imagen:</label>
-        <p><img id="previewImage-edit" class=".modal-content"></p>
+        <p><img id="previewImage-edit" class=".modal-content" style="align-content: center;display: flex;"></p>
         <input type="file" id="newImage-edit" name="newImage" accept="image/*">
         <button class=".modal-content" type="submit">Guardar Cambios</button>
       </form>
@@ -322,35 +337,9 @@ $userdata = $posts->GetUserById($_SESSION['userId']);
   </button>
 
   <!-- SCRIPTS -->
-  <script>
-    $(document).ready(function() {
-        $('.like-button').click(function() {
-            var postId = $(this).data('post-id');
-            var likeButton = $(this);
-            var likeCountSpan = $('#like-count-' + postId);
-
-            $.ajax({
-                type: 'POST',
-                url: '../../controllers/Set/like_handler.php',
-                data: { postId: postId },
-                dataType: 'json',
-                success: function(response) {
-                    if (response.status === 'success') {
-                        var likeCount = response.likeCount;
-                        likeCountSpan.text(likeCount);
-                        if (response.liked) {
-                            likeButton.addClass('liked');
-                        } else {
-                            likeButton.removeClass('liked');
-                        }
-                    } else {
-                        alert(response.message);
-                    }
-                }
-            });
-        });
-    });
-    </script>
+  <script src="../js/Notifications.js"></script>
+  <script src="../js/NotificationsDEL.js"></script>
+  <script src="../js/Likes.js"></script>
   <script src="../js/script.js"></script>
   <script src="../js/scriptedit.js"></script>
   <script src="../js/toTop.js"></script>

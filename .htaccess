@@ -1,13 +1,24 @@
-# Habilita el motor de reescritura
+## Habilita el motor de reescritura
+#RewriteEngine On
+#
+## Verifica si el archivo o directorio solicitado no existe físicamente
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_FILENAME}.php -f
+#RewriteRule ^([^\\.]+)$ $1.php [NC,L]
+#DefaultType application/x-httpd-php
+#
+#
+## Redirige todas las solicitudes a index.php pasando la URI como parámetro
+#RewriteRule ^(.*)$ index.php?uri=$1 [QSA,L]
+ 
+# .htaccess file in the root directory of ShareSphere
 RewriteEngine On
 
-# Verifica si el archivo o directorio solicitado no existe físicamente
+# Redirige las peticiones de archivos sin extensión a su equivalente .php
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^([^\\.]+)$ $1.php [NC,L]
-DefaultType application/x-httpd-php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
-
-# Redirige todas las solicitudes a index.php pasando la URI como parámetro
-RewriteRule ^(.*)$ index.php?uri=$1 [QSA,L]
-
+# Opcional: redirigir URLs con .php a la versión sin .php para evitar contenido duplicado
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
+RewriteRule ^ %1 [R=301,L]
