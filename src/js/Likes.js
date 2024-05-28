@@ -5,7 +5,7 @@ $(document).ready(function() {
         var postId = $(this).data('post-id');
         var likeButton = $(this);
         var likeCountSpan = $('#like-count-' + postId);
-
+        console.log('postId:', postId);
         $.ajax({
             type: 'POST',
             url: '../../controllers/Set/like_handler.php',

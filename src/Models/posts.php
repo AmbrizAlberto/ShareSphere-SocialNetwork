@@ -271,6 +271,7 @@ class posts extends connection{
     }
 
     public function InsertNotification($userId, $reactorId, $postId) {
+        try{
         // Obtener el nombre de usuario del usuario que ha dado like
         $reactorInfo = $this->GetUserById($reactorId);
         $reactorName = $reactorInfo['username'];
@@ -283,12 +284,18 @@ class posts extends connection{
         $notificationContent = 'El usuario ' . $reactorName . ' ha dado like a tu publicación "' . $postTitle . '"';
     
         // Insertar la notificación en la base de datos
-        $sql = "INSERT INTO notifications (user_id, reactor_id, content, date_created) VALUES (?, ?, ?, NOW())";
+        $sql = "INSERT INTO notifications (user_id, reactor_id, content, post_id, date_created) VALUES (?, ?, ?, ?, NOW())";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([$userId, $reactorId, $notificationContent]);
+        $stmt->execute([$userId, $reactorId, $notificationContent, $postId]);
     
         // Devolver el ID de la notificación recién insertada
         return $this->conn->lastInsertId();
+    } catch (Exception $e) {
+        echo $e->getMessage();
+        // Handle errors gracefully
+        console_log($e->getMessage());
+        return null;
+    }
     }
     
 
