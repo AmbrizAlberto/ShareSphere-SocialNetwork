@@ -14,6 +14,7 @@ if (empty($_SESSION['email'])) {
 $postsModel = new posts();
 $userId = $_SESSION['userId'];
 $postId = $_POST['postId'];
+$Id = filter_var($postId, FILTER_SANITIZE_NUMBER_INT);
 $userName = $_SESSION['username']; // Usamos el nombre de usuario de la sesión
 
 try {
@@ -37,7 +38,7 @@ try {
 
         // Construir el contenido de la notificación con el nombre del usuario que ha dado like y el título de la publicación
         $notificationContent = 'El usuario ' . $userName . ' ha dado like a tu publicación "' . $postTitle . '"';
-        $postsModel->InsertNotification($authorId, $userId, $postId);
+        $postsModel->InsertNotification($authorId, $userId, $Id);
     }
 
     // Get the new like count
@@ -47,6 +48,7 @@ try {
     echo json_encode(['status' => 'success', 'likeStatus' => $likeStatus, 'likeCount' => $likeCount]);
 } catch (Exception $e) {
     // Handle errors gracefully
+    console_log($e->getMessage());
     echo json_encode(['status' => 'error', 'message' => $e->getMessage()]);
 }
 ?>
