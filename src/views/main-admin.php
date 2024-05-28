@@ -149,7 +149,7 @@ function getSubgroupViewUrl($subgroupId) {
       <div class="post-container" onclick="openPostModal(<?php echo $post['id']; ?>)">
         <!-- INFO USUARIO -->
         <div class="user-info">
-          <a href="<?php echo "/src/views/" . ($_SESSION['userId'] == $post['creatorId'] ? "PerfilPage.php" : "userPage.php?idPerfil=" . $post['creatorId']); ?>">
+          <a href="#">
             <img src="<?php echo "/public/images_users/" . $posts->GetUserById($post['creatorId'])['image']; ?>" />
           </a>
           <span><?php echo $username['username'] ?></span>
