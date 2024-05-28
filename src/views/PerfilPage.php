@@ -165,25 +165,22 @@ if (isset($_GET['search'])) {
 
         <div class="PerfilPortada">
           <img src="<?php echo $user['coverImg'] ? "/public/fondo_users/" . $user['coverImg'] : "/public/fondo_users/fondodefault.png" ?>" alt="#" style="height: auto;">
-          
+        
           <button id="modalBtnEdit" type="button" class="editbtn">
             <i class="bi bi-pencil-fill"></i> Editar
           </button>
-        </div>
 
+        </div>
         <div class="PerfilPhoto">
           <img
             src="<?php echo $user['image'] ? "/public/images_users/" . $user['image'] : "/public/images_users/userdefault.png" ?>" alt="">
         </div>
-
         <div class="PerfilName">
           <h1><?php echo $user['username'] ?></h1>
         </div>
-
         <div class="PerfilDescription">
           <h2><?php echo $user['descripcion'] ? $user['descripcion'] : "Sin descripcion" ?></h2>
         </div>
-
     </div>
 
     <div id="Modal-Profile" class="modaledit">
@@ -205,9 +202,7 @@ if (isset($_GET['search'])) {
           <p><input type="file" id="imagePortada" name="imagePortada" accept="image/*"></p>
           <p><img id="previewImage" src="<?php echo "/public/images_users/" . $user['image'] ?>" alt="User Image"
             class=".modal-content-edit"></p>
-
-
-
+          
           <button class=".modal-content-edit" type="submit" value="Guardar cambios">Guardar</button>
         </form>
       </div>
@@ -340,3 +335,4 @@ if (isset($_GET['search'])) {
   <script src="../js/light-darkMode.js"></script>
   <script src="../js/post.js"></script>
   <script src="../js/editpost.js"></script>
+  <script src="../js/scriptedituser.js"></script>
