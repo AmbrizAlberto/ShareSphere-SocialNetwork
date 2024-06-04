@@ -1,4 +1,4 @@
-
+/* js/light-darc */
 const toggleButton = document.getElementById('theme-toggle-btn');
 const themeStyle = document.getElementById('theme-style');
 
